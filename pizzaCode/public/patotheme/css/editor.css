@@ -1,0 +1,41 @@
+.nns-name{
+    font-size: 12px;
+    color: #fff;
+    background-color: #ec1d25;
+    padding: 2px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.nns-email{
+    font-size: 12px;
+    color: #fff;
+    background-color: #1da0ec;
+    padding: 2px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 10px 0;
+}
+.nns-phone{
+    font-size: 12px;
+    color: #fff;
+    background-color: #FFC107;
+    padding: 2px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 10px 0;
+}
+.nns-footer-icon{
+    height: 35px;
+    width: 35px;
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 50px;
+}
+.nns-footer-title{
+    color: #fff;
+}

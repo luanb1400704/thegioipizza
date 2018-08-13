@@ -1,0 +1,240 @@
+
+input[type="checkbox"] {
+    display:none;
+}
+
+input[type="checkbox"] + label {
+    color:#f2f2f2;
+}
+
+input[type="checkbox"] + label span {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin: -2px 10px 0 0;
+    vertical-align: middle;
+    background: url("../img/checktron.png");
+    background-size: contain ;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+input[type="checkbox"]:checked + label span {
+    background: url("../img/checkdelete.png");
+    background-size: contain;
+}
+.todo-list .handle{
+    display: table !important;
+}
+body{
+    font-family: "Helvetica Neue",Roboto,Arial,"Droid Sans",sans-serif !important;
+}
+.header-fixed .main_menu > li > a {
+    color: #222222;
+    font-family: 'Bangers';
+    font-size: 22px;
+}
+.main_menu > li > a{
+    color: #fff0ff;
+    font-family: 'Bangers';
+    font-size: 18px;
+}
+
+.txt1{
+    font-family: 'Lobster';font-size: 60px;
+}
+.tit1{
+    font-family: 'Bangers';
+}
+.tit2{
+    font-family: 'Dancing Script';
+}
+.tit3{
+    font-family: 'Pacifico';
+    text-transform: none;
+}
+.size3{
+    color: #E91E63;
+    font-size: 16px;
+    font-weight: 600;
+}
+.txt4 {
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 12px;
+    color: #222222;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: yellow;
+    padding: 10px 15px;
+    border-radius: 31px;
+}
+.txt5{
+    font-family: 'Lobster';
+}
+.tit5{
+    font-family: 'Bangers';
+}
+.tit6{
+    font-family: 'Bangers';
+    font-size: 40px;
+    padding-top: 15px;
+}
+tit2 p-l-15 p-r-15{
+    padding-bottom: 15px;
+}
+.tit8{
+    font-family: 'Bangers';
+    text-transform: none;
+}
+.txt13{
+    font-family: 'Dancing Script';
+    text-transform: none;
+}
+.facebook-nns{
+    background: #1da0ec;
+    color: #fff;
+    padding: 5px 12px 5px 16px;
+}
+.pinter-nns{
+    background: #ec373e;
+    color: #fff;
+    padding: 5px 12px 5px 16px;
+}
+.face-nns{
+    background: #1da0ec;
+}
+.pin-nns{
+    background: #ec1d25;
+}
+.mail-nns{
+    background: #e85252;
+}
+.web-nns{
+    background: #3eaf90;
+}
+.nns-footer-icon a{
+    color: #fff;
+}
+.p-b-250 {
+    padding-bottom: 50px;
+}
+.p-t-225 {
+    padding-top: 50px;
+}
+.tit7,.txt20{
+    font-family: 'Bangers';
+}
+.main_menu .nns-footer-icon{
+    width: auto;
+}
+.register-cus{
+    width: 150px;
+    border-radius: 100px;
+}
+.txt21{
+    font-family: 'Bangers';
+}
+
+.pizza-nns{
+    width: 50%;
+}
+.pizza-nns .btn-1{
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #0b93d5;
+    color: #fff !important;
+}
+.pizza-nns .btn-2{
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    color: #fff !important;
+    background-color: #00ca6d;
+
+}
+.giobanh-nns{
+      background-color: #00ca6d;
+
+  }
+.giobanh-nns:hover{
+    color: #fff !important;
+}
+.soluong-nns{
+    border-radius: 50px;
+    background-color: #fff;
+    text-align: center;
+}
+.group-input-nns{
+    position: relative;
+}
+.group-input-nns button{
+    position: absolute;
+    height: 30px;
+}
+.group-input-nns input{
+    height: 30px;
+}
+.group-input-nns .btn-1{
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #0b93d5;
+    color: #fff;
+    top: 0;
+    left: 0;
+}
+.group-input-nns .btn-2{
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    color: #fff;
+    background-color: #00ca6d;
+    top: 0;
+    right: 0;
+}
+
+.nns-home-loai{
+    font-size: 14px;
+    color: #333333;
+}
+.nns-home-gia{
+    font-size: 13px;
+    color: #ed252c;
+    font-weight: bold;
+}
+
+.number{
+    max-width: 70px;
+    border: 1px solid #868e96 !important;
+    border-radius: 20px;
+    text-align: center;
+}
+.img-avatar-nns{
+    width: fit-content;
+    margin: auto;
+    border: 1px solid #fff;
+    border-radius: 100px;
+    padding: 7px;
+    background: #fff;
+}
+.tit10{
+    font-family: 'Lobster';
+}
+.lichsu{
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 13px;
+    color: #666666;
+    line-height: 1.7;
+    text-transform: none;
+}
+.delete-icon-nns{
+    left: 14%;
+    margin-top: 10px;
+    position: absolute;
+    height: 30px;
+    width: 40px;
+    background: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
