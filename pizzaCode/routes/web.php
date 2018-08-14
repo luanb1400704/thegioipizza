@@ -173,6 +173,8 @@ Route::group(['prefix' => 'khach-hang'], function () {
 
     Route::post('update/{id}', 'CustomerController@update')->name('kh.update');
 
+    Route::get('detail', 'CustomerController@detail')->name('kh.detail');
+
 });
 
 Route::group(['prefix' => 'nhan-vien-chi-nhanh'], function () {
