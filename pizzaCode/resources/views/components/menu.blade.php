@@ -20,7 +20,7 @@
             </div>
         </div>
         <ul class="sidebar-menu" data-widget="tree">
-            @if(Auth::user()->type == 0 || Auth::user()->type == 1)
+            @if(Auth::user()->type == 0 || Auth::user()->type == 1 || Auth::user()->type == 3)
                 @if(Auth::user()->type == 0)
                     <li class="header">QUẢN LÝ KHÁCH HÀNG</li>
                 @endif
@@ -33,13 +33,16 @@
                     <li class="header">QUẢN LÝ ĐƠN HÀNG</li>
                 @endif
                 <li>
-                    <a href="{{ route('hoadon.create') }}"><i class="fa fa-pencil-square-o"></i><span> Tạo hóa đơn</span></a>
+                    <a href="{{ route('hoadon.create') }}"><i
+                                class="fa fa-pencil-square-o"></i><span> Tạo hóa đơn</span></a>
                 </li>
                 <li>
-                    <a href="{{route('hoadon.indexchuaduyet')}}"><i class="fa fa-book"></i><span>Hóa đơn chưa duyệt</span></a>
+                    <a href="{{route('hoadon.indexchuaduyet')}}"><i
+                                class="fa fa-book"></i><span>Hóa đơn chưa duyệt</span></a>
                 </li>
                 <li>
-                    <a href="{{route('hoadon.indexdaduyet')}}"><i class="fa fa-bookmark"></i><span>Hóa đơn đã duyệt</span></a>
+                    <a href="{{route('hoadon.indexdaduyet')}}"><i
+                                class="fa fa-bookmark"></i><span>Hóa đơn đã duyệt</span></a>
                 </li>
             @endif
             @if(Auth::user()->type == 0 || Auth::user()->type == 1 || Auth::user()->type == 3)
@@ -49,9 +52,11 @@
                 <li>
                     <a href="{{ route('index') }}"><i class="fa fa-dollar"></i><span>Hoa hồng</span></a>
                 </li>
-                <li>
-                    <a href="{{ route('index') }}"><i class="fa fa-refresh"></i><span>Lịch sử hoa hồng</span></a>
-                </li>
+                @if(Auth::user()->type == 0 || Auth::user()->type == 3)
+                    <li>
+                        <a href="{{ route('log_tra_tien') }}"><i class="fa fa-refresh"></i><span>Lịch sử hoa hồng</span></a>
+                    </li>
+                @endif
             @endif
             @if(Auth::user()->type == 0)
                 <li class="header">QUẢN LÝ CẤP HOA HỒNG</li>
@@ -62,23 +67,22 @@
             @endif
             @if(Auth::user()->type == 0 || Auth::user()->type == 3)
                 <li class="header">QUẢN LÝ CHI NHÁNH</li>
-                <li>
-                    <a href="{{ route('cn.index') }}"><i class="fa fa-home"></i><span>Chi nhánh</span></a>
-                </li>
+                @if(Auth::user()->type == 0)
+                    <li>
+                        <a href="{{ route('cn.index') }}"><i class="fa fa-home"></i><span>Chi nhánh</span></a>
+                    </li>
+                @endif
                 <li>
                     <a href="{{ route('nv.index') }}"><i class="fa fa-users"></i><span>Nhân viên chi nhánh</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('ct.index') }}"><i class="fa fa-dollar"></i><span>Tiền bánh chi nhánh</span></a>
+                    <a href="{{ route('tien_chi_nhanh') }}"><i class="fa fa-dollar"></i><span>Tiền bánh chi nhánh</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('cn.lichsuthutien') }}"><i class="fa fa-refresh"></i><span>Lịch sử thu tiền bánh</span></a>
+                    <a href="#"><i class="fa fa-refresh"></i><span>Lịch sử thu tiền bánh</span></a>
                 </li>
                 <li>
                     <a href="{{ route('index') }}"><i class="fa fa-dollar"></i><span>Tiền chi hộ hoa hồng</span></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-refresh"></i><span>Lịch sử trả tiền hoa hồng</span></a>
                 </li>
             @endif
             @if(Auth::user()->type == 0)
