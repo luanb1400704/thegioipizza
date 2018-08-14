@@ -128,7 +128,7 @@
         }
 
         function getDetails(id) {
-            sessionStorage.setItem('id_temp', id);
+            // sessionStorage.setItem('id_temp', id);
             $.ajax({
                 type: 'GET',
                 url: '{{route('hoadon.indexdaduyetdetail')}}',

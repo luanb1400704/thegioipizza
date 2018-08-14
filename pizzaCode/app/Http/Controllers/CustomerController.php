@@ -184,4 +184,18 @@ class CustomerController extends Controller
         $phancap = PhanCapModel::where('status', 1)->first();
         dd($phancap);
     }
+
+    public  function detail(Request $request){
+        $data = Users::join('customer', 'customer.user_id','=','users.id')
+            ->where('users.id',$request->id)
+            ->first();
+        $gioithieu = HoaHongModel::join('users','users.id', '=','hoahong.id_cha')
+            ->where('hoahong.id_khachhang', $request->id)
+            ->first();
+        if (isset($data)) {
+            return ['status' => 'success', 'data' => $data, 'gioithieu' => $gioithieu];
+        } else {
+            return ['status' => 'error', 'message' => 'Không tìm thấy hóa đơn này'];
+        }
+    }
 }
