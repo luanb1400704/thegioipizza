@@ -42,7 +42,7 @@
                     <a href="{{route('hoadon.indexdaduyet')}}"><i class="fa fa-bookmark"></i><span>Hóa đơn đã duyệt</span></a>
                 </li>
             @endif
-            @if(Auth::user()->type == 0 || Auth::user()->type == 1)
+            @if(Auth::user()->type == 0 || Auth::user()->type == 1 || Auth::user()->type == 3)
                 @if(Auth::user()->type == 0)
                     <li class="header">QUẢN LÝ HOA HỒNG</li>
                 @endif
@@ -50,7 +50,7 @@
                     <a href="{{ route('index') }}"><i class="fa fa-dollar"></i><span>Hoa hồng</span></a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-refresh"></i><span>Lịch sử hoa hồng</span></a>
+                    <a href="{{ route('index') }}"><i class="fa fa-refresh"></i><span>Lịch sử hoa hồng</span></a>
                 </li>
             @endif
             @if(Auth::user()->type == 0)
