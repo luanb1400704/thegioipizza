@@ -1,7 +1,7 @@
 @extends('components.index')
 @section('content')
     <section class="content-header">
-        <h1>Quản Lý Hoa Hồng</h1>
+        <h1>Quản Lý Chi Nhánh</h1>
         <ol class="breadcrumb bg-gray">
             <li>
                 <a href="{{ url('/') }}">
@@ -11,7 +11,7 @@
             </li>
             <li>
                 <a href="{{ route('index') }}">
-                    Chi hộ hoa hồng
+                    Tiền bánh
                 </a>
             </li>
             <li>Danh sách</li>
@@ -23,7 +23,7 @@
                <span class="">
                     <h1 class="box-title text-primary">
                         <i class="ion ion-clipboard "></i>
-                        Lịch sử
+                        Danh sách
                     </h1>
                 </span>
             </div>
@@ -39,15 +39,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($log as $key => $val): ?>
                     <tr>
-                        <td>{{ $val->tenkhachhang }}</td>
-                        <td>{{ $val->phone }}</td>
-                        <td>{{ $val->so_tien_da_tra }}</td>
-                        <td>{{ $val->ten_chinhanh }}</td>
-                        <td>{{ $val->ngay_tra }}</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>6</td>
                     </tr>
-                    <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

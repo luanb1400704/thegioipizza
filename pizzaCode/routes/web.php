@@ -257,6 +257,10 @@ Route::group(['prefix' => 'tien-chi-ho-hoa-hong'], function () {
 
     Route::get('/index', 'TienChiHoController@index')->name('index');
 
+    Route::get('/tien-banh', 'TienChiHoController@tien_chi_nhanh')->name('tien_chi_nhanh');
+
+    Route::get('/lich-su', 'TienChiHoController@log_tra_tien')->name('log_tra_tien');
+
     Route::get('tru_tien/{id}', 'TienChiHoController@tru_tien')->name('tru_tien');
 
 });

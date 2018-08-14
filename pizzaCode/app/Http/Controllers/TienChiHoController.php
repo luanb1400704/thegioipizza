@@ -77,4 +77,24 @@ class TienChiHoController extends Controller
 
         return redirect('tien-chi-ho-hoa-hong/index');
     }
+
+    public function log_tra_tien()
+    {
+        $log = LogHoaHongModel::leftjoin('users', 'users.id', '=', 'loghoahong.id_khachhang')
+            ->leftjoin('chinhanh', 'chinhanh.id_chinhanh', '=', 'loghoahong.id_chinhanh')
+            ->select(
+                'users.name as tenkhachhang',
+                'users.phone as phone',
+                'loghoahong.so_tien_da_tra as so_tien_da_tra',
+                'loghoahong.ngay_tra as ngay_tra',
+                'chinhanh.ten_chinhanh as ten_chinhanh'
+            )->get();
+//        dd($log);
+        return view('pages.lichsu.lichsuhoahong', compact('log'));
+    }
+
+    public function tien_chi_nhanh()
+    {
+        return view('pages.chihohoahong.tienbanhchinhanh');
+    }
 }
