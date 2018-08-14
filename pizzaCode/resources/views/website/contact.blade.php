@@ -21,7 +21,11 @@
                     <!-- -Block5 -->
                     <div class="blo5 pos-relative p-t-60">
                         <div class="pic-blo5 size14 bo4 wrap-cir-pic hov-img-zoom ab-c-t">
-                            <a href="#"><img src="{{$customer->customer_image}}" alt="IGM-AVATAR"></a>
+                            @if(!empty($customer->customer_image))
+                                <a href="#"><img src="{{$customer->customer_image}}" ></a>
+                            @else
+                                <a href="#"><img src="{{url('dist/img/avatar5.png')}}" ></a>
+                            @endif
                         </div>
 
                         <div class="text-blo5 size34 t-center bo-rad-10 bo7 p-t-90 p-l-35 p-r-35 p-b-30">
@@ -45,7 +49,8 @@
                                 Người giới thiệu: <b>{{Auth::user()->phone}}</b><br>
                                 Số dư hiện tại
                             </p>
-                            <a href="#" class="btn-success flex-c-m size13 txt11 trans-0-4 m-l-r-auto">{{$hoahong->tien_hoa_hong}} VNĐ</a>
+                            <a href="#" class="btn-success flex-c-m size13 txt11 trans-0-4 m-l-r-auto">{{$hoahong->tien_hoa_hong}} VNĐ</a><br>
+                            <a href="{{route('store/update')}}" class="btn-danger flex-c-m size13 txt11 trans-0-4 m-l-r-auto">CẬP NHẬT</a>
                         </div>
                     </div>
                 </div>

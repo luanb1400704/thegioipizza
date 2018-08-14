@@ -85,7 +85,7 @@
             </form>
             @else
                 <h3 class="tit3 t-center m-b-35 m-t-2">
-                    Hiện tại giở hàng của bạn trống
+                    Hiện tại giỏ hàng của bạn trống
 
                 </h3>
                 <div class="wrap-form-booking">

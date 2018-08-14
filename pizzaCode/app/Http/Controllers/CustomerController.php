@@ -29,11 +29,13 @@ class CustomerController extends Controller
         }
         if ($request->hasFile('file')) {
             $file = $request->file('file');
-            $file->move('upload', $file->getClientOriginalName());
-            $kh_anhdaidien = url('upload') . '/' . $file->getClientOriginalName() . md5(time());
+            $new_file_name = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('upload', $new_file_name);
+            $kh_anhdaidien = url('upload') . '/' . $new_file_name;
         } else {
             $kh_anhdaidien = "";
         }
+
 
         $user = Users::create(
             [
@@ -70,6 +72,63 @@ class CustomerController extends Controller
         );
         return redirect('/store/home')->with('success', 'Tạo tài khoản thành công, vui lòng đăng nhập để sử dụng dịch vụ');
     }
+    public function update(Request $request)
+    {
+        if (isset($request->phone_introduce))
+            $check_user = Users::where('phone', $request->phone_introduce)->first();
+
+        if (!isset($check_user)) {
+            return redirect('/store/register')->with('notphone', 'Không tìm thấy số điện thoại của người giới thiệu');
+        }
+        if ($request->password != $request->repassword) {
+            return redirect('/store/register')->with('errconfirmpass', 'Nhập password không trùng khớp, vui lòng nhập lại pasword xác nhận');
+        }
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $new_file_name = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('upload', $new_file_name);
+            $kh_anhdaidien = url('upload') . '/' . $new_file_name;
+        } else {
+            $kh_anhdaidien = "";
+        }
+
+
+        $user = Users::create(
+            [
+                'type' => 2,
+                'name' => $request->get('name'),
+                'email' => $request->get('email') || '',
+                'phone' => $request->get('phone'),
+                'password' => Hash::make($request->get('password')),
+                'active' => 1,
+            ]
+        );
+        CustomerModel::create(
+            [
+                'user_id' => $user->id,
+                'customer_gender' => $request->get('customer_gender'),
+                'customer_birthday' => $request->get('customer_birthday'),
+                'customer_address' => $request->get('customer_address'),
+                'customer_cmnd' => $request->get('customer_cmnd'),
+                'customer_cmnd_ngaycap' => $request->get('customer_cmnd_ngaycap'),
+                'customer_image' => $kh_anhdaidien,
+                'id_employee' => 0
+            ]
+        );
+
+        HoaHongModel::create(
+            [
+                'id_khachhang' => $user->id,
+                'id_cha' => $check_user->id | 0,
+                'tien_hoa_hong' => 0,
+                'status' => 0,
+                'danh_dau' => 0
+
+            ]
+        );
+        return redirect('/store/home')->with('success', 'Tạo tài khoản thành công, vui lòng đăng nhập để sử dụng dịch vụ');
+    }
+
 
     public function fast_register(Request $request)
     {
@@ -196,6 +255,17 @@ class CustomerController extends Controller
             return ['status' => 'success', 'data' => $data, 'gioithieu' => $gioithieu];
         } else {
             return ['status' => 'error', 'message' => 'Không tìm thấy hóa đơn này'];
+        }
+    }
+    public function changePass(Request $request){
+        if(isset($request->id_kh)){
+            $data = Users::where('id', $request->id_kh)->first();
+            $data->password = Hash::make($request->get('password'));
+            $data->save();
+            return redirect(route('kh.index'));
+        }
+        else{
+            return redirect(route('kh.index'));
         }
     }
 }

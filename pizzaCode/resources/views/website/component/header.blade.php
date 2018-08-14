@@ -29,19 +29,28 @@
                             </li>
 
                             <li>
-                                <a href="{{route('store/get_contact')}}" class=" giobanh-nns">TÍCH LŨY</a>
-                            </li>
-
-                            <li>
                                 <a href="{{route('store/order')}}" class=" giobanh-nns">GIỎ BÁNH</a>
                             </li>
 
+                            @if(empty(Auth::user()))
                             <li>
                                 <a href="{{route('store/login')}}" class=" giobanh-nns">ĐĂNG NHẬP</a>
                             </li>
+                            @else
                             <li>
                                 <a href="{{ route('admin.logout') }}">Đăng xuất &nbsp<i class="fa fa-sign-out"></i></a>
                             </li>
+                            @endif
+                            @if(empty(Auth::user()))
+                                <li>
+                                    <a href="{{route('store/get_contact')}}" >CÁ NHÂN</a>
+                                </li>
+                            @else
+                                <li>
+                                    <a href="{{route('store/get_contact')}}" >{{Auth::user()->name}}</a>
+                                </li>
+                            @endif
+
 
                         </ul>
                     </nav>

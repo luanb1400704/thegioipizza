@@ -153,7 +153,9 @@ tit2 p-l-15 p-r-15{
 
 }
 .giobanh-nns{
-      background-color: #00ca6d;
+        background-color: #EC1D25;
+        border-radius: 10px;
+        padding: 5px 15px;
 
   }
 .giobanh-nns:hover{

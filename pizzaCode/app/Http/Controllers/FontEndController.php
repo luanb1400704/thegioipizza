@@ -11,6 +11,7 @@ use App\HoaHongModel;
 use App\LogHoaHongModel;
 use App\PhanCapModel;
 use App\TongTienHoaHongModel;
+use App\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -217,6 +218,13 @@ class FontEndController extends Controller
     public function fast_register(){
         return view('website.fast_register');
     }
+    public function update(){
+        $data = Users::join('customer','customer.user_id', '=', 'users.id')
+            ->where('users.id', Auth::user()->id )
+            ->first();
+        return view('website.update', compact('data'));
+    }
+
 
 
 

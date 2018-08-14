@@ -96,16 +96,6 @@
                                 </thead>
                                 <tbody id="body-detail">
                                 </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th>Mã</th>
-                                    <th>Tên bánh</th>
-                                    <th>Loại</th>
-                                    <th>Đơn giá</th>
-                                    <th>Số lượng</th>
-                                    <th>Thành tiền</th>
-                                </tr>
-                                </tfoot>
                             </table>
                         </div>
                     </div>

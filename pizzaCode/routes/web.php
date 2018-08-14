@@ -64,6 +64,9 @@ Route::group(['prefix' => '/store'], function () {
     Route::get('/fast_register', 'FontEndController@fast_register')->name('store/fast_register');
     Route::post('/customer_fast_register', 'CustomerController@fast_register')->name('customer/fast_register');
 
+    //Sửa thông tin
+    Route::get('/update', 'FontEndController@update')->name('store/update');
+    Route::post('/customer_update', 'CustomerController@update')->name('customer/update');
 
     //Trang đăng nhập
     Route::get('/login', 'FontEndController@login')->name('store/login');
@@ -174,6 +177,8 @@ Route::group(['prefix' => 'khach-hang'], function () {
     Route::post('update/{id}', 'CustomerController@update')->name('kh.update');
 
     Route::get('detail', 'CustomerController@detail')->name('kh.detail');
+
+    Route::post('changePass', 'CustomerController@changePass')->name('kh.changePass');
 
 });
 

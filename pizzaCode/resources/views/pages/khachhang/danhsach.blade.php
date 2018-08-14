@@ -78,17 +78,43 @@
                             <h4 class="modal-title" id="exampleModalLabel">Chi tiết khách hàng</h4>
                         </div>
                         <div class="panel-body">
+                            <div class="box box-widget widget-user-2">
+                                <div class="widget-user-header bg-aqua-active">
+                                    <div class="widget-user-image">
+                                        <img id="avatar" class="img-circle" alt="Chưa cập nhật ảnh">
+                                    </div>
+                                    <!-- /.widget-user-image -->
+                                    <h3 id="tenKH" class="widget-user-username"></h3>
+                                    <h5 id="sdt" class="widget-user-desc"></h5>
+                                </div>
+                            </div>
                             <div class="form-group">
-                                <label>Tên khách hàng: <span id="tenKH" style="color: red;"></span></label><br>
-                                <label>Tiền hoa hồng hiện tại: <span id="tongtien" style="color: red;"></span> VNĐ</label><br>
+                                <label>Tiền hoa hồng hiện tại: <span id="tongtien" style="color: red;"></span>  VNĐ</label><br>
+                                <label>Thời hạn lãnh tiền: <span id="thoihan" style="color: red;"></span></label><br>
                                 <label>Năm sinh: <span id="namsinh" style="color: red;"></span></label><br>
                                 <label>Email: <span id="email" style="color: red;"></span></label><br>
-                                <label>Số điện thoại: <span id="sdt" style="color: red;"></span></label><br>
                                 <label>Người giới thiệu: <span id="gioithieu" style="color: red;"></span></label><br>
                                 <label>SĐT người giới thiệu: <span id="sdtgioithieu" style="color: red;"></span></label><br>
 
                             </div>
                             <div class="box-body ">
+                                <form role="form" action="{{ route('kh.changePass') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" value="" name="id_kh" id="id_kh">
+                                    <label>Mật khẩu mới</label>
+                                        <div class="row">
+
+                                            <div class="col-md-7">
+                                                <input type="password" id="password" name="password" class="form-control">
+                                            </div>
+                                            {{--<div class="col-md-2">--}}
+                                                {{--<span onclick="changInput()" class="btn bg-olive"><i class="fa fa-fw fa-eye"></i></span>--}}
+                                            {{--</div>--}}
+                                            <div class="col-md-3">
+                                                <button type="submit" class="btn bg-olive">Xác nhận</button>
+                                            </div>
+                                        </div>
+                                </form>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -142,16 +168,24 @@
                     id: id
                 },
                 success: function (res) {
-                    $("#tenKH").html(res.data.name);
-                    $("#tongtien").html(res.gioithieu.tien_hoa_hong);
-                    $("#namsinh").html(res.data.customer_birthday);
-                    $("#email").html(res.data.email);
-                    $("#sdt").html(res.data.phone);
-                    $("#gioithieu").html(res.gioithieu.name);
-                    $("#sdtgioithieu").html(res.gioithieu.phone);
+                    $("#id_kh").attr("value",res.data.id ? res.data.id : 'Không tồn tại');
+                    $("#avatar").attr("src",res.data.customer_image ? res.data.customer_image : 'Không tồn tại')
+                    $("#tenKH").html(res.data.name ? res.data.name : 'Không tồn tại');
+                    $("#tongtien").html(res.gioithieu.tien_hoa_hong ? res.gioithieu.tien_hoa_hong : 'Không tồn tại');
+                    $("#thoihan").html(res.gioithieu.danh_dau ? res.gioithieu.danh_dau : 'Không tồn tại');
+                    $("#namsinh").html(res.data.customer_birthday ? res.data.customer_birthday : 'Không tồn tại');
+                    $("#email").html(res.data.email ? res.data.email : 'Không tồn tại');
+                    $("#sdt").html(res.data.phone ? res.data.phone : 'Không tồn tại');
+                    $("#gioithieu").html(res.gioithieu.name ? res.gioithieu.name : 'Không tồn tại');
+                    $("#sdtgioithieu").html(res.gioithieu.phone ? res.gioithieu.phone : 'Không tồn tại' );
                     $("#detailKhachHang").modal('show');
                 }
             });
         }
+
+        // function changInput() {
+        //     $("#password").prop('readonly', false);
+        //     console.log('xong')
+        // }
     </script>
 @endsection

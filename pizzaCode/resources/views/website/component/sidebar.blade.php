@@ -22,7 +22,7 @@
         </li>
 
         <li class="t-center m-b-13">
-            <a href="{{route('store/get_contact')}}" class="btn-danger flex-c-m size13 txt11 trans-0-4 m-l-r-auto">TÍCH LŨY</a>
+            <a href="{{route('store/get_contact')}}" class="btn-danger flex-c-m size13 txt11 trans-0-4 m-l-r-auto">CÁ NHÂN</a>
         </li>
 
         <li class="t-center m-b-33">
@@ -35,15 +35,19 @@
                 {{--ĐĂNG NHẬP--}}
             {{--</a>--}}
         {{--</li>--}}
-        <li class="t-center m-b-13">
-            <a href="{{route('store/login')}}" class="btn-danger flex-c-m size13 txt11 trans-0-4 m-l-r-auto">ĐĂNG NHẬP</a>
-        </li>
-        <li class="t-center m-b-13">
-            <a href="{{route('store/login')}}" class="btn-danger flex-c-m size13 txt11 trans-0-4 m-l-r-auto">ĐĂNG KÝ</a>
-        </li>
+
+        @if(!empty(Auth::user()))
         <li class="t-center m-b-13 close-nss">
             <a href="{{ route('admin.logout') }}" class="txt19">Đăng xuất &nbsp<i class="fa fa-sign-out"></i></a>
         </li>
+        @else
+            <li class="t-center m-b-13">
+                <a href="{{route('store/login')}}" class="btn-danger flex-c-m size13 txt11 trans-0-4 m-l-r-auto">ĐĂNG NHẬP</a>
+            </li>
+            <li class="t-center m-b-13">
+                <a href="{{route('store/login')}}" class="btn-danger flex-c-m size13 txt11 trans-0-4 m-l-r-auto">ĐĂNG KÝ</a>
+            </li>
+        @endif
         {{--<li class="t-center">--}}
             {{--<!-- Button3 -->--}}
             {{--<a href="{{route('store/login')}}" class="btn3 flex-c-m size13 txt11 trans-0-4 m-l-r-auto">--}}
