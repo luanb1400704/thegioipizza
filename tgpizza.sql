@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 04, 2018 lúc 09:34 AM
+-- Thời gian đã tạo: Th8 14, 2018 lúc 03:24 AM
 -- Phiên bản máy phục vụ: 10.1.33-MariaDB
 -- Phiên bản PHP: 7.2.6
 
@@ -76,7 +76,10 @@ CREATE TABLE `chinhanh` (
 --
 
 INSERT INTO `chinhanh` (`id_chinhanh`, `ten_chinhanh`, `diachi_chinhanh`, `created_by`, `created_at`, `updated_at`) VALUES
-(26, 'Chi Nhánh Ô Môn', 'o mon', 1, '2018-08-04 00:24:33', '2018-08-04 07:25:47');
+(26, 'Chi Nhánh Ô Môn', 'o mon', 1, '2018-08-04 00:24:33', '2018-08-04 07:25:47'),
+(28, 'Chi Nhánh Hậu Giang', '1ggggggggggggggg', 1, '2018-08-04 01:15:33', '2018-08-04 01:49:46'),
+(29, 'Chi Nhánh Hậu Giang', 'hau giang', 1, '2018-08-04 01:17:10', '2018-08-04 01:48:01'),
+(37, 's', 's', 1, '2018-08-09 08:14:31', '2018-08-09 08:14:31');
 
 -- --------------------------------------------------------
 
@@ -102,25 +105,16 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`user_id`, `customer_birthday`, `customer_cmnd`, `customer_cmnd_ngaycap`, `customer_gender`, `customer_address`, `customer_image`, `id_employee`, `created_at`, `updated_at`) VALUES
-(14, '19/07/2018', '1', '19/07/2018', 1, '1', '', 0, '2018-07-19 08:56:00', '2018-07-19 08:56:00'),
-(15, '28/07/1990', '111111111', '28/07/2018', 1, 'Cần Thơ', '', 0, '2018-07-28 07:52:33', '2018-07-28 07:52:33'),
-(16, '28/07/1990', '222222222', '28/07/2018', 1, 'Cần Thơ', '', 0, '2018-07-28 07:54:42', '2018-07-28 07:54:42'),
-(17, '28/07/1990', '333333333', '28/07/2018', 1, 'Cần Thơ', '', 0, '2018-07-28 07:57:51', '2018-07-28 07:57:51'),
-(18, '28/07/1990', '444444444', '28/07/2018', 1, 'Cần Thơ', '', 0, '2018-07-28 07:58:53', '2018-07-28 07:58:53'),
-(19, '28/07/2018', '55555555', '28/07/2018', 1, 'Cần Thơ', '', 0, '2018-07-28 08:00:28', '2018-07-28 08:00:28'),
-(20, '28/07/2018', '666666666', '28/07/2018', 1, 'Cần Thơ', '', 0, '2018-07-28 08:01:24', '2018-07-28 08:01:24'),
-(21, '28/07/2018', '777777777', '28/07/2018', 1, 'Cần Thơ', '', 0, '2018-07-28 08:02:15', '2018-07-28 08:02:15'),
-(22, '28/07/2018', '888888888', '28/07/2018', 1, 'Cần Thơ', '', 0, '2018-07-28 08:03:12', '2018-07-28 08:03:12'),
-(23, '28/07/2018', '999999999', '28/07/2018', 1, 'Cần Thơ', '', 0, '2018-07-28 08:04:19', '2018-07-28 08:04:19'),
-(24, '28/07/2018', '101010101', '28/07/2018', 1, 'Cần Thơ', '', 0, '2018-07-28 08:05:17', '2018-07-28 08:05:17'),
-(25, '29/07/1980', '0123456789', '29/07/2018', 1, 'Cần Thơ', '', 0, '2018-07-29 04:02:27', '2018-07-29 04:02:27'),
-(27, '04/08/1990', '033333357', '04/08/2015', 1, 'Cần Thơ', '', 0, '2018-08-03 22:16:06', '2018-08-03 22:16:06'),
-(28, '04/08/2018', '1', '04/08/2018', 1, '1', '', 0, '2018-08-03 22:28:28', '2018-08-03 22:28:28'),
-(29, '04/08/2018', '1', '04/08/2018', 1, '1', '', 0, '2018-08-03 22:43:44', '2018-08-03 22:43:44'),
-(30, '04/08/2018', '1', '04/08/2018', 1, '1', '', 0, '2018-08-03 22:45:18', '2018-08-03 22:45:18'),
-(32, NULL, NULL, NULL, NULL, NULL, '', 0, '2018-08-03 23:27:35', '2018-08-03 23:27:35'),
-(33, NULL, NULL, NULL, NULL, NULL, '', 0, '2018-08-03 23:35:38', '2018-08-03 23:35:38'),
-(34, NULL, NULL, NULL, NULL, NULL, '', 0, '2018-08-03 23:37:05', '2018-08-03 23:37:05');
+(56, '', '', '', 0, '', '', 1, '2018-08-10 07:18:07', '2018-08-10 07:18:07'),
+(57, '', '', '', 0, '', '', 1, '2018-08-10 07:18:21', '2018-08-10 07:18:21'),
+(58, '', '', '', 0, '', '', 1, '2018-08-10 07:18:39', '2018-08-10 07:18:39'),
+(59, '', '', '', 0, '', '', 1, '2018-08-10 07:18:54', '2018-08-10 07:18:54'),
+(60, '', '', '', 0, '', '', 1, '2018-08-10 07:19:07', '2018-08-10 07:19:07'),
+(61, '', '', '', 0, '', '', 1, '2018-08-10 07:19:21', '2018-08-10 07:19:21'),
+(63, '', '', '', 0, '', '', 62, '2018-08-10 07:27:34', '2018-08-10 07:27:34'),
+(64, '', '', '', 0, '', '', 62, '2018-08-10 07:29:23', '2018-08-10 07:29:23'),
+(65, '', '', '', 0, '', '', 62, '2018-08-10 07:31:25', '2018-08-10 07:31:25'),
+(66, '', '', '', 0, '', '', 62, '2018-08-10 07:34:24', '2018-08-10 07:34:24');
 
 -- --------------------------------------------------------
 
@@ -201,30 +195,52 @@ CREATE TABLE `hoadon` (
 --
 
 INSERT INTO `hoadon` (`hd_id`, `id_nhan_vien_lap_hh`, `id_khachhang`, `tong_tien_hoa_don`, `status`, `id_phan_cap`, `created_at`, `updated_at`) VALUES
-(18, 2, 14, 360000, 1, 1, '2018-07-19 13:12:57', '2018-07-20 02:12:58'),
-(19, 2, 14, 180000, 1, 1, '2018-07-19 13:41:45', '2018-07-20 02:13:01'),
-(20, 2, 14, 480000, 1, 1, '2018-07-19 19:06:23', '2018-07-20 02:13:05'),
-(21, 2, 14, 1260000, 0, 1, '2018-07-19 19:23:54', '2018-07-19 19:24:05'),
-(22, 2, 15, 180000, 0, 1, '2018-07-28 08:06:35', '2018-07-28 08:07:00'),
-(23, 2, 15, 180000, 0, 1, '2018-07-28 08:07:11', '2018-07-28 08:07:20'),
-(24, 2, 16, 360000, 0, 1, '2018-07-28 08:07:54', '2018-07-28 08:07:59'),
-(25, 2, 16, 360000, 0, 1, '2018-07-28 08:08:15', '2018-07-28 08:08:20'),
-(26, 2, 17, 180000, 0, 1, '2018-07-28 08:08:49', '2018-07-28 08:08:57'),
-(27, 2, 17, 330000, 0, 1, '2018-07-28 08:09:08', '2018-07-28 08:09:13'),
-(28, 2, 18, 330000, 0, 1, '2018-07-28 08:09:41', '2018-07-28 08:09:47'),
-(29, 2, 18, 180000, 0, 1, '2018-07-28 08:09:55', '2018-07-28 08:10:02'),
-(30, 2, 19, 270000, 0, 1, '2018-07-28 08:11:05', '2018-07-28 08:11:18'),
-(31, 2, 19, 90000, 0, 1, '2018-07-28 08:11:32', '2018-07-28 08:11:36'),
-(32, 2, 20, 300000, 0, 1, '2018-07-28 08:12:30', '2018-07-28 08:12:35'),
-(33, 2, 20, 180000, 0, 1, '2018-07-28 08:12:58', '2018-07-28 08:13:03'),
-(34, 2, 21, 390000, 0, 1, '2018-07-28 08:13:54', '2018-07-28 08:16:36'),
-(35, 2, 21, 360000, 0, 1, '2018-07-28 08:17:09', '2018-07-28 08:17:16'),
-(36, 2, 22, 180000, 0, 1, '2018-07-28 08:18:10', '2018-07-28 08:18:14'),
-(37, 2, 22, 510000, 0, 1, '2018-07-28 08:18:22', '2018-07-28 08:18:26'),
-(38, 2, 23, 180000, 0, 1, '2018-07-28 08:19:23', '2018-07-28 08:19:38'),
-(39, 2, 23, 180000, 0, 1, '2018-07-28 08:19:56', '2018-07-28 08:20:02'),
-(40, 2, 24, 90000, 0, 1, '2018-07-28 08:20:34', '2018-07-28 08:20:38'),
-(41, 2, 24, 180000, 0, 1, '2018-07-28 08:20:46', '2018-07-28 08:20:55');
+(18, 4, 14, 360000, 1, 1, '2018-07-19 13:12:57', '2018-08-08 06:37:44'),
+(19, 4, 14, 180000, 1, 1, '2018-07-19 13:41:45', '2018-08-08 06:37:44'),
+(20, 4, 14, 480000, 1, 1, '2018-07-19 19:06:23', '2018-08-08 06:37:44'),
+(21, 4, 14, 1260000, 1, 1, '2018-07-19 19:23:54', '2018-08-10 06:22:58'),
+(22, 4, 15, 180000, 0, 1, '2018-07-28 08:06:35', '2018-08-08 06:37:44'),
+(23, 4, 15, 180000, 0, 1, '2018-07-28 08:07:11', '2018-08-08 06:37:44'),
+(24, 4, 16, 360000, 0, 1, '2018-07-28 08:07:54', '2018-08-08 06:37:44'),
+(25, 4, 16, 360000, 0, 1, '2018-07-28 08:08:15', '2018-08-08 06:37:44'),
+(26, 4, 17, 180000, 0, 1, '2018-07-28 08:08:49', '2018-08-08 06:37:44'),
+(27, 4, 17, 330000, 0, 1, '2018-07-28 08:09:08', '2018-08-08 06:37:44'),
+(28, 4, 18, 330000, 0, 1, '2018-07-28 08:09:41', '2018-08-08 06:37:44'),
+(29, 4, 18, 180000, 0, 1, '2018-07-28 08:09:55', '2018-08-08 06:37:44'),
+(30, 4, 19, 270000, 0, 1, '2018-07-28 08:11:05', '2018-08-08 06:37:44'),
+(31, 4, 19, 90000, 0, 1, '2018-07-28 08:11:32', '2018-08-08 06:37:44'),
+(32, 4, 20, 300000, 0, 1, '2018-07-28 08:12:30', '2018-08-08 06:37:44'),
+(33, 4, 20, 180000, 0, 1, '2018-07-28 08:12:58', '2018-08-08 06:37:44'),
+(34, 4, 21, 390000, 0, 1, '2018-07-28 08:13:54', '2018-08-08 06:37:44'),
+(35, 4, 21, 360000, 0, 1, '2018-07-28 08:17:09', '2018-08-08 06:37:44'),
+(36, 4, 22, 180000, 0, 1, '2018-07-28 08:18:10', '2018-08-08 06:37:44'),
+(37, 4, 22, 510000, 0, 1, '2018-07-28 08:18:22', '2018-08-08 06:37:44'),
+(38, 4, 23, 180000, 0, 1, '2018-07-28 08:19:23', '2018-08-08 06:37:44'),
+(39, 4, 23, 180000, 0, 1, '2018-07-28 08:19:56', '2018-08-08 06:37:44'),
+(40, 4, 24, 90000, 0, 1, '2018-07-28 08:20:34', '2018-08-08 06:37:44'),
+(41, 4, 24, 180000, 0, 1, '2018-07-28 08:20:46', '2018-08-08 06:37:44'),
+(42, 2, 14, 750000, 0, 1, '2018-08-07 23:49:04', '2018-08-07 23:52:46'),
+(43, 1, 23, 480000, 0, 1, '2018-08-10 02:46:53', '2018-08-10 02:46:53'),
+(44, 1, 18, 390000, 1, 1, '2018-08-10 02:47:36', '2018-08-10 02:47:55'),
+(45, 1, 14, 360000, 0, 1, '2018-08-10 06:22:51', '2018-08-10 06:22:51'),
+(46, 1, 19, 90000, 1, 1, '2018-08-10 06:23:46', '2018-08-10 06:24:06'),
+(47, 1, 39, 120000, 1, 1, '2018-08-10 06:25:20', '2018-08-10 06:25:33'),
+(48, 1, 54, 180000, 1, 1, '2018-08-10 06:59:01', '2018-08-10 06:59:17'),
+(49, 1, 55, 180000, 1, 1, '2018-08-10 07:00:29', '2018-08-10 07:00:42'),
+(50, 1, 53, 180000, 1, 1, '2018-08-10 07:02:01', '2018-08-10 07:02:13'),
+(51, 1, 53, 180000, 1, 1, '2018-08-10 07:08:19', '2018-08-10 07:08:27'),
+(52, 1, 60, 180000, 1, 1, '2018-08-10 07:20:42', '2018-08-10 07:20:58'),
+(53, 1, 61, 180000, 1, 1, '2018-08-10 07:21:46', '2018-08-10 07:21:55'),
+(54, 1, 59, 180000, 1, 1, '2018-08-10 07:22:29', '2018-08-10 07:22:39'),
+(55, 1, 58, 180000, 1, 1, '2018-08-10 07:23:18', '2018-08-10 07:23:30'),
+(56, 1, 57, 180000, 1, 1, '2018-08-10 07:24:11', '2018-08-10 07:24:19'),
+(57, 1, 56, 180000, 1, 1, '2018-08-10 07:24:51', '2018-08-10 07:25:08'),
+(58, 62, 63, 180000, 1, 1, '2018-08-10 07:27:49', '2018-08-10 07:28:01'),
+(59, 62, 64, 180000, 1, 1, '2018-08-10 07:29:33', '2018-08-10 07:29:40'),
+(60, 62, 65, 180000, 1, 1, '2018-08-10 07:31:37', '2018-08-10 07:31:44'),
+(61, 62, 66, 180000, 1, 1, '2018-08-10 07:34:35', '2018-08-10 07:34:43'),
+(62, 1, 56, 150000, 1, 1, '2018-08-10 08:11:39', '2018-08-10 08:12:18'),
+(63, 1, 56, 30000, 1, 1, '2018-08-13 06:24:15', '2018-08-13 06:24:46');
 
 -- --------------------------------------------------------
 
@@ -318,7 +334,45 @@ INSERT INTO `hoadonchitiet` (`hdct_id`, `hd_id`, `g_id`, `so_luong_mua`, `b_id`,
 (100, 40, 2, 1, 1, 2, '60000', '60000', '2018-07-28 08:20:35', '2018-07-28 08:20:35'),
 (101, 41, 22, 1, 8, 1, '30000', '30000', '2018-07-28 08:20:46', '2018-07-28 08:20:46'),
 (102, 41, 23, 1, 8, 2, '60000', '60000', '2018-07-28 08:20:46', '2018-07-28 08:20:46'),
-(103, 41, 24, 1, 8, 3, '90000', '90000', '2018-07-28 08:20:46', '2018-07-28 08:20:46');
+(103, 41, 24, 1, 8, 3, '90000', '90000', '2018-07-28 08:20:46', '2018-07-28 08:20:46'),
+(104, 42, 1, 5, 1, 1, '30000', '150000', '2018-08-07 23:49:04', '2018-08-07 23:52:46'),
+(105, 42, 2, 4, 1, 2, '60000', '240000', '2018-08-07 23:49:04', '2018-08-07 23:52:46'),
+(106, 42, 3, 1, 1, 3, '90000', '90000', '2018-08-07 23:49:04', '2018-08-07 23:49:04'),
+(107, 42, 34, 4, 12, 1, '30000', '120000', '2018-08-07 23:51:25', '2018-08-07 23:52:46'),
+(108, 42, 35, 1, 12, 2, '60000', '60000', '2018-08-07 23:51:25', '2018-08-07 23:51:25'),
+(109, 42, 36, 1, 12, 3, '90000', '90000', '2018-08-07 23:51:25', '2018-08-07 23:51:25'),
+(110, 43, 1, 7, 1, 1, '30000', '210000', '2018-08-10 09:46:53', '2018-08-10 09:46:53'),
+(111, 43, 4, 2, 2, 1, '30000', '60000', '2018-08-10 09:46:53', '2018-08-10 09:46:53'),
+(112, 43, 10, 1, 4, 1, '30000', '30000', '2018-08-10 09:46:53', '2018-08-10 09:46:53'),
+(113, 43, 25, 6, 9, 1, '30000', '180000', '2018-08-10 09:46:53', '2018-08-10 09:46:53'),
+(114, 44, 7, 4, 3, 1, '30000', '120000', '2018-08-10 09:47:36', '2018-08-10 09:47:36'),
+(115, 44, 10, 8, 4, 1, '30000', '240000', '2018-08-10 09:47:36', '2018-08-10 09:47:36'),
+(116, 44, 25, 1, 9, 1, '30000', '30000', '2018-08-10 09:47:36', '2018-08-10 09:47:36'),
+(117, 45, 25, 12, 9, 1, '30000', '360000', '2018-08-10 13:22:51', '2018-08-10 13:22:51'),
+(118, 46, 25, 3, 9, 1, '30000', '90000', '2018-08-10 13:23:46', '2018-08-10 13:23:46'),
+(119, 47, 25, 4, 9, 1, '30000', '120000', '2018-08-10 13:25:20', '2018-08-10 13:25:20'),
+(120, 48, 25, 1, 9, 1, '30000', '30000', '2018-08-10 13:59:01', '2018-08-10 13:59:01'),
+(121, 48, 26, 1, 9, 2, '60000', '60000', '2018-08-10 13:59:01', '2018-08-10 13:59:01'),
+(122, 48, 27, 1, 9, 3, '90000', '90000', '2018-08-10 13:59:01', '2018-08-10 13:59:01'),
+(123, 49, 12, 1, 4, 3, '90000', '90000', '2018-08-10 14:00:29', '2018-08-10 14:00:29'),
+(124, 49, 25, 1, 9, 1, '30000', '30000', '2018-08-10 14:00:29', '2018-08-10 14:00:29'),
+(125, 49, 26, 1, 9, 2, '60000', '60000', '2018-08-10 14:00:29', '2018-08-10 14:00:29'),
+(126, 50, 2, 1, 1, 2, '60000', '60000', '2018-08-10 14:02:01', '2018-08-10 14:02:01'),
+(127, 50, 25, 1, 9, 1, '30000', '30000', '2018-08-10 14:02:01', '2018-08-10 14:02:01'),
+(128, 50, 27, 1, 9, 3, '90000', '90000', '2018-08-10 14:02:01', '2018-08-10 14:02:01'),
+(129, 51, 26, 3, 9, 2, '60000', '180000', '2018-08-10 14:08:19', '2018-08-10 14:08:19'),
+(130, 52, 25, 6, 9, 1, '30000', '180000', '2018-08-10 14:20:42', '2018-08-10 14:20:42'),
+(131, 53, 25, 6, 9, 1, '30000', '180000', '2018-08-10 14:21:46', '2018-08-10 14:21:46'),
+(132, 54, 25, 6, 9, 1, '30000', '180000', '2018-08-10 14:22:29', '2018-08-10 14:22:29'),
+(133, 55, 25, 6, 9, 1, '30000', '180000', '2018-08-10 14:23:18', '2018-08-10 14:23:18'),
+(134, 56, 25, 6, 9, 1, '30000', '180000', '2018-08-10 14:24:11', '2018-08-10 14:24:11'),
+(135, 57, 25, 6, 9, 1, '30000', '180000', '2018-08-10 14:24:51', '2018-08-10 14:24:51'),
+(136, 58, 25, 6, 9, 1, '30000', '180000', '2018-08-10 14:27:49', '2018-08-10 14:27:49'),
+(137, 59, 25, 6, 9, 1, '30000', '180000', '2018-08-10 14:29:33', '2018-08-10 14:29:33'),
+(138, 60, 25, 6, 9, 1, '30000', '180000', '2018-08-10 14:31:37', '2018-08-10 14:31:37'),
+(139, 61, 25, 6, 9, 1, '30000', '180000', '2018-08-10 14:34:35', '2018-08-10 14:34:35'),
+(140, 62, 25, 5, 9, 1, '30000', '150000', '2018-08-10 15:11:39', '2018-08-10 15:11:39'),
+(141, 63, 25, 1, 9, 1, '30000', '30000', '2018-08-13 13:24:15', '2018-08-13 13:24:15');
 
 -- --------------------------------------------------------
 
@@ -342,17 +396,16 @@ CREATE TABLE `hoahong` (
 --
 
 INSERT INTO `hoahong` (`hh_id`, `id_khachhang`, `id_cha`, `tien_hoa_hong`, `status`, `danh_dau`, `created_at`, `updated_at`) VALUES
-(1, 14, 10, 0, 0, 0, '2018-07-19 08:56:00', '2018-07-19 08:56:00'),
-(2, 15, 14, 0, 0, 0, '2018-07-28 07:52:33', '2018-07-28 07:52:33'),
-(3, 16, 15, 0, 0, 0, '2018-07-28 07:54:42', '2018-07-28 07:54:42'),
-(4, 17, 16, 0, 0, 0, '2018-07-28 07:57:51', '2018-07-28 07:57:51'),
-(5, 18, 16, 0, 0, 0, '2018-07-28 07:58:53', '2018-07-28 07:58:53'),
-(6, 19, 15, 0, 0, 0, '2018-07-28 08:00:28', '2018-07-28 08:00:28'),
-(7, 20, 18, 0, 0, 0, '2018-07-28 08:01:24', '2018-07-28 08:01:24'),
-(8, 21, 18, 0, 0, 0, '2018-07-28 08:02:15', '2018-07-28 08:02:15'),
-(9, 22, 17, 0, 0, 0, '2018-07-28 08:03:12', '2018-07-28 08:03:12'),
-(10, 23, 17, 0, 0, 0, '2018-07-28 08:04:19', '2018-07-28 08:04:19'),
-(11, 24, 19, 0, 0, 0, '2018-07-28 08:05:17', '2018-07-28 08:05:17');
+(21, 56, 0, 3600, 0, 1, '2018-08-10 07:18:07', '2018-08-13 06:24:46'),
+(22, 57, 56, 18000, 0, 1, '2018-08-10 07:18:21', '2018-08-10 07:24:19'),
+(23, 58, 57, 18000, 0, 1, '2018-08-10 07:18:39', '2018-08-10 07:28:01'),
+(24, 59, 58, 21600, 0, 1, '2018-08-10 07:18:54', '2018-08-10 07:31:44'),
+(25, 60, 59, 21600, 0, 1, '2018-08-10 07:19:07', '2018-08-10 07:34:44'),
+(26, 61, 60, 18000, 0, 1, '2018-08-10 07:19:21', '2018-08-10 07:34:44'),
+(27, 63, 61, 14400, 0, 1, '2018-08-10 07:27:34', '2018-08-10 07:34:44'),
+(28, 64, 63, 0, 0, 1, '2018-08-10 07:29:23', '2018-08-10 07:33:35'),
+(29, 65, 63, 7200, 0, 1, '2018-08-10 07:31:25', '2018-08-10 07:34:43'),
+(30, 66, 65, 3600, 0, 1, '2018-08-10 07:34:24', '2018-08-10 07:34:43');
 
 -- --------------------------------------------------------
 
@@ -394,34 +447,45 @@ CREATE TABLE `loghoahong` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
 --
--- Cấu trúc bảng cho bảng `logtienchiho`
+-- Đang đổ dữ liệu cho bảng `loghoahong`
 --
 
-CREATE TABLE `logtienchiho` (
-  `id` int(11) NOT NULL,
-  `id_chinhanh` int(11) NOT NULL,
-  `sotien` text NOT NULL,
-  `ngay_tra` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `loghoahong` (`id`, `id_khachhang`, `so_tien_da_tra`, `ngay_tra`, `id_chinhanh`, `id_nhan_vien_tra`, `created_at`, `updated_at`) VALUES
+(1, 19, 766303, 'Nhân viên nhan vien chi nhanh 1 của cửa hàng s. Vào lúc 09-08-2018 15:16:05', 37, 38, '2018-08-09 08:16:05', '2018-08-09 08:16:05'),
+(2, 21, 563542, 'Nhân viên nhan vien chi nhanh 1 của cửa hàng s. Vào lúc 09-08-2018 15:17:25', 37, 38, '2018-08-09 08:17:25', '2018-08-09 08:17:25'),
+(3, 14, 7801, 'Nhân viên Admin của cửa hàng ####. Vào lúc 10-08-2018 09:48:27', 0, 1, '2018-08-10 02:48:27', '2018-08-10 02:48:27'),
+(4, 64, 3600, 'Nhân viên khanhpro của cửa hàng Chi Nhánh Ô Môn. Vào lúc 10-08-2018 14:33:35', 26, 62, '2018-08-10 07:33:35', '2018-08-10 07:33:35'),
+(5, 56, 18000, 'Nhân viên khanhpro của cửa hàng Chi Nhánh Ô Môn. Vào lúc 10-08-2018 15:08:09', 26, 62, '2018-08-10 08:08:09', '2018-08-10 08:08:09');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `logtienchinhanh`
+-- Cấu trúc bảng cho bảng `log_tien_banh_chi_nhanh`
 --
 
-CREATE TABLE `logtienchinhanh` (
+CREATE TABLE `log_tien_banh_chi_nhanh` (
   `id` int(11) NOT NULL,
   `id_chinhanh` int(11) NOT NULL,
   `sotien` text NOT NULL,
   `ngay_tra` text NOT NULL COMMENT 'ngày trả tiền cho chi nhánh',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `log_tien_chi_ho`
+--
+
+CREATE TABLE `log_tien_chi_ho` (
+  `id` int(11) NOT NULL,
+  `id_chinhanh` int(11) NOT NULL,
+  `sotien` text NOT NULL,
+  `ngay_tra` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -451,24 +515,10 @@ INSERT INTO `phancap` (`pc_id`, `pc_ten`, `pc_socap`, `status`, `pc_tile`, `crea
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tienchiho`
+-- Cấu trúc bảng cho bảng `tien_banh_chi_nhanh`
 --
 
-CREATE TABLE `tienchiho` (
-  `id` int(11) NOT NULL,
-  `id_chinhanh` int(11) NOT NULL COMMENT 'biết chi nhánh nào đã thanh toán',
-  `sotien` text NOT NULL COMMENT 'số tiền của chi nhánh đó trả',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `tienchinhanh`
---
-
-CREATE TABLE `tienchinhanh` (
+CREATE TABLE `tien_banh_chi_nhanh` (
   `id` int(11) NOT NULL,
   `id_chinhanh` int(11) NOT NULL,
   `id_loaibanh` int(11) NOT NULL COMMENT 'loai bánh',
@@ -482,16 +532,46 @@ CREATE TABLE `tienchinhanh` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tienchinhanh`
+-- Đang đổ dữ liệu cho bảng `tien_banh_chi_nhanh`
 --
 
-INSERT INTO `tienchinhanh` (`id`, `id_chinhanh`, `id_loaibanh`, `id_banh`, `id_gia`, `sl_mua`, `sotien`, `status`, `created_at`, `updated_at`) VALUES
+INSERT INTO `tien_banh_chi_nhanh` (`id`, `id_chinhanh`, `id_loaibanh`, `id_banh`, `id_gia`, `sl_mua`, `sotien`, `status`, `created_at`, `updated_at`) VALUES
 (1, 1, 0, 0, 0, '', '10000000', 0, '2018-07-13 03:29:00', '2018-07-13 03:29:00'),
 (2, 2, 0, 0, 0, '', '20000000', 0, '2018-07-13 03:50:06', '2018-07-13 03:50:06'),
 (3, 3, 0, 0, 0, '', '30000000', 0, '2018-07-13 03:50:14', '2018-07-13 03:50:14'),
 (4, 4, 0, 0, 0, '', '40000000', 0, '2018-07-13 03:50:20', '2018-07-13 03:50:20'),
 (5, 5, 0, 0, 0, '', '11555', 0, '2018-07-13 03:50:25', '2018-07-13 04:10:02'),
 (6, 1, 0, 0, 0, '', '11', 0, '2018-07-13 03:50:32', '2018-07-13 03:50:32');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tien_chi_nhanh_tra_cho_khach`
+--
+
+CREATE TABLE `tien_chi_nhanh_tra_cho_khach` (
+  `id` int(11) NOT NULL,
+  `id_chinhanh` int(11) NOT NULL COMMENT 'biết chi nhánh nào đã thanh toán',
+  `sotien` text NOT NULL COMMENT 'số tiền của chi nhánh đó trả',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `tien_chi_nhanh_tra_cho_khach`
+--
+
+INSERT INTO `tien_chi_nhanh_tra_cho_khach` (`id`, `id_chinhanh`, `sotien`, `created_at`, `updated_at`) VALUES
+(1, 26, '521600', '2018-08-09 07:25:15', '2018-08-10 08:08:09'),
+(2, 26, '500000', '2018-08-09 07:25:27', '2018-08-09 07:25:27'),
+(3, 26, '500000', '2018-08-09 07:26:02', '2018-08-09 07:26:02'),
+(4, 26, '500000', '2018-08-09 07:30:01', '2018-08-09 07:30:01'),
+(5, 26, '180000', '2018-08-09 07:30:05', '2018-08-09 07:30:05'),
+(6, 26, '1000000', '2018-08-09 07:30:10', '2018-08-09 07:30:10'),
+(7, 26, '70000', '2018-08-09 07:30:13', '2018-08-09 07:30:13'),
+(8, 26, '0', '2018-08-09 07:30:32', '2018-08-09 07:30:32'),
+(9, 26, '998887', '2018-08-09 07:38:38', '2018-08-09 07:38:38'),
+(10, 37, '1329845', '2018-08-09 08:14:31', '2018-08-09 08:17:25');
 
 -- --------------------------------------------------------
 
@@ -505,6 +585,22 @@ CREATE TABLE `tongtienhoahong` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `tongtienhoahong`
+--
+
+INSERT INTO `tongtienhoahong` (`id_khachhang`, `tien_da_lanh`, `created_at`, `updated_at`) VALUES
+(56, 7200, '2018-08-10 07:18:07', '2018-08-13 06:24:46'),
+(57, 3600, '2018-08-10 07:18:21', '2018-08-10 07:24:20'),
+(58, 3600, '2018-08-10 07:18:39', '2018-08-10 07:23:30'),
+(59, 3600, '2018-08-10 07:18:54', '2018-08-10 07:22:39'),
+(60, 3600, '2018-08-10 07:19:07', '2018-08-10 07:20:58'),
+(61, 3600, '2018-08-10 07:19:21', '2018-08-10 07:21:55'),
+(63, 3600, '2018-08-10 07:27:34', '2018-08-10 07:28:01'),
+(64, 3600, '2018-08-10 07:29:23', '2018-08-10 07:29:40'),
+(65, 3600, '2018-08-10 07:31:25', '2018-08-10 07:31:44'),
+(66, 3600, '2018-08-10 07:34:24', '2018-08-10 07:34:43');
 
 -- --------------------------------------------------------
 
@@ -532,7 +628,12 @@ CREATE TABLE `userprofile` (
 INSERT INTO `userprofile` (`user_id`, `user_cmnd`, `user_ngaycap_cmnd`, `user_gender`, `user_address`, `user_image`, `id_chinhanh`, `user_at`, `created_at`, `updated_at`) VALUES
 (7, '', NULL, 1, 'cần thơ', 'http://localhost/tgpizza/pizzaCode/public/upload/Capture.PNG', 1, 0, '2018-07-13 05:26:32', '2018-07-15 21:23:26'),
 (8, '', NULL, 1, 'hậu giang', 'http://localhost/tgpizza/pizzaCode/public/upload/Screenshot (1).png', 4, 0, '2018-07-13 05:31:15', '2018-07-15 21:23:13'),
-(10, '', NULL, 1, '1', 'http://localhost/tgpizza/pizzaCode/public/upload/Screenshot (1).png', 2, 0, '2018-07-15 06:59:05', '2018-07-15 06:59:37');
+(10, '', NULL, 1, '1', 'http://localhost/tgpizza/pizzaCode/public/upload/Screenshot (1).png', 2, 0, '2018-07-15 06:59:05', '2018-07-15 06:59:37'),
+(33, '1', '1', 1, '1', '', 28, 1, '2018-08-06 06:30:54', '2018-08-06 06:30:54'),
+(35, '0297428', '6229-04-13', 1, 'đ', '', 26, 1, '2018-08-06 06:46:40', '2018-08-06 06:46:40'),
+(36, '1111111', '1111-11-11', 1, '1', '', 26, 1, '2018-08-09 07:15:33', '2018-08-09 07:15:33'),
+(38, '1234221', '1111-11-11', 0, 'sdsss', '', 37, 1, '2018-08-09 08:15:32', '2018-08-09 08:15:32'),
+(62, '111', '1111-11-11', 1, '111', '', 26, 1, '2018-08-10 07:26:41', '2018-08-10 07:26:41');
 
 -- --------------------------------------------------------
 
@@ -558,29 +659,39 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `type`, `name`, `email`, `phone`, `password`, `active`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 0, 'Admin', 'admin@admin.com', '0000', '$2y$10$plzfXpJY2mgCLxrIxE25dOf1RhR/UpyFo8K2eb5y4AFsoQu/ghMRK', 1, '0IwNxJYtqYwcyLodC3ROHsRn9GbtlAvpswboMYMC1dQljmmvWQDNc2AtxDxa', '2018-07-12 07:36:30', '2018-08-04 07:25:37'),
+(1, 0, 'Admin', 'admin@admin.com', '0000', '$2y$10$plzfXpJY2mgCLxrIxE25dOf1RhR/UpyFo8K2eb5y4AFsoQu/ghMRK', 1, 'jrlQDQnQNv8kgoqWb9olzNKur043IXqh98ASYlCttdjC3gPPguj8a1dTXtMO', '2018-07-12 07:36:30', '2018-08-13 13:43:49'),
 (3, 1, 'Nhan vien truc quay', 'nhanvien1@gmail.com', '0', '$2y$10$ngoPUGDMB7vNnJxTDDqNU.A2r35r4ubdCDz5V4CSa6MSVyyVa2Va2', 1, 'Vk131HZPIVNNptodaOyoeJzpA62t835hDfpaTQEELfRLdtq3Ij9hmS6SBM4O', '2018-07-06 09:42:28', '2018-07-15 07:05:10'),
 (4, 1, 'Nhan vien truc quay 2', 'nhanvien2@gmail.com', '0', '$2y$10$X.om26iHmpfNGndYN1sBWuTUaeUqdfRPJmQrSQUrvCX8GlvTSrEKG', 1, 'kopasma4yukljheDbTfXhrD7q34X4iMZTMiJLwxcCDiJ6MtbcUZNkHHLzfyg', '2018-07-06 08:52:51', '2018-07-06 01:52:21'),
 (5, 1, 'nhân viên số 3', 'nhanvien3@gmail.com', '0972705702', '$2y$10$LQwHuPsBLLLZpRXNu4Rz/ufD9f2NeRC1nAznal3lZiC6H9aVHJJ46', 1, 'MikCMWvQbjKCNvkuQ0yeIasiIYW3Y6qTQf2X6s47JbgmKyZskaibUGjvi6rs', '2018-07-12 07:27:46', '2018-07-15 06:55:34'),
-(7, 1, 'Quốc Khánh', 'khanh@gmail.com', '0972705703', '$2y$10$jDKAdFUac9nURicLuhwbLeSmyTZaQO9q1o9bUDATcANuToCfIHKqS', 1, 'U54QzUPsge7WxfE4E4yk94mGDdFNqA1mrAM6k1JoJkjCOMFAyPYLYeVmdOUg', '2018-07-13 05:26:32', '2018-08-01 15:08:19'),
+(7, 1, 'Quốc Khánh', 'khanh@gmail.com', '0972705703', '$2y$10$jDKAdFUac9nURicLuhwbLeSmyTZaQO9q1o9bUDATcANuToCfIHKqS', 1, '06Tilv7uRsJsKlGNRS957I3uTWBROlOv39wd4RUxJ7BGfbCZ7LfoCDLVG3DU', '2018-07-13 05:26:32', '2018-08-09 14:05:33'),
 (8, 1, 'Đoàn Minh Nhựt', 'nhut@gmail.com', '0972705702', '$2y$10$c9tU5BpCJy26QH7Tb0RlRe4.YCxv58ctwoAdo7bvLTpaX2bi/6Tpm', 1, 'iOTvBrTnPbXISrrbX7FKKy6KzDkiKjZzwbv1GuCvaxCy73bj1ysadt8GToa8', '2018-07-13 05:31:15', '2018-07-15 21:23:13'),
 (10, 1, '1', '_@a.com', '1', '$2y$10$jN0NOpHrXhKJ98GRAKqSW.FjYM/E7TfjYssUiKfKhXr1xia.Wtl3G', 1, 'mQLUfwBZphpqxjkICBgc2hThYQ9yWK1awnlHdfzWgDBdQkdjQLPFh7mxF8n8', '2018-07-15 06:59:05', '2018-08-01 15:08:09'),
-(11, 2, 'q', '1', '1', '$2y$10$Q1PVUEeOJrEiWR.NCcuKQO3koSb4mpfVE7HTEMo4hIZ7FnAYwdvRu', 1, NULL, '2018-07-19 08:51:42', '2018-07-19 08:51:42'),
-(12, 2, 'q', '1', '1', '$2y$10$A6lz/Z0ycyRr/gv/kusOQuH3kJ7nSIJb7zW9jp3MDifpKz3DEUfDq', 1, NULL, '2018-07-19 08:54:56', '2018-07-19 08:54:56'),
-(13, 2, 'q', '1', '1', '$2y$10$x7/6Z.hOTxlVHSg0D88QiOdFwHgtVLsUG8nliGGrHdEwQDOv6bSGS', 1, NULL, '2018-07-19 08:55:36', '2018-07-19 08:55:36'),
-(14, 2, '1', '1', '11', '$2y$10$0yp1NqwtPsg7q84B1tiZL.D9PFnyGkILYunuWjQlsyIeuOI3iytA6', 1, 'On4pDsxfvDrlGa7w3f73QY83iezbv34PbWFtjS1yHkn9kPSVgGvhwSFfZMv9', '2018-07-19 08:56:00', '2018-07-28 15:06:00'),
-(15, 2, 'Lê Văn Nhất', '1', '0123456001', '$2y$10$CpnTahEHDpybOCdjPdGgZexm2Bdb8EWptkaSFz1r2hPKdKSvSGZ4a', 1, 'B5shEKVkfkWhbDNwp4Hr4HEwAO1sX5mOX9epyX4VnCl0ntO8onqHSyrMvHz5', '2018-07-28 07:52:33', '2018-07-28 15:07:26'),
-(16, 2, 'Lê Văn Nhị', '1', '0123456002', '$2y$10$BG4K/N3I5GklB.SkncLOCOvdzP0x0piIqpQs.vamXifv/RmM7T4ri', 1, 'bdIOJqZgXeMiWJOrLmt5rF8MSmwtjvkstlDGiiVol56dWco1y9QZ0XCOMkEc', '2018-07-28 07:54:42', '2018-07-28 15:08:28'),
-(17, 2, 'Lê Văn Tam', '1', '0123456003', '$2y$10$0zq8gIdIoMAMX1jomcvWNuiXbN0K2yMKX6y1As4Mq1QPrg6KDhBxi', 1, '2kbBumqytSWOof4Cl9tvvAKbnlzpfr5E5qaQPxW4wlA4ZX8Xsgstxth7x5VY', '2018-07-28 07:57:51', '2018-07-28 15:09:18'),
-(18, 2, 'Lê Văn Tứ', '1', '0123456004', '$2y$10$XPe3xV0iQJfEwqdA1BA.2etQS0HP8tbT1dWqrPZRXL5s4EBHtgFQS', 1, 'Ev8gzeVUukjanPLi9BkCSqBNegjhze3OjAd0XGWoJYV3CBrVp5up2uf2X893', '2018-07-28 07:58:53', '2018-07-28 15:10:14'),
-(19, 2, 'Lê Văn Ngũ', '1', '0123456005', '$2y$10$AjuxAZGCLEsjKPZ0dgczeeuuedvQadjGJUG/sx/QVuYPANbDiVqpS', 1, 'jOThwGMbdn4J2VVbfnkgvVexdpb1pk6bFF5UP0PX0iyjiZdGevIFO8wgVt91', '2018-07-28 08:00:28', '2018-07-28 15:11:42'),
-(20, 2, 'Lê Văn Lục', '1', '0123456006', '$2y$10$ww73FYOO9haXpzYamsOR4O1HFAFIQ6.l2EBrBFPAEIaZIk4cAZPfm', 1, 't8TtlFKloQ14SC0Q38FhREx4P6bJpxcZaM7q3N1m9dTmhdUNbKifvGWgdizK', '2018-07-28 08:01:24', '2018-07-28 15:13:13'),
-(21, 2, 'Lê Văn Thất', '1', '0123456007', '$2y$10$aXGRkHFCR5V1aIwQpQjmOOQTfT.YkHpnpbD8Qxd1NbI4zbh1nstaW', 1, 'IKK4qjTFPdhXMSCJ29cMmmoDNji0S6DFhDvB0PnkHItP8l24GKN4M7N1NKE0', '2018-07-28 08:02:15', '2018-07-28 15:17:40'),
-(22, 2, 'Lê Văn Bát', '1', '0123456008', '$2y$10$.aSD3LPAoKdhatU7MR7WAOW6KuTNInbM7R970ze2zFSLSyTmAoFmG', 1, 'SUTnprdTIbyEnVnqBIe2AmjpQaW73Z6Q1pgnZuZPpuUWuErVkfHCXqjHzLEl', '2018-07-28 08:03:11', '2018-07-28 15:18:31'),
-(23, 2, 'Lê Văn Cửu', '1', '0123456009', '$2y$10$uLIHu1KD9PIw6avOaYhhUOoT3Myo28ggT7X3xUCO9lECVs/hqJgBG', 1, 'fhZktaxOlstORjxO0e4invJrYXuJVJYzY7x8yBdNJeZDfhfAo051sBwt2q8N', '2018-07-28 08:04:19', '2018-07-28 15:20:09'),
-(24, 2, 'Lê Văn Thập', '1', '0123456010', '$2y$10$aqdbtwVVNJm6CHAxrg3vXeP.s04wdsI5JM5z.vX/BlP2Nc1IjxaUe', 1, NULL, '2018-07-28 08:05:17', '2018-07-28 08:05:17'),
+(11, 0, 'q', '1', '1', '$2y$10$Q1PVUEeOJrEiWR.NCcuKQO3koSb4mpfVE7HTEMo4hIZ7FnAYwdvRu', 1, NULL, '2018-07-19 08:51:42', '2018-08-07 02:05:54'),
 (25, 3, 'Đoàn Minh Nhựt', 'nhut@gmail.com', '0972705702', '$2y$10$1VcZS38uNmJ61YhSnep1Cul4SV0E/VYiQHbP/dI7J7lxG.oMOB5si', 1, NULL, '2018-08-04 00:24:02', '2018-08-04 00:24:02'),
-(26, 3, 'Đoàn Minh Nhựt', 'nhut@gmail.com', '0972705702', '$2y$10$h.yaaQ66QMmK4RYSCJzX4u/hZSiRmUzCBbrLqxb8VGRLGJQ5rPzlu', 1, NULL, '2018-08-04 00:24:33', '2018-08-04 00:24:33');
+(26, 3, 'Đoàn Minh Nhựt', 'nhut@gmail.com', '0972705702', '$2y$10$h.yaaQ66QMmK4RYSCJzX4u/hZSiRmUzCBbrLqxb8VGRLGJQ5rPzlu', 1, NULL, '2018-08-04 00:24:33', '2018-08-04 00:24:33'),
+(27, 3, 'Nguyễn Quốc Khánh', 'khanh@gmail.com', '0972705706', '$2y$10$AJNIosaHH4edcLqubVz7DO9ZLKNFwWGrNJPsM9xXNNr57aks/9sZq', 1, NULL, '2018-08-04 01:12:14', '2018-08-04 01:12:14'),
+(28, 3, 'Nguyễn Quốc Khánh', 'khanh@gmail.com', '09727057022', '$2y$10$6CjL2G7Od7WqomgN/Fh6muYjJQdzYBPNknn/63F8upBeoVlWFQXGK', 1, NULL, '2018-08-04 01:15:33', '2018-08-04 01:15:33'),
+(29, 3, 'Nguyễn Quốc Khánh', 'khanh@gmail.comn', '09727057034', '$2y$10$D7BltqoBOBopPlhRLrvUU.ffs8tGhQb9eNULSxn57d9V5hnLVO4Mq', 1, NULL, '2018-08-04 01:17:10', '2018-08-04 01:17:10'),
+(30, 1, '1', '1@gmail.com', '1', '$2y$10$mPDZOiXZypoKxJJ1nzmfqe3YLtIxXR6x2EScGaSqnbq0FelgoSpme', 1, NULL, '2018-08-06 06:28:24', '2018-08-06 06:28:24'),
+(31, 1, '1', '1@gmail.com', '1', '$2y$10$0ik76f/czyxjfPaFV6df4er.kqIZHSxPAyx760wgI0mNoxWX9SDBq', 1, NULL, '2018-08-06 06:29:37', '2018-08-06 06:29:37'),
+(32, 1, '1', '1@gmail.com', '1', '$2y$10$yDzA9ElOMJoDouZTko7LT.J1VwImmfrbHdfpJ4BRjkR0LMAHkfdcS', 1, NULL, '2018-08-06 06:30:28', '2018-08-06 06:30:28'),
+(33, 1, '1', '1@gmail.com', '1', '$2y$10$Kpmtpobrh94IQkL.ixXhv.8z9Fh2sjfAXNv1GnARqcB3GfEuda4p6', 1, NULL, '2018-08-06 06:30:54', '2018-08-06 06:30:54'),
+(34, 1, 'nguyen quoc khanh', 'khanh@gmail.com', '9097414', '$2y$10$0Yefx4nMLZJIW689TkptbO9zTldgOgl5lPt8SVs2dVyoi/kIqAM12', 1, 'KmSJ3QbP9wEYJ7fzWG5JWf7uFqbyrm855ZtnWqFRxvPr26131lZ2ml7jRBkR', '2018-08-06 06:46:26', '2018-08-09 14:13:44'),
+(35, 1, 'nguyen quoc khanh', 'khanh@gmail.com', '9097414', '$2y$10$WY2tEWk2P4Qq7JDZUD7l/.i.gVkIlIElCnjCQyE8kPNc09Ej3T6Za', 1, NULL, '2018-08-06 06:46:40', '2018-08-06 06:46:40'),
+(36, 1, 'nv1', 'nv1@gmail.com', '123456789', '$2y$10$W/qflCP3rUDQ8m1b5eNLBOIdxo8SKJJeF5XG6FBGJ5emhZlcZpwQC', 1, 'xhzaprYF9Rz5rbk6YpBZGpnk04bVaScZdv5dxez6PYmFsG8bs1qz5l70AgZL', '2018-08-09 07:15:32', '2018-08-09 15:12:46'),
+(37, 3, 'chi nhanh 1', 'cn1@gmail.com', '1233454567', '$2y$10$Wev2rzXt/itD0FQ3exa9I.Kc14MtNEMg1r5sNmUPWFqWmRHydd.1y', 1, NULL, '2018-08-09 08:14:31', '2018-08-09 08:14:31'),
+(38, 1, 'nhan vien chi nhanh 1', 'nvcn1@gmail.com', '123564', '$2y$10$IOOSMEH6sAXgQnio4rhdFeEZqi0j1ACro7UJXz.yhRRoXLz.wrw7.', 1, 'V5F32O8oDRoNNvDia5IzDs6098gysufJo8anSj3MWqvj6Erv7oBoZvVGgB1u', '2018-08-09 08:15:32', '2018-08-09 15:39:15'),
+(56, 2, 'anh A', '', '1', '$2y$10$pWHcejqj3A8PoN46c20YUOhQSaY1ICL0nOXHEAT0COArPjfc28x2i', 1, NULL, '2018-08-10 07:18:07', '2018-08-10 07:18:07'),
+(57, 2, 'anh B', '', '2', '$2y$10$zmZmtEdg1Mp0IAK7Unwg2eDITBRyyEW5LK/BesYuw04K4dF5TOBrO', 1, NULL, '2018-08-10 07:18:21', '2018-08-10 07:18:21'),
+(58, 2, 'anh C', '', '3', '$2y$10$cvRC8ytELS9IaW76XZlm3O017wWompiXM9SrdufBhBfBlaW7ldfsW', 1, NULL, '2018-08-10 07:18:39', '2018-08-10 07:18:39'),
+(59, 2, 'anh D', '', '4', '$2y$10$QKN3tozY7vAAGmlDBW.EDuxsqQuyA.9K5YZ8wPXR/HWGG8Z6dRyxq', 1, NULL, '2018-08-10 07:18:54', '2018-08-10 07:18:54'),
+(60, 2, 'anh E', '', '5', '$2y$10$XGDvNS1h/nhj9IBUfDwjXe0KAQXbcMVAoNSSlnoiUEz8EbVeLlYay', 1, NULL, '2018-08-10 07:19:06', '2018-08-10 07:19:06'),
+(61, 2, 'anh F', '', '6', '$2y$10$zc2WOte8RBYh.10WtiOc0OjHVYgdJpUfSq7OJdpaJwUv1md2MnZwm', 1, NULL, '2018-08-10 07:19:21', '2018-08-10 07:19:21'),
+(62, 1, 'khanhpro', 'khanhpro@gmail.com.vn', '1234', '$2y$10$ohNu5KFCv1rlwsiPZFuUtuCuBaWYzQgK3/4ONeBhsIuZzGMUiutAO', 1, 'SYDoWkNN4KlxCdNg5bzXCgbAT72wp2Ss8XuHykSA6k0iYhfvE0ekPFa5sFjo', '2018-08-10 07:26:41', '2018-08-10 15:09:07'),
+(63, 2, 'anh H', '', '7', '$2y$10$PoC7eBrfwFoIPXoLlWF8I.w/vkjOjqN8imc4l0iGbtJQJQHFO.5iC', 1, NULL, '2018-08-10 07:27:34', '2018-08-10 07:27:34'),
+(64, 2, 'anh G', '', '8', '$2y$10$C16KTe5th7QYxfmhDeMZAeZCXURiFHpFAKqfP8kDpLujt4IGmx1iG', 1, NULL, '2018-08-10 07:29:23', '2018-08-10 07:29:23'),
+(65, 2, 'anh K', '', '9', '$2y$10$XZluGA79ipi.afAzxcfi/uvV01gvq/Ra5I05.9NDtAUsIYFpbRqMS', 1, NULL, '2018-08-10 07:31:25', '2018-08-10 07:31:25'),
+(66, 2, 'anh J', '', '10', '$2y$10$oWHEvM1Jy9R/VwmTzPLI7OfDGK.nQv5jPF9IForZIJWAyPZjTgsey', 1, NULL, '2018-08-10 07:34:24', '2018-08-10 07:34:24');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -641,15 +752,15 @@ ALTER TABLE `loghoahong`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `logtienchiho`
+-- Chỉ mục cho bảng `log_tien_banh_chi_nhanh`
 --
-ALTER TABLE `logtienchiho`
+ALTER TABLE `log_tien_banh_chi_nhanh`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `logtienchinhanh`
+-- Chỉ mục cho bảng `log_tien_chi_ho`
 --
-ALTER TABLE `logtienchinhanh`
+ALTER TABLE `log_tien_chi_ho`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -659,15 +770,15 @@ ALTER TABLE `phancap`
   ADD PRIMARY KEY (`pc_id`);
 
 --
--- Chỉ mục cho bảng `tienchiho`
+-- Chỉ mục cho bảng `tien_banh_chi_nhanh`
 --
-ALTER TABLE `tienchiho`
+ALTER TABLE `tien_banh_chi_nhanh`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `tienchinhanh`
+-- Chỉ mục cho bảng `tien_chi_nhanh_tra_cho_khach`
 --
-ALTER TABLE `tienchinhanh`
+ALTER TABLE `tien_chi_nhanh_tra_cho_khach`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -696,7 +807,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `banh`
 --
 ALTER TABLE `banh`
-  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `gia`
@@ -708,19 +819,19 @@ ALTER TABLE `gia`
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `hd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `hd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT cho bảng `hoadonchitiet`
 --
 ALTER TABLE `hoadonchitiet`
-  MODIFY `hdct_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `hdct_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 
 --
 -- AUTO_INCREMENT cho bảng `hoahong`
 --
 ALTER TABLE `hoahong`
-  MODIFY `hh_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `hh_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT cho bảng `loaibanh`
@@ -732,18 +843,18 @@ ALTER TABLE `loaibanh`
 -- AUTO_INCREMENT cho bảng `loghoahong`
 --
 ALTER TABLE `loghoahong`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT cho bảng `log_tien_banh_chi_nhanh`
+--
+ALTER TABLE `log_tien_banh_chi_nhanh`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `logtienchiho`
+-- AUTO_INCREMENT cho bảng `log_tien_chi_ho`
 --
-ALTER TABLE `logtienchiho`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT cho bảng `logtienchinhanh`
---
-ALTER TABLE `logtienchinhanh`
+ALTER TABLE `log_tien_chi_ho`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -753,28 +864,28 @@ ALTER TABLE `phancap`
   MODIFY `pc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT cho bảng `tienchiho`
+-- AUTO_INCREMENT cho bảng `tien_banh_chi_nhanh`
 --
-ALTER TABLE `tienchiho`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tien_banh_chi_nhanh`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT cho bảng `tienchinhanh`
+-- AUTO_INCREMENT cho bảng `tien_chi_nhanh_tra_cho_khach`
 --
-ALTER TABLE `tienchinhanh`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `tien_chi_nhanh_tra_cho_khach`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `tongtienhoahong`
 --
 ALTER TABLE `tongtienhoahong`
-  MODIFY `id_khachhang` int(11) NOT NULL AUTO_INCREMENT COMMENT 'lấy id từ bảng users làm khóa chính';
+  MODIFY `id_khachhang` int(11) NOT NULL AUTO_INCREMENT COMMENT 'lấy id từ bảng users làm khóa chính', AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

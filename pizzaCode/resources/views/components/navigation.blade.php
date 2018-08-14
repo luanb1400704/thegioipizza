@@ -23,21 +23,18 @@
                         <span class="label label-warning have-badge"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="header">Ban co <span class="have-badge"></span> don moi chua</li>
+                        <li class="header">Bạn có <span class="have-badge"></span> đơn hàng chưa duyệt</li>
                         <li>
                             <ul class="menu">
                                 <li>
                                     <a href="{{route('hoadon.indexchuaduyet')}}">
-                                        <i class="fa fa-shopping-cart text-green"></i> Den don hang
+                                        <i class="fa fa-shopping-cart text-green"></i> Đến đơn hàng
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="footer"><a onclick="getBadge()" class="btn"><i class="fa fa-refresh"></i> Tai lai</a></li>
+                        <li class="footer"><a onclick="getBadge()" class="btn"><i class="fa fa-refresh"></i> Tải lại</a></li>
                     </ul>
-                </li>
-                <li>
-                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                 </li>
             </ul>
         </div>
