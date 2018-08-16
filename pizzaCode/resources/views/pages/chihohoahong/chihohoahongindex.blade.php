@@ -38,8 +38,6 @@
                         <th>CMND</th>
                         <th>Địa chỉ</th>
                         <th>Số Tiền Tích Lũy</th>
-                        <th>Trạng Thái</th>
-                        <th>Đánh dấu</th>
                         @if(!Auth::user()->type == 0)
                             <th></th>
                         @endif
@@ -55,12 +53,6 @@
                         <td>{{ $val->customer_cmnd }}</td>
                         <td>{{ $val->customer_address }}</td>
                         <td>{{ number_format($val->tien_hoa_hong) }} vnđ</td>
-                        <td>{{ $val->status }}</td>
-                        @if($val->danh_dau == 0)
-                            <td>chưa đủ dk</td>
-                        @else
-                            <td>đủ dk</td>
-                        @endif
                         @if($val->tien_hoa_hong == 0)
                             <td class="text-center">
                             </td>

@@ -7,6 +7,7 @@ use App\GiaModel;
 use App\HoaDonChiTietModel;
 use App\HoaDonModel;
 use App\HoaHongModel;
+use App\Http\Requests\ThemKhachHangRequests;
 use App\PhanCapModel;
 use App\TongTienHoaHongModel;
 use App\Users;
@@ -154,7 +155,7 @@ class HoaDonController extends Controller
         return redirect(route('hoadon.indexdaduyet'));
     }
 
-    public function createCustomer(Request $request)
+    public function createCustomer(ThemKhachHangRequests $request)
     {
         $contain = $request->except('_token');
         if (empty($contain['id_cha'])) {
