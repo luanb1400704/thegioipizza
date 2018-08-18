@@ -34,8 +34,8 @@ CREATE TABLE `banh` (
   `b_mota` text,
   `b_anh` text NOT NULL,
   `b_bst` text,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp,
+  `updated_at` timestamp
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -67,8 +67,8 @@ CREATE TABLE `chinhanh` (
   `ten_chinhanh` varchar(100) NOT NULL COMMENT 'tên của chi nhánh',
   `diachi_chinhanh` text NOT NULL COMMENT 'địa chỉ chi nhánh',
   `created_by` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp,
+  `updated_at` timestamp
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -96,8 +96,8 @@ CREATE TABLE `customer` (
   `customer_address` text COMMENT 'địa chỉ khách hàng',
   `customer_image` text COMMENT 'ảnh đại diện',
   `id_employee` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp,
+  `updated_at` timestamp
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -127,8 +127,8 @@ CREATE TABLE `gia` (
   `b_id` int(11) NOT NULL,
   `l_id` int(11) NOT NULL,
   `g_tien` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp,
+  `updated_at` timestamp
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -186,8 +186,8 @@ CREATE TABLE `hoadon` (
   `tong_tien_hoa_don` int(11) NOT NULL COMMENT 'tổng số tiền của hóa đơn',
   `status` int(1) NOT NULL DEFAULT '0' COMMENT '0: chưa duyệt là ở frontend ,1 đã duyệt khi ở backend, -1 còn trong giỏ hàng chưa xác nhận đặt',
   `id_phan_cap` int(11) NOT NULL COMMENT 'biết đang chia ở cấp mấy',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp,
+  `updated_at` timestamp
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -257,8 +257,8 @@ CREATE TABLE `hoadonchitiet` (
   `l_id` int(11) NOT NULL COMMENT 'lấy ra tên loại bánh',
   `g_tien` text NOT NULL COMMENT 'giá tiền của bánh',
   `thanh_tien` text NOT NULL COMMENT 'tiền của từng bánh , lấy số lượng nhân với giá tiền',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp,
+  `updated_at` timestamp
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -387,8 +387,8 @@ CREATE TABLE `hoahong` (
   `tien_hoa_hong` int(11) NOT NULL DEFAULT '0' COMMENT 'xử lý HD',
   `status` int(1) NOT NULL DEFAULT '0' COMMENT '0: đã lãnh, 1: chưa lãnh',
   `danh_dau` int(1) NOT NULL DEFAULT '0' COMMENT '0: là chưa ăn bánh, 1: là ăn rồi',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp,
+  `updated_at` timestamp
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -417,8 +417,8 @@ CREATE TABLE `loaibanh` (
   `l_id` int(11) NOT NULL,
   `l_ten` varchar(100) NOT NULL,
   `l_kichthuoc` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp,
+  `updated_at` timestamp
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -443,8 +443,8 @@ CREATE TABLE `loghoahong` (
   `ngay_tra` text NOT NULL COMMENT 'ngày đã trả tiền',
   `id_chinhanh` int(11) NOT NULL COMMENT 'biết chi nhánh nào trả',
   `id_nhan_vien_tra` int(11) NOT NULL COMMENT 'biết người náo ở chi nhánh đó trả',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp,
+  `updated_at` timestamp
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -469,8 +469,8 @@ CREATE TABLE `log_tien_banh_chi_nhanh` (
   `id_chinhanh` int(11) NOT NULL,
   `sotien` text NOT NULL,
   `ngay_tra` text NOT NULL COMMENT 'ngày trả tiền cho chi nhánh',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp,
+  `updated_at` timestamp
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -484,8 +484,8 @@ CREATE TABLE `log_tien_chi_ho` (
   `id_chinhanh` int(11) NOT NULL,
   `sotien` text NOT NULL,
   `ngay_tra` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -500,8 +500,8 @@ CREATE TABLE `phancap` (
   `pc_socap` int(2) NOT NULL,
   `status` int(11) NOT NULL,
   `pc_tile` text NOT NULL COMMENT 'tỉ lệ để chia hoa hồng',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp,
+  `updated_at` timestamp
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -527,8 +527,8 @@ CREATE TABLE `tien_banh_chi_nhanh` (
   `sl_mua` text NOT NULL COMMENT 'số lượng bánh chi nhánh mua',
   `sotien` text NOT NULL,
   `status` int(1) NOT NULL COMMENT '0: chưa trả : 1: trả rồi',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp,
+  `updated_at` timestamp
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -553,8 +553,8 @@ CREATE TABLE `tien_chi_nhanh_tra_cho_khach` (
   `id` int(11) NOT NULL,
   `id_chinhanh` int(11) NOT NULL COMMENT 'biết chi nhánh nào đã thanh toán',
   `sotien` text NOT NULL COMMENT 'số tiền của chi nhánh đó trả',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp,
+  `updated_at` timestamp
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -582,8 +582,8 @@ INSERT INTO `tien_chi_nhanh_tra_cho_khach` (`id`, `id_chinhanh`, `sotien`, `crea
 CREATE TABLE `tongtienhoahong` (
   `id_khachhang` int(11) NOT NULL COMMENT 'lấy id từ bảng users làm khóa chính',
   `tien_da_lanh` int(11) NOT NULL DEFAULT '0' COMMENT 'tổng số tiền khách hàng đã lãnh',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp,
+  `updated_at` timestamp
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -617,8 +617,8 @@ CREATE TABLE `userprofile` (
   `user_image` text COMMENT 'ảnh đại diện',
   `id_chinhanh` int(11) NOT NULL COMMENT 'lưu id chi nhánh , biết nv ở chi nhánh nào',
   `user_at` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp,
+  `updated_at` timestamp
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -650,8 +650,8 @@ CREATE TABLE `users` (
   `password` text NOT NULL,
   `active` int(1) NOT NULL DEFAULT '1' COMMENT '0:là khóa , 1: là không khóa',
   `remember_token` varchar(80) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp,
+  `updated_at` timestamp
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
