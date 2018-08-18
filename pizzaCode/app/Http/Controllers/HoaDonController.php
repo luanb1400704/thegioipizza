@@ -139,12 +139,12 @@ class HoaDonController extends Controller
         $contain['number'] = $contain['level']->pc_socap;
         $contain['order']->status = 1;
         $contain['order']->save();
-//        $contain['count'] = $this->manyLevel($contain['customer'], 0);
-//        if ($contain['count'] < $contain['number']) {
-//            $contain['money_plus'] = $contain['percent'] / 100 * $contain['order']->tong_tien_hoa_don / $contain['count'];
-//        } else {
-        $contain['money_plus'] = $contain['percent'] / 100 * $contain['order']->tong_tien_hoa_don / $contain['number'];
-//        }
+        $contain['count'] = $this->manyLevel($contain['customer'], 0);
+        if ($contain['count'] < $contain['number']) {
+            $contain['money_plus'] = $contain['percent'] / 100 * $contain['order']->tong_tien_hoa_don / $contain['count'];
+        } else {
+            $contain['money_plus'] = $contain['percent'] / 100 * $contain['order']->tong_tien_hoa_don / $contain['number'];
+        }
         $contain['money_customer'] = HoaHongModel::where('id_khachhang', $contain['customer'])->first();
         $contain['money_customer']->tien_hoa_hong += $contain['money_plus'];
         $contain['money_customer']->save();
@@ -155,7 +155,7 @@ class HoaDonController extends Controller
         return redirect(route('hoadon.indexdaduyet'));
     }
 
-    public function createCustomer(ThemKhachHangRequests $request)
+    public function createCustomer(Request $request)
     {
         $contain = $request->except('_token');
         if (empty($contain['id_cha'])) {

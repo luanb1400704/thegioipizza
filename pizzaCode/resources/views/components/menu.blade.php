@@ -75,12 +75,12 @@
                 <li>
                     <a href="{{ route('nv.index') }}"><i class="fa fa-users"></i><span>Nhân viên chi nhánh</span></a>
                 </li>
-                <li>
-                    <a href="{{ route('tien_chi_nhanh') }}"><i class="fa fa-dollar"></i><span>Tiền bánh chi nhánh</span></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-refresh"></i><span>Lịch sử thu tiền bánh</span></a>
-                </li>
+                {{--<li>--}}
+                    {{--<a href="{{ route('tien_chi_nhanh') }}"><i class="fa fa-dollar"></i><span>Tiền bánh chi nhánh</span></a>--}}
+                {{--</li>--}}
+                {{--<li>--}}
+                    {{--<a href="#"><i class="fa fa-refresh"></i><span>Lịch sử thu tiền bánh</span></a>--}}
+                {{--</li>--}}
                 <li>
                     <a href="{{ route('index') }}"><i class="fa fa-dollar"></i><span>Tiền chi hộ hoa hồng</span></a>
                 </li>
