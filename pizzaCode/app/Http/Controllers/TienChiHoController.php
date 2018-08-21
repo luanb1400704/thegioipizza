@@ -95,6 +95,7 @@ class TienChiHoController extends Controller
 
     public function tien_chi_nhanh()
     {
-        return view('pages.chihohoahong.tienbanhchinhanh');
+        $tienchinhanhtra = LogHoaHongModel::all();
+        return view('pages.chihohoahong.tienbanhchinhanh',compact('tienchinhanhtra'));
     }
 }

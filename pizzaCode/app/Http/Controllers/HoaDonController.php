@@ -108,7 +108,7 @@ class HoaDonController extends Controller
         if (empty($contain['money']) || $count >= $number) {
             return [];
         }
-        $count++;
+        $contain['money']->danh_dau = 1;
         $contain['money']->tien_hoa_hong += $money;
         $contain['money']->save();
         $contain['sum_money'] = TongTienHoaHongModel::where('id_khachhang', $id)->first();
@@ -116,18 +116,19 @@ class HoaDonController extends Controller
             $contain['sum_money']->tien_da_lanh += $money;
             $contain['sum_money']->save();
         }
+        $count++;
         return $this->plusMoney($contain['money']->id_cha, $money, $count, $number);
     }
 
 
-    public function manyLevel($id, $count)
+    public function manyLevel($id, $count, $number)
     {
         $contain = HoaHongModel::where('id_khachhang', $id)->first();
-        if (empty($contain)) {
+        if (empty($contain) || $count > $number) {
             return $count;
         }
         $count++;
-        return $this->manyLevel($contain->id_cha, $count);
+        return $this->manyLevel($contain->id_cha, $count, $number);
     }
 
     public function commission($id)
@@ -139,13 +140,18 @@ class HoaDonController extends Controller
         $contain['number'] = $contain['level']->pc_socap;
         $contain['order']->status = 1;
         $contain['order']->save();
-//        $contain['count'] = $this->manyLevel($contain['customer'], 0);
-//        if ($contain['count'] < $contain['number']) {
-//            $contain['money_plus'] = $contain['percent'] / 100 * $contain['order']->tong_tien_hoa_don / $contain['count'];
-//        } else {
-        $contain['money_plus'] = $contain['percent'] / 100 * $contain['order']->tong_tien_hoa_don / $contain['number'];
-//        }
+<<<<<<< HEAD
+        $contain['count'] = $this->manyLevel($contain['customer'], 0);
+=======
+        $contain['count'] = $this->manyLevel($contain['customer'], 0, $contain['number']);
+>>>>>>> 7e92b5b425e7c0959f16c5ab4cf127f9c43ec55c
+        if ($contain['count'] < $contain['number']) {
+            $contain['money_plus'] = $contain['percent'] / 100 * $contain['order']->tong_tien_hoa_don / $contain['count'];
+        } else {
+            $contain['money_plus'] = $contain['percent'] / 100 * $contain['order']->tong_tien_hoa_don / $contain['number'];
+        }
         $contain['money_customer'] = HoaHongModel::where('id_khachhang', $contain['customer'])->first();
+        $contain['money_customer']->danh_dau = 1;
         $contain['money_customer']->tien_hoa_hong += $contain['money_plus'];
         $contain['money_customer']->save();
         $contain['sum_money_customer'] = TongTienHoaHongModel::where('id_khachhang', $contain['customer'])->first();
@@ -155,7 +161,7 @@ class HoaDonController extends Controller
         return redirect(route('hoadon.indexdaduyet'));
     }
 
-    public function createCustomer(ThemKhachHangRequests $request)
+    public function createCustomer(Request $request)
     {
         $contain = $request->except('_token');
         if (empty($contain['id_cha'])) {
@@ -228,8 +234,7 @@ class HoaDonController extends Controller
             ->select('users.*', 'hoadon.*')
             ->where('hoadon.hd_id', $request->get('id'))
             ->first();
-        $chitiethoadon = HoaDonChiTietModel
-            ::join('gia', 'gia.g_id', '=', 'hoadonchitiet.g_id')
+        $chitiethoadon = HoaDonChiTietModel::join('gia', 'gia.g_id', '=', 'hoadonchitiet.g_id')
             ->join('loaibanh', 'loaibanh.l_id', '=', 'hoadonchitiet.l_id')
             ->join('banh', 'banh.b_id', '=', 'hoadonchitiet.b_id')
             ->join('hoadon', 'hoadon.hd_id', '=', 'hoadonchitiet.hd_id')
