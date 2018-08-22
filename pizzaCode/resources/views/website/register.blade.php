@@ -2,8 +2,6 @@
 @section('content')
 
 
-
-
     <!-- Booking -->
     <section class="section-booking bg1-pattern p-t-100 p-b-110">
         <div class="container">
@@ -79,7 +77,7 @@
 
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
                                     {{--<img src="" id="imgupload" alt="">--}}
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="file" id="avatar" name="customer_image" placeholder="Address" required>
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="file" id="avatar" name="file" placeholder="Address" required>
                                 </div>
                                 <div class="img-avatar-nns">
                                     <img src=""  class="register-cus" id="imgupload" alt="">

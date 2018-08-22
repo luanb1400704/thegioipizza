@@ -18,6 +18,7 @@ class CustomerController extends Controller
 
     public function register(Request $request)
     {
+        $check_user = 'notuser';
         if (isset($request->phone_introduce))
             $check_user = Users::where('phone', $request->phone_introduce)->first();
 
@@ -59,11 +60,17 @@ class CustomerController extends Controller
                 'id_employee' => 0
             ]
         );
+        if($check_user == 'notuser'){
+            $idcha = 0;
+        }
+        else{
+            $idcha = $check_user->id ;
 
+        }
         HoaHongModel::create(
             [
                 'id_khachhang' => $user->id,
-                'id_cha' => $check_user->id | 0,
+                'id_cha' => $idcha,
                 'tien_hoa_hong' => 0,
                 'status' => 0,
                 'danh_dau' => 0
@@ -74,12 +81,6 @@ class CustomerController extends Controller
     }
     public function update(Request $request)
     {
-        if (isset($request->phone_introduce))
-            $check_user = Users::where('phone', $request->phone_introduce)->first();
-
-        if (!isset($check_user)) {
-            return redirect('/store/register')->with('notphone', 'Không tìm thấy số điện thoại của người giới thiệu');
-        }
         if ($request->password != $request->repassword) {
             return redirect('/store/register')->with('errconfirmpass', 'Nhập password không trùng khớp, vui lòng nhập lại pasword xác nhận');
         }
@@ -92,8 +93,8 @@ class CustomerController extends Controller
             $kh_anhdaidien = "";
         }
 
-
-        $user = Users::create(
+        $user = Users::where('id', $request->id)
+            ->update(
             [
                 'type' => 2,
                 'name' => $request->get('name'),
@@ -103,50 +104,34 @@ class CustomerController extends Controller
                 'active' => 1,
             ]
         );
-        CustomerModel::create(
-            [
-                'user_id' => $user->id,
-                'customer_gender' => $request->get('customer_gender'),
-                'customer_birthday' => $request->get('customer_birthday'),
-                'customer_address' => $request->get('customer_address'),
-                'customer_cmnd' => $request->get('customer_cmnd'),
-                'customer_cmnd_ngaycap' => $request->get('customer_cmnd_ngaycap'),
-                'customer_image' => $kh_anhdaidien,
-                'id_employee' => 0
-            ]
-        );
+        CustomerModel::where('user_id', $request->id)
+            ->update(
+                [
+                    'customer_gender' => $request->get('customer_gender'),
+                    'customer_birthday' => $request->get('customer_birthday'),
+                    'customer_address' => $request->get('customer_address'),
+                    'customer_cmnd' => $request->get('customer_cmnd'),
+                    'customer_cmnd_ngaycap' => $request->get('customer_cmnd_ngaycap'),
+                    'customer_image' => $kh_anhdaidien,
+                ]
+            );
 
-        HoaHongModel::create(
-            [
-                'id_khachhang' => $user->id,
-                'id_cha' => $check_user->id | 0,
-                'tien_hoa_hong' => 0,
-                'status' => 0,
-                'danh_dau' => 0
-
-            ]
-        );
-        return redirect('/store/home')->with('success', 'Tạo tài khoản thành công, vui lòng đăng nhập để sử dụng dịch vụ');
+        return redirect('/store/home')->with('success', 'Cập nhật tài khoản thành công');
     }
 
 
     public function fast_register(Request $request)
     {
+        $check_user = 'notuser';
         if (isset($request->phone_introduce))
             $check_user = Users::where('phone', $request->phone_introduce)->first();
 
         if (!isset($check_user)) {
             return redirect('/store/register')->with('notphone', 'Không tìm thấy số điện thoại của người giới thiệu');
         }
+
         if ($request->password != $request->repassword) {
             return redirect('/store/register')->with('errconfirmpass', 'Nhập password không trùng khớp, vui lòng nhập lại pasword xác nhận');
-        }
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $file->move('upload', $file->getClientOriginalName());
-            $kh_anhdaidien = url('upload') . '/' . $file->getClientOriginalName() . md5(time());
-        } else {
-            $kh_anhdaidien = "";
         }
 
         $user = Users::create(
@@ -162,7 +147,7 @@ class CustomerController extends Controller
         CustomerModel::create(
             [
                 'user_id' => $user->id,
-                'customer_gender' => '',
+                'customer_gender' => 0,
                 'customer_birthday' => '',
                 'customer_address' => '',
                 'customer_cmnd' => '',
@@ -171,11 +156,18 @@ class CustomerController extends Controller
                 'id_employee' => 0
             ]
         );
+        if($check_user == 'notuser'){
+            $idcha = 0;
+        }
+        else{
+            $idcha = $check_user->id ;
+
+        }
 
         HoaHongModel::create(
             [
                 'id_khachhang' => $user->id,
-                'id_cha' => $check_user->id || 0,
+                'id_cha' => $idcha,
                 'tien_hoa_hong' => 0,
                 'status' => 0,
                 'danh_dau' => 0

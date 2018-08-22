@@ -18,7 +18,7 @@
                             Đăng ký nhanh
                         </h3>
                     </div>
-                    <form class="wrap-form-booking" method="post" action="{{route('customer/register')}}">
+                    <form class="wrap-form-booking" method="post" action="{{route('customer/fast_register')}}">
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                         <div class="row">
                             <div class="col-md-6">

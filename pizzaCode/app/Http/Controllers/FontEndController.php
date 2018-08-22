@@ -15,6 +15,7 @@ use App\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use PhpParser\Node\Expr\Cast\Object_;
 
 class FontEndController extends Controller
 {
@@ -95,10 +96,20 @@ class FontEndController extends Controller
 
         //Lấy tiền hoa hồng hiện tại
         $hoahong = HoaHongModel::where('id_khachhang', Auth::user()->id)->first();
+
+        //Lấy thông tin tài khoản giới thiệu
+        if($hoahong->id_cha==0){
+            $nguoigioithieu = (object) [
+                'name' => 'Không có người giới thiệu',
+            ];
+        }else{
+            $nguoigioithieu = Users::where('id',$hoahong->id_cha)->first();
+        }
 //        dd($hoahong);
         //Lấy thông tin lịch sử mua hàng
         $hoadon = HoaDonModel::where('id_khachhang',Auth::user()->id)
             ->where('status', 1)->get();
+
         if(!empty($hoadon))
         foreach ($hoadon as $key => $value){
             $chitiethoadon = HoaDonChiTietModel
@@ -112,7 +123,6 @@ class FontEndController extends Controller
                 ->get();
             $value['chitiet'] = $chitiethoadon;
         }
-
         //Lấy lịch sử nhận tiền hoa hồng
         $nhantien = LogHoaHongModel
             ::join('users', 'users.id','=','loghoahong.id_nhan_vien_tra')
@@ -123,13 +133,15 @@ class FontEndController extends Controller
         //Lấy tổng tích lũy
         $tongtichluy = TongTienHoaHongModel::where('id_khachhang', Auth::user()->id)->first();
 
+
         return view('website.contact',compact(
 
             'customer',
             'hoahong',
             'hoadon',
             'nhantien',
-            'tongtichluy'
+            'tongtichluy',
+            'nguoigioithieu'
 
         ));
     }

@@ -36,9 +36,10 @@
                             <span class="dis-block t-center txt35 p-b-25">
                                 @if($customer->customer_gender==1)
                                     <b>Nam</b>
-                                @endif
-                                @if($customer->customer_gender==0)
+                                @elseif($customer->customer_gender==0)
                                     <b>Nữ</b>
+                                @else
+                                    <b>Chưa cập nhật</b>
                                 @endif
 							</span>
 
@@ -46,7 +47,7 @@
                                 SĐT: <b>{{Auth::user()->phone}}</b> <br>
                                 <b>{{$customer->customer_address}}</b><br>
                                 Email: <b>{{Auth::user()->email}}</b> <br>
-                                Người giới thiệu: <b>{{Auth::user()->phone}}</b><br>
+                                Người giới thiệu: <b>{{$nguoigioithieu->name}}</b><br>
                                 Số dư hiện tại
                             </p>
                             <a href="#" class="btn-success flex-c-m size13 txt11 trans-0-4 m-l-r-auto">{{$hoahong->tien_hoa_hong}} VNĐ</a><br>
