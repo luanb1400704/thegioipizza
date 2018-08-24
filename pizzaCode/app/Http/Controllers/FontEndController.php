@@ -19,6 +19,14 @@ use PhpParser\Node\Expr\Cast\Object_;
 
 class FontEndController extends Controller
 {
+//    public function __construct(){
+//        dd(Auth::user());
+//        if(Auth::user()->type != 2) {
+////            return redirect('home');
+//            dd('hello');
+//        }
+//    }
+
     public  function get_home(){
         $banh = BanhModel::all();
         //Điều hướng xem có giỏ bánh sẵn hay chưa

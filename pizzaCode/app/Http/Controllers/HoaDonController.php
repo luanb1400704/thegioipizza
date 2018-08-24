@@ -140,11 +140,7 @@ class HoaDonController extends Controller
         $contain['number'] = $contain['level']->pc_socap;
         $contain['order']->status = 1;
         $contain['order']->save();
-<<<<<<< HEAD
-        $contain['count'] = $this->manyLevel($contain['customer'], 0);
-=======
         $contain['count'] = $this->manyLevel($contain['customer'], 0, $contain['number']);
->>>>>>> 7e92b5b425e7c0959f16c5ab4cf127f9c43ec55c
         if ($contain['count'] < $contain['number']) {
             $contain['money_plus'] = $contain['percent'] / 100 * $contain['order']->tong_tien_hoa_don / $contain['count'];
         } else {

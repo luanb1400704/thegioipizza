@@ -131,7 +131,7 @@
 
                                 <div class="wrap-inputpeople size12 bo2 bo-rad-10 m-t-3 m-b-23">
                                     <!-- Select2 -->
-                                    <select class="select-gender" name="customer_gender" required>
+                                    <select class="select-gender" name="customer_gender" >
                                         @if($data->customer_gender==1)
                                             <option value="1" selected>Nam</option>
                                             <option value="0">Nữ</option>

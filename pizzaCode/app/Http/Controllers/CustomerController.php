@@ -174,6 +174,7 @@ class CustomerController extends Controller
 
             ]
         );
+
         return redirect('/store/home')->with('success', 'Tạo tài khoản thành công, vui lòng đăng nhập để sử dụng dịch vụ');
     }
 
