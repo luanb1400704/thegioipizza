@@ -216,7 +216,7 @@ class HoaDonController extends Controller
 
     public function indexchuaduyet()
     {
-        $khachhang = HoaDonModel::join('users', 'hoadon.id_khachhang', '=', 'users.id')
+        $khachhang = HoaDonModel::leftjoin('users', 'hoadon.id_khachhang', '=', 'users.id')
             ->where('hoadon.status', 0)
             ->select('users.*', 'hoadon.*')
             ->orderby('hoadon.created_at', 'desc')
@@ -226,7 +226,7 @@ class HoaDonController extends Controller
 
     public function indexdaduyetdetail(Request $request)
     {
-        $hoadon = HoaDonModel::join('users', 'hoadon.id_nhan_vien_lap_hh', '=', 'users.id')
+        $hoadon = HoaDonModel::leftjoin('users', 'hoadon.id_nhan_vien_lap_hh', '=', 'users.id')
             ->select('users.*', 'hoadon.*')
             ->where('hoadon.hd_id', $request->get('id'))
             ->first();
@@ -244,7 +244,7 @@ class HoaDonController extends Controller
         if (isset($hoadon)) {
             return ['status' => 'success', 'data' => $data];
         } else {
-            return ['status' => 'error', 'message' => 'Không tìm thấy hóa đơn này'];
+            return ['status' => 'error','data' => $data, 'message' => 'Không tìm thấy hóa đơn này'];
         }
     }
 }

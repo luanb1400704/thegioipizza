@@ -28,7 +28,7 @@
                     {{--<button onclick=""></button>--}}
                     {{--@endif--}}
 
-                    <form class="wrap-form-booking" method="post" action="{{route('customer/update')}}">
+                    <form class="wrap-form-booking" method="post" action="{{route('customer/update')}}" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                         <input type="hidden" name="id" value="{{$data->id}}">
                         <div class="row">
@@ -87,7 +87,7 @@
 
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
                                     {{--<img src="" id="imgupload" alt="">--}}
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="file" id="avatar" name="file" placeholder="Address" required accept=".png,.jpg,.jpeg,.bmp">
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="file" id="avatar" name="file" placeholder="Address" accept=".png,.jpg,.jpeg,.bmp">
                                 </div>
                                 <div class="img-avatar-nns">
                                     <img src="{{$data->customer_image}}"  class="register-cus" id="imgupload" alt="">
@@ -174,7 +174,7 @@
 								</span>
 
                                 <div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input value="{{$data->email}}" class="bo-rad-10 sizefull txt10 p-l-20" type="email" name="email" placeholder="Email">
+                                    <input value="{{$data->email ? $data->email : ''}}" class="bo-rad-10 sizefull txt10 p-l-20" type="email" name="email" placeholder="Email">
                                 </div>
                                 <button type="submit" class="btn3 flex-c-m size13 txt11 trans-0-4" style="margin:  auto;">
                                     Xác nhận

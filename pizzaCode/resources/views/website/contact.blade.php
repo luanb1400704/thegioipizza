@@ -22,9 +22,9 @@
                     <div class="blo5 pos-relative p-t-60">
                         <div class="pic-blo5 size14 bo4 wrap-cir-pic hov-img-zoom ab-c-t">
                             @if(!empty($customer->customer_image))
-                                <a href="#"><img src="{{$customer->customer_image}}" ></a>
+                                <a href="#" style="width: 100%;height: 100%;"><img style="width: 100%;height: 100%;" src="{{$customer->customer_image}}" ></a>
                             @else
-                                <a href="#"><img src="{{url('dist/img/avatar5.png')}}" ></a>
+                                <a href="#"><img  src="{{url('dist/img/avatar5.png')}}" ></a>
                             @endif
                         </div>
 

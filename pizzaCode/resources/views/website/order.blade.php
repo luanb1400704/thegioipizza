@@ -9,10 +9,12 @@
 						<span class="tit2 t-center">
 							Giỏ hàng của bạn
 						</span>
-
+                        @if(isset($hoadon))
                         <h3 class="tit3 t-center m-b-35 m-t-2">
+
                             Các loại bánh
                         </h3>
+                        @endif
                     </div>
                 </div>
             </div>

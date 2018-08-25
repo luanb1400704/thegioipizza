@@ -6,6 +6,7 @@ use App\CustomerModel;
 use App\HoaHongModel;
 use App\PhanCapModel;
 use App\Users;
+use Faker\Provider\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -28,14 +29,7 @@ class CustomerController extends Controller
         if ($request->password != $request->repassword) {
             return redirect('/store/register')->with('errconfirmpass', 'Nhập password không trùng khớp, vui lòng nhập lại pasword xác nhận');
         }
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $new_file_name = time() . '.' . $file->getClientOriginalExtension();
-            $file->move('upload', $new_file_name);
-            $kh_anhdaidien = url('upload') . '/' . $new_file_name;
-        } else {
-            $kh_anhdaidien = "";
-        }
+
 
 
         $user = Users::create(
@@ -48,7 +42,7 @@ class CustomerController extends Controller
                 'active' => 1,
             ]
         );
-        CustomerModel::create(
+        $customer = CustomerModel::create(
             [
                 'user_id' => $user->id,
                 'customer_gender' => $request->get('customer_gender'),
@@ -56,10 +50,21 @@ class CustomerController extends Controller
                 'customer_address' => $request->get('customer_address'),
                 'customer_cmnd' => $request->get('customer_cmnd'),
                 'customer_cmnd_ngaycap' => $request->get('customer_cmnd_ngaycap'),
-                'customer_image' => $kh_anhdaidien,
+                'customer_image' => '',
                 'id_employee' => 0
             ]
         );
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $new_file_name = $customer->id;
+            $file->move('upload', $new_file_name);
+            $kh_anhdaidien = url('upload') . '/' . $new_file_name;
+        } else {
+            $kh_anhdaidien = "";
+        }
+        $customer->customer_image = $kh_anhdaidien;
+        $customer->save();
+
         if($check_user == 'notuser'){
             $idcha = 0;
         }
@@ -86,9 +91,10 @@ class CustomerController extends Controller
         }
         if ($request->hasFile('file')) {
             $file = $request->file('file');
-            $new_file_name = time() . '.' . $file->getClientOriginalExtension();
+            $new_file_name = $request->id;
             $file->move('upload', $new_file_name);
             $kh_anhdaidien = url('upload') . '/' . $new_file_name;
+            $file = CustomerModel::find($request->id);
         } else {
             $kh_anhdaidien = "";
         }
@@ -104,7 +110,7 @@ class CustomerController extends Controller
                 'active' => 1,
             ]
         );
-        CustomerModel::where('user_id', $request->id)
+        $cus = CustomerModel::where('user_id', $request->id)
             ->update(
                 [
                     'customer_gender' => $request->get('customer_gender'),
@@ -112,11 +118,12 @@ class CustomerController extends Controller
                     'customer_address' => $request->get('customer_address'),
                     'customer_cmnd' => $request->get('customer_cmnd'),
                     'customer_cmnd_ngaycap' => $request->get('customer_cmnd_ngaycap'),
-                    'customer_image' => $kh_anhdaidien,
                 ]
             );
+        if(!empty($kh_anhdaidien))
+        $cus->customer_image = $kh_anhdaidien;
 
-        return redirect('/store/home')->with('success', 'Cập nhật tài khoản thành công');
+        return redirect('/store/contact')->with('success', 'Cập nhật tài khoản thành công');
     }
 
 
