@@ -9,14 +9,16 @@
 						<span class="tit2 t-center">
 							Giỏ hàng của bạn
 						</span>
-
+                        @if(isset($hoadon))
                         <h3 class="tit3 t-center m-b-35 m-t-2">
                             Các loại bánh
                         </h3>
+                        @endif
                     </div>
                 </div>
             </div>
-            @if(isset($hoadon))
+            {{--{{dd($hoadonchitiet)}}--}}
+            @if(isset($hoadon) && sizeof($hoadonchitiet))
             <form action="{{route('store/order_success')}}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="hoadon" value="{{$hoadon->hd_id}}">
@@ -53,7 +55,7 @@
                                     <button  type="button" class="txt4 btn-1" onclick="change('input{{$value->hdct_id}}',-1,'thanhtien{{$value->thanh_tien}}',{{$value->g_tien}})">
                                         <i class="fa fa-minus-circle" aria-hidden="true"></i>
                                     </button>
-                                    <input type="number" name ="soluong[]" id="input{{$value->hdct_id}}" class="soluong-nns" value="{{$value->so_luong_mua}}" readonly>
+                                    <input type="number" name ="soluong[]" id="input{{$value->hdct_id}}" class="soluong-nns" value="{{$value->so_luong_mua}}" min="1" readonly>
                                     <input hidden
                                            type="number" placeholder="0"
                                            name ="l_id[]"
@@ -107,8 +109,11 @@
 
                }
                else{
-                   document.getElementById(input).value = document.getElementById(input).value -1;
-                   document.getElementById(thanhtien).innerHTML = parseInt(document.getElementById(input).value)*parseInt(dongia);
+                   if(document.getElementById(input).value - 1>0)
+                   {
+                       document.getElementById(input).value = document.getElementById(input).value -1;
+                       document.getElementById(thanhtien).innerHTML = parseInt(document.getElementById(input).value)*parseInt(dongia);
+                   }
                }
            }
            else if(type==1){

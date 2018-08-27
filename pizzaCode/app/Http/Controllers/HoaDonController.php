@@ -140,7 +140,10 @@ class HoaDonController extends Controller
         $contain['number'] = $contain['level']->pc_socap;
         $contain['order']->status = 1;
         $contain['order']->save();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3f7231e2a6c38e65e3d0859a1c40762587c7519f
         $contain['count'] = $this->manyLevel($contain['customer'], 0, $contain['number']);
         if ($contain['count'] < $contain['number']) {
             $contain['money_plus'] = $contain['percent'] / 100 * $contain['order']->tong_tien_hoa_don / $contain['count'];
@@ -217,7 +220,7 @@ class HoaDonController extends Controller
 
     public function indexchuaduyet()
     {
-        $khachhang = HoaDonModel::join('users', 'hoadon.id_khachhang', '=', 'users.id')
+        $khachhang = HoaDonModel::leftjoin('users', 'hoadon.id_khachhang', '=', 'users.id')
             ->where('hoadon.status', 0)
             ->select('users.*', 'hoadon.*')
             ->orderby('hoadon.created_at', 'desc')
@@ -227,7 +230,7 @@ class HoaDonController extends Controller
 
     public function indexdaduyetdetail(Request $request)
     {
-        $hoadon = HoaDonModel::join('users', 'hoadon.id_nhan_vien_lap_hh', '=', 'users.id')
+        $hoadon = HoaDonModel::leftjoin('users', 'hoadon.id_nhan_vien_lap_hh', '=', 'users.id')
             ->select('users.*', 'hoadon.*')
             ->where('hoadon.hd_id', $request->get('id'))
             ->first();
@@ -245,7 +248,7 @@ class HoaDonController extends Controller
         if (isset($hoadon)) {
             return ['status' => 'success', 'data' => $data];
         } else {
-            return ['status' => 'error', 'message' => 'Không tìm thấy hóa đơn này'];
+            return ['status' => 'error','data' => $data, 'message' => 'Không tìm thấy hóa đơn này'];
         }
     }
 }

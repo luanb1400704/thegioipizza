@@ -63,7 +63,7 @@
 
                         <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37"
                             data-appear="rotateInUpRight">
-                            Nhanh tay đăng ký
+                            Đăng ký ngay
                         </h2>
 
                         <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
@@ -165,14 +165,21 @@
                                 </div>
                                 @endforeach
                                 <span class="txt22 m-t-20 pizza-nns">
-                                    <a  class="txt4 btn-1">
-                                        <i class="fa fa-star m-l-10" aria-hidden="true"></i>
-                                        Xem
-                                    </a>
-                                    <a  class="txt4 btn-2" data-toggle="modal" data-target="#modal{{$value->b_id}}" onclick="getHtml()">
-                                        Mua
-                                        <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
-                                    </a>
+                                    {{--<a  class="txt4 btn-1">--}}
+                                        {{--<i class="fa fa-star m-l-10" aria-hidden="true"></i>--}}
+                                        {{--Xem--}}
+                                    {{--</a>--}}
+                                    @if(!empty(Auth::user()))
+                                        <a  class="txt4 btn-2" data-toggle="modal" data-target="#modal{{$value->b_id}}" onclick="getHtml()">
+                                            Mua
+                                            <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+                                        </a>
+                                    @else
+                                        <a  class="txt4 btn-2" href="{{route('store/login')}}">
+                                            Mua
+                                            <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+                                        </a>
+                                    @endif
                                 </span>
                                 <div class="modal fade" id="modal{{$value->b_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <form action="{{route('store/order_pizza')}}" method="post">

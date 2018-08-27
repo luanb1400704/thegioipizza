@@ -28,8 +28,9 @@
                     {{--<button onclick=""></button>--}}
                     {{--@endif--}}
 
-                    <form class="wrap-form-booking" method="post" action="{{route('customer/register')}}">
+                    <form class="wrap-form-booking" method="post" action="{{route('customer/update')}}" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                        <input type="hidden" name="id" value="{{$data->id}}">
                         <div class="row">
                             <div class="col-md-6">
 
@@ -86,7 +87,7 @@
 
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
                                     {{--<img src="" id="imgupload" alt="">--}}
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="file" id="avatar" name="customer_image" placeholder="Address" required>
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="file" id="avatar" name="file" placeholder="Address" accept=".png,.jpg,.jpeg,.bmp">
                                 </div>
                                 <div class="img-avatar-nns">
                                     <img src="{{$data->customer_image}}"  class="register-cus" id="imgupload" alt="">
@@ -130,13 +131,16 @@
 
                                 <div class="wrap-inputpeople size12 bo2 bo-rad-10 m-t-3 m-b-23">
                                     <!-- Select2 -->
-                                    <select class="selection-1" name="customer_gender" required>
+                                    <select class="select-gender" name="customer_gender" >
                                         @if($data->customer_gender==1)
                                             <option value="1" selected>Nam</option>
                                             <option value="0">Nữ</option>
+                                        @elseif($data->customer_gender==0)
+                                            <option value="1" >Nam</option>
+                                            <option value="0" selected>Nữ</option>
                                         @else
                                             <option value="1">Nam</option>
-                                            <option value="0" selected>Nữ</option>
+                                            <option value="0" >Nữ</option>
                                         @endif
                                     </select>
                                 </div>
@@ -170,7 +174,7 @@
 								</span>
 
                                 <div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input value="{{$data->email}}" class="bo-rad-10 sizefull txt10 p-l-20" type="email" name="email" placeholder="Email">
+                                    <input value="{{$data->email ? $data->email : ''}}" class="bo-rad-10 sizefull txt10 p-l-20" type="email" name="email" placeholder="Email">
                                 </div>
                                 <button type="submit" class="btn3 flex-c-m size13 txt11 trans-0-4" style="margin:  auto;">
                                     Xác nhận

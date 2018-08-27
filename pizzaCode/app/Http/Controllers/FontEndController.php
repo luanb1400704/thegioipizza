@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\BanhModel;
+use App\ChiNhanhModel;
 use App\CustomerModel;
 use App\GiaModel;
 use App\HoaDonChiTietModel;
@@ -11,17 +12,27 @@ use App\HoaHongModel;
 use App\LogHoaHongModel;
 use App\PhanCapModel;
 use App\TongTienHoaHongModel;
+use App\UserProfileModel;
 use App\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use PhpParser\Node\Expr\Cast\Object_;
 
 class FontEndController extends Controller
 {
+//    public function __construct(){
+//        dd(Auth::user());
+//        if(Auth::user()->type != 2) {
+////            return redirect('home');
+//            dd('hello');
+//        }
+//    }
+
     public  function get_home(){
+    //Lấy danh sách các loại bánh
         $banh = BanhModel::all();
-        //Điều hướng xem có giỏ bánh sẵn hay chưa
-        //Chưa đăng nhập thì mặc định giỏ rỗng
+        //1 -------------Chưa đăng nhập thì mặc định giỏ rỗng-----------------------------
         if(!Auth::user()){
             foreach ($banh as $key=> $value){
                 $tempbanh  = GiaModel::join('loaibanh', 'loaibanh.l_id', '=', 'gia.l_id')
@@ -30,32 +41,62 @@ class FontEndController extends Controller
                 $value->loai = $tempbanh;
 
             }
+//            dd($banh);
             return view('website.home', compact('banh'));
         }
-        //Nếu đăng nhập rồi thì tìm giỏ hàng
-
+        //2------------------Nếu đăng nhập rồi thì tìm giỏ hàng----------------------------
         else {
             $giohang = HoaDonModel::where('status', -1)
                 ->where('id_khachhang', Auth::user()->id )
-                ->get();
+                ->first();
             //Có giỏ hàng thì tiến hàng nạp giá trị cho nó
-            if(sizeof($giohang)!=0){
-                foreach ($banh as $key=> $value){
-                    $tempbanh  = GiaModel::join('loaibanh', 'loaibanh.l_id', '=', 'gia.l_id')
-                        ->leftjoin('hoadonchitiet', 'hoadonchitiet.g_id', '=', 'gia.g_id')
-                        ->where('gia.b_id',$value->b_id)
-                        ->where('hoadonchitiet.hd_id', $giohang[0]->hd_id)
-                        ->select('gia.*','hoadonchitiet.hdct_id', 'hoadonchitiet.so_luong_mua','loaibanh.l_ten', 'loaibanh.l_kichthuoc' )
-                        ->get();
-                    if(sizeof($tempbanh)==0){
-                        $tempbanh  = GiaModel::join('loaibanh', 'loaibanh.l_id', '=', 'gia.l_id')
-                            ->leftjoin('hoadonchitiet', 'hoadonchitiet.g_id', '=', 'gia.g_id')
-                            ->where('gia.b_id',$value->b_id)
-                            ->select('gia.*','hoadonchitiet.hdct_id', 'hoadonchitiet.so_luong_mua','loaibanh.l_ten', 'loaibanh.l_kichthuoc' )
+            if(!empty($giohang)){
+                foreach ($banh as $i => $i_val){
+                //Lấy danh sách bánh có trong một loại bánh
+                    $listLoai  = GiaModel::join('loaibanh', 'loaibanh.l_id', '=', 'gia.l_id')
+                            ->where('b_id',$i_val->b_id)
                             ->get();
+                    $array_TEMP = [];
+                    //Lấy số lượng đã đặt cho loại đó trong hóa đơn nếu có
+                    foreach ($listLoai as $j => $j_val) {
+                        //Đi tìm xem loại này, giá này, bánh này có trong hóa đơn không
+                        $Find_in_HoaDon  = HoaDonChiTietModel::where('hd_id', $giohang->hd_id)
+                            ->where('b_id',$j_val->b_id)
+                            ->where('g_id',$j_val->g_id)
+                            ->where('l_id',$j_val->l_id)
+                            ->first();
+                            //Nếu tìm có thì đây số lượng đó về
+                            if(isset($Find_in_HoaDon)){
+                                $item = [
+                                    'b_id'=> $j_val->b_id,
+                                    'g_id'=> $j_val->g_id,
+                                    'l_id'=> $j_val->l_id,
+                                    'g_tien'=> $j_val->g_tien,
+                                    'l_ten'=> $j_val->l_ten,
+                                    'l_kichthuoc'=> $j_val->l_kichthuoc,
+                                    'hdct_id'=> $Find_in_HoaDon->hdct_id,
+                                    'so_luong_mua'=> $Find_in_HoaDon->so_luong_mua
+                                ];
+                            }
+                            else{
+                                $item = [
+                                    'b_id'=> $j_val->b_id,
+                                    'g_id'=> $j_val->g_id,
+                                    'l_id'=> $j_val->l_id,
+                                    'g_tien'=> $j_val->g_tien,
+                                    'l_ten'=> $j_val->l_ten,
+                                    'l_kichthuoc'=> $j_val->l_kichthuoc,
+                                    'hdct_id'=> $giohang->hd_id,
+                                    'so_luong_mua'=> 0
+                                ];
+                            }
+                            //Gôm các loại con lại
+                        array_push($array_TEMP, (object)$item);
                     }
-                    $value->loai =  $tempbanh ;
+                    $i_val->loai =  collect($array_TEMP);
+
                 }
+//                dd($banh);
                 return view('website.home', compact('banh'));
             }
             //Nếu không có giỏ hàng thì hiện bình thường
@@ -95,10 +136,20 @@ class FontEndController extends Controller
 
         //Lấy tiền hoa hồng hiện tại
         $hoahong = HoaHongModel::where('id_khachhang', Auth::user()->id)->first();
+
+        //Lấy thông tin tài khoản giới thiệu
+        if($hoahong->id_cha==0){
+            $nguoigioithieu = (object) [
+                'name' => 'Không có người giới thiệu',
+            ];
+        }else{
+            $nguoigioithieu = Users::where('id',$hoahong->id_cha)->first();
+        }
 //        dd($hoahong);
         //Lấy thông tin lịch sử mua hàng
         $hoadon = HoaDonModel::where('id_khachhang',Auth::user()->id)
             ->where('status', 1)->get();
+
         if(!empty($hoadon))
         foreach ($hoadon as $key => $value){
             $chitiethoadon = HoaDonChiTietModel
@@ -112,7 +163,6 @@ class FontEndController extends Controller
                 ->get();
             $value['chitiet'] = $chitiethoadon;
         }
-
         //Lấy lịch sử nhận tiền hoa hồng
         $nhantien = LogHoaHongModel
             ::join('users', 'users.id','=','loghoahong.id_nhan_vien_tra')
@@ -123,13 +173,15 @@ class FontEndController extends Controller
         //Lấy tổng tích lũy
         $tongtichluy = TongTienHoaHongModel::where('id_khachhang', Auth::user()->id)->first();
 
+
         return view('website.contact',compact(
 
             'customer',
             'hoahong',
             'hoadon',
             'nhantien',
-            'tongtichluy'
+            'tongtichluy',
+            'nguoigioithieu'
 
         ));
     }
@@ -232,6 +284,7 @@ class FontEndController extends Controller
     public function order_pizza(Request $request){
         $tongtien = 0;
         $mangchitiet = array();
+
         foreach ($request->key as $key => $value){
             $dongia = GiaModel::where('b_id',$request->b_id)
                 ->where('l_id', $value)
@@ -240,7 +293,7 @@ class FontEndController extends Controller
                 return redirect('/store/home')->with('sailoai', 'Loại bánh bạn chọn không tồn tại');
             }
             else{
-                if($request->soluong[$key]!='' && $request->soluong[$key]>0){
+                if($request->soluong[$key]!='' && $request->soluong[$key]>=0){
                     array_push($mangchitiet,[
                         'g_id' => $dongia ->g_id,
                         'so_luong_mua' => $request->soluong[$key],
@@ -281,25 +334,41 @@ class FontEndController extends Controller
                 ->where('l_id',$value['l_id'])
                 ->first();
             //Nếu không có thì tạo
-            if(!isset($chitiet))
-            HoaDonChiTietModel::create(
-                [
-                    'hd_id' => $hoadon->hd_id,
-                    'g_id' => $value['g_id'],
-                    'so_luong_mua' => $value['so_luong_mua'],
-                    'b_id' =>$value['b_id'],
-                    'l_id' => $value['l_id'],
-                    'g_tien'=> $value['g_tien'],
-                    'thanh_tien' => $value['thanh_tien']
-                ]
-            );
+            if(!isset($chitiet) && $value['so_luong_mua']!=0)
+                HoaDonChiTietModel::create(
+                    [
+                        'hd_id' => $hoadon->hd_id,
+                        'g_id' => $value['g_id'],
+                        'so_luong_mua' => $value['so_luong_mua'],
+                        'b_id' =>$value['b_id'],
+                        'l_id' => $value['l_id'],
+                        'g_tien'=> $value['g_tien'],
+                        'thanh_tien' => $value['thanh_tien']
+                    ]
+                );
             if(isset($chitiet)){
-                $chitiet->so_luong_mua = $value['so_luong_mua'];
-                $chitiet->thanh_tien = $value['thanh_tien'];
-                $chitiet->save();
+                //Nếu có số lượng 0 thì xóa
+                if($value['so_luong_mua']==0){
+                    $chitiet->delete();
+                }
+                //Không có số lượng 0 Thì sửa nó
+                else{
+                    $chitiet->so_luong_mua = $value['so_luong_mua'];
+                    $chitiet->thanh_tien = $value['thanh_tien'];
+                    $chitiet->save();
+                }
+
             }
         }
-        return redirect('/store/home')->with('themhoadonthanhcong','Đặt hàng thành công, đến mục giỏ hàng để xác nhận mua bạn nhé');
+        return redirect('/store/home')->with('success','Chọn bánh thành công, đến mục giỏ hàng để xác nhận mua bạn nhé');
+    }
+
+    public function tongtienchinhanh(){
+        $listChiNhanh = ChiNhanhModel::all();
+        foreach ($listChiNhanh as $key => $value){
+            $nhanvien = UserProfileModel::where('id_chinhanh',$listChiNhanh->id_chinhanh)->get();
+        }
+        return view('website.lala', compact('listChiNhanh'));
     }
 
 

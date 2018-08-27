@@ -2,8 +2,6 @@
 @section('content')
 
 
-
-
     <!-- Booking -->
     <section class="section-booking bg1-pattern p-t-100 p-b-110">
         <div class="container">
@@ -28,7 +26,7 @@
                         {{--<button onclick=""></button>--}}
                     {{--@endif--}}
 
-                    <form class="wrap-form-booking" method="post" action="{{route('customer/register')}}">
+                    <form class="wrap-form-booking" method="post" action="{{route('customer/register')}}" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                         <div class="row">
                             <div class="col-md-6">
@@ -79,7 +77,7 @@
 
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
                                     {{--<img src="" id="imgupload" alt="">--}}
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="file" id="avatar" name="customer_image" placeholder="Address" required>
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="file" id="avatar" name="file" placeholder="Address" required accept=".png,.jpg, .jpeg">
                                 </div>
                                 <div class="img-avatar-nns">
                                     <img src=""  class="register-cus" id="imgupload" alt="">
@@ -89,21 +87,7 @@
                                     Trong quá trình nhận tiền lì xì hoặc lấy lì xì đổi bánh người bán hàng sẽ so sánh chân dung của bạn
                                 </span>
 
-                                <script>
-                                    function readFile() {
-                                        if (this.files && this.files[0]) {
-                                            var FR= new FileReader();
-                                            FR.onload = function(e) {
-                                                document.getElementById("imgupload").src = e.target.result;
-                                                document.getElementById("imgupload").style.width = "90px";
 
-                                            };
-                                            FR.readAsDataURL( this.files[0] );
-                                        }
-                                    }
-
-                                    document.getElementById("avatar").addEventListener("change", readFile, false);
-                                </script>
                             </div>
 
                             <div class="col-md-6">
@@ -123,7 +107,7 @@
 
                                 <div class="wrap-inputpeople size12 bo2 bo-rad-10 m-t-3 m-b-23">
                                     <!-- Select2 -->
-                                    <select class="selection-1" name="customer_gender" required>
+                                    <select class="select-gender"  name="customer_gender" >
                                         <option value="1">Nam</option>
                                         <option value="0">Nữ</option>
                                     </select>
@@ -193,5 +177,35 @@
             </div>
         </div>
     </section>
+    <script>
+        function readFile() {
+            if (this.files && this.files[0] && this.files[0].size < 2097152) {
+                var FR= new FileReader();
+                FR.onload = function(e) {
+                    document.getElementById("imgupload").src = e.target.result;
+                    document.getElementById("imgupload").style.width = "90px";
+
+                };
+                FR.readAsDataURL( this.files[0] );
+            }
+            else if(this.files[0].size > 2097152){
+                alert("Dung lượng file quá lớn!");
+                document.getElementById("imgupload").src = '';
+            }
+        }
+
+        document.getElementById("avatar").addEventListener("change", readFile, false);
+    </script>
+    <script>
+        // var uploadField = document.getElementById("avatar");
+        //
+        // uploadField.onchange = function() {
+        //     if(this.files[0].size > 1){
+        //         alert("Dung lượng file quá lớn!");
+        //         this.value = "";
+        //         document.getElementById("imgupload").src = "";
+        //     };
+        // };
+    </script>
 
 @endsection
