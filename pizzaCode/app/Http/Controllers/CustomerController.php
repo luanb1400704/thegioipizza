@@ -30,8 +30,6 @@ class CustomerController extends Controller
             return redirect('/store/register')->with('errconfirmpass', 'Nhập password không trùng khớp, vui lòng nhập lại pasword xác nhận');
         }
 
-
-
         $user = Users::create(
             [
                 'type' => 2,
@@ -58,18 +56,17 @@ class CustomerController extends Controller
             $file = $request->file('file');
             $new_file_name = $customer->id;
             $file->move('upload', $new_file_name);
-            $kh_anhdaidien = url('upload') . '/' . $new_file_name;
+            $kh_anhdaidien = $new_file_name;
         } else {
             $kh_anhdaidien = "";
         }
         $customer->customer_image = $kh_anhdaidien;
         $customer->save();
 
-        if($check_user == 'notuser'){
+        if ($check_user == 'notuser') {
             $idcha = 0;
-        }
-        else{
-            $idcha = $check_user->id ;
+        } else {
+            $idcha = $check_user->id;
 
         }
         HoaHongModel::create(
@@ -84,6 +81,7 @@ class CustomerController extends Controller
         );
         return redirect('/store/home')->with('success', 'Tạo tài khoản thành công, vui lòng đăng nhập để sử dụng dịch vụ');
     }
+
     public function update(Request $request)
     {
         if ($request->password != $request->repassword) {
@@ -93,7 +91,7 @@ class CustomerController extends Controller
             $file = $request->file('file');
             $new_file_name = $request->id;
             $file->move('upload', $new_file_name);
-            $kh_anhdaidien = url('upload') . '/' . $new_file_name;
+            $kh_anhdaidien = $new_file_name;
             $file = CustomerModel::find($request->id);
         } else {
             $kh_anhdaidien = "";
@@ -101,18 +99,17 @@ class CustomerController extends Controller
 
         $user = Users::where('id', $request->id)
             ->update(
-            [
-                'type' => 2,
-                'name' => $request->get('name'),
-                'email' => $request->get('email') || '',
-                'phone' => $request->get('phone'),
-                'password' => Hash::make($request->get('password')),
-                'active' => 1,
-            ]
-        );
+                [
+                    'type' => 2,
+                    'name' => $request->get('name'),
+                    'email' => $request->get('email') || '',
+                    'phone' => $request->get('phone'),
+                    'password' => Hash::make($request->get('password')),
+                    'active' => 1,
+                ]
+            );
 
-        if($kh_anhdaidien!='')
-        {
+        if ($kh_anhdaidien != '') {
             CustomerModel::where('user_id', $request->id)
                 ->update(
                     [
@@ -124,8 +121,7 @@ class CustomerController extends Controller
                         'customer_image' => $kh_anhdaidien
                     ]
                 );
-        }
-        else{
+        } else {
             CustomerModel::where('user_id', $request->id)
                 ->update(
                     [
@@ -147,15 +143,12 @@ class CustomerController extends Controller
         $check_user = 'notuser';
         if (isset($request->phone_introduce))
             $check_user = Users::where('phone', $request->phone_introduce)->first();
-
         if (!isset($check_user)) {
             return redirect('/store/register')->with('notphone', 'Không tìm thấy số điện thoại của người giới thiệu');
         }
-
         if ($request->password != $request->repassword) {
             return redirect('/store/register')->with('errconfirmpass', 'Nhập password không trùng khớp, vui lòng nhập lại pasword xác nhận');
         }
-
         $user = Users::create(
             [
                 'type' => 2,
@@ -178,14 +171,11 @@ class CustomerController extends Controller
                 'id_employee' => 0
             ]
         );
-        if($check_user == 'notuser'){
+        if ($check_user == 'notuser') {
             $idcha = 0;
+        } else {
+            $idcha = $check_user->id;
         }
-        else{
-            $idcha = $check_user->id ;
-
-        }
-
         HoaHongModel::create(
             [
                 'id_khachhang' => $user->id,
@@ -196,7 +186,6 @@ class CustomerController extends Controller
 
             ]
         );
-
         return redirect('/store/home')->with('success', 'Tạo tài khoản thành công, vui lòng đăng nhập để sử dụng dịch vụ');
     }
 
@@ -206,10 +195,21 @@ class CustomerController extends Controller
         $index = 0;
         $khachhang = Users::join('customer', 'customer.user_id', '=', 'users.id')
             ->join('hoahong', 'hoahong.id_khachhang', '=', 'users.id')
-            ->get();
+            ->leftjoin('users as nguoigioithieu', 'nguoigioithieu.id', '=', 'hoahong.id_cha')
+            ->get(
+                [
+                    'users.id as id ',
+                    'users.name as name ',
+                    'users.phone as phone ',
+                    'nguoigioithieu.name as nguoigioithieu ',
+                    'hoahong.tien_hoa_hong as tien_hoa_hong ',
+                    'hoahong.status as status ',
+                ]
+            );
         foreach ($khachhang as $val) {
             $val->stt = ++$index;
         }
+//        dd($khachhang->toArray());
         return view('pages.khachhang.danhsach', compact('khachhang'));
     }
 
@@ -259,11 +259,12 @@ class CustomerController extends Controller
         dd($phancap);
     }
 
-    public  function detail(Request $request){
-        $data = Users::join('customer', 'customer.user_id','=','users.id')
-            ->where('users.id',$request->id)
+    public function detail(Request $request)
+    {
+        $data = Users::join('customer', 'customer.user_id', '=', 'users.id')
+            ->where('users.id', $request->id)
             ->first();
-        $gioithieu = HoaHongModel::leftjoin('users','users.id', '=','hoahong.id_cha')
+        $gioithieu = HoaHongModel::leftjoin('users', 'users.id', '=', 'hoahong.id_cha')
             ->where('hoahong.id_khachhang', $request->id)
             ->first();
         if (isset($data)) {
@@ -272,14 +273,15 @@ class CustomerController extends Controller
             return ['status' => 'error', 'message' => 'Không tìm thấy hóa đơn này'];
         }
     }
-    public function changePass(Request $request){
-        if(isset($request->id_kh)){
+
+    public function changePass(Request $request)
+    {
+        if (isset($request->id_kh)) {
             $data = Users::where('id', $request->id_kh)->first();
             $data->password = Hash::make($request->get('password'));
             $data->save();
             return redirect(route('kh.index'));
-        }
-        else{
+        } else {
             return redirect(route('kh.index'));
         }
     }
