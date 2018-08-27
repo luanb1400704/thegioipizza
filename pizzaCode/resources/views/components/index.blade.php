@@ -357,7 +357,9 @@
                 });
             });
     }
+
     getBadge();
+    var run = setInterval("getBadge()", 5 * 60 * 1000);
 </script>
 @yield('script')
 </body>
