@@ -366,15 +366,14 @@ class FontEndController extends Controller
 
     public function tongtienchinhanh(){
         $listChiNhanh = ChiNhanhModel::all();
-//        dd($listChiNhanh);
         foreach ($listChiNhanh as $key => $value){
-            $nhanvien = UserProfileModel::where('id_chinhanh',$value->id_chinhanh)->get();
+            $nhanvien = UserProfileModel::join('users', 'users.id', '=','userprofile.user_id')
+                ->where('id_chinhanh',$value->id_chinhanh)->get();
             $sum = 0;
             foreach ($nhanvien as $keynv => $valuenv){
                 $sumnv = HoaDonModel::
                     where('id_nhan_vien_lap_hh',$valuenv->user_id)
                     ->sum('tong_tien_hoa_don');
-//                    ->get();
                 $sum = $sum + $sumnv;
                 $valuenv->tongtiendatinh = $sumnv;
 
@@ -382,7 +381,7 @@ class FontEndController extends Controller
             $value->nhanvien = $nhanvien;
             $value->tongtien = $sum;
         }
-        return view('website.lala', compact('listChiNhanh'));
+        return view('pages.chihohoahong.chinhanhchiho', compact('listChiNhanh'));
     }
 
 
