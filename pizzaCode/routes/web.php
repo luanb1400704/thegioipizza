@@ -7,13 +7,27 @@ Auth::routes();
 
 Route::get('/admin', function () {
     if (empty(Auth::user())) {
-        return redirect('login');
+        if(Auth::user()->active==1)
+            return redirect('login');
+        else{
+            return view('website.chan');
+        }
     }
     if (Auth::user()->type == 2) {
-        return redirect(route('store/get_home'));
+        if(Auth::user()->active==1)
+            return redirect(route('store/get_home'));
+        else{
+            return view('website.chan');
+        }
+
     }
     if (Auth::user()->type == 1 || Auth::user()->type == 3) {
-        return redirect(route('kh.index'));
+        if(Auth::user()->active==1)
+            return redirect(route('kh.index'));
+        else{
+            return view('website.chan');
+        }
+
     }
     return view('pages.home');
 })->name('khachhang.danhsach');
