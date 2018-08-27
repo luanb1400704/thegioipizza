@@ -27,8 +27,36 @@
                     </h1>
                 </span>
             </div>
+            <form method="get" action="{{ route('hoadon.indexchuaduyet') }}">
+                <div class="col-sm-2">
+                    <input type="text" name="q" value="{{\Illuminate\Support\Facades\Input::get('q','')}}"
+                           class="form-control">
+                </div>
+                <div class="col-sm-2">
+                    <select class="form-control" name="k">
+                        <option value="">Tên khách hàng</option>
+                        @foreach ($khachhang as $val)
+                            <option value="{{ $val->id }}">{{ $val->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-sm-2">
+                    <select class="form-control" name="i">
+                        <option value="">Số điện thoại</option>
+                        @foreach ($khachhang as $val)
+                            <option value="{{ $val->id }}">{{ $val->phone }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-search"></i></button>
+                    <a href="{{ route('hoadon.indexchuaduyet') }}" class="btn btn-primary btn-sm" title="xem chi tiet">
+                        <i class="fa fa-refresh"></i>
+                    </a>
+                </div>
+            </form>
             <div class="box-body ">
-                <table id="example1" class="table table-bordered table-striped text-center">
+                <table class="table table-bordered table-striped text-center">
                     <thead>
                     <tr>
                         <th>Mã</th>

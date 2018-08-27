@@ -198,18 +198,16 @@ class CustomerController extends Controller
             ->leftjoin('users as nguoigioithieu', 'nguoigioithieu.id', '=', 'hoahong.id_cha')
             ->get(
                 [
-                    'users.id as id ',
-                    'users.name as name ',
-                    'users.phone as phone ',
-                    'nguoigioithieu.name as nguoigioithieu ',
-                    'hoahong.tien_hoa_hong as tien_hoa_hong ',
-                    'hoahong.status as status ',
+                    'users.id as id',
+                    'users.name as ten',
+                    'users.phone as sdt',
+                    'nguoigioithieu.name as nguoigioithieu',
+                    'hoahong.tien_hoa_hong as tien',
                 ]
             );
         foreach ($khachhang as $val) {
             $val->stt = ++$index;
         }
-//        dd($khachhang->toArray());
         return view('pages.khachhang.danhsach', compact('khachhang'));
     }
 

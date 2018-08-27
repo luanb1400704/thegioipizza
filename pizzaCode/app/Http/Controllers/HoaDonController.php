@@ -214,13 +214,27 @@ class HoaDonController extends Controller
         return view('pages.hoadon.hddaduyet', compact('khachhang'));
     }
 
-    public function indexchuaduyet()
+    public function indexchuaduyet(Request $req)
     {
         $khachhang = HoaDonModel::leftjoin('users', 'hoadon.id_khachhang', '=', 'users.id')
             ->where('hoadon.status', 0)
-            ->select('users.*', 'hoadon.*')
-            ->orderby('hoadon.created_at', 'desc')
-            ->get();
+            ->orderByRaw('users.id desc')
+            ->orderByRaw('hoadon.created_at desc')
+            ->select('users.*', 'hoadon.*');
+        if ($req->has('q') && $req->get('q') != '')
+            $khachhang = $khachhang->where(function ($q) use ($req) {
+                return $q->where('users.name', 'like', '%' . $req->get('q') . '%')
+                    ->orwhere('users.phone', 'like', '%' . $req->get('q') . '%')
+                    ->orwhere('hoadon.tong_tien_hoa_don', 'like', '%' . $req->get('q') . '%')
+                    ->orwhere('hoadon.created_at', 'like', '%' . $req->get('q') . '%');
+            });
+        if ($req->has('k') && $req->get('k') != '') {
+            $khachhang = $khachhang->where('users.id', $req->get('k'));
+        }
+        if ($req->has('i') && $req->get('i') != '') {
+            $khachhang = $khachhang->where('users.id', $req->get('i'));
+        }
+        $khachhang = $khachhang->get();
         return view('pages.hoadon.hdchuaduyet', compact('khachhang'));
     }
 
@@ -244,7 +258,8 @@ class HoaDonController extends Controller
         if (isset($hoadon)) {
             return ['status' => 'success', 'data' => $data];
         } else {
-            return ['status' => 'error','data' => $data, 'message' => 'Không tìm thấy hóa đơn này'];
+            return ['status' => 'error', 'data' => $data, 'message' => 'Không tìm thấy hóa đơn này'];
         }
     }
+
 }
