@@ -63,7 +63,7 @@
 
                         <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37"
                             data-appear="rotateInUpRight">
-                            Nhanh tay đăng ký
+                            Đăng ký ngay
                         </h2>
 
                         <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
@@ -165,10 +165,10 @@
                                 </div>
                                 @endforeach
                                 <span class="txt22 m-t-20 pizza-nns">
-                                    <a  class="txt4 btn-1">
-                                        <i class="fa fa-star m-l-10" aria-hidden="true"></i>
-                                        Xem
-                                    </a>
+                                    {{--<a  class="txt4 btn-1">--}}
+                                        {{--<i class="fa fa-star m-l-10" aria-hidden="true"></i>--}}
+                                        {{--Xem--}}
+                                    {{--</a>--}}
                                     @if(!empty(Auth::user()))
                                         <a  class="txt4 btn-2" data-toggle="modal" data-target="#modal{{$value->b_id}}" onclick="getHtml()">
                                             Mua

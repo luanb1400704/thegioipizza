@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\BanhModel;
+use App\ChiNhanhModel;
 use App\CustomerModel;
 use App\GiaModel;
 use App\HoaDonChiTietModel;
@@ -11,6 +12,7 @@ use App\HoaHongModel;
 use App\LogHoaHongModel;
 use App\PhanCapModel;
 use App\TongTienHoaHongModel;
+use App\UserProfileModel;
 use App\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -282,6 +284,7 @@ class FontEndController extends Controller
     public function order_pizza(Request $request){
         $tongtien = 0;
         $mangchitiet = array();
+
         foreach ($request->key as $key => $value){
             $dongia = GiaModel::where('b_id',$request->b_id)
                 ->where('l_id', $value)
@@ -290,7 +293,7 @@ class FontEndController extends Controller
                 return redirect('/store/home')->with('sailoai', 'Loại bánh bạn chọn không tồn tại');
             }
             else{
-                if($request->soluong[$key]!='' && $request->soluong[$key]>0){
+                if($request->soluong[$key]!='' && $request->soluong[$key]>=0){
                     array_push($mangchitiet,[
                         'g_id' => $dongia ->g_id,
                         'so_luong_mua' => $request->soluong[$key],
@@ -331,25 +334,41 @@ class FontEndController extends Controller
                 ->where('l_id',$value['l_id'])
                 ->first();
             //Nếu không có thì tạo
-            if(!isset($chitiet))
-            HoaDonChiTietModel::create(
-                [
-                    'hd_id' => $hoadon->hd_id,
-                    'g_id' => $value['g_id'],
-                    'so_luong_mua' => $value['so_luong_mua'],
-                    'b_id' =>$value['b_id'],
-                    'l_id' => $value['l_id'],
-                    'g_tien'=> $value['g_tien'],
-                    'thanh_tien' => $value['thanh_tien']
-                ]
-            );
+            if(!isset($chitiet) && $value['so_luong_mua']!=0)
+                HoaDonChiTietModel::create(
+                    [
+                        'hd_id' => $hoadon->hd_id,
+                        'g_id' => $value['g_id'],
+                        'so_luong_mua' => $value['so_luong_mua'],
+                        'b_id' =>$value['b_id'],
+                        'l_id' => $value['l_id'],
+                        'g_tien'=> $value['g_tien'],
+                        'thanh_tien' => $value['thanh_tien']
+                    ]
+                );
             if(isset($chitiet)){
-                $chitiet->so_luong_mua = $value['so_luong_mua'];
-                $chitiet->thanh_tien = $value['thanh_tien'];
-                $chitiet->save();
+                //Nếu có số lượng 0 thì xóa
+                if($value['so_luong_mua']==0){
+                    $chitiet->delete();
+                }
+                //Không có số lượng 0 Thì sửa nó
+                else{
+                    $chitiet->so_luong_mua = $value['so_luong_mua'];
+                    $chitiet->thanh_tien = $value['thanh_tien'];
+                    $chitiet->save();
+                }
+
             }
         }
-        return redirect('/store/home')->with('themhoadonthanhcong','Đặt hàng thành công, đến mục giỏ hàng để xác nhận mua bạn nhé');
+        return redirect('/store/home')->with('success','Chọn bánh thành công, đến mục giỏ hàng để xác nhận mua bạn nhé');
+    }
+
+    public function tongtienchinhanh(){
+        $listChiNhanh = ChiNhanhModel::all();
+        foreach ($listChiNhanh as $key => $value){
+            $nhanvien = UserProfileModel::where('id_chinhanh',$listChiNhanh->id_chinhanh)->get();
+        }
+        return view('website.lala', compact('listChiNhanh'));
     }
 
 

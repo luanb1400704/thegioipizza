@@ -264,3 +264,5 @@ Route::group(['prefix' => 'tien-chi-ho-hoa-hong'], function () {
     Route::get('tru_tien/{id}', 'TienChiHoController@tru_tien')->name('tru_tien');
 
 });
+
+Route::get('/tongtienchinhanh', 'FontEndController@tongtienchinhanh')->name('tongtienchinhanh');

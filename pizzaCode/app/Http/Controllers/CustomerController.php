@@ -110,18 +110,33 @@ class CustomerController extends Controller
                 'active' => 1,
             ]
         );
-        $cus = CustomerModel::where('user_id', $request->id)
-            ->update(
-                [
-                    'customer_gender' => $request->get('customer_gender'),
-                    'customer_birthday' => $request->get('customer_birthday'),
-                    'customer_address' => $request->get('customer_address'),
-                    'customer_cmnd' => $request->get('customer_cmnd'),
-                    'customer_cmnd_ngaycap' => $request->get('customer_cmnd_ngaycap'),
-                ]
-            );
-        if(!empty($kh_anhdaidien))
-        $cus->customer_image = $kh_anhdaidien;
+
+        if($kh_anhdaidien!='')
+        {
+            CustomerModel::where('user_id', $request->id)
+                ->update(
+                    [
+                        'customer_gender' => $request->get('customer_gender'),
+                        'customer_birthday' => $request->get('customer_birthday'),
+                        'customer_address' => $request->get('customer_address'),
+                        'customer_cmnd' => $request->get('customer_cmnd'),
+                        'customer_cmnd_ngaycap' => $request->get('customer_cmnd_ngaycap'),
+                        'customer_image' => $kh_anhdaidien
+                    ]
+                );
+        }
+        else{
+            CustomerModel::where('user_id', $request->id)
+                ->update(
+                    [
+                        'customer_gender' => $request->get('customer_gender'),
+                        'customer_birthday' => $request->get('customer_birthday'),
+                        'customer_address' => $request->get('customer_address'),
+                        'customer_cmnd' => $request->get('customer_cmnd'),
+                        'customer_cmnd_ngaycap' => $request->get('customer_cmnd_ngaycap'),
+                    ]
+                );
+        }
 
         return redirect('/store/contact')->with('success', 'Cập nhật tài khoản thành công');
     }
@@ -248,7 +263,7 @@ class CustomerController extends Controller
         $data = Users::join('customer', 'customer.user_id','=','users.id')
             ->where('users.id',$request->id)
             ->first();
-        $gioithieu = HoaHongModel::join('users','users.id', '=','hoahong.id_cha')
+        $gioithieu = HoaHongModel::leftjoin('users','users.id', '=','hoahong.id_cha')
             ->where('hoahong.id_khachhang', $request->id)
             ->first();
         if (isset($data)) {

@@ -8,7 +8,7 @@
 				Thông tin chi tiết
 			</span>
 
-            <h3 class="tit5 t-center m-b-50 m-t-5">
+            <h3 class="tit5 t-center m-b-10 m-t-30">
                 {{Auth::user()->name}}
             </h3>
 
@@ -22,9 +22,19 @@
                     <div class="blo5 pos-relative p-t-60">
                         <div class="pic-blo5 size14 bo4 wrap-cir-pic hov-img-zoom ab-c-t">
                             @if(!empty($customer->customer_image))
-                                <a href="#" style="width: 100%;height: 100%;"><img style="width: 100%;height: 100%;" src="{{$customer->customer_image}}" ></a>
+                                {{--<a href="#" style="width: 100%;height: 100%;">--}}
+                                    {{--<img style="width: 100%;height: 100%;" src="{{$customer->customer_image}}" >--}}
+                                {{--</a>--}}
+                                <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
+                                    <a href="{{$customer->customer_image}}"
+                                       data-lightbox="gallery-home">
+                                        <img src="{{$customer->customer_image}}" alt="GALLERY">
+                                    </a>
+                                </div>
                             @else
-                                <a href="#"><img  src="{{url('dist/img/avatar5.png')}}" ></a>
+                                <a href="#">
+                                    <img  src="{{url('dist/img/avatar5.png')}}" >
+                                </a>
                             @endif
                         </div>
 
@@ -50,8 +60,8 @@
                                 Người giới thiệu: <b>{{$nguoigioithieu->name}}</b><br>
                                 Số dư hiện tại
                             </p>
-                            <a href="#" class="btn-success flex-c-m size13 txt11 trans-0-4 m-l-r-auto">{{$hoahong->tien_hoa_hong}} VNĐ</a><br>
-                            <a href="{{route('store/update')}}" class="btn-danger flex-c-m size13 txt11 trans-0-4 m-l-r-auto">CẬP NHẬT</a>
+                            <a href="#" class="btn-success flex-c-m size13 txt11 trans-0-4 m-l-r-auto btn-coin-nns">{{$hoahong->tien_hoa_hong}} VNĐ</a><br>
+                            <a href="{{route('store/update')}}" class="btn-danger flex-c-m size13 txt11 trans-0-4 m-l-r-auto btn-update-nns">CẬP NHẬT</a>
                         </div>
                     </div>
                 </div>

@@ -247,3 +247,20 @@ tit2 p-l-15 p-r-15{
     border-radius: 10px;
     padding-left: 15px;
 }
+.btn-update-nns{
+    color: #ffffff;
+    background: #EC1D25;
+    font-weight: 600;
+    font-family: 'Bangers';
+    font-size: 20px;
+    border-radius: 11px;
+}
+
+.btn-coin-nns{
+    color: #ffffff;
+    background: #218838;
+    font-weight: 600;
+    font-family: 'Bangers';
+    font-size: 20px;
+    border-radius: 11px;
+}

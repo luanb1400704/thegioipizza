@@ -105,7 +105,7 @@
                                         <div class="row">
 
                                             <div class="col-md-7">
-                                                <input type="password" id="password" name="password" class="form-control">
+                                                <input type="password" id="password" name="password" class="form-control" required>
                                             </div>
                                             {{--<div class="col-md-2">--}}
                                                 {{--<span onclick="changInput()" class="btn bg-olive"><i class="fa fa-fw fa-eye"></i></span>--}}
@@ -168,16 +168,16 @@
                     id: id
                 },
                 success: function (res) {
-                    $("#id_kh").attr("value",res.data.id ? res.data.id : 'Không tồn tại');
-                    $("#avatar").attr("src",res.data.customer_image ? res.data.customer_image : 'Không tồn tại')
-                    $("#tenKH").html(res.data.name ? res.data.name : 'Không tồn tại');
-                    $("#tongtien").html(res.gioithieu.tien_hoa_hong ? res.gioithieu.tien_hoa_hong : 'Không tồn tại');
-                    $("#thoihan").html(res.gioithieu.danh_dau ? res.gioithieu.danh_dau : 'Không tồn tại');
-                    $("#namsinh").html(res.data.customer_birthday ? res.data.customer_birthday : 'Không tồn tại');
-                    $("#email").html(res.data.email ? res.data.email : 'Không tồn tại');
-                    $("#sdt").html(res.data.phone ? res.data.phone : 'Không tồn tại');
-                    $("#gioithieu").html(res.gioithieu.name ? res.gioithieu.name : 'Không tồn tại');
-                    $("#sdtgioithieu").html(res.gioithieu.phone ? res.gioithieu.phone : 'Không tồn tại' );
+                    $("#id_kh").attr("value",res.data.id ? res.data.id : 'Chưa cập nhật');
+                    $("#avatar").attr("src",res.data.customer_image ? res.data.customer_image : 'Chưa cập nhật')
+                    $("#tenKH").html(res.data.name ? res.data.name : 'Chưa cập nhật');
+                    $("#tongtien").html(res.gioithieu.tien_hoa_hong ? res.gioithieu.tien_hoa_hong : 0);
+                    $("#thoihan").html(res.gioithieu.danh_dau ? res.gioithieu.danh_dau : 'Chưa cập nhật');
+                    $("#namsinh").html(res.data.customer_birthday ? res.data.customer_birthday : 'Chưa cập nhật');
+                    $("#email").html(res.data.email ? res.data.email : 'Chưa cập nhật');
+                    $("#sdt").html(res.data.phone ? res.data.phone : 'Chưa cập nhật');
+                    $("#gioithieu").html(res.gioithieu.name ? res.gioithieu.name : 'Không có người giới thiệu');
+                    $("#sdtgioithieu").html(res.gioithieu.phone ? res.gioithieu.phone : 'Không có người giới thiệu' );
                     $("#detailKhachHang").modal('show');
                 }
             });
