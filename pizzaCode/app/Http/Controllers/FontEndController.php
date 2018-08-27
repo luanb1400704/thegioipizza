@@ -367,6 +367,7 @@ class FontEndController extends Controller
         $listChiNhanh = ChiNhanhModel::all();
         foreach ($listChiNhanh as $key => $value){
             $nhanvien = UserProfileModel::where('id_chinhanh',$listChiNhanh->id_chinhanh)->get();
+            
         }
         return view('website.lala', compact('listChiNhanh'));
     }
