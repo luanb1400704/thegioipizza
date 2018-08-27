@@ -30,20 +30,20 @@
             <form method="get" action="{{ route('hoadon.indexchuaduyet') }}">
                 <div class="col-sm-2">
                     <input type="text" name="q" value="{{\Illuminate\Support\Facades\Input::get('q','')}}"
-                           class="form-control">
+                           class="form-control select2">
                 </div>
                 <div class="col-sm-2">
-                    <select class="form-control" name="k">
+                    <select class="form-control select2" name="k">
                         <option value="">Tên khách hàng</option>
-                        @foreach ($khachhang as $val)
+                        @foreach ($tenkhachhang as $val)
                             <option value="{{ $val->id }}">{{ $val->name }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="col-sm-2">
-                    <select class="form-control" name="i">
+                    <select class="form-control select2" name="i">
                         <option value="">Số điện thoại</option>
-                        @foreach ($khachhang as $val)
+                        @foreach ($sdtkhachhang as $val)
                             <option value="{{ $val->id }}">{{ $val->phone }}</option>
                         @endforeach
                     </select>
@@ -140,7 +140,7 @@
         $(function () {
             $('#example1').DataTable()
         });
-
+        $(".select2").select2();
         function toMoney(number) {
             return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }

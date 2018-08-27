@@ -27,8 +27,36 @@
                     </h1>
                 </span>
             </div>
+            <form method="get" action="{{ route('hoadon.indexdaduyet') }}">
+                <div class="col-sm-2">
+                    <input type="text" name="q" value="{{\Illuminate\Support\Facades\Input::get('q','')}}"
+                           class="form-control select2">
+                </div>
+                <div class="col-sm-2">
+                    <select class="form-control select2" name="k">
+                        <option value="">Tên khách hàng</option>
+                        @foreach ($tenkhachhang as $val)
+                            <option value="{{ $val->id }}">{{ $val->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-sm-2">
+                    <select class="form-control select2" name="i">
+                        <option value="">Số điện thoại</option>
+                        @foreach ($sdtkhachhang as $val)
+                            <option value="{{ $val->id }}">{{ $val->phone }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-search"></i></button>
+                    <a href="{{ route('hoadon.indexdaduyet') }}" class="btn btn-primary btn-sm" title="xem chi tiet">
+                        <i class="fa fa-refresh"></i>
+                    </a>
+                </div>
+            </form>
             <div class="box-body ">
-                <table id="example1" class="table table-bordered table-striped text-center">
+                <table class="table table-bordered table-striped text-center">
                     <thead>
                     <tr>
                         <th>Mã</th>
@@ -45,7 +73,7 @@
                             <td>{{$value->hd_id}}</td>
                             <td>{{$value->name}}</td>
                             <td>{{$value->phone}}</td>
-                            <td>{{number_format($value->tong_tien_hoa_don)}}</td>
+                            <td>{{number_format($value->tong_tien_hoa_don)}} vnđ</td>
                             <td>{{$value->created_at}}</td>
                             <td class="text-center">
                                 <a href="#" class="btn btn-primary btn-sm" title="xem chi tiet"
@@ -107,7 +135,10 @@
         $(function () {
             $('#example1').DataTable()
         });
-
+        $(".select2").select2();
+        function toMoney(number) {
+            return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
         function toMoney(number) {
             return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
