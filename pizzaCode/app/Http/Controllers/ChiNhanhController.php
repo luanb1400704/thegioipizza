@@ -42,7 +42,7 @@ class ChiNhanhController extends Controller
                 'name' => $req->get('name'),
                 'email' => $req->get('email'),
                 'phone' => $req->get('phone'),
-                'password' => Hash::make($req->get('phone')),
+                'password' => Hash::make($req->get('password')),
                 'active' => 1,
             ]
         );

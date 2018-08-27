@@ -41,32 +41,29 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($khachhang as $key => $val): ?>
-                    <tr>
-                        <td>{{ $val->stt }}</td>
-                        <td>{{ $val->name }}</td>
-                        <td>{{ $val->phone }}</td>
-                        @if($val->id_cha == 0)
-                            <td></td>
-                        @else
-                            <th>{{ $val->id_cha }}</th>
-                        @endif
-                        <td>{{ number_format($val->tien_hoa_hong) }} vnđ</td>
-                        @if($val->active == 1)
-                            <td><i style="color: #00ff00" class="fa fa-check"></i></td>
-                        @else
-                            <td><i style="color: red" class="fa fa-close"></i></td>
-                        @endif
-                        <td class="text-center">
-                            <a el="{{ $val->id }}" onclick="getDetails({{$val->id}})" class="btn btn-primary btn-sm" title="xem chi tiet">
-                                <i class="fa fa-eye"></i>
-                            </a>
-                            <a href="#" class="btn bg-olive btn-sm btn-flat">
-                                <i class="fa fa-key"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <?php endforeach ?>
+                    @foreach ($khachhang as $val)
+                        <tr>
+                            <td>{{ $val->stt }}</td>
+                            <td>{{ $val->name }}</td>
+                            <td>{{ $val->phone }}</td>
+                            <th>{{ $val->nguoigioithieu }}</th>
+                            <td>{{ number_format($val->tien_hoa_hong) }} vnđ</td>
+                            @if($val->active == 1)
+                                <td><i style="color: #00ff00" class="fa fa-check"></i></td>
+                            @else
+                                <td><i style="color: red" class="fa fa-close"></i></td>
+                            @endif
+                            <td class="text-center">
+                                <a el="{{ $val->id }}" onclick="getDetails({{$val->id}})" class="btn btn-primary btn-sm"
+                                   title="xem chi tiet">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a href="#" class="btn bg-olive btn-sm btn-flat">
+                                    <i class="fa fa-key"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
@@ -89,7 +86,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Tiền hoa hồng hiện tại: <span id="tongtien" style="color: red;"></span>  VNĐ</label><br>
+                                <label>Tiền hoa hồng hiện tại: <span id="tongtien" style="color: red;"></span>
+                                    VNĐ</label><br>
                                 <label>Thời hạn lãnh tiền: <span id="thoihan" style="color: red;"></span></label><br>
                                 <label>Năm sinh: <span id="namsinh" style="color: red;"></span></label><br>
                                 <label>Email: <span id="email" style="color: red;"></span></label><br>
@@ -98,22 +96,24 @@
 
                             </div>
                             <div class="box-body ">
-                                <form role="form" action="{{ route('kh.changePass') }}" method="POST" enctype="multipart/form-data">
+                                <form role="form" action="{{ route('kh.changePass') }}" method="POST"
+                                      enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="" name="id_kh" id="id_kh">
                                     <label>Mật khẩu mới</label>
-                                        <div class="row">
+                                    <div class="row">
 
-                                            <div class="col-md-7">
-                                                <input type="password" id="password" name="password" class="form-control" required>
-                                            </div>
-                                            {{--<div class="col-md-2">--}}
-                                                {{--<span onclick="changInput()" class="btn bg-olive"><i class="fa fa-fw fa-eye"></i></span>--}}
-                                            {{--</div>--}}
-                                            <div class="col-md-3">
-                                                <button type="submit" class="btn bg-olive">Xác nhận</button>
-                                            </div>
+                                        <div class="col-md-7">
+                                            <input type="password" id="password" name="password" class="form-control"
+                                                   required>
                                         </div>
+                                        {{--<div class="col-md-2">--}}
+                                        {{--<span onclick="changInput()" class="btn bg-olive"><i class="fa fa-fw fa-eye"></i></span>--}}
+                                        {{--</div>--}}
+                                        <div class="col-md-3">
+                                            <button type="submit" class="btn bg-olive">Xác nhận</button>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -152,7 +152,7 @@
         function detail(node) {
             // $("#detailuser").modal();
             node.attr('el');
-            }
+        }
     </script>
 
 
@@ -168,8 +168,8 @@
                     id: id
                 },
                 success: function (res) {
-                    $("#id_kh").attr("value",res.data.id ? res.data.id : 'Chưa cập nhật');
-                    $("#avatar").attr("src",res.data.customer_image ? res.data.customer_image : 'Chưa cập nhật')
+                    $("#id_kh").attr("value", res.data.id ? res.data.id : 'Chưa cập nhật');
+                    $("#avatar").attr("src", res.data.customer_image ? res.data.customer_image : 'Chưa cập nhật')
                     $("#tenKH").html(res.data.name ? res.data.name : 'Chưa cập nhật');
                     $("#tongtien").html(res.gioithieu.tien_hoa_hong ? res.gioithieu.tien_hoa_hong : 0);
                     $("#thoihan").html(res.gioithieu.danh_dau ? res.gioithieu.danh_dau : 'Chưa cập nhật');
@@ -177,7 +177,7 @@
                     $("#email").html(res.data.email ? res.data.email : 'Chưa cập nhật');
                     $("#sdt").html(res.data.phone ? res.data.phone : 'Chưa cập nhật');
                     $("#gioithieu").html(res.gioithieu.name ? res.gioithieu.name : 'Không có người giới thiệu');
-                    $("#sdtgioithieu").html(res.gioithieu.phone ? res.gioithieu.phone : 'Không có người giới thiệu' );
+                    $("#sdtgioithieu").html(res.gioithieu.phone ? res.gioithieu.phone : 'Không có người giới thiệu');
                     $("#detailKhachHang").modal('show');
                 }
             });
