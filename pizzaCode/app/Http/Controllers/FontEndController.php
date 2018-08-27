@@ -16,6 +16,7 @@ use App\UserProfileModel;
 use App\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use PhpParser\Node\Expr\Cast\Object_;
 
@@ -366,9 +367,21 @@ class FontEndController extends Controller
     public function tongtienchinhanh(){
         $listChiNhanh = ChiNhanhModel::all();
         foreach ($listChiNhanh as $key => $value){
-            $nhanvien = UserProfileModel::where('id_chinhanh',$listChiNhanh->id_chinhanh)->get();
+            $nhanvien = UserProfileModel::join('users', 'users.id', '=','userprofile.user_id')
+                ->where('id_chinhanh',$value->id_chinhanh)->get();
+            $sum = 0;
+            foreach ($nhanvien as $keynv => $valuenv){
+                $sumnv = HoaDonModel::
+                    where('id_nhan_vien_lap_hh',$valuenv->user_id)
+                    ->sum('tong_tien_hoa_don');
+                $sum = $sum + $sumnv;
+                $valuenv->tongtiendatinh = $sumnv;
+
+            }
+            $value->nhanvien = $nhanvien;
+            $value->tongtien = $sum;
         }
-        return view('website.lala', compact('listChiNhanh'));
+        return view('pages.chihohoahong.chinhanhchiho', compact('listChiNhanh'));
     }
 
 
