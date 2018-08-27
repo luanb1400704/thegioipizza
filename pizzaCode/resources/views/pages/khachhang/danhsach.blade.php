@@ -36,7 +36,6 @@
                         <th>SĐT</th>
                         <th>Người giới thiệu</th>
                         <th>Tiền hoa hồng</th>
-                        <th>status</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -44,15 +43,10 @@
                     @foreach ($khachhang as $val)
                         <tr>
                             <td>{{ $val->stt }}</td>
-                            <td>{{ $val->name }}</td>
-                            <td>{{ $val->phone }}</td>
+                            <td>{{ $val->ten }}</td>
+                            <td>{{ $val->sdt }}</td>
                             <th>{{ $val->nguoigioithieu }}</th>
-                            <td>{{ number_format($val->tien_hoa_hong) }} vnđ</td>
-                            @if($val->active == 1)
-                                <td><i style="color: #00ff00" class="fa fa-check"></i></td>
-                            @else
-                                <td><i style="color: red" class="fa fa-close"></i></td>
-                            @endif
+                            <td>{{ number_format($val->tien) }} vnđ</td>
                             <td class="text-center">
                                 <a el="{{ $val->id }}" onclick="getDetails({{$val->id}})" class="btn btn-primary btn-sm"
                                    title="xem chi tiet">
