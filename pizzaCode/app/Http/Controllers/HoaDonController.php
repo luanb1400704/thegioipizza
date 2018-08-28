@@ -7,8 +7,9 @@ use App\GiaModel;
 use App\HoaDonChiTietModel;
 use App\HoaDonModel;
 use App\HoaHongModel;
-use App\Http\Requests\ThemKhachHangRequests;
+use App\Http\Requests\Customer;
 use App\PhanCapModel;
+use Illuminate\Support\Facades\Validator;
 use App\TongTienHoaHongModel;
 use App\Users;
 use Illuminate\Http\Request;
@@ -160,6 +161,13 @@ class HoaDonController extends Controller
     public function createCustomer(Request $request)
     {
         $contain = $request->except('_token');
+        $validated = Validator::make($contain, Customer::rules(), Customer::getMessage());
+        if ($validated->fails()) {
+            return [
+                'status' => 'failed',
+                'message' => $validated->errors()->all()
+            ];
+        }
         if (empty($contain['id_cha'])) {
             $contain['id_cha'] = 0;
         }

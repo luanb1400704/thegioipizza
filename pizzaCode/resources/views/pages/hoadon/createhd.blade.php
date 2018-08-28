@@ -235,6 +235,12 @@
             customer.password = $("input[name = 'password']").val();
             customer.id_cha = $("select[name = 'id_cha']").val();
             axios.post('{{ route('hoadon.customer') }}', customer).then(function (response) {
+                if(response.data.status === 'failed'){
+                    response.data.message.forEach(function (elem) {
+                        toastr.error(elem);
+                    });
+                    return;
+                }
                 alert(response.data.message);
                 $("select[name = 'khach_hang']").empty();
                 $("select[name = 'id_cha']").empty();
@@ -245,6 +251,10 @@
                 });
                 $("select[name = 'khach_hang']").val(response.data.data[0]);
                 $("#mdl").modal('hide');
+                $("input[name = 'name']").val('');
+                $("input[name = 'phone']").val('');
+                $("input[name = 'password']").val('');
+                $("select[name = 'id_cha']").val("0");
             }).catch(function (error) {
                 console.log(error);
             });
