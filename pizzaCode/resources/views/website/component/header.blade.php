@@ -43,7 +43,7 @@
                             @endif
                             @if(empty(Auth::user()))
                                 <li>
-                                    <a href="{{route('store/get_contact')}}" >CÁ NHÂN</a>
+                                    <a href="#fast_register" class="giobanh-nns">ĐĂNG KÝ</a>
                                 </li>
                             @else
                                 <li>
