@@ -11,6 +11,7 @@ use App\HoaDonModel;
 use App\HoaHongModel;
 use App\LogHoaHongModel;
 use App\PhanCapModel;
+use App\TienChiNhanhTraChoKhachModel;
 use App\TongTienHoaHongModel;
 use App\UserProfileModel;
 use App\Users;
@@ -363,25 +364,6 @@ class FontEndController extends Controller
         return redirect('/store/home')->with('success','Chọn bánh thành công, đến mục giỏ hàng để xác nhận mua bạn nhé');
     }
 
-    public function tongtienchinhanh(){
-        $listChiNhanh = ChiNhanhModel::all();
-        foreach ($listChiNhanh as $key => $value){
-            $nhanvien = UserProfileModel::join('users', 'users.id', '=','userprofile.user_id')
-                ->where('id_chinhanh',$value->id_chinhanh)->get();
-            $sum = 0;
-            foreach ($nhanvien as $keynv => $valuenv){
-                $sumnv = HoaDonModel::
-                    where('id_nhan_vien_lap_hh',$valuenv->user_id)
-                    ->sum('tong_tien_hoa_don');
-                $sum = $sum + $sumnv;
-                $valuenv->tongtiendatinh = $sumnv;
-
-            }
-            $value->nhanvien = $nhanvien;
-            $value->tongtien = $sum;
-        }
-        return view('pages.chihohoahong.chinhanhchiho', compact('listChiNhanh'));
-    }
 
 
 

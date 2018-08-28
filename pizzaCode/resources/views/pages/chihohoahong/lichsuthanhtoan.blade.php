@@ -37,7 +37,7 @@
                         <th>Chủ</th>
                         <th>Email</th>
                         <th>SĐT</th>
-                        <th>Thanh toán</th>
+                        <th>Thanh toán ngày</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -49,10 +49,8 @@
                         <td>{{ $val->name }}</td>
                         <td>{{ $val->email }}</td>
                         <td>{{ $val->phone }}</td>
-                        <td class="text-center">
-                            <a href="{{route('tien-chi-ho-hoa-hong/thanh_toan',['id'=>$val->id_chinhanh])}}" class="btn bg-red-active btn-sm btn-flat">
-                                <i class="fa fa-dollar"></i>
-                            </a>
+                        <td>
+                            {{ $val->ngay_tra }}
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -61,4 +59,10 @@
             </div>
         </div>
     </section>
+    <script>
+        $(function () {
+            $('#example1').DataTable()
+        });
+
+    </script>
 @endsection
