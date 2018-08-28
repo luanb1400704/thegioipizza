@@ -134,7 +134,6 @@ class FontEndController extends Controller
             ->where('customer.user_id', Auth::user()->id)
             ->where('users.type', 2)
             ->first();
-
         //Lấy tiền hoa hồng hiện tại
         $hoahong = HoaHongModel::where('id_khachhang', Auth::user()->id)->first();
 
