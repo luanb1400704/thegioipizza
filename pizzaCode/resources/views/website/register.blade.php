@@ -19,11 +19,11 @@
                             <div class="col-md-6">
                                 <span class="txt9">Họ tên (*)</span>
                                 <div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="name" placeholder="Name" value="{{old('name')}}">
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="name" placeholder="Name" value="{{old('name')}}" required>
                                 </div>
                                 <span class="txt9">SĐT (*)</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="phone" value="{{old('phone')}}" placeholder="Phone">
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="phone" value="{{old('phone')}}" placeholder="Phone" required>
                                 </div>
                                 <span class="txt9">SĐT người giới thiệu</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
@@ -31,11 +31,11 @@
                                 </div>
                                 <span class="txt9">Mật khẩu (*)</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="password" placeholder="Password">
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="password" placeholder="Password" required>
                                 </div>
                                 <span class="txt9">Nhập lại mật khẩu (*)</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="repassword" placeholder="Confirm">
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="repassword" placeholder="Confirm" required>
                                 </div>
                                 <span class="txt9">Ảnh đại diện (*): <br></span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
@@ -52,7 +52,7 @@
                             <div class="col-md-6">
                                 <span class="txt9">Ngày sinh (*)</span>
                                 <div class="wrap-inputdate pos-relative txt10 size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="my-calendar bo-rad-10 sizefull txt10 p-l-20" type="text" name="customer_birthday" >
+                                    <input class="my-calendar bo-rad-10 sizefull txt10 p-l-20" type="text" name="customer_birthday" required>
                                     <i class="btn-calendar fa fa-calendar ab-r-m hov-pointer m-r-18" aria-hidden="true"></i>
                                 </div>
                                 <span class="txt9">Giới tính (*)</span>
@@ -64,7 +64,7 @@
                                 </div>
                                 <span class="txt9">Địa chỉ (*)</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="customer_address" placeholder="Address" value="{{old('customer_address')}}">
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="customer_address" placeholder="Address" value="{{old('customer_address')}}" required>
                                 </div>
                                 <span class="txt9">CMND (*)</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
@@ -72,12 +72,12 @@
                                 </div>
                                 <span class="txt9">Ngày cấp CMND (*)</span>
                                 <div class="wrap-inputdate pos-relative txt10 size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="my-calendar bo-rad-10 sizefull txt10 p-l-20" type="text" name="customer_cmnd_ngaycap" >
+                                    <input class="my-calendar bo-rad-10 sizefull txt10 p-l-20" type="text" name="customer_cmnd_ngaycap" required>
                                     <i class="btn-calendar fa fa-calendar ab-r-m hov-pointer m-r-18" aria-hidden="true"></i>
                                 </div>
                                 <span class="txt9">Email</span>
                                 <div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="email" name="email" placeholder="Email" value="{{old('email')}}">
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="email" name="email" placeholder="Email" value="{{old('email')}}" required>
                                 </div>
                                 <button type="submit" class="btn3 flex-c-m size13 txt11 trans-0-4" style="margin:  auto;">Xác nhận</button>
                                 <br>
