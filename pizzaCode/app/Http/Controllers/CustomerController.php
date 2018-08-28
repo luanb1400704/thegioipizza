@@ -4,16 +4,15 @@ namespace App\Http\Controllers;
 
 use App\CustomerModel;
 use App\HoaHongModel;
+use App\Http\Requests\StoreCustomerRequest;
 use App\PhanCapModel;
-use App\User;
 use App\Users;
-use Faker\Provider\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
-    public function register(Request $request)
+    public function register(StoreCustomerRequest $request)
     {
         $check_user = 'notuser';
         if (isset($request->phone_introduce))

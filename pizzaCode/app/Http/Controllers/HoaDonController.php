@@ -7,7 +7,7 @@ use App\GiaModel;
 use App\HoaDonChiTietModel;
 use App\HoaDonModel;
 use App\HoaHongModel;
-use App\Http\Requests\Customer;
+use App\Http\Requests\StoreCustomerRequest;
 use App\PhanCapModel;
 use Illuminate\Support\Facades\Validator;
 use App\TongTienHoaHongModel;
@@ -161,7 +161,7 @@ class HoaDonController extends Controller
     public function createCustomer(Request $request)
     {
         $contain = $request->except('_token');
-        $validated = Validator::make($contain, Customer::rules(), Customer::getMessage());
+        $validated = Validator::make($contain, StoreCustomerRequest::rules(), StoreCustomerRequest::getMessage());
         if ($validated->fails()) {
             return [
                 'status' => 'failed',
