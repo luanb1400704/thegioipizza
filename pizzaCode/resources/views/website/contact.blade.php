@@ -12,11 +12,15 @@
                     <div class="blo5 pos-relative p-t-60">
                         <div class="pic-blo5 size14 bo4 wrap-cir-pic hov-img-zoom ab-c-t">
                             @if(!empty($customer->customer_image))
-                                <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
-                                    <a data-lightbox="gallery-home">
-                                        <img src="{{ url('upload',$customer->customer_image) }}">
-                                    </a>
-                                </div>
+                                {{--<div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">--}}
+                                    {{--<a data-lightbox="gallery-home">--}}
+                                        {{--<img src="{{ url('upload',$customer->customer_image) }}">--}}
+                                    {{--</a>--}}
+                                {{--</div>--}}
+                                <a class="" href="{{ url('upload',$customer->customer_image) }}"
+                                   data-lightbox="gallery-footer">
+                                    <img src="{{ url('upload',$customer->customer_image) }}">
+                                </a>
                             @else
                                 <a href="#">
                                     <img  src="{{url('dist/img/avatar5.png')}}" >
