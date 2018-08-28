@@ -43,7 +43,7 @@
                             @endif
                             @if(empty(Auth::user()))
                                 <li>
-                                    <a href="#fast_register" class="giobanh-nns">ĐĂNG KÝ</a>
+                                    <a href="{{route('store/get_home')}}#fast_register" class="giobanh-nns">ĐĂNG KÝ</a>
                                 </li>
                             @else
                                 <li>

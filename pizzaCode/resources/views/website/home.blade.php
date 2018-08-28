@@ -619,10 +619,10 @@
                                     <i class="fa fa-star p-l-1" aria-hidden="true"></i>
                                 </div>
 
-                                <div class="more-review txt4 t-center animated visible-false m-t-32"
-                                     data-appear="fadeInUp">
-                                    Xem chi tiết
-                                </div>
+                                    {{--<div class="more-review txt4 t-center animated visible-false m-t-32"--}}
+                                         {{--data-appear="fadeInUp">--}}
+                                        {{--Xem chi tiết--}}
+                                    {{--</div>--}}
                             </div>
                         </div>
                     </div>
