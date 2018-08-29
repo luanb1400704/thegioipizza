@@ -137,9 +137,9 @@
 @endsection
 @section('script')
     <script type="text/javascript">
-        $(function () {
-            $('#example1').DataTable()
-        });
+        // $(function () {
+        //     $('#example1').DataTable()
+        // });
         $(".select2").select2();
         function toMoney(number) {
             return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

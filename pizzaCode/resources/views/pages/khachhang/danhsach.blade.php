@@ -93,27 +93,27 @@
                                 <label>SĐT người giới thiệu: <span id="sdtgioithieu" style="color: red;"></span></label><br>
 
                             </div>
-                            {{--<div class="box-body ">--}}
-                                {{--<form role="form" action="{{ route('kh.changePass') }}" method="POST"--}}
-                                      {{--enctype="multipart/form-data">--}}
-                                    {{--@csrf--}}
-                                    {{--<input type="hidden" value="" name="id_kh" id="id_kh">--}}
-                                    {{--<label>Mật khẩu mới</label>--}}
-                                    {{--<div class="row">--}}
+                            <div class="box-body ">
+                                <form role="form" action="{{ route('kh.changePass') }}" method="POST"
+                                      enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" value="" name="id_kh" id="id_kh">
+                                    <label>Mật khẩu mới</label>
+                                    <div class="row">
 
-                                        {{--<div class="col-md-7">--}}
-                                            {{--<input type="password" id="password" name="password" class="form-control"--}}
-                                                   {{--required>--}}
-                                        {{--</div>--}}
-                                        {{--<div class="col-md-2">--}}
-                                        {{--<span onclick="changInput()" class="btn bg-olive"><i class="fa fa-fw fa-eye"></i></span>--}}
-                                        {{--</div>--}}
-                                        {{--<div class="col-md-3">--}}
-                                            {{--<button type="submit" class="btn bg-olive">Xác nhận</button>--}}
-                                        {{--</div>--}}
-                                    {{--</div>--}}
-                                {{--</form>--}}
-                            {{--</div>--}}
+                                        <div class="col-md-7">
+                                            <input type="password" id="password" name="password" class="form-control"
+                                                   required>
+                                        </div>
+                                        <div class="col-md-2">
+                                        <span onclick="changInput()" class="btn bg-olive"><i class="fa fa-fw fa-eye"></i></span>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <button type="submit" class="btn bg-olive">Xác nhận</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>

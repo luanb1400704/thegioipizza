@@ -28,9 +28,9 @@
                                 <a href="{{route('store/get_home')}}#gioithieu">GIỚI THIỆU</a>
                             </li>
 
-                            <li>
-                                <a href="{{route('store/order')}}" class=" giobanh-nns">GIỎ BÁNH</a>
-                            </li>
+                            {{--<li>--}}
+                                {{--<a href="{{route('store/order')}}" class=" giobanh-nns">GIỎ BÁNH</a>--}}
+                            {{--</li>--}}
 
                             @if(empty(Auth::user()))
                             <li>

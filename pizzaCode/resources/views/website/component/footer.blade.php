@@ -51,7 +51,7 @@
 						<span class="fs-13 color2 m-r-5 facebook-nns">
 							<i class="fa fa-facebook" aria-hidden="true"></i>
 						</span>
-                    <a href="#" class="txt15">
+                    <a href="https://www.facebook.com/thegioipizza/" class="txt15">
                         Facebook
                     </a>
 

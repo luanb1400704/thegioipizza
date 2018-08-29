@@ -45,7 +45,7 @@
                     <tr>
                         <td>{{ $val->id_chinhanh }}</td>
                         <td>{{ $val->ten_chinhanh }}</td>
-                        <td>{{ $val->sotien }}</td>
+                        <td>{{ number_format($val->sotien) }} vnđ</td>
                         <td>{{ $val->name }}</td>
                         <td>{{ $val->email }}</td>
                         <td>{{ $val->phone }}</td>
