@@ -181,88 +181,88 @@
                                         </a>
                                     @endif
                                 </span>
-                                <div class="modal fade" id="modal{{$value->b_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <form action="{{route('store/order_pizza')}}" method="post">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="hidden" name="b_id" value="{{$value->b_id}}">
+                                {{--<div class="modal fade" id="modal{{$value->b_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">--}}
+                                    {{--<form action="{{route('store/order_pizza')}}" method="post">--}}
+                                        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
+                                        {{--<input type="hidden" name="b_id" value="{{$value->b_id}}">--}}
 
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalCenterTitle">{{$value->b_ten}}</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="container">
-                                                        <div class="row">
-                                                            <div class="col-3"></div>
-                                                            <div class="col-6">
-                                                                <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
-                                                                    <a href="{{url('patotheme/images/photo-gallery-18.jpg')}}"
-                                                                       data-lightbox="gallery-home">
-                                                                        <img src="{{url('patotheme/images/photo-gallery-18.jpg')}}"
-                                                                             alt="GALLERY">
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-3"></div>
-                                                            <div class="col-12 text-center">
-                                                                <table class="table">
-                                                                    <thead>
-                                                                    <tr>
-                                                                        <th class="text-center" scope="col">Loại</th>
-                                                                        <th class="text-center" scope="col">Số lượng</th>
-                                                                        <th class="text-center" scope="col">Đơn giá</th>
-                                                                    </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                    @foreach($value->loai as $type => $var)
-                                                                        <tr>
-                                                                            <th scope="row" class="text-center"><span
-                                                                                        class="nns-home-loai">{{$var->l_ten}}</span>
-                                                                            </th>
-                                                                            <td>
-                                                                                @if(isset($var->so_luong_mua))
-                                                                                    <input class="number text-center" min="0"
-                                                                                           type="number" placeholder="0"
-                                                                                           name ="soluong[]"
-                                                                                           value="{{$var->so_luong_mua}}"
-                                                                                    >
-                                                                                @else
-                                                                                    <input class="number text-center" min="0"
-                                                                                           type="number" placeholder="0"
-                                                                                           name ="soluong[]"
-                                                                                    >
-                                                                                @endif
-                                                                                <input hidden
-                                                                                       type="number" placeholder="0"
-                                                                                       name ="key[]"
-                                                                                       value="{{$var->l_id}}"
-                                                                                >
-                                                                            </td>
-                                                                            <td><span class="nns-home-gia text-center">{{number_format($var->g_tien,0,",",".")}} VND</span></td>
-                                                                        </tr>
-                                                                    @endforeach
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                                        Hủy
-                                                    </button>
-                                                    <button type="submit" class="btn btn-primary">Đặt hàng
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                                        {{--<div class="modal-dialog modal-dialog-centered" role="document">--}}
+                                            {{--<div class="modal-content">--}}
+                                                {{--<div class="modal-header">--}}
+                                                    {{--<h5 class="modal-title" id="exampleModalCenterTitle">{{$value->b_ten}}</h5>--}}
+                                                    {{--<button type="button" class="close" data-dismiss="modal"--}}
+                                                            {{--aria-label="Close">--}}
+                                                        {{--<span aria-hidden="true">&times;</span>--}}
+                                                    {{--</button>--}}
+                                                {{--</div>--}}
+                                                {{--<div class="modal-body">--}}
+                                                    {{--<div class="container">--}}
+                                                        {{--<div class="row">--}}
+                                                            {{--<div class="col-3"></div>--}}
+                                                            {{--<div class="col-6">--}}
+                                                                {{--<div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">--}}
+                                                                    {{--<a href="{{url('patotheme/images/photo-gallery-18.jpg')}}"--}}
+                                                                       {{--data-lightbox="gallery-home">--}}
+                                                                        {{--<img src="{{url('patotheme/images/photo-gallery-18.jpg')}}"--}}
+                                                                             {{--alt="GALLERY">--}}
+                                                                    {{--</a>--}}
+                                                                {{--</div>--}}
+                                                            {{--</div>--}}
+                                                            {{--<div class="col-3"></div>--}}
+                                                            {{--<div class="col-12 text-center">--}}
+                                                                {{--<table class="table">--}}
+                                                                    {{--<thead>--}}
+                                                                    {{--<tr>--}}
+                                                                        {{--<th class="text-center" scope="col">Loại</th>--}}
+                                                                        {{--<th class="text-center" scope="col">Số lượng</th>--}}
+                                                                        {{--<th class="text-center" scope="col">Đơn giá</th>--}}
+                                                                    {{--</tr>--}}
+                                                                    {{--</thead>--}}
+                                                                    {{--<tbody>--}}
+                                                                    {{--@foreach($value->loai as $type => $var)--}}
+                                                                        {{--<tr>--}}
+                                                                            {{--<th scope="row" class="text-center"><span--}}
+                                                                                        {{--class="nns-home-loai">{{$var->l_ten}}</span>--}}
+                                                                            {{--</th>--}}
+                                                                            {{--<td>--}}
+                                                                                {{--@if(isset($var->so_luong_mua))--}}
+                                                                                    {{--<input class="number text-center" min="0"--}}
+                                                                                           {{--type="number" placeholder="0"--}}
+                                                                                           {{--name ="soluong[]"--}}
+                                                                                           {{--value="{{$var->so_luong_mua}}"--}}
+                                                                                    {{-->--}}
+                                                                                {{--@else--}}
+                                                                                    {{--<input class="number text-center" min="0"--}}
+                                                                                           {{--type="number" placeholder="0"--}}
+                                                                                           {{--name ="soluong[]"--}}
+                                                                                    {{-->--}}
+                                                                                {{--@endif--}}
+                                                                                {{--<input hidden--}}
+                                                                                       {{--type="number" placeholder="0"--}}
+                                                                                       {{--name ="key[]"--}}
+                                                                                       {{--value="{{$var->l_id}}"--}}
+                                                                                {{-->--}}
+                                                                            {{--</td>--}}
+                                                                            {{--<td><span class="nns-home-gia text-center">{{number_format($var->g_tien,0,",",".")}} VND</span></td>--}}
+                                                                        {{--</tr>--}}
+                                                                    {{--@endforeach--}}
+                                                                    {{--</tbody>--}}
+                                                                {{--</table>--}}
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
+                                                {{--<div class="modal-footer">--}}
+                                                    {{--<button type="button" class="btn btn-secondary" data-dismiss="modal">--}}
+                                                        {{--Hủy--}}
+                                                    {{--</button>--}}
+                                                    {{--<button type="submit" class="btn btn-primary">Đặt hàng--}}
+                                                    {{--</button>--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                    {{--</form>--}}
+                                {{--</div>--}}
                             </div>
                         </div>
                     </div>
@@ -619,10 +619,10 @@
                                     <i class="fa fa-star p-l-1" aria-hidden="true"></i>
                                 </div>
 
-                                <div class="more-review txt4 t-center animated visible-false m-t-32"
-                                     data-appear="fadeInUp">
-                                    Xem chi tiết
-                                </div>
+                                    {{--<div class="more-review txt4 t-center animated visible-false m-t-32"--}}
+                                         {{--data-appear="fadeInUp">--}}
+                                        {{--Xem chi tiết--}}
+                                    {{--</div>--}}
                             </div>
                         </div>
                     </div>

@@ -6,6 +6,7 @@ use App\CustomerModel;
 use App\HoaHongModel;
 use App\Http\Requests\StoreCustomerRequest;
 use App\PhanCapModel;
+use App\TongTienHoaHongModel;
 use App\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -62,6 +63,10 @@ class CustomerController extends Controller
             'tien_hoa_hong' => 0,
             'status' => 0,
             'danh_dau' => 0
+        ]);
+        TongTienHoaHongModel::create([
+            'id_khachhang' => $user->id,
+            'tien_da_lanh' => 0
         ]);
         return redirect('/store/home')->with('success', 'Tạo tài khoản thành công, vui lòng đăng nhập để sử dụng dịch vụ');
     }
@@ -152,6 +157,10 @@ class CustomerController extends Controller
             'status' => 0,
             'danh_dau' => 0
 
+        ]);
+        TongTienHoaHongModel::create([
+            'id_khachhang' => $user->id,
+            'tien_da_lanh' => 0
         ]);
         return redirect('/store/home')->with('success', 'Tạo tài khoản thành công, vui lòng đăng nhập để sử dụng dịch vụ');
     }

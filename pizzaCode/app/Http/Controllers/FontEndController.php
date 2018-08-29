@@ -18,6 +18,7 @@ use App\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use PhpParser\Node\Expr\Cast\Object_;
 
@@ -362,6 +363,28 @@ class FontEndController extends Controller
             }
         }
         return redirect('/store/home')->with('success','Chọn bánh thành công, đến mục giỏ hàng để xác nhận mua bạn nhé');
+    }
+
+
+    //Đổi mật khẩu giao diện
+    public  function change_pass(Request $request){
+        return view('website.repassword');
+    }
+    //Đổi mật khẩu
+    public  function repass(Request $request){
+        //nếu mật khẩu sai thì bảo nhập lại
+        if(!Hash::check($request->oldpassword, Auth::user()->password)){
+            return redirect('/store/change_pass')->with('success','Mật khẩu cũ của bạn sai');
+        }
+        if($request->password != $request->repassword){
+            return redirect('/store/change_pass')->with('success','Nhập lại mật khẩu không chính xác');
+        }
+        else{
+            $user = Users::find(Auth::user()->id);
+            $user->password = Hash::make($request->password);
+            $user->save();
+        }
+        return redirect('/store/contact')->with('success','Thay đổi mật khẩu thành công');
     }
 
 

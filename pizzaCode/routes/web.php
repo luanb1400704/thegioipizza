@@ -90,6 +90,9 @@ Route::group(['prefix' => '/store'], function () {
 
     //Xử lý trang đặt bánh khách hàng
     Route::post('/order_pizza', 'FontEndController@order_pizza')->name('store/order_pizza');
+    //Đổi mật khẩu
+    Route::get('/change_pass', 'FontEndController@change_pass')->name('store/change_pass');
+    Route::post('/repass', 'FontEndController@repass')->name('store/repass');
 });
 
 

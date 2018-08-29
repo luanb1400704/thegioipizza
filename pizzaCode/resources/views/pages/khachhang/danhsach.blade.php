@@ -45,7 +45,11 @@
                             <td>{{ $val->stt }}</td>
                             <td>{{ $val->ten }}</td>
                             <td>{{ $val->sdt }}</td>
-                            <th>{{ $val->nguoigioithieu }}</th>
+                            @if(isset($val->nguoigioithieu))
+                            <td>{{ $val->nguoigioithieu }}</td>
+                            @else
+                                <td>0</td>
+                            @endif
                             <td>{{ number_format($val->tien) }} vnđ</td>
                             <td class="text-center">
                                 <a el="{{ $val->id }}" onclick="getDetails({{$val->id}})" class="btn btn-primary btn-sm"
@@ -101,9 +105,9 @@
                                             <input type="password" id="password" name="password" class="form-control"
                                                    required>
                                         </div>
-                                        {{--<div class="col-md-2">--}}
-                                        {{--<span onclick="changInput()" class="btn bg-olive"><i class="fa fa-fw fa-eye"></i></span>--}}
-                                        {{--</div>--}}
+                                        <div class="col-md-2">
+                                        <span onclick="changInput()" class="btn bg-olive"><i class="fa fa-fw fa-eye"></i></span>
+                                        </div>
                                         <div class="col-md-3">
                                             <button type="submit" class="btn bg-olive">Xác nhận</button>
                                         </div>
@@ -163,7 +167,7 @@
                 },
                 success: function (res) {
                     $("#id_kh").attr("value", res.data.id ? res.data.id : 'Chưa cập nhật');
-                    $("#avatar").attr("src", res.data.customer_image ? res.data.customer_image : 'Chưa cập nhật')
+                    $("#avatar").attr("src", res.data.customer_image ? '../upload/'+ res.data.customer_image : 'Chưa cập nhật')
                     $("#tenKH").html(res.data.name ? res.data.name : 'Chưa cập nhật');
                     $("#tongtien").html(res.gioithieu.tien_hoa_hong ? res.gioithieu.tien_hoa_hong : 0);
                     $("#thoihan").html(res.gioithieu.danh_dau ? res.gioithieu.danh_dau : 'Chưa cập nhật');
@@ -171,7 +175,7 @@
                     $("#email").html(res.data.email ? res.data.email : 'Chưa cập nhật');
                     $("#sdt").html(res.data.phone ? res.data.phone : 'Chưa cập nhật');
                     $("#gioithieu").html(res.gioithieu.name ? res.gioithieu.name : 'Không có người giới thiệu');
-                    $("#sdtgioithieu").html(res.gioithieu.phone ? res.gioithieu.phone : 'Không có người giới thiệu');
+                    $("#sdtgioithieu").html(res.gioithieu.phone ? res.gioithieu.phone : 'Không có số điện thoại');
                     $("#detailKhachHang").modal('show');
                 }
             });
