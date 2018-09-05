@@ -24,6 +24,7 @@ class TienChiHoController extends Controller
                 'hoahong.id_cha',
                 'hoahong.danh_dau',
                 'hoahong.status',
+                'hoahong.danh_dau',
                 'users.name',
                 'users.id',
                 'users.email',

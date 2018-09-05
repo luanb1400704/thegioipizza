@@ -38,6 +38,7 @@
                         <th>CMND</th>
                         <th>Địa chỉ</th>
                         <th>Số Tiền Tích Lũy</th>
+                        <th>Hạn lãnh</th>
                         @if(!Auth::user()->type == 0)
                             <th></th>
                         @endif
@@ -53,6 +54,7 @@
                         <td>{{ $val->customer_cmnd }}</td>
                         <td>{{ $val->customer_address }}</td>
                         <td>{{ number_format($val->tien_hoa_hong) }} vnđ</td>
+                        <td>{{ $val->danh_dau }}</td>
                         @if($val->tien_hoa_hong == 0)
                             <td class="text-center">
                             </td>
@@ -67,6 +69,7 @@
                                 </td>
                             @endif
                         @endif
+
                     </tr>
                     <?php endforeach; ?>
                     </tbody>

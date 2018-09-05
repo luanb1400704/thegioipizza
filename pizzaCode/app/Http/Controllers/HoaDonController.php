@@ -109,7 +109,15 @@ class HoaDonController extends Controller
         if (empty($contain['money']) || $count >= $number) {
             return [];
         }
-        $contain['money']->danh_dau = 1;
+        //Đoạn code bổ xung
+            // Lấy ngày hiện tại
+            $today = date('d-m-Y');
+            // Cộng thêm 30 ngày
+            $moth = strtotime(date("d-m-Y", strtotime($today)) . " +30 days");
+            $moth = strftime("%d-%m-%Y", $moth);
+        //Đoạn code bổ xung
+        dd($moth);
+        $contain['money']->danh_dau = $moth;
         $contain['money']->tien_hoa_hong += $money;
         $contain['money']->save();
         $contain['sum_money'] = TongTienHoaHongModel::where('id_khachhang', $id)->first();
