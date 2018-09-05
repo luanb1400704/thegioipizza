@@ -166,7 +166,7 @@
                         <a href="#"><i class="fa fa-envelope " aria-hidden="true"></i> </a>
                     </div>
                     <div class="nns-footer-icon face-nns">
-                        <a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a>
+                        <a href="https://www.facebook.com/thegioipizza/"><i class="fa fa-facebook " aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div class="p-t-5 p-b-5">
