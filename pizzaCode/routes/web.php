@@ -57,12 +57,24 @@ Route::group(['prefix' => '/store'], function () {
     //  Trang about
     Route::get('/about', 'FontEndController@get_about')->name('store/get_about');
     //Trang giỏ hàng
-    Route::get('/cart', 'FontEndController@get_cart')->name('store/get_cart');
+    Route::get('/cart', function (){
+        if(Auth::user()->type==2){
+            \App\Http\Controllers\FontEndController::get_cart();
+        }
+    })->name('store/get_cart');
     //Trang liên hệ
-    Route::get('/contact', 'FontEndController@get_contact')->name('store/get_contact');
+    Route::get('/contact', function (){
+        if(Auth::user()->type==2){
+            \App\Http\Controllers\FontEndController::get_contact();
+        }
+    })->name('store/get_contact');
 
     //Trang giỏ bánh
-    Route::get('/order', 'FontEndController@order')->name('store/order');
+    Route::get('/order',function (){
+        if(Auth::user()->type==2){
+            \App\Http\Controllers\FontEndController::order();
+        }
+    })->name('store/order');
 
     //Trang xác nhận thanh toán
     Route::post('/order_success', 'FontEndController@order_success')->name('store/order_success');
