@@ -44,7 +44,6 @@ class FontEndController extends Controller
                 $value->loai = $tempbanh;
 
             }
-//            dd($banh);
             return view('website.home', compact('banh'));
         }
         //2------------------Nếu đăng nhập rồi thì tìm giỏ hàng----------------------------
