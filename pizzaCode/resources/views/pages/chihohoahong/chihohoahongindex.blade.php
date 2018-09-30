@@ -1,7 +1,7 @@
 @extends('components.index')
 @section('content')
     <section class="content-header">
-        <h1>Quản Lý Chi Nhánh</h1>
+        <h1>Quản Lý Hoa Hồng</h1>
         <ol class="breadcrumb bg-gray">
             <li>
                 <a href="{{ url('/') }}">

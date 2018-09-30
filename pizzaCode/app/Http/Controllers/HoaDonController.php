@@ -148,15 +148,12 @@ class HoaDonController extends Controller
             $contain['money_plus'] = $contain['percent'] / 100 * $contain['order']->tong_tien_hoa_don / $contain['number'];
         }
         $contain['money_customer'] = HoaHongModel::where('id_khachhang', $contain['customer'])->first();
-        //Đoạn code bổ xung
-            // Lấy ngày hiện tại
-            $today = date('d-m-Y');
-            // Cộng thêm 30 ngày
-            $moth = strtotime(date("d-m-Y", strtotime($today)) . " +30 days");
-            $moth = strftime("%d-%m-%Y", $moth);
-            //Đoạn code bổ xung
-            $contain['money_customer']->danh_dau = $moth;
 
+        $today = date('d-m-Y');
+        $moth = strtotime(date("d-m-Y", strtotime($today)) . " +30 days");
+        $moth = strftime("%d-%m-%Y", $moth);
+
+        $contain['money_customer']->danh_dau = $moth;
         $contain['money_customer']->tien_hoa_hong += $contain['money_plus'];
         $contain['money_customer']->save();
         $contain['sum_money_customer'] = TongTienHoaHongModel::where('id_khachhang', $contain['customer'])->first();
@@ -203,7 +200,7 @@ class HoaDonController extends Controller
             'id_cha' => $contain['id_cha'],
             'tien_hoa_hong' => 0,
             'status' => 0,
-            'danh_dau' => 1
+            'danh_dau' => null
         ]);
         TongTienHoaHongModel::create([
             'id_khachhang' => $user->id,
