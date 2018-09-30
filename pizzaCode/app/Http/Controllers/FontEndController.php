@@ -98,7 +98,6 @@ class FontEndController extends Controller
                     $i_val->loai =  collect($array_TEMP);
 
                 }
-//                dd($banh);
                 return view('website.home', compact('banh'));
             }
             //Nếu không có giỏ hàng thì hiện bình thường
@@ -146,7 +145,6 @@ class FontEndController extends Controller
         }else{
             $nguoigioithieu = Users::where('id',$hoahong->id_cha)->first();
         }
-//        dd($hoahong);
         //Lấy thông tin lịch sử mua hàng
         $hoadon = HoaDonModel::where('id_khachhang',Auth::user()->id)
             ->where('status', 1)->get();

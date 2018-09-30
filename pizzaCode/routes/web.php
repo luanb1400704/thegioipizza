@@ -59,20 +59,20 @@ Route::group(['prefix' => '/store'], function () {
     //Trang giỏ hàng
     Route::get('/cart', function (){
         if(Auth::user()->type==2){
-            \App\Http\Controllers\FontEndController()->get_cart();
+            \App\Http\Controllers\FontEndController::get_cart();
         }
     })->name('store/get_cart');
     //Trang liên hệ
     Route::get('/contact', function (){
         if(Auth::user()->type==2){
-            \App\Http\Controllers\FontEndController()->get_contact();
+            \App\Http\Controllers\FontEndController::get_contact();
         }
     })->name('store/get_contact');
 
     //Trang giỏ bánh
     Route::get('/order',function (){
         if(Auth::user()->type==2){
-            \App\Http\Controllers\FontEndController()->order();
+            \App\Http\Controllers\FontEndController::order();
         }
     })->name('store/order');
 
