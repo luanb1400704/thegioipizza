@@ -27,10 +27,11 @@
                             <li>
                                 <a href="{{route('store/get_home')}}#gioithieu">GIỚI THIỆU</a>
                             </li>
-
-                            {{--<li>--}}
-                                {{--<a href="{{route('store/order')}}" class=" giobanh-nns">GIỎ BÁNH</a>--}}
-                            {{--</li>--}}
+                            @if(!empty(Auth::user()) && Auth::user()->type==2)
+                                <li>
+                                    <a href="{{route('store/order')}}" class=" giobanh-nns">GIỎ BÁNH</a>
+                                </li>
+                            @endif
 
                             @if(empty(Auth::user()))
                             <li>
