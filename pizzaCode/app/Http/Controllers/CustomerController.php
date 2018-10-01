@@ -155,7 +155,7 @@ class CustomerController extends Controller
             'id_cha' => $idcha,
             'tien_hoa_hong' => 0,
             'status' => 0,
-            'danh_dau' => 0
+            'danh_dau' => ""
 
         ]);
         TongTienHoaHongModel::create([
@@ -215,7 +215,7 @@ class CustomerController extends Controller
             'id_cha' => $data['id_ch'],
             'tien_hoa_hong' => 0,
             'status' => 0,
-            'danh_dau' => 0
+            'danh_dau' => ""
 
         ]);
         return redirect(route('kh.index'));
