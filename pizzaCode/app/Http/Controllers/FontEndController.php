@@ -128,6 +128,9 @@ class FontEndController extends Controller
         if(!Auth::user()){
             return view('website.login')->with('success', 'Vui lòng đăng nhập trước !!!');
         }
+        else if(Auth::user()->type != 2){
+            return view('website.back');
+        }
         //Lấy thông tin người đăng nhập
         $customer = CustomerModel::
             join('users', 'users.id','=', 'customer.user_id')
@@ -191,6 +194,9 @@ class FontEndController extends Controller
         if(!Auth::user()){
             return view('website.login')->with('success', 'Vui lòng đăng nhập trước !!!');
         }
+        else if(Auth::user()->type != 2){
+            return view('website.back');
+        }
         $hoadon = HoaDonModel::where('status', -1)
             ->where('id_khachhang',Auth::user()->id)
             ->first();
@@ -208,6 +214,9 @@ class FontEndController extends Controller
         return view('website.order', compact('hoadonchitiet','hoadon'));
     }
     public function order_remove($id){
+        if(Auth::user()->type != 2){
+            return view('website.back');
+        }
         $chitiet = HoaDonChiTietModel::find($id);
         $id_hd = $chitiet->hd_id;
         $chitiet->delete();
@@ -227,7 +236,9 @@ class FontEndController extends Controller
     }
     //Xác nhận thanh toán
     public function order_success(Request $request){
-//        dd($request);
+        if(Auth::user()->type != 2){
+            return view('website.back');
+        }
         $tongtien = 0;
         $mangchitiet = array();
         foreach ($request->l_id as $key => $value){
@@ -270,6 +281,9 @@ class FontEndController extends Controller
         return view('website.fast_register');
     }
     public function update(){
+        if(Auth::user()->type != 2){
+            return view('website.back');
+        }
         $data = Users::join('customer','customer.user_id', '=', 'users.id')
             ->where('users.id', Auth::user()->id )
             ->first();
@@ -281,6 +295,9 @@ class FontEndController extends Controller
 
     //Hàm cho người dùng đặt bánh
     public function order_pizza(Request $request){
+        if(Auth::user()->type != 2){
+            return view('website.back');
+        }
         $tongtien = 0;
         $mangchitiet = array();
 
@@ -365,10 +382,16 @@ class FontEndController extends Controller
 
     //Đổi mật khẩu giao diện
     public  function change_pass(Request $request){
+        if(Auth::user()->type != 2){
+            return view('website.back');
+        }
         return view('website.repassword');
     }
     //Đổi mật khẩu
     public  function repass(Request $request){
+        if(Auth::user()->type != 2){
+            return view('website.back');
+        }
         //nếu mật khẩu sai thì bảo nhập lại
         if(!Hash::check($request->oldpassword, Auth::user()->password)){
             return redirect('/store/change_pass')->with('success','Mật khẩu cũ của bạn sai');
