@@ -39,7 +39,7 @@
                         <th>Địa chỉ</th>
                         <th>Số Tiền Tích Lũy</th>
                         <th>Hạn lãnh</th>
-                        @if(!Auth::user()->type == 0)
+                        @if(Auth::user()->type == 1)
                             <th></th>
                         @endif
                     </tr>
@@ -56,10 +56,8 @@
                         <td>{{ number_format($val->tien_hoa_hong) }} vnđ</td>
                         <td>{{ $val->danh_dau }}</td>
                         @if($val->tien_hoa_hong == 0)
-                            <td class="text-center">
-                            </td>
                         @else
-                            @if(!Auth::user()->type == 0)
+                            @if(Auth::user()->type == 1)
                                 <td class="text-center">
                                     <a href="{{ route('tru_tien',$val->hh_id) }}"
                                        class="btn btn-primary btn-sm btn-flat"
@@ -69,7 +67,6 @@
                                 </td>
                             @endif
                         @endif
-
                     </tr>
                     <?php endforeach; ?>
                     </tbody>
@@ -77,4 +74,11 @@
             </div>
         </div>
     </section>
+@endsection
+@section('script')
+    <script type="text/javascript">
+        $(function () {
+            $('#example1').DataTable()
+        });
+    </script>
 @endsection
