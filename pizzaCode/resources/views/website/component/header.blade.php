@@ -7,7 +7,7 @@
             <div class="wrap_header trans-0-3">
                 <!-- Logo -->
                 <div class="logo">
-                    <a href="#">
+                    <a href="{{ url('store/home') }}">
                         <img src="{{url('patotheme/images/icons/logo.png')}}" alt="IMG-LOGO" data-logofixed="{{url('patotheme/images/icons/logo2.png')}}">
                     </a>
                 </div>
@@ -60,9 +60,8 @@
                 <!-- Social -->
                 <div class="social flex-w flex-l-m p-r-20">
                     <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-facebook m-l-21" aria-hidden="true"></i></a>
+                    <a target="_blank" href="{{ url('https://www.facebook.com/thegioipizza/') }}"><i class="fa fa-facebook m-l-21" aria-hidden="true"></i></a>
                     <a href="#"><i class="fa fa-envelope m-l-21" aria-hidden="true"></i></a>
-
                     <button class="btn-show-sidebar m-l-33 trans-0-4"></button>
                 </div>
             </div>

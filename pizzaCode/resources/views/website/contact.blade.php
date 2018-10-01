@@ -31,11 +31,11 @@
                             <a href="#" class="txt34 dis-block p-b-6"></a>
                             <span class="dis-block t-center txt35 p-b-25">
                                 @if($customer->customer_gender==1)
-                                    <b>Nam</b>
+                                    Giới tính :<b> Nam</b>
                                 @elseif($customer->customer_gender==0)
-                                    <b>Nữ</b>
+                                    Giới tính :<b> Nữ</b>
                                 @else
-                                    <b>Chưa cập nhật</b>
+                                    Giới tính :<b> Chưa cập nhật</b>
                                 @endif
 							</span>
                             <p class="t-center">
@@ -45,7 +45,7 @@
                                 Người giới thiệu: <b>{{$nguoigioithieu->name}}</b><br>
                                 Số dư hiện tại
                             </p>
-                            <a href="#" class="btn-success flex-c-m size13 txt11 trans-0-4 m-l-r-auto btn-coin-nns">{{$hoahong->tien_hoa_hong}} VNĐ</a><br>
+                            <a class="btn-success flex-c-m size13 txt11 trans-0-4 m-l-r-auto btn-coin-nns">{{$hoahong->tien_hoa_hong}} VNĐ</a><br>
                             <a href="{{route('store/update')}}" class="btn-danger flex-c-m size13 txt11 trans-0-4 m-l-r-auto btn-update-nns">CẬP NHẬT</a><br>
                             <a href="{{route('store/change_pass')}}" class="btn-danger flex-c-m size13 txt11 trans-0-4 m-l-r-auto btn-update-nns">ĐỔI MẬT KHẨU</a>
                         </div>

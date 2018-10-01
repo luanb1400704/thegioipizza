@@ -13,9 +13,9 @@
             <a href="{{route('store/get_home')}}#thucdon" class="txt19">THỰC ĐƠN</a>
         </li>
 
-        <li class="t-center m-b-13 close-nss">
-            <a href="#" class="txt19">THƯ VIỆN ẢNH</a>
-        </li>
+        {{--<li class="t-center m-b-13 close-nss">--}}
+            {{--<a href="#" class="txt19">THƯ VIỆN ẢNH</a>--}}
+        {{--</li>--}}
 
         <li class="t-center m-b-13 close-nss">
             <a href="{{route('store/get_home')}}#gioithieu" class="txt19">GIỚI THIỆU</a>

@@ -137,7 +137,7 @@ class CustomerController extends Controller
         ]);
         CustomerModel::create([
             'user_id' => $user->id,
-            'customer_gender' => 0,
+            'customer_gender' => 3,
             'customer_birthday' => '',
             'customer_address' => '',
             'customer_cmnd' => '',
@@ -162,7 +162,7 @@ class CustomerController extends Controller
             'id_khachhang' => $user->id,
             'tien_da_lanh' => 0
         ]);
-        return redirect('/store/home')->with('success', 'Tạo tài khoản thành công, vui lòng đăng nhập để sử dụng dịch vụ');
+        return redirect('/store/login')->with('success', 'Tạo tài khoản thành công, vui lòng đăng nhập để sử dụng dịch vụ');
     }
 
     public function index()

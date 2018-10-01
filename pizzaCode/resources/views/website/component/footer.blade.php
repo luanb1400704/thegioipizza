@@ -178,7 +178,7 @@
                         <a href="#"><i class="fa fa-globe" aria-hidden="true"></i> </a>
                     </div>
                     <div class="nns-footer-icon face-nns">
-                        <a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a>
+                        <a target="_blank" href="{{ url('https://www.facebook.com/thegioipizza/') }}"><i class="fa fa-facebook " aria-hidden="true"></i></a>
                     </div>
                 </div>
 
@@ -188,7 +188,7 @@
                     <a href="#"><span class="nns-name">NamNganGroup</span></a>
                     <span class="nns-phone">0964054244</span>
                     <span class="nns-email">namngansoftware@gmail.com</span>
-                    <br> This template is made with <i class="fa fa-heart"></i> by Colorlib
+                    {{--<br> This template is made with <i class="fa fa-heart"></i> by Colorlib--}}
                 </div>
             </div>
         </div>
