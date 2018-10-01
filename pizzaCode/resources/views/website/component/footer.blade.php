@@ -16,7 +16,7 @@
 
                     <li class="txt14 m-b-14">
                         <i class="fa fa-phone fs-16 dis-inline-block size19" aria-hidden="true"></i>
-                        0913 131 033 - 0911612569
+                        0913 131 033 or 0911 612 569
                     </li>
 
                     <li class="txt14 m-b-14">
