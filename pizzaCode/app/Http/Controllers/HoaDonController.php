@@ -200,7 +200,7 @@ class HoaDonController extends Controller
             'id_cha' => $contain['id_cha'],
             'tien_hoa_hong' => 0,
             'status' => 0,
-            'danh_dau' => null
+            'danh_dau' => ''
         ]);
         TongTienHoaHongModel::create([
             'id_khachhang' => $user->id,
