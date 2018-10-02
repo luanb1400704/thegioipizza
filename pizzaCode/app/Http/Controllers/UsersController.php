@@ -7,11 +7,12 @@ use App\UserProfileModel;
 use App\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
+    protected $SIZE_BREAK = 4;
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -33,7 +34,6 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $id_user = Auth::user()->id;
-//        dd($id_user);
         if ($request->hasFile('file')) {
             $file = $request->file('file');
             $file->move('upload', $file->getClientOriginalName());
@@ -63,7 +63,6 @@ class UsersController extends Controller
                 'user_at' => $id_user,
             ]
         );
-//        dd($request->all());
         return redirect('nhan-vien-chi-nhanh/index');
     }
 
@@ -85,27 +84,27 @@ class UsersController extends Controller
 
     public function update(Request $request, $id)
     {
-        $profile = [
-            'user_gender' => $request->get('user_gender'),
-            'user_address' => $request->get('user_address'),
-            'id_chinhanh' => $request->get('id_chinhanh')
-        ];
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $file->move('upload', $file->getClientOriginalName());
-            $profile['user_image'] = url('upload') . '/' . $file->getClientOriginalName();
+        $container = '';
+        if ($request->hasFile('user_image')) {
+            $request->file('user_image')->move('upload', $request->file('user_image')->getClientOriginalName());
+            $container = url('upload') . '/' . $request->file('user_image')->getClientOriginalName();
         }
-        Users::where('id', $id)
-            ->update(
-                [
-                    'name' => $request->get('name'),
-                    'email' => $request->get('email'),
-                    'phone' => $request->get('phone'),
-                ]
-            );
-        UserProfileModel::where('user_id', $id)
-            ->update($profile);
+        $data = $request->except(['_token']);
+        $data = collect($data);
+        if (empty($container)) {
+            $data = $data->except('user_image');
+        } else {
+            $data['user_image'] = $container;
+        }
+        if (empty($data->get('password'))) {
+            $data = $data->except('password');
+            $container = $this->SIZE_BREAK - 1;
+        } else {
+            $data->offsetSet('password', Hash::make($data->get('password')));
+            $container = $this->SIZE_BREAK;
+        }
+        Users::where('id', $id)->update($data->chunk($container)->shift()->all());
+        UserProfileModel::where('user_id', $id)->update($data->slice($container)->all());
         return redirect('nhan-vien-chi-nhanh/index');
     }
-
 }

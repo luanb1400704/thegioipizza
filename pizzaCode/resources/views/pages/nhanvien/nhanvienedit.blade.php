@@ -18,10 +18,10 @@
         </ol>
     </section>
     <section class="content">
-        <form role="form" action="{{ route('nv.store') }}" method="POST" enctype="multipart/form-data">
+        <form role="form" action="{{ route('nv.update', [$nhanvien->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="box box-warning">
                         <div class="box-header with-border">
                             <h3 class="box-title">Thêm Mới Nhân Viên</h3>
@@ -29,37 +29,43 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <label>Tên Nhân Viên</label>
-                                <input type="text" class="form-control" name="name">
+                                <input type="text" class="form-control" value="{{ $nhanvien->name }}" required
+                                       name="name">
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="email" class="form-control" name="email">
+                                <input type="email" class="form-control" value="{{ $nhanvien->email }}" required
+                                       name="email">
                             </div>
                             <div class="form-group">
                                 <label>Số Điện Thoại</label>
-                                <input type="text" class="form-control" name="phone">
+                                <input type="text" class="form-control" value="{{ $nhanvien->phone }}" required
+                                       name="phone">
                             </div>
                             <div class="form-group">
                                 <label>Mật Khẩu</label>
-                                <input type="text" class="form-control" name="password">
+                                <input type="password" class="form-control" name="password">
                             </div>
                             <div class="form-group">
                                 <label>CMND</label>
-                                <input type="text" class="form-control" name="user_cmnd">
+                                <input type="text" class="form-control" value="{{ $nhanvien->user_cmnd }}" name="user_cmnd">
                             </div>
                             <div class="form-group">
                                 <label>Ngày Cấp CMND</label>
-                                <input type="text" class="form-control" name="user_ngaycap_cmnd">
+                                <input type="text" class="form-control"
+                                       value="{{ $nhanvien->user_ngaycap_cmnd }}" name="user_ngaycap_cmnd">
                             </div>
                             <div class="form-group">
                                 <label style="display: -webkit-box">Giới Tính :
                                     <div class="radio" style="margin: 0px">
                                         <label style="margin-right: 50px; margin-left: 25px">
-                                            <input type="radio" name="user_gender" value="1">
+                                            <input type="radio" name="user_gender"
+                                                   @if($nhanvien->user_gender == 1) checked="checked" @endif value="1">
                                             Nam
                                         </label>
                                         <label>
-                                            <input type="radio" name="user_gender" value="0">
+                                            <input type="radio" name="user_gender"
+                                                   @if($nhanvien->user_gender == 0) checked="checked" @endif value="0">
                                             Nữ
                                         </label>
                                     </div>
@@ -67,21 +73,33 @@
                             </div>
                             <div class="form-group">
                                 <label>Địa Chỉ</label>
-                                <input type="text" class="form-control" name="user_address">
+                                <input type="text" class="form-control"
+                                       value="{{ $nhanvien->user_address }}" name="user_address">
                             </div>
                             <div class="form-group" style="margin-bottom: 35px;">
                                 <label>Ảnh Đại Diện</label>
                                 <br>
-                                <img width="180px" height="180px" id="avatar" src="{{url('upload')}}/image.png"
-                                     alt="your image"/>
-                                <input style="margin-top: 10px;" type='file' name="file" onchange="readURL(this)"/>
+                                <img width="180px" height="180px" id="avatar"
+                                     @if(!empty($nhanvien->user_image))
+                                     src="{{ $nhanvien->user_image }}"
+                                     @else
+                                     src="{{url('upload')}}/image.png"
+                                     @endif
+                                     alt="your image"
+                                />
+                                <input style="margin-top: 10px;" type='file' name="user_image" onchange="readURL(this)"/>
                             </div>
                             <div class="form-group">
                                 <label>Tên Chi Nhánh </label>
-                                <select class="form-control" name="id_chinhanh">
+                                <select class="form-control" required name="id_chinhanh">
                                     <option value="">---</option>
                                     @foreach ($chinhanh as $key => $val)
-                                        <option value="{{ $val->id_chinhanh }}">{{ $val->ten_chinhanh }}</option>
+                                        <option
+                                                @if($nhanvien->id_chinhanh == $val->id_chinhanh)
+                                                selected="selected"
+                                                @endif
+                                                value="{{ $val->id_chinhanh }}">{{ $val->ten_chinhanh }}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>
@@ -105,8 +123,7 @@
     <script type="text/javascript">
         function readURL(input) {
             if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
+                let reader = new FileReader();
                 reader.onload = function (e) {
                     $("#avatar").attr('src', e.target.result);
                 };
