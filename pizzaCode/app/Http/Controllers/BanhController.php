@@ -15,6 +15,11 @@ class BanhController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                redirect('login');
+            }
+        }
     }
 
     public function index()

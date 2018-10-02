@@ -11,7 +11,7 @@
                 <div class="wrap_menu p-l-45 p-l-0-xl">
                     <nav class="menu">
                         <ul class="main_menu">
-                            <li {!! (Request::is('store/home') ? 'class="giobanh-nns"' : '') !!}>
+                            <li {!! (Request::is('store/home') ? '' : '') !!}>
                                 <a href="{{route('store/get_home')}}">TRANG CHỦ</a>
                             </li>
                             <li {!! (Request::is('store/home/*') ? 'class="giobanh-nns"' : '') !!}>
