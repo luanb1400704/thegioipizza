@@ -193,7 +193,7 @@ class HoaDonController extends Controller
             'customer_birthday' => '',
             'customer_cmnd' => '',
             'customer_cmnd_ngaycap' => '',
-            'customer_gender' => 0,
+            'customer_gender' => 3,
             'customer_address' => '',
             'customer_image' => '',
             'id_employee' => Auth::user()->id
@@ -258,7 +258,6 @@ class HoaDonController extends Controller
         $sdtkhachhang = Users::selectRaw('phone,id')
             ->where('type', 2)
             ->get(['phone', 'id']);
-//        dd($sdtkhachhang);
         $khachhang = HoaDonModel::leftjoin('users', 'hoadon.id_khachhang', '=', 'users.id')
             ->where('hoadon.status', 0)
             ->orderByRaw('users.id desc')
