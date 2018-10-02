@@ -19,7 +19,6 @@ Route::get('/admin', function () {
         else{
             return view('website.chan');
         }
-
     }
     if (Auth::user()->type == 1 || Auth::user()->type == 3) {
         if(Auth::user()->active==1)

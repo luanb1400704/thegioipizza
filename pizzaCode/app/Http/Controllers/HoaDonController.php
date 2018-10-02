@@ -135,6 +135,9 @@ class HoaDonController extends Controller
     public function commission($id)
     {
         $contain['order'] = HoaDonModel::find($id);
+        if($contain['order']->status == 1){
+            return redirect(route('hoadon.indexdaduyet'));
+        }
         $contain['level'] = PhanCapModel::find($contain['order']->id_phan_cap);
         $contain['customer'] = $contain['order']->id_khachhang;
         $contain['percent'] = $contain['level']->pc_tile;
