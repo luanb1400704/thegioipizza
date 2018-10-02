@@ -59,7 +59,17 @@
                         <td>{{ $val->phone }}</td>
                         <td>{{ $val->user_cmnd }}</td>
                         <td>{{ $val->user_ngaycap_cmnd }}</td>
-                        <td>{{ $val->user_gender }}</td>
+                        <td>
+                            @if($val->user_gender == 1)
+                                Nam
+                            @else
+                                @if($val->user_gender == 0)
+                                    Nữ
+                                @else
+                                    &nbsp;
+                                @endif
+                            @endif
+                        </td>
                         <td>{{ $val->user_address }}</td>
                         @if (empty($val->user_image))
                             <td><img src="{{url('upload')}}/image.png" width="30px" height="30px"></td>
@@ -73,7 +83,7 @@
                             <td><i style="color: red" class="fa fa-close"></i></td>
                         @endif
                         <td class="text-center">
-                            <a href="{{ route('nv.edit',[$val->id]) }}}"
+                            <a href="{{ route('nv.edit', [$val->id]) }}"
                                class="btn btn-primary btn-sm btn-flat">
                                 <i class="fa fa-edit"></i>
                             </a>
