@@ -168,18 +168,15 @@
             'password': '',
             'id_cha': ''
         };
-
         function toMoney(number) {
             return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
-
         function removeRow(node) {
             total -= Number(node.attr('total'));
             node.parents('tr').remove();
             $("#total").html(toMoney(total));
             box[node.attr('box')].soluong = 0;
         }
-
         function createBox(box, contain) {
             for (let prop in box) {
                 contain[box[prop].id] = {
@@ -189,9 +186,7 @@
             }
             return contain;
         }
-
         box = createBox(box, []);
-
         $(".js-example-placeholder-multiple").select2({
             placeholder: "Select a state"
         });
