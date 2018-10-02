@@ -28,7 +28,7 @@
                                 <span class="txt9">Số Điện thoại :</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
                                     <input class="bo-rad-10 sizefull txt10 p-l-20" id="email" type="text" name="email"
-                                          required value="{{ old('email') }}" autofocus placeholder="nhập số điện thoại ...">
+                                          required value="{{ old('email') }}" autofocus placeholder="số điện thoại ...">
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback"><strong>{{ $errors->first('email') }}</strong></span>
                                     @endif
@@ -38,7 +38,7 @@
                                 <span class="txt9">Mật khẩu :</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
                                     <input class="bo-rad-10 sizefull txt10 p-l-20" id="password" type="password"
-                                           name="password" placeholder="nhập mật khẩu ..." required>
+                                           name="password" placeholder="mật khẩu ..." required>
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback"><strong>{{ $errors->first('password') }}</strong></span>
                                     @endif

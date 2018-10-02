@@ -29,12 +29,12 @@
                                 <span class="txt9">(*)Họ và tên :</span>
                                 <div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
                                     <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="name"
-                                           placeholder="họ và tên ..." value="{{old('name')}}" >
+                                           placeholder="họ và tên ..." value="{{old('name')}}" required>
                                 </div>
                                 <span class="txt9">(*)Số điện thoại :</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
                                     <input class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="phone"
-                                           value="{{old('phone')}}" placeholder="số điện thoại ..." >
+                                           value="{{old('phone')}}" placeholder="số điện thoại ..." required>
                                 </div>
                                 <span class="txt9">SĐT người giới thiệu</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
@@ -44,12 +44,12 @@
                                 <span class="txt9">Mật khẩu (*)</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
                                     <input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="password"
-                                           placeholder="******" >
+                                           placeholder="******" required>
                                 </div>
                                 <span class="txt9">Nhập lại mật khẩu (*)</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
                                     <input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="repassword"
-                                           placeholder="******" >
+                                           placeholder="******" required>
                                 </div>
                                 <span class="txt9">Ảnh đại diện (*): <br></span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
@@ -68,12 +68,12 @@
                                 <span class="txt9">(*)Địa chỉ email :</span>
                                 <div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
                                     <input class="bo-rad-10 sizefull txt10 p-l-20" type="email" name="email"
-                                           placeholder="địa chỉ email ..." value="{{old('email')}}" >
+                                           placeholder="địa chỉ email ..." value="{{old('email')}}" required>
                                 </div>
                                 <span class="txt9">(*)Ngày sinh :</span>
                                 <div class="wrap-inputdate pos-relative txt10 size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="my-calendar bo-rad-10 sizefull txt10 p-l-20" type="text"
-                                           name="customer_birthday" >
+                                    <input class="my-calendar bo-rad-10 sizefull txt10 p-l-20" type="date"
+                                           name="customer_birthday" required>
                                     <i class="btn-calendar fa fa-calendar ab-r-m hov-pointer m-r-18"
                                        aria-hidden="true"></i>
                                 </div>
@@ -92,11 +92,11 @@
                                 <span class="txt9">(*)CMND :</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
                                     <input class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="customer_cmnd"
-                                           placeholder="CMND ..." value="{{old('customer_cmnd')}}">
+                                           placeholder="CMND ..." value="{{old('customer_cmnd')}}" required>
                                 </div>
                                 <span class="txt9">(*)Ngày cấp CMND :</span>
                                 <div class="wrap-inputdate pos-relative txt10 size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="my-calendar bo-rad-10 sizefull txt10 p-l-20" type="text"
+                                    <input class="my-calendar bo-rad-10 sizefull txt10 p-l-20" type="date"
                                            name="customer_cmnd_ngaycap" >
                                     <i class="btn-calendar fa fa-calendar ab-r-m hov-pointer m-r-18"
                                        aria-hidden="true"></i>

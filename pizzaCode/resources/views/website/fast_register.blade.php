@@ -1,4 +1,14 @@
 @extends('website.index')
+@section('style')
+    <style>
+        .sd {
+            background: #238a21;
+        }
+        .ds{
+            background: #5bc0de;
+        }
+    </style>
+@endsection
 @section('content')
     <section class="section-booking bg1-pattern p-t-100 p-b-110">
         <div class="container">
@@ -15,31 +25,39 @@
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                         <div class="row">
                             <div class="col-md-6">
-                                <span class="txt9">Họ tên (*)</span>
+                                <span class="txt9">(*)Họ và tên :</span>
                                 <div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="name" placeholder="Name" required value="{{old('name')}}">
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="name"
+                                           placeholder="họ và tên ..."  value="{{old('name')}}">
                                 </div>
                                 <span class="txt9">SĐT (*)</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="phone" value="{{old('phone')}}" placeholder="Phone" required>
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="phone"
+                                           value="{{old('phone')}}" placeholder="số điện thoại ..." >
                                 </div>
                                 <span class="txt9">SĐT người giới thiệu</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="phone_introduce" placeholder="Phone">
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="phone_introduce"
+                                           placeholder="sđt người giới thiệu">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <span class="txt9">Mật khẩu (*)</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="password" placeholder="Password" required>
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="password"
+                                           placeholder="******" >
                                 </div>
                                 <span class="txt9">Nhập lại mật khẩu (*)</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="repassword" placeholder="Confirm" required>
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="repassword"
+                                           placeholder="*****" >
                                 </div>
-                                <button type="submit" class="btn3 flex-c-m size13 txt11 trans-0-4" style="margin:  auto;">Xác nhận</button>
+                                <button type="submit" class="btn3 ds flex-c-m size13 txt11 trans-0-4"
+                                        style="margin:  auto;">Đăng ký nhanh
+                                </button>
                                 <br>
-                                <a href="{{route('store/fast_register')}}" class="btn3 flex-c-m size13 txt11 trans-0-4" style="margin:  auto;">Thực hiện lại</a>
+                                <a href="{{route('store/fast_register')}}" class="btn3 flex-c-m size13 txt11 trans-0-4"
+                                   style="margin:  auto;">Thực hiện lại</a>
                             </div>
                         </div>
                     </form>

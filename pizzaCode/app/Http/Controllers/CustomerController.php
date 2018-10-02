@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\CustomerModel;
 use App\HoaHongModel;
+use App\Http\Requests\registerRequest;
 use App\Http\Requests\StoreCustomerRequest;
 use App\PhanCapModel;
 use App\TongTienHoaHongModel;
@@ -116,7 +117,7 @@ class CustomerController extends Controller
         return redirect('/store/contact')->with('success', 'Cập nhật tài khoản thành công');
     }
 
-    public function fast_register(Request $request)
+    public function fast_register(registerRequest $request)
     {
         $check_user = 'notuser';
         if (isset($request->phone_introduce))
