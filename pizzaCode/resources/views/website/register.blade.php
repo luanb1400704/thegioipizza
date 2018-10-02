@@ -1,4 +1,14 @@
 @extends('website.index')
+@section('style')
+    <style>
+        .sd {
+            background: #238a21;
+        }
+        .ds{
+            background: #5bc0de;
+        }
+    </style>
+@endsection
 @section('content')
     <section class="section-booking bg1-pattern p-t-100 p-b-110">
         <div class="container">
@@ -9,37 +19,42 @@
 						<span class="tit2 t-center">
 							Tham gia chương trình ăn bánh tích điểm đổi bánh hoặc nhận lì xì hàng tháng
 						</span>
-                        <h3 class="tit3 t-center m-b-35 m-t-2">
-                            Đăng ký
-                        </h3>
+                        <h3 class="tit3 t-center m-b-35 m-t-2">Đăng ký</h3>
                     </div>
-                    <form class="wrap-form-booking" method="post" action="{{route('customer/register')}}" enctype="multipart/form-data">
+                    <form class="wrap-form-booking" method="post" action="{{route('customer/register')}}"
+                          enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                         <div class="row">
                             <div class="col-md-6">
-                                <span class="txt9">Họ tên (*)</span>
+                                <span class="txt9">(*)Họ và tên :</span>
                                 <div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="name" placeholder="Name" value="{{old('name')}}" required>
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="name"
+                                           placeholder="họ và tên ..." value="{{old('name')}}" >
                                 </div>
-                                <span class="txt9">SĐT (*)</span>
+                                <span class="txt9">(*)Số điện thoại :</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="phone" value="{{old('phone')}}" placeholder="Phone" required>
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="phone"
+                                           value="{{old('phone')}}" placeholder="số điện thoại ..." >
                                 </div>
                                 <span class="txt9">SĐT người giới thiệu</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="phone_introduce" placeholder="Phone" value="{{old('phone_introduce')}}">
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="phone_introduce"
+                                           placeholder="sđt người giới thiệu" value="{{old('phone_introduce')}}">
                                 </div>
                                 <span class="txt9">Mật khẩu (*)</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="password" placeholder="Password" required>
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="password"
+                                           placeholder="******" >
                                 </div>
                                 <span class="txt9">Nhập lại mật khẩu (*)</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="repassword" placeholder="Confirm" required>
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="repassword"
+                                           placeholder="******" >
                                 </div>
                                 <span class="txt9">Ảnh đại diện (*): <br></span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="file" id="avatar" name="file" placeholder="Address" accept=".png,.jpg, .jpeg">
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="file" id="avatar" name="file"
+                                           placeholder="địa chỉ ..." accept=".png,.jpg, .jpeg">
                                 </div>
                                 <div class="img-avatar-nns">
                                     <img src="" class="register-cus" id="imgupload" alt="">
@@ -50,38 +65,48 @@
                                 </span>
                             </div>
                             <div class="col-md-6">
-                                <span class="txt9">Ngày sinh (*)</span>
-                                <div class="wrap-inputdate pos-relative txt10 size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="my-calendar bo-rad-10 sizefull txt10 p-l-20" type="text" name="customer_birthday" required>
-                                    <i class="btn-calendar fa fa-calendar ab-r-m hov-pointer m-r-18" aria-hidden="true"></i>
+                                <span class="txt9">(*)Địa chỉ email :</span>
+                                <div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="email" name="email"
+                                           placeholder="địa chỉ email ..." value="{{old('email')}}" >
                                 </div>
-                                <span class="txt9">Giới tính (*)</span>
+                                <span class="txt9">(*)Ngày sinh :</span>
+                                <div class="wrap-inputdate pos-relative txt10 size12 bo2 bo-rad-10 m-t-3 m-b-23">
+                                    <input class="my-calendar bo-rad-10 sizefull txt10 p-l-20" type="text"
+                                           name="customer_birthday" >
+                                    <i class="btn-calendar fa fa-calendar ab-r-m hov-pointer m-r-18"
+                                       aria-hidden="true"></i>
+                                </div>
+                                <span class="txt9">(*)Giới tính :</span>
                                 <div class="wrap-inputpeople size12 bo2 bo-rad-10 m-t-3 m-b-23">
                                     <select class="select-gender" name="customer_gender">
                                         <option value="1">Nam</option>
                                         <option value="0">Nữ</option>
                                     </select>
                                 </div>
-                                <span class="txt9">Địa chỉ (*)</span>
+                                <span class="txt9">(*)Địa chỉ :</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="customer_address" placeholder="Address" value="{{old('customer_address')}}" required>
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="customer_address"
+                                           placeholder="địa chỉ ..." value="{{old('customer_address')}}" >
                                 </div>
-                                <span class="txt9">CMND (*)</span>
+                                <span class="txt9">(*)CMND :</span>
                                 <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="customer_cmnd" placeholder="CMND" value="{{old('customer_cmnd')}}">
+                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="customer_cmnd"
+                                           placeholder="CMND ..." value="{{old('customer_cmnd')}}">
                                 </div>
-                                <span class="txt9">Ngày cấp CMND (*)</span>
+                                <span class="txt9">(*)Ngày cấp CMND :</span>
                                 <div class="wrap-inputdate pos-relative txt10 size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="my-calendar bo-rad-10 sizefull txt10 p-l-20" type="text" name="customer_cmnd_ngaycap" required>
-                                    <i class="btn-calendar fa fa-calendar ab-r-m hov-pointer m-r-18" aria-hidden="true"></i>
+                                    <input class="my-calendar bo-rad-10 sizefull txt10 p-l-20" type="text"
+                                           name="customer_cmnd_ngaycap" >
+                                    <i class="btn-calendar fa fa-calendar ab-r-m hov-pointer m-r-18"
+                                       aria-hidden="true"></i>
                                 </div>
-                                <span class="txt9">Email</span>
-                                <div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="email" name="email" placeholder="Email" value="{{old('email')}}" required>
-                                </div>
-                                <button type="submit" class="btn3 flex-c-m size13 txt11 trans-0-4" style="margin:  auto;">Xác nhận</button>
+                                <button type="submit" class="btn3 ds flex-c-m size13 txt11 trans-0-4"
+                                        style="margin:  auto;">Đăng ký
+                                </button>
                                 <br>
-                                <a href="{{route('store/register')}}" class="btn3 flex-c-m size13 txt11 trans-0-4" style="margin:  auto;">Thực hiện lại</a>
+                                <a href="{{route('store/register')}}" class="btn3 flex-c-m size13 txt11 trans-0-4"
+                                   style="margin:  auto;">Thực hiện lại</a>
                             </div>
                         </div>
                     </form>

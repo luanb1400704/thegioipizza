@@ -47,6 +47,7 @@
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Dancing+Script" rel="stylesheet">
 
+    @yield('style')
 </head>
 <body class="animsition">
 
