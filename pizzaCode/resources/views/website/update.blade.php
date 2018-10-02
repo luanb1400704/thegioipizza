@@ -50,6 +50,21 @@
                                     <input  value="{{$data->phone}}" class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="phone" value="{{old('phone')}}" placeholder="Phone" required>
                                 </div>
 
+                                <span class="txt9">
+                                    CMND (*)
+                                </span>
+
+                                <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
+                                    <input value="{{$data->customer_cmnd}}" class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="customer_cmnd" placeholder="CMND" required>
+                                </div>
+
+                                <span class="txt9">
+                                Địa chỉ (*)
+                                </span>
+
+                                <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
+                                    <input  value="{{$data->customer_address}}" class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="customer_address" placeholder="Address" required>
+                                </div>
 
                                 {{--<span class="txt9">--}}
 									{{--SĐT người giới thiệu--}}
@@ -58,28 +73,28 @@
                                 {{--<div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">--}}
                                     {{--<input class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="phone_introduce" placeholder="Phone">--}}
                                 {{--</div>--}}
-                                <span class="txt9">
-									Mật khẩu cũ
-								</span>
+                                {{--<span class="txt9">--}}
+									{{--Mật khẩu cũ--}}
+								{{--</span>--}}
 
-                                <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="oldpassword" placeholder="Old Password" required>
-                                </div>
+                                {{--<div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">--}}
+                                    {{--<input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="oldpassword" placeholder="Old Password" required>--}}
+                                {{--</div>--}}
 
-                                <span class="txt9">
-									Mật khẩu mới
-								</span>
+                                {{--<span class="txt9">--}}
+									{{--Mật khẩu mới--}}
+								{{--</span>--}}
 
-                                <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="password" placeholder="Password" required>
-                                </div>
-                                <span class="txt9">
-									Nhập lại mật khẩu mới
-								</span>
+                                {{--<div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">--}}
+                                    {{--<input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="password" placeholder="Password" required>--}}
+                                {{--</div>--}}
+                                {{--<span class="txt9">--}}
+									{{--Nhập lại mật khẩu mới--}}
+								{{--</span>--}}
 
-                                <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="repassword" placeholder="Confirm" required>
-                                </div>
+                                {{--<div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">--}}
+                                    {{--<input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="repassword" placeholder="Confirm" required>--}}
+                                {{--</div>--}}
 
                                 <span class="txt9">
                                 Ảnh đại diện (*): <br>
@@ -145,20 +160,6 @@
                                     </select>
                                 </div>
 
-                                <span class="txt9">
-                                Địa chỉ (*)
-                                </span>
-
-                                <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input  value="{{$data->customer_address}}" class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="customer_address" placeholder="Address" required>
-                                </div>
-                                <span class="txt9">
-                                    CMND (*)
-                                </span>
-
-                                <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                    <input value="{{$data->customer_cmnd}}" class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="customer_cmnd" placeholder="CMND" required>
-                                </div>
                                 <span class="txt9">
 									Ngày cấp CMND (*)
 								</span>

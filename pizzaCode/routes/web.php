@@ -3,6 +3,7 @@
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/logout', 'HomeController@logout')->name('admin.logout');
+
 Auth::routes();
 
 Route::get('/admin', function () {
@@ -36,7 +37,10 @@ Route::get('/', function () {
     if (empty(Auth::user())) {
         return redirect('login');
     }
+    if(Auth::user()->type != 2)
     return view('pages.home');
+    if(Auth::user()->type == 2)
+        return view('pages.home');
 });
 
 Route::group(['prefix' => 'hoa-don'], function () {
@@ -53,11 +57,11 @@ Route::group(['prefix' => 'hoa-don'], function () {
 
 Route::group(['prefix' => '/store'], function () {
     //  Trang chủ fontend
-    Route::get('/home', 'FontEndController@get_home')->name('store/get_home');
-    //  Trang about
-    Route::get('/about', 'FontEndController@get_about')->name('store/get_about');
+    Route::get('/', 'FontEndController@get_home')->name('store/get_home');
+//    //  Trang about
+//    Route::get('/about', 'FontEndController@get_about')->name('store/get_about');
     //  Trang giỏ hàng
-    Route::get('/cart', 'FontEndController@get_cart')->name('store/get_cart');
+//    Route::get('/cart', 'FontEndController@get_cart')->name('store/get_cart');
     //  Trang cá nhân
     Route::get('/contact', 'FontEndController@get_contact')->name('store/get_contact');
     //Trang giỏ bánh
@@ -143,23 +147,6 @@ Route::group(['prefix' => 'gia-banh'], function () {
 
 });
 
-
-Route::group(['prefix' => 'ti-xuat'], function () {
-
-    Route::get('index', 'TiXuatController@index')->name('tx.index');
-
-    Route::get('create', 'TiXuatController@create')->name('tx.create');
-
-    Route::post('store', 'TiXuatController@store')->name('tx.store');
-
-    Route::get('destroy/{id}', 'TiXuatController@destroy')->name('tx.destroy');
-
-    Route::get('edit/{id}', 'TiXuatController@edit')->name('tx.edit');
-
-    Route::post('update/{id}', 'TiXuatController@update')->name('tx.update');
-
-});
-
 Route::group(['prefix' => 'phan-cap'], function () {
 
     Route::get('index', 'PhanCapController@index')->name('pc.index');
@@ -214,29 +201,10 @@ Route::group(['prefix' => 'nhan-vien-chi-nhanh'], function () {
 
 });
 
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-Route::group(['prefix' => 'phan-quyen'], function () {
-
-    Route::get('index', 'PhanQuyenController@index')->name('pq.index');
-
-    Route::get('create', 'PhanQuyenController@create')->name('pq.create');
-
-    Route::post('store', 'PhanQuyenController@store')->name('pq.store');
-
-    Route::get('edit/{id}', 'PhanQuyenController@edit')->name('pq.edit');
-
-    Route::post('update/{id}', 'PhanQuyenController@update')->name('pq.update');
-});
-
-Route::group(['prefix' => 'api'], function () {
-    Route::get('create-user', 'ApiController@create');
-    Route::get('empty-users', 'ApiController@makeUsersEmpty');
-});
+//Route::group(['prefix' => 'api'], function () {
+//    Route::get('create-user', 'ApiController@create');
+//    Route::get('empty-users', 'ApiController@makeUsersEmpty');
+//});
 
 
 Route::group(['prefix' => 'chi-nhanh'], function () {

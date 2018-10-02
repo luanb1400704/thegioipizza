@@ -10,6 +10,7 @@ use App\PhanCapModel;
 use App\TongTienHoaHongModel;
 use App\Users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
@@ -74,9 +75,14 @@ class CustomerController extends Controller
 
     public function update(Request $request)
     {
-        if ($request->password != $request->repassword) {
-            return redirect('/store/register')->with('errconfirmpass', 'Nhập password không trùng khớp, vui lòng nhập lại pasword xác nhận');
+        //Bắt đăng nhập
+        if(!Auth::user()){
+            return view('website.login')->with('success', 'Vui lòng đăng nhập trước !!!');
         }
+        else if(Auth::user()->type != 2){
+            return view('website.back');
+        }
+
         if ($request->hasFile('file')) {
             $file = $request->file('file');
             $name = $request->id;
@@ -92,7 +98,6 @@ class CustomerController extends Controller
             'name' => $request->get('name'),
             'email' => $request->get('email'),
             'phone' => $request->get('phone'),
-            'password' => Hash::make($request->get('password')),
             'active' => 1,
         ]);
 

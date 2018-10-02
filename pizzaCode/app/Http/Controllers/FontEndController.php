@@ -115,13 +115,13 @@ class FontEndController extends Controller
 
     }
 
-    public  function get_about(){
-        return view('fontend.about');
-    }
-
-    public  function get_cart(){
-        return view('fontend.cart');
-    }
+//    public  function get_about(){
+//        return view('fontend.about');
+//    }
+//
+//    public  function get_cart(){
+//        return view('fontend.cart');
+//    }
 
     public  function get_contact(){
         //Bắt đăng nhập
@@ -214,7 +214,11 @@ class FontEndController extends Controller
         return view('website.order', compact('hoadonchitiet','hoadon'));
     }
     public function order_remove($id){
-        if(Auth::user()->type != 2){
+        //Bắt đăng nhập
+        if(!Auth::user()){
+            return view('website.login')->with('success', 'Vui lòng đăng nhập trước !!!');
+        }
+        else if(Auth::user()->type != 2){
             return view('website.back');
         }
         $chitiet = HoaDonChiTietModel::find($id);
@@ -236,7 +240,11 @@ class FontEndController extends Controller
     }
     //Xác nhận thanh toán
     public function order_success(Request $request){
-        if(Auth::user()->type != 2){
+        //Bắt đăng nhập
+        if(!Auth::user()){
+            return view('website.login')->with('success', 'Vui lòng đăng nhập trước !!!');
+        }
+        else if(Auth::user()->type != 2){
             return view('website.back');
         }
         $tongtien = 0;
@@ -281,7 +289,11 @@ class FontEndController extends Controller
         return view('website.fast_register');
     }
     public function update(){
-        if(Auth::user()->type != 2){
+        //Bắt đăng nhập
+        if(!Auth::user()){
+            return view('website.login')->with('success', 'Vui lòng đăng nhập trước !!!');
+        }
+        else if(Auth::user()->type != 2){
             return view('website.back');
         }
         $data = Users::join('customer','customer.user_id', '=', 'users.id')
@@ -295,7 +307,12 @@ class FontEndController extends Controller
 
     //Hàm cho người dùng đặt bánh
     public function order_pizza(Request $request){
-        if(Auth::user()->type != 2){
+
+        //Bắt đăng nhập
+        if(!Auth::user()){
+            return view('website.login')->with('success', 'Vui lòng đăng nhập trước !!!');
+        }
+        else if(Auth::user()->type != 2){
             return view('website.back');
         }
         $tongtien = 0;
@@ -382,14 +399,22 @@ class FontEndController extends Controller
 
     //Đổi mật khẩu giao diện
     public  function change_pass(Request $request){
-        if(Auth::user()->type != 2){
+        //Bắt đăng nhập
+        if(!Auth::user()){
+            return view('website.login')->with('success', 'Vui lòng đăng nhập trước !!!');
+        }
+        else if(Auth::user()->type != 2){
             return view('website.back');
         }
         return view('website.repassword');
     }
     //Đổi mật khẩu
     public  function repass(Request $request){
-        if(Auth::user()->type != 2){
+        //Bắt đăng nhập
+        if(!Auth::user()){
+            return view('website.login')->with('success', 'Vui lòng đăng nhập trước !!!');
+        }
+        else if(Auth::user()->type != 2){
             return view('website.back');
         }
         //nếu mật khẩu sai thì bảo nhập lại

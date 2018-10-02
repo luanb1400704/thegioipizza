@@ -25,11 +25,21 @@ class HoaDonController extends Controller
 
     public function getBadge()
     {
+        if(Auth::user()){
+            if(Auth::user()->type == 2){
+                return redirect()->route('home');
+            }
+        }
         return HoaDonModel::where('status', 0)->count();
     }
 
     public function create()
     {
+        if(Auth::user()){
+            if(Auth::user()->type == 2){
+                return redirect()->route('home');
+            }
+        }
         $nhanVien = Auth::user();
         $khachHang = Users::where('type', 2)->orderby('name', 'asc')->get([
             'id', 'name', 'phone'
@@ -56,6 +66,11 @@ class HoaDonController extends Controller
 
     public function store(Request $request)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+                return redirect()->route('home');
+            }
+        }
         $contain = $request->except('_token');
         $contain['json'] = json_decode($contain['json']);
         $contain['hold'] = HoaDonModel::create([
@@ -134,6 +149,11 @@ class HoaDonController extends Controller
 
     public function commission($id)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+                return redirect()->route('home');
+            }
+        }
         $contain['order'] = HoaDonModel::find($id);
         $contain['level'] = PhanCapModel::find($contain['order']->id_phan_cap);
         $contain['customer'] = $contain['order']->id_khachhang;
@@ -165,6 +185,11 @@ class HoaDonController extends Controller
 
     public function createCustomer(Request $request)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+                return redirect()->route('home');
+            }
+        }
         $contain = $request->except('_token');
         $validated = Validator::make($contain, Customer::rules(), Customer::getMessage());
         if ($validated->fails()) {
@@ -219,6 +244,11 @@ class HoaDonController extends Controller
 
     public function indexdaduyet(Request $req)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+                return redirect()->route('home');
+            }
+        }
         $tenkhachhang = Users::selectRaw('name,id')
             ->where('type', 2)
             ->get(['name', 'id']);
@@ -249,6 +279,11 @@ class HoaDonController extends Controller
 
     public function indexchuaduyet(Request $req)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+                return redirect()->route('home');
+            }
+        }
         $tenkhachhang = Users::selectRaw('name,id')
             ->where('type', 2)
             ->get(['name', 'id']);
