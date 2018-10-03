@@ -3,19 +3,11 @@
     <section class="content-header">
         <h1>Quản Lý Hoá Đơn</h1>
         <br>
-        <a id="btn-create" class="btn btn-sm btn-default">Tạo Khách Hàng</a>
+        <a id="btn-create" class="btn btn-sm btn-danger">Thêm Mới Khách Hàng</a>
+        <p class="help-block">Lưu ý : Khách hàng không có tài khoản mới tạo khách hàng !</p>
         <ol class="breadcrumb bg-gray">
-            <li>
-                <a href="#">
-                    <i class="fa fa-dashboard"></i>
-                    Trang chủ
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    Hóa Đơn
-                </a>
-            </li>
+            <li><a><i class="fa fa-dashboard"></i>Trang chủ</a></li>
+            <li><a>Hóa Đơn</a></li>
             <li>Tạo Đơn Hàng</li>
         </ol>
     </section>
@@ -211,8 +203,8 @@
                 html += '<td style="vertical-align: inherit;">' + json[id].ten + '</td>';
                 html += '<td style="vertical-align: inherit;">' + json[id].loai + '</td>';
                 html += '<td style="vertical-align: inherit;">' + amount + '</td>';
-                html += '<td style="vertical-align: inherit;">' + toMoney(json[id].gia) + '</td>';
-                html += '<td style="vertical-align: inherit;">' + toMoney(Number(json[id].gia) * amount) + '</td>';
+                html += '<td style="vertical-align: inherit;">' + toMoney(json[id].gia) + ' vnđ' + '</td>';
+                html += '<td style="vertical-align: inherit;">' + toMoney(Number(json[id].gia) * amount) + ' vnđ' + '</td>';
                 html += '<td style="vertical-align: inherit;"><a class="btn btn-sm btn-default" box="' + id + '" title="Loại bỏ" total="' + Number(json[id].gia) * amount + '" onclick="removeRow($(this))"><i class="fa fa-remove"></i></a></td>';
                 html += '</tr>';
                 $("#list").append(html);
@@ -235,7 +227,7 @@
             customer.password = $("input[name = 'password']").val();
             customer.id_cha = $("select[name = 'id_cha']").val();
             axios.post('{{ route('hoadon.customer') }}', customer).then(function (response) {
-                if(response.data.status === 'failed'){
+                if (response.data.status === 'failed') {
                     response.data.message.forEach(function (elem) {
                         toastr.error(elem);
                     });

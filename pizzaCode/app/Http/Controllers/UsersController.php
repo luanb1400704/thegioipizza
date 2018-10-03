@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ChiNhanhModel;
+use App\Http\Requests\NhanVienRequest;
 use App\UserProfileModel;
 use App\Users;
 use Illuminate\Http\Request;
@@ -20,10 +21,18 @@ class UsersController extends Controller
 
     public function index()
     {
-        $nhanvien = Users::leftjoin('userprofile', 'userprofile.user_id', '=', 'users.id')
-            ->leftjoin('chinhanh', 'chinhanh.id_chinhanh', '=', 'userprofile.id_chinhanh')
-            ->where('users.type', '=', 1)
-            ->get();
+        $id_user = Auth::user()->id;
+        if ($id_user == 1) {
+            $nhanvien = Users::leftjoin('userprofile', 'userprofile.user_id', '=', 'users.id')
+                ->leftjoin('chinhanh', 'chinhanh.id_chinhanh', '=', 'userprofile.id_chinhanh')
+                ->where('users.type', '=', 1);
+        } else {
+            $nhanvien = Users::leftjoin('userprofile', 'userprofile.user_id', '=', 'users.id')
+                ->leftjoin('chinhanh', 'chinhanh.id_chinhanh', '=', 'userprofile.id_chinhanh')
+                ->where('users.type', '=', 1)
+                ->where('userprofile.id_chinhanh', '=', $id_user);
+        }
+        $nhanvien = $nhanvien->get();
         $count = count($nhanvien);
         for ($i = 0; $i < $count; $i++) {
             $nhanvien[$i]['stt'] = $i + 1;
@@ -31,7 +40,7 @@ class UsersController extends Controller
         return view('pages.nhanvien.nhanvienindex', compact('nhanvien'));
     }
 
-    public function store(Request $request)
+    public function store(NhanVienRequest $request)
     {
         $id_user = Auth::user()->id;
         if ($request->hasFile('file')) {
@@ -58,12 +67,12 @@ class UsersController extends Controller
                 'user_cmnd' => $request->get('user_cmnd'),
                 'user_ngaycap_cmnd' => $request->get('user_ngaycap_cmnd'),
                 'user_address' => $request->get('user_address'),
-                'id_chinhanh' => $request->get('id_chinhanh'),
+                'id_chinhanh' => $id_user,
                 'user_image' => $user_image,
                 'user_at' => $id_user,
             ]
         );
-        return redirect('nhan-vien-chi-nhanh/index');
+        return redirect('nhan-vien-chi-nhanh/index')->with('success', 'Thêm thành công !');
     }
 
     public function create()
@@ -78,8 +87,7 @@ class UsersController extends Controller
             ->leftjoin('chinhanh', 'chinhanh.id_chinhanh', '=', 'userprofile.id_chinhanh')
             ->where('users.id', '=', $id)
             ->first();
-        $chinhanh = ChiNhanhModel::all();
-        return view('pages.nhanvien.nhanvienedit', compact('nhanvien', 'chinhanh'));
+        return view('pages.nhanvien.nhanvienedit', compact('nhanvien'));
     }
 
     public function update(Request $request, $id)
@@ -105,6 +113,6 @@ class UsersController extends Controller
         }
         Users::where('id', $id)->update($data->chunk($container)->shift()->all());
         UserProfileModel::where('user_id', $id)->update($data->slice($container)->all());
-        return redirect('nhan-vien-chi-nhanh/index');
+        return redirect('nhan-vien-chi-nhanh/index')->with('success', 'Cập nhật thành công !');
     }
 }

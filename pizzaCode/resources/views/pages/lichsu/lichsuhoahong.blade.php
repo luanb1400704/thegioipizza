@@ -23,28 +23,33 @@
                <span class="">
                     <h1 class="box-title text-primary">
                         <i class="ion ion-clipboard "></i>
-                        Lịch sử
+                        Lịch sử trả tiền cho khách hàng
                     </h1>
+                </span>
+                <span class="pull-right">
+                    <a type="button" class="btn bg-danger btn-sm btn-danger margin">
+                        Tổng số tiền đã trả cho khách : {{ number_format($tongtien) }} vnđ
+                    </a>
                 </span>
             </div>
             <div class="box-body ">
                 <table id="example1" class="table table-bordered table-striped text-center">
                     <thead>
                     <tr>
+                        <th>STT</th>
                         <th>Tên khách hàng</th>
                         <th>SĐT</th>
                         <th>Số tiền đã trả</th>
-                        <th>Chi nhánh</th>
                         <th>Ngày trả</th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php foreach ($log as $key => $val): ?>
                     <tr>
+                        <td>{{ $val->stt }}</td>
                         <td>{{ $val->tenkhachhang }}</td>
                         <td>{{ $val->phone }}</td>
-                        <td>{{ $val->so_tien_da_tra }}</td>
-                        <td>{{ $val->ten_chinhanh }}</td>
+                        <td>{{ number_format($val->so_tien_da_tra) }} vnđ</td>
                         <td>{{ $val->ngay_tra }}</td>
                     </tr>
                     <?php endforeach; ?>

@@ -81,55 +81,80 @@ class TienChiHoController extends Controller
 
     public function log_tra_tien()
     {
-        $log = LogHoaHongModel::leftjoin('users', 'users.id', '=', 'loghoahong.id_khachhang')
-            ->leftjoin('chinhanh', 'chinhanh.id_chinhanh', '=', 'loghoahong.id_chinhanh')
-            ->select(
-                'users.name as tenkhachhang',
-                'users.phone as phone',
-                'loghoahong.so_tien_da_tra as so_tien_da_tra',
-                'loghoahong.ngay_tra as ngay_tra',
-                'chinhanh.ten_chinhanh as ten_chinhanh'
-            )->get();
-//        dd($log);
-        return view('pages.lichsu.lichsuhoahong', compact('log'));
+        $id_user = Auth::user()->id;
+        if ($id_user == 1) {
+            $log = LogHoaHongModel::leftjoin('users', 'users.id', '=', 'loghoahong.id_khachhang')
+                ->leftjoin('chinhanh', 'chinhanh.id_chinhanh', '=', 'loghoahong.id_chinhanh')
+                ->orderBy('loghoahong.created_at', 'desc')
+                ->select(
+                    'users.name as tenkhachhang',
+                    'users.phone as phone',
+                    'loghoahong.so_tien_da_tra as so_tien_da_tra',
+                    'loghoahong.ngay_tra as ngay_tra',
+                    'chinhanh.ten_chinhanh as ten_chinhanh'
+                );
+            $tongtien = $log->sum('loghoahong.so_tien_da_tra');
+        } else {
+            $log = LogHoaHongModel::leftjoin('users', 'users.id', '=', 'loghoahong.id_khachhang')
+                ->leftjoin('chinhanh', 'chinhanh.id_chinhanh', '=', 'loghoahong.id_chinhanh')
+                ->where('loghoahong.id_chinhanh', '=', $id_user)
+                ->orderBy('loghoahong.created_at', 'desc')
+                ->select(
+                    'users.name as tenkhachhang',
+                    'users.phone as phone',
+                    'loghoahong.so_tien_da_tra as so_tien_da_tra',
+                    'loghoahong.ngay_tra as ngay_tra',
+                    'chinhanh.ten_chinhanh as ten_chinhanh'
+                );
+            $tongtien = $log->sum('loghoahong.so_tien_da_tra');
+        }
+        $log = $log->get();
+        $count = count($log);
+        for ($i = 0; $i < $count; $i++) {
+            $log[$i]['stt'] = $i + 1;
+        }
+        return view('pages.lichsu.lichsuhoahong', compact('log','tongtien'));
     }
 
     public function tien_chi_nhanh()
     {
         $tienchinhanhtra = LogHoaHongModel::all();
-        return view('pages.chihohoahong.tienbanhchinhanh',compact('tienchinhanhtra'));
+        return view('pages.chihohoahong.tienbanhchinhanh', compact('tienchinhanhtra'));
     }
 
     //Code của Luân
     //Hiển thị danh sách các chi nhánh đã trả số tiền bao nhiều
-    public function tongtienchinhanh(){
+    public function tongtienchinhanh()
+    {
         $listChiNhanh = TienChiNhanhTraChoKhachModel
-            ::join('chinhanh','tien_chi_nhanh_tra_cho_khach.id_chinhanh','=','chinhanh.id_chinhanh')
-            ->join('users','users.id','=','chinhanh.id_chinhanh')
-            ->where('users.type',3)
+            ::join('chinhanh', 'tien_chi_nhanh_tra_cho_khach.id_chinhanh', '=', 'chinhanh.id_chinhanh')
+            ->join('users', 'users.id', '=', 'chinhanh.id_chinhanh')
+            ->where('users.type', 3)
             ->get();
         return view('pages.chihohoahong.chinhanhchiho', compact('listChiNhanh'));
     }
+
     //Thanh toán tiền và lưu vào logchiho
-    public function thanhtoan($id){
+    public function thanhtoan($id)
+    {
         //Tìm kiếm chi nhánh thông qua id
         $chinhanh = ChiNhanhModel::find($id);
         //Chưa có thì cho về lại trang danh sách chi nhánh
-        if(!isset($chinhanh)){
+        if (!isset($chinhanh)) {
             return redirect('tien-chi-ho-hoa-hong/tong_tien_chi_nhanh');
         }
         //trong bản chi nhánh không có dữ liệu hoặc là dữ liệu tiền trả cho khách bằng 0 thì trả về trang chính
-        $tientrakhach = TienChiNhanhTraChoKhachModel::where('id_chinhanh',$id)->first();
-        if(!isset($tientrakhach) && $tientrakhach->sotien==0){
+        $tientrakhach = TienChiNhanhTraChoKhachModel::where('id_chinhanh', $id)->first();
+        if (!isset($tientrakhach) && $tientrakhach->sotien == 0) {
             return redirect('tien-chi-ho-hoa-hong/tong_tien_chi_nhanh');
         }
         //Ngược lại làm tiếp
         LogTienChiHoModel::insert([
-            'id_chinhanh'=> $chinhanh->id_chinhanh,
+            'id_chinhanh' => $chinhanh->id_chinhanh,
             'sotien' => $tientrakhach->sotien,
             'ngay_tra' => (string)date('d/m/Y - H:i:s')
         ]);
-        TienChiNhanhTraChoKhachModel::where('id_chinhanh',$id)
+        TienChiNhanhTraChoKhachModel::where('id_chinhanh', $id)
             ->update([
                 'sotien' => 0
             ]);
@@ -137,11 +162,12 @@ class TienChiHoController extends Controller
     }
     //Xem lại số tiền đã chi cho chi nhánh
     //Hiển thị danh sách các chi nhánh đã trả số tiền bao nhiều
-    public function lichsuthanhtoan(){
+    public function lichsuthanhtoan()
+    {
         $listChiNhanh = LogTienChiHoModel
-            ::join('chinhanh','log_tien_chi_ho.id_chinhanh','=','chinhanh.id_chinhanh')
-            ->join('users','users.id','=','chinhanh.id_chinhanh')
-            ->where('users.type',3)
+            ::join('chinhanh', 'log_tien_chi_ho.id_chinhanh', '=', 'chinhanh.id_chinhanh')
+            ->join('users', 'users.id', '=', 'chinhanh.id_chinhanh')
+            ->where('users.type', 3)
             ->get();
         return view('pages.chihohoahong.lichsuthanhtoan', compact('listChiNhanh'));
     }

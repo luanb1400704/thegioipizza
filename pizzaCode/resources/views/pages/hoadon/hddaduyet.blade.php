@@ -3,17 +3,8 @@
     <section class="content-header">
         <h1>Quản Lý Hóa Đơn</h1>
         <ol class="breadcrumb bg-gray">
-            <li>
-                <a href="#">
-                    <i class="fa fa-dashboard"></i>
-                    Trang chủ
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    Hóa đơn
-                </a>
-            </li>
+            <li><a><i class="fa fa-dashboard"></i>Trang chủ</a></li>
+            <li><a>Hóa đơn</a></li>
             <li>Hóa đơn đã duyệt</li>
         </ol>
     </section>
@@ -23,7 +14,7 @@
                <span class="">
                     <h1 class="box-title text-primary">
                         <i class="ion ion-clipboard "></i>
-                        Danh sách HĐ đã duyệt
+                        Danh sách hóa đơn đã duyệt
                     </h1>
                 </span>
             </div>
@@ -55,6 +46,8 @@
                     </a>
                 </div>
             </form>
+            <br>
+            <br>
             <div class="box-body ">
                 <table class="table table-bordered table-striped text-center">
                     <thead>
@@ -64,7 +57,7 @@
                         <th>Số điện thoại</th>
                         <th>Tổng</th>
                         <th>Ngày Đặt Hàng</th>
-                        <th>Tùy Chọn</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -76,12 +69,9 @@
                             <td>{{number_format($value->tong_tien_hoa_don)}} vnđ</td>
                             <td>{{$value->created_at}}</td>
                             <td class="text-center">
-                                <a href="#" class="btn btn-primary btn-sm" title="xem chi tiet"
+                                <a href="#" class="btn btn-primary btn-sm" title="xem chi tiết"
                                    onclick="getDetails({{$value->hd_id}})">
                                     <i class="fa fa-eye"></i>
-                                </a>
-                                <a href="#" class="btn btn-success btn-sm" title="chinh sua hoa don">
-                                    <i class="fa fa-edit"></i>
                                 </a>
                             </td>
                         </tr>
@@ -102,7 +92,6 @@
                             <label>Nhân viên duyệt hóa đơn: <span id="tenNV" style="color: red;"></span></label><br>
                             <label>Tổng tiền: <span id="tongtien" style="color: red;"></span> VNĐ</label><br>
                             <label>Chi tiết:</label>
-
                         </div>
                         <div class="box-body ">
                             <table id="example1" class="table table-bordered table-striped text-center">
@@ -114,7 +103,6 @@
                                     <th>Đơn giá</th>
                                     <th>Số lượng</th>
                                     <th>Thành tiền</th>
-
                                 </tr>
                                 </thead>
                                 <tbody id="body-detail">
@@ -136,9 +124,11 @@
             $('#example1').DataTable()
         });
         $(".select2").select2();
+
         function toMoney(number) {
             return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
+
         function toMoney(number) {
             return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }

@@ -48,7 +48,7 @@
                             @if(isset($val->nguoigioithieu))
                             <td>{{ $val->nguoigioithieu }}</td>
                             @else
-                                <td>0</td>
+                                <td>( 0 )</td>
                             @endif
                             <td>{{ number_format($val->tien) }} vnđ</td>
                             <td class="text-center">

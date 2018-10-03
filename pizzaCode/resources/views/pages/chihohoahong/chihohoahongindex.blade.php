@@ -61,7 +61,7 @@
                                 <td class="text-center">
                                     <a href="{{ route('tru_tien',$val->hh_id) }}"
                                        class="btn btn-primary btn-sm btn-flat"
-                                       onclick="return confirm('Bạn chắc chắn muốn thanh toán ?')">
+                                       onclick="return confirm('Lưu ý : Bạn chắc chắn muốn thanh toán ?')">
                                         <i class="fa fa-dollar"></i>
                                     </a>
                                 </td>

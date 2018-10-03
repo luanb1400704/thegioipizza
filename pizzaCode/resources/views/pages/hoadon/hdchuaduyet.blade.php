@@ -3,18 +3,9 @@
     <section class="content-header">
         <h1>Quản Lý Hóa Đơn</h1>
         <ol class="breadcrumb bg-gray">
-            <li>
-                <a href="#">
-                    <i class="fa fa-dashboard"></i>
-                    Trang chủ
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    Hóa đơn
-                </a>
-            </li>
-            <li>Hóa đơn đã duyệt</li>
+            <li><a><i class="fa fa-dashboard"></i>Trang chủ</a></li>
+            <li><a>Hóa đơn</a></li>
+            <li>Hóa đơn chờ duyệt</li>
         </ol>
     </section>
     <section class=" content col-lg-12 connectedSortable">
@@ -23,7 +14,7 @@
                <span class="">
                     <h1 class="box-title text-primary">
                         <i class="ion ion-clipboard "></i>
-                        Danh sách Đơn hàng chờ duyệt
+                        Danh sách đơn hàng chờ duyệt
                     </h1>
                 </span>
             </div>
@@ -55,6 +46,9 @@
                     </a>
                 </div>
             </form>
+            <br>
+            <br>
+            <p class="help-block" style="color: red">( * ) Lưu ý : Cần xác nhận lại đơn hàng trước khi duyệt đơn hàng !</p>
             <div class="box-body ">
                 <table class="table table-bordered table-striped text-center">
                     <thead>
@@ -64,7 +58,7 @@
                         <th>Số điện thoại</th>
                         <th>Tổng</th>
                         <th>Ngày Đặt Hàng</th>
-                        <th>Tùy Chọn</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -73,17 +67,19 @@
                             <td>{{$value->hd_id}}</td>
                             <td>{{$value->name}}</td>
                             <td>{{$value->phone}}</td>
-                            <td>{{number_format($value->tong_tien_hoa_don)}}</td>
+                            <td>{{number_format($value->tong_tien_hoa_don)}} vnđ</td>
                             <td>{{$value->created_at}}</td>
                             <td class="text-center">
-                                <a href="#" class="btn btn-primary btn-sm" title="xem chi tiet"
+                                <a href="#" class="btn btn-primary btn-sm" title="xem chi tiết"
                                    onclick="getDetails({{$value->hd_id}})">
                                     <i class="fa fa-eye"></i>
                                 </a>
-                                <a href="#" class="btn btn-success btn-sm" title="chinh sua hoa don">
+                                <a href="#" class="btn btn-success btn-sm" title="chỉnh sửa hóa đơn"
+                                    onclick="return confirm('Lưu ý: Bạn có chắc chắn chỉnh sửa hóa đơn này ?')">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <a href="{{ route('hoadon.done', [$value->hd_id])}}" title="duyet hoa don"
+                                <a href="{{ route('hoadon.done', [$value->hd_id])}}" title="duyệt hóa đơn"
+                                   onclick="return confirm('Lưu ý: Bạn có chắc chắn duyệt hóa đơn này, Khi duyệt xong thì không thể thực hiện lại ?')"
                                    class="btn btn-danger btn-sm">
                                     <i class="fa fa-check-square"></i>
                                 </a>

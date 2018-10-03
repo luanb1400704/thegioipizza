@@ -21,7 +21,7 @@
         <form role="form" action="{{ route('nv.update', [$nhanvien->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6 col-md-offset-3">
                     <div class="box box-warning">
                         <div class="box-header with-border">
                             <h3 class="box-title">Thêm Mới Nhân Viên</h3>
@@ -88,20 +88,6 @@
                                      alt="your image"
                                 />
                                 <input style="margin-top: 10px;" type='file' name="user_image" onchange="readURL(this)"/>
-                            </div>
-                            <div class="form-group">
-                                <label>Tên Chi Nhánh </label>
-                                <select class="form-control" required name="id_chinhanh">
-                                    <option value="">---</option>
-                                    @foreach ($chinhanh as $key => $val)
-                                        <option
-                                                @if($nhanvien->id_chinhanh == $val->id_chinhanh)
-                                                selected="selected"
-                                                @endif
-                                                value="{{ $val->id_chinhanh }}">{{ $val->ten_chinhanh }}
-                                        </option>
-                                    @endforeach
-                                </select>
                             </div>
                             <div class="box-footer">
                                 <button type="submit" class="btn btn-success btn-sm btn-flat margin">
