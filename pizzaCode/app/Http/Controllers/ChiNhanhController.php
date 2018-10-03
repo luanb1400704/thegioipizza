@@ -20,6 +20,11 @@ class ChiNhanhController extends Controller
 
     public function index()
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
         $chinhanh = ChiNhanhModel::join('users', 'users.id', '=', 'chinhanh.id_chinhanh')->get();
         $count = count($chinhanh);
         for ($i = 0; $i < $count; $i++) {
@@ -30,11 +35,21 @@ class ChiNhanhController extends Controller
 
     public function create()
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
         return view('pages.chinhanh.create');
     }
 
     public function store(ChiNhanhRequest $req)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
         $id_user = Auth::user()->id;
         $chinhanh = Users::create(
             [
@@ -63,6 +78,11 @@ class ChiNhanhController extends Controller
 
     public function edit($id)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
         $chinhanh = ChiNhanhModel::leftjoin('users', 'users.id', '=', 'chinhanh.id_chinhanh')
             ->where('chinhanh.id_chinhanh', $id)
             ->first();
@@ -71,6 +91,11 @@ class ChiNhanhController extends Controller
 
     public function update(Request $req, $id)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
         $chinhanh = ChiNhanhModel::join('users', 'users.id', '=', 'chinhanh.id_chinhanh')
             ->find($id);
         $chinhanh->name = $req->get('name');

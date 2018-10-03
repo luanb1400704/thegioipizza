@@ -192,7 +192,7 @@ Route::group(['prefix' => 'nhan-vien-chi-nhanh'], function () {
 
     Route::post('store', 'UsersController@store')->name('nv.store');
 
-    Route::get('destroy/{id}', 'UsersController@destroy')->name('nv.destroy');
+//    Route::get('destroy/{id}', 'UsersController@destroy')->name('nv.destroy');
 
     Route::get('edit/{id}', 'UsersController@edit')->name('nv.edit');
 

@@ -21,6 +21,11 @@ class UsersController extends Controller
 
     public function index()
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0 && Auth::user()->type != 3 ){
+                return redirect()->route('home');
+            }
+        }
         $id_user = Auth::user()->id;
         if ($id_user == 1) {
             $nhanvien = Users::leftjoin('userprofile', 'userprofile.user_id', '=', 'users.id')
@@ -42,6 +47,7 @@ class UsersController extends Controller
 
     public function store(NhanVienRequest $request)
     {
+
         $id_user = Auth::user()->id;
         if ($request->hasFile('file')) {
             $file = $request->file('file');
@@ -77,12 +83,22 @@ class UsersController extends Controller
 
     public function create()
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0 && Auth::user()->type != 3 ){
+                return redirect()->route('home');
+            }
+        }
         $chinhanh = ChiNhanhModel::all();
         return view('pages.nhanvien.nhanviencreate', compact('chinhanh'));
     }
 
     public function edit($id)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0 && Auth::user()->type != 3 ){
+                return redirect()->route('home');
+            }
+        }
         $nhanvien = Users::leftjoin('userprofile', 'userprofile.user_id', '=', 'users.id')
             ->leftjoin('chinhanh', 'chinhanh.id_chinhanh', '=', 'userprofile.id_chinhanh')
             ->where('users.id', '=', $id)
@@ -92,6 +108,11 @@ class UsersController extends Controller
 
     public function update(Request $request, $id)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0 && Auth::user()->type != 3 ){
+                return redirect()->route('home');
+            }
+        }
         $container = '';
         if ($request->hasFile('user_image')) {
             $request->file('user_image')->move('upload', $request->file('user_image')->getClientOriginalName());
