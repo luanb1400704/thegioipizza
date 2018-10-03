@@ -25,11 +25,21 @@ class HoaDonController extends Controller
 
     public function getBadge()
     {
+        if(Auth::user()){
+            if(Auth::user()->type == 2){
+                return redirect()->route('home');
+            }
+        }
         return HoaDonModel::where('status', 0)->count();
     }
 
     public function create()
     {
+        if(Auth::user()){
+            if(Auth::user()->type == 2){
+                return redirect()->route('home');
+            }
+        }
         $nhanVien = Auth::user();
         $khachHang = Users::where('type', 2)->orderby('name', 'asc')->get([
             'id', 'name', 'phone'
@@ -56,6 +66,11 @@ class HoaDonController extends Controller
 
     public function store(Request $request)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+                return redirect()->route('home');
+            }
+        }
         $contain = $request->except('_token');
         $contain['json'] = json_decode($contain['json']);
         $contain['hold'] = HoaDonModel::create([
@@ -134,7 +149,15 @@ class HoaDonController extends Controller
 
     public function commission($id)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+                return redirect()->route('home');
+            }
+        }
         $contain['order'] = HoaDonModel::find($id);
+        if($contain['order']->status == 1){
+            return redirect(route('hoadon.indexdaduyet'));
+        }
         $contain['level'] = PhanCapModel::find($contain['order']->id_phan_cap);
         $contain['customer'] = $contain['order']->id_khachhang;
         $contain['percent'] = $contain['level']->pc_tile;
@@ -165,6 +188,11 @@ class HoaDonController extends Controller
 
     public function createCustomer(Request $request)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+                return redirect()->route('home');
+            }
+        }
         $contain = $request->except('_token');
         $validated = Validator::make($contain, Customer::rules(), Customer::getMessage());
         if ($validated->fails()) {
@@ -190,7 +218,7 @@ class HoaDonController extends Controller
             'customer_birthday' => '',
             'customer_cmnd' => '',
             'customer_cmnd_ngaycap' => '',
-            'customer_gender' => 0,
+            'customer_gender' => 3,
             'customer_address' => '',
             'customer_image' => '',
             'id_employee' => Auth::user()->id
@@ -219,6 +247,11 @@ class HoaDonController extends Controller
 
     public function indexdaduyet(Request $req)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+                return redirect()->route('home');
+            }
+        }
         $tenkhachhang = Users::selectRaw('name,id')
             ->where('type', 2)
             ->get(['name', 'id']);
@@ -249,13 +282,17 @@ class HoaDonController extends Controller
 
     public function indexchuaduyet(Request $req)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+                return redirect()->route('home');
+            }
+        }
         $tenkhachhang = Users::selectRaw('name,id')
             ->where('type', 2)
             ->get(['name', 'id']);
         $sdtkhachhang = Users::selectRaw('phone,id')
             ->where('type', 2)
             ->get(['phone', 'id']);
-//        dd($sdtkhachhang);
         $khachhang = HoaDonModel::leftjoin('users', 'hoadon.id_khachhang', '=', 'users.id')
             ->where('hoadon.status', 0)
             ->orderByRaw('users.id desc')

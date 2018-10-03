@@ -28,7 +28,7 @@
                     <a href="{{ route('kh.index') }}"><i class="fa fa-address-book"></i><span>Khách Hàng</span></a>
                 </li>
             @endif
-            @if(Auth::user()->type == 0 || Auth::user()->type == 1)
+            @if(Auth::user()->type == 0 || Auth::user()->type == 1 || Auth::user()->type == 3)
                 @if(Auth::user()->type == 0)
                     <li class="header">QUẢN LÝ ĐƠN HÀNG</li>
                 @endif

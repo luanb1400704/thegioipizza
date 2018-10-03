@@ -9,6 +9,7 @@ use App\Http\Requests\QuanLyGiaBanhRequest;
 use App\Http\Requests\QuanLyLoaiBanhRequest;
 use App\LoaiBanhModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BanhController extends Controller
 {
@@ -19,6 +20,14 @@ class BanhController extends Controller
 
     public function index()
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         $banh = BanhModel::all();
         $count = count($banh);
         for ($i = 0; $i < $count; $i++) {
@@ -29,11 +38,27 @@ class BanhController extends Controller
 
     public function create()
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         return view('pages.banh.create');
     }
 
     public function store(QuanLyBanhRequest $req)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         $banh = new BanhModel();
         $banh->b_ten = $req->get('b_ten');
         $banh->b_mota = $req->get('b_mota');
@@ -51,12 +76,28 @@ class BanhController extends Controller
 
     public function edit($id)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         $banh = BanhModel::where('banh.b_id', '=', $id)->first();
         return view('pages.banh.edit', compact('banh'));
     }
 
     public function update(QuanLyBanhRequest $req, $id)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         $banh = BanhModel::find($id);
         $banh->b_ten = $req->get('b_ten');
         $banh->b_mota = $req->get('b_mota');
@@ -72,6 +113,14 @@ class BanhController extends Controller
 
     public function destroy($id)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         BanhModel::find($id)->delete();
         GiaModel::where('b_id', $id)->delete();
         return redirect('/banh/index')->with('success', 'Xóa thành công !');
@@ -81,6 +130,14 @@ class BanhController extends Controller
 
     public function l_index()
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         $l = LoaiBanhModel::all();
         $count = count($l);
         for ($i = 0; $i < $count; $i++) {
@@ -91,11 +148,27 @@ class BanhController extends Controller
 
     public function l_create()
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         return view('pages.banh.lcreate');
     }
 
     public function l_store(QuanLyLoaiBanhRequest $req)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         $l = new LoaiBanhModel();
         $l->l_ten = $req->get('l_ten');
         $l->l_kichthuoc = $req->get('l_kichthuoc');
@@ -105,12 +178,28 @@ class BanhController extends Controller
 
     public function l_edit($id)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         $l = LoaiBanhModel::where('loaibanh.l_id', '=', $id)->first();
         return view('pages.banh.ledit', compact('l'));
     }
 
     public function l_update(Request $req, $id)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         $l = LoaiBanhModel::find($id);
         $l->l_ten = $req->get('l_ten');
         $l->l_kichthuoc = $req->get('l_kichthuoc');
@@ -120,6 +209,14 @@ class BanhController extends Controller
 
     public function l_destroy($id)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         LoaiBanhModel::find($id)->delete();
         GiaModel::where('l_id', $id)->delete();
         return redirect('/loai-banh/index')->with('success', 'Xóa thành công !');
@@ -129,6 +226,14 @@ class BanhController extends Controller
 
     public function g_index()
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         $g = GiaModel::leftjoin('banh', 'banh.b_id', '=', 'gia.b_id')
             ->leftjoin('loaibanh', 'loaibanh.l_id', '=', 'gia.l_id')
             ->get();
@@ -141,6 +246,14 @@ class BanhController extends Controller
 
     public function g_create()
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         $banh = BanhModel::all();
         $loaibanh = LoaiBanhModel::all();
         return view('pages.banh.gcreate', compact('banh', 'loaibanh'));
@@ -148,6 +261,14 @@ class BanhController extends Controller
 
     public function g_store(QuanLyGiaBanhRequest $req)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         $g = new GiaModel();
         $g->b_id = $req->get('b_ten');
         $g->l_id = $req->get('l_ten');
@@ -159,6 +280,14 @@ class BanhController extends Controller
 
     public function g_edit($id)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         $banh = BanhModel::all();
         $loaibanh = LoaiBanhModel::all();
         $g = GiaModel::where('g_id', '=', $id)->first();
@@ -167,6 +296,14 @@ class BanhController extends Controller
 
     public function g_update(Request $req, $id)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         $g = GiaModel::find($id);
         $g->b_id = $req->get('b_ten');
         $g->l_id = $req->get('l_ten');
@@ -177,6 +314,14 @@ class BanhController extends Controller
 
     public function g_destroy($id)
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         GiaModel::find($id)->delete();
         return redirect('/gia-banh/index')->with('success', 'Xóa thành công !');
     }
