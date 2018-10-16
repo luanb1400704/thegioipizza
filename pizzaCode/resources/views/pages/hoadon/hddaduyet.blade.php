@@ -39,10 +39,10 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-sm-2">
-                    <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-search"></i></button>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-search"></i> Tìm kiếm</button>
                     <a href="{{ route('hoadon.indexdaduyet') }}" class="btn btn-primary btn-sm" title="xem chi tiet">
-                        <i class="fa fa-refresh"></i>
+                        <i class="fa fa-refresh"></i> Tải lại
                     </a>
                 </div>
             </form>
@@ -52,10 +52,11 @@
                 <table class="table table-bordered table-striped text-center">
                     <thead>
                     <tr>
-                        <th>Mã</th>
+                        <th>STT</th>
+                        <th>Mã Hóa Đơn</th>
                         <th>Tên Khách Hàng</th>
-                        <th>Số điện thoại</th>
-                        <th>Tổng</th>
+                        <th>Số Điện Thoại</th>
+                        <th>Tổng Tiền Hóa Đơn</th>
                         <th>Ngày Đặt Hàng</th>
                         <th></th>
                     </tr>
@@ -63,15 +64,17 @@
                     <tbody>
                     @foreach($khachhang as $key=>$value)
                         <tr>
+                            <td>{{$value->stt}}</td>
                             <td>{{$value->hd_id}}</td>
                             <td>{{$value->name}}</td>
                             <td>{{$value->phone}}</td>
                             <td>{{number_format($value->tong_tien_hoa_don)}} vnđ</td>
-                            <td>{{$value->created_at}}</td>
+                            <td>{{date('H:i:s - d/m/Y', strtotime($value->created_at))}}</td>
                             <td class="text-center">
                                 <a href="#" class="btn btn-primary btn-sm" title="xem chi tiết"
                                    onclick="getDetails({{$value->hd_id}})">
                                     <i class="fa fa-eye"></i>
+                                    Xem
                                 </a>
                             </td>
                         </tr>
@@ -79,6 +82,9 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div class="container-fluid" align="right">
+            {{ $khachhang->links() }}
         </div>
         <div class="modal fade" id="detailHoaDon" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">

@@ -33,7 +33,7 @@
                 </span>
             </div>
             <div class="box-body ">
-                <table class="table table-bordered table-striped text-center">
+                <table id="example1" class="table table-bordered table-striped text-center">
                     <thead>
                     <tr>
                         <th>STT</th>
@@ -81,4 +81,11 @@
             </div>
         </div>
     </section>
+@endsection
+@section('script')
+    <script type="text/javascript">
+        $(function () {
+            $('#example1').DataTable()
+        });
+    </script >
 @endsection

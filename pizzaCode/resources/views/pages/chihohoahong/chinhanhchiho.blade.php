@@ -3,17 +3,8 @@
     <section class="content-header">
         <h1>Quản Lý Chi Nhánh</h1>
         <ol class="breadcrumb bg-gray">
-            <li>
-                <a href="{{ url('/') }}">
-                    <i class="fa fa-dashboard"></i>
-                    Trang chủ
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('index') }}">
-                    Chi hộ hoa hồng
-                </a>
-            </li>
+            <li><a><i class="fa fa-dashboard"></i>Trang chủ</a></li>
+            <li><a>Trả tiền lại cho chi nhánh</a></li>
             <li>Danh sách chi nhánh</li>
         </ol>
     </section>
@@ -23,7 +14,7 @@
                <span class="">
                     <h1 class="box-title text-primary">
                         <i class="ion ion-clipboard "></i>
-                        Danh sách chi hộ của các chi nhánh
+                        Danh sách các chi nhánh đã tiền cho khách hàng
                     </h1>
                 </span>
             </div>
@@ -31,11 +22,12 @@
                 <table id="example1" class="table table-bordered table-striped text-center">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Tên chi nhánh</th>
-                        <th>Số tiền</th>
-                        <th>Chủ</th>
-                        <th>Email</th>
+                        <th>STT</th>
+                        <th>Mã Chi Nhánh</th>
+                        <th>Tên Nhi Nhánh</th>
+                        <th>Số Tiền Đã Trả</th>
+                        <th>Tên Chủ Chi Nhánh</th>
+                        <th>Email Chi Nhánh</th>
                         <th>SĐT</th>
                         <th>Thanh toán</th>
                     </tr>
@@ -43,17 +35,23 @@
                     <tbody>
                     <?php foreach ($listChiNhanh as $val): ?>
                     <tr>
+                        <td>{{ $val->stt }}</td>
                         <td>{{ $val->id_chinhanh }}</td>
                         <td>{{ $val->ten_chinhanh }}</td>
                         <td>{{ number_format($val->sotien) }} vnđ</td>
                         <td>{{ $val->name }}</td>
                         <td>{{ $val->email }}</td>
                         <td>{{ $val->phone }}</td>
-                        <td class="text-center">
-                            <a href="{{route('tien-chi-ho-hoa-hong/thanh_toan',['id'=>$val->id_chinhanh])}}" class="btn bg-red-active btn-sm btn-flat">
-                                <i class="fa fa-dollar"></i>
-                            </a>
-                        </td>
+                        @if($val->sotien == 0)
+                            <td></td>
+                        @else
+                            <td class="text-center">
+                                <a href="{{route('tien-chi-ho-hoa-hong/thanh_toan',['id'=>$val->id_chinhanh])}}"
+                                   class="btn bg-red-active btn-sm btn-flat">
+                                    <i class="fa fa-dollar"></i>
+                                </a>
+                            </td>
+                        @endif
                     </tr>
                     <?php endforeach; ?>
                     </tbody>
@@ -61,4 +59,11 @@
             </div>
         </div>
     </section>
+@endsection
+@section('script')
+    <script type="text/javascript">
+        $(function () {
+            $('#example1').DataTable()
+        });
+        </script >
 @endsection

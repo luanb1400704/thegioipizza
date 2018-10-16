@@ -3,17 +3,8 @@
     <section class="content-header">
         <h1>Quản Lý Hoa Hồng</h1>
         <ol class="breadcrumb bg-gray">
-            <li>
-                <a href="{{ url('/') }}">
-                    <i class="fa fa-dashboard"></i>
-                    Trang chủ
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('index') }}">
-                    Chi hộ hoa hồng
-                </a>
-            </li>
+            <li><a><i class="fa fa-dashboard"></i>Trang chủ</a></li>
+            <li><a>Trả tiền hoa hồng</a></li>
             <li>Danh sách khách hàng</li>
         </ol>
     </section>
@@ -23,30 +14,30 @@
                <span class="">
                     <h1 class="box-title text-primary">
                         <i class="ion ion-clipboard "></i>
-                        Danh sách
+                        Danh Sách Khách Hàng Đã Tích Lũy Trong Hệ Thống
                     </h1>
                 </span>
             </div>
             <div class="box-body ">
-                <table id="example1" class="table table-bordered table-striped text-center">
+                <table class="table table-bordered table-striped text-center">
                     <thead>
                     <tr>
+                        <th>STT</th>
                         <th>Tên Khách Hàng</th>
                         <th>Email</th>
                         <th>SĐT</th>
                         <th>Ngày Sinh</th>
                         <th>CMND</th>
-                        <th>Địa chỉ</th>
+                        <th>Địa Chỉ</th>
                         <th>Số Tiền Tích Lũy</th>
                         <th>Hạn lãnh</th>
-                        @if(Auth::user()->type == 1)
-                            <th></th>
-                        @endif
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php foreach ($hoahongchinhanh as $val): ?>
                     <tr>
+                        <td>{{ $val->stt }}</td>
                         <td>{{ $val->name }}</td>
                         <td>{{ $val->email }}</td>
                         <td>{{ $val->phone }}</td>
@@ -63,6 +54,7 @@
                                        class="btn btn-primary btn-sm btn-flat"
                                        onclick="return confirm('Lưu ý : Bạn chắc chắn muốn thanh toán ?')">
                                         <i class="fa fa-dollar"></i>
+                                        Thanh Toán
                                     </a>
                                 </td>
                             @endif
@@ -73,12 +65,8 @@
                 </table>
             </div>
         </div>
+        <div class="container-fluid" align="right">
+            {{ $hoahongchinhanh->links() }}
+        </div>
     </section>
-@endsection
-@section('script')
-    <script type="text/javascript">
-        $(function () {
-            $('#example1').DataTable()
-        });
-    </script>
 @endsection

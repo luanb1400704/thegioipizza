@@ -32,7 +32,12 @@ class TienChiHoController extends Controller
                 'customer.customer_birthday',
                 'customer.customer_cmnd',
                 'customer.customer_address'
-            )->get();
+            );
+        $hoahongchinhanh = $hoahongchinhanh->paginate(10);
+        $count = count($hoahongchinhanh);
+        for ($i = 0; $i < $count; $i++) {
+            $hoahongchinhanh[$i]['stt'] = $i + 1;
+        }
         return view('pages.chihohoahong.chihohoahongindex', compact('hoahongchinhanh'));
     }
 
@@ -113,7 +118,7 @@ class TienChiHoController extends Controller
         for ($i = 0; $i < $count; $i++) {
             $log[$i]['stt'] = $i + 1;
         }
-        return view('pages.lichsu.lichsuhoahong', compact('log','tongtien'));
+        return view('pages.lichsu.lichsuhoahong', compact('log', 'tongtien'));
     }
 
     public function tien_chi_nhanh()
@@ -129,8 +134,11 @@ class TienChiHoController extends Controller
         $listChiNhanh = TienChiNhanhTraChoKhachModel
             ::join('chinhanh', 'tien_chi_nhanh_tra_cho_khach.id_chinhanh', '=', 'chinhanh.id_chinhanh')
             ->join('users', 'users.id', '=', 'chinhanh.id_chinhanh')
-            ->where('users.type', 3)
-            ->get();
+            ->where('users.type', 3)->get();
+        $count = count($listChiNhanh);
+        for ($i = 0; $i < $count; $i++) {
+            $listChiNhanh[$i]['stt'] = $i + 1;
+        }
         return view('pages.chihohoahong.chinhanhchiho', compact('listChiNhanh'));
     }
 
@@ -169,6 +177,10 @@ class TienChiHoController extends Controller
             ->join('users', 'users.id', '=', 'chinhanh.id_chinhanh')
             ->where('users.type', 3)
             ->get();
+        $count = count($listChiNhanh);
+        for ($i = 0; $i < $count; $i++) {
+            $listChiNhanh[$i]['stt'] = $i + 1;
+        }
         return view('pages.chihohoahong.lichsuthanhtoan', compact('listChiNhanh'));
     }
 

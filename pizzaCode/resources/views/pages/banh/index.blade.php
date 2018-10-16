@@ -23,7 +23,7 @@
                <span class="">
                     <h1 class="box-title text-primary">
                         <i class="ion ion-clipboard "></i>
-                        Danh sách
+                        Danh Sách Các Bánh Trong Cửa Hàng
                     </h1>
                 </span>
                 <span class="pull-right">
@@ -54,7 +54,7 @@
                         @else
                             <td><img src="{{$val->b_anh}}" width="30px" height="30px"></td>
                         @endif
-                        <td class="text-center">
+                        <td class="text-center" style="width: 100px">
                             <a href="{{ route('banh.edit',[$val->b_id]) }}" class="btn btn-primary btn-sm btn-flat"
                                onclick="return confirm('Bạn có cập nhật bánh này ?')">
                                 <i class="fa fa-edit"></i>
@@ -70,4 +70,11 @@
             </div>
         </div>
     </section>
+@endsection
+@section('script')
+    <script type="text/javascript">
+        $(function () {
+            $('#example1').DataTable()
+        });
+    </script >
 @endsection

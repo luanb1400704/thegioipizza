@@ -80,9 +80,12 @@
                     </li>
 
                 @endif
-                <li {!! (Request::is('nhan-vien-chi-nhanh/index') || (Request::is('nhan-vien-chi-nhanh/create')) || (Request::is('nhan-vien-chi-nhanh/edit/*')) ? 'class="actives"' : '') !!}>
-                    <a href="{{ route('nv.index') }}"><i class="fa fa-users"></i><span>Nhân viên chi nhánh</span></a>
-                </li>
+                @if(Auth::user()->type == 3)
+                    <li {!! (Request::is('nhan-vien-chi-nhanh/index') || (Request::is('nhan-vien-chi-nhanh/create')) || (Request::is('nhan-vien-chi-nhanh/edit/*')) ? 'class="actives"' : '') !!}>
+                        <a href="{{ route('nv.index') }}"><i
+                                    class="fa fa-users"></i><span>Nhân viên chi nhánh</span></a>
+                    </li>
+                @endif
                 {{--<li>--}}
                 {{--<a href="{{ route('tien_chi_nhanh') }}"><i class="fa fa-dollar"></i><span>Tiền bánh chi nhánh</span></a>--}}
                 {{--</li>--}}

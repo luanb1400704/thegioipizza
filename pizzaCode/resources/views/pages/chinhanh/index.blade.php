@@ -70,3 +70,10 @@
         </div>
     </section>
 @endsection
+@section('script')
+    <script type="text/javascript">
+        $(function () {
+            $('#example1').DataTable()
+        });
+    </script >
+@endsection

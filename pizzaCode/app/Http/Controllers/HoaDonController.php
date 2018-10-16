@@ -276,7 +276,11 @@ class HoaDonController extends Controller
         if ($req->has('i') && $req->get('i') != '') {
             $khachhang = $khachhang->where('users.id', $req->get('i'));
         }
-        $khachhang = $khachhang->get();
+        $khachhang = $khachhang->paginate(10);
+        $count = count($khachhang);
+        for ($i = 0; $i < $count; $i++) {
+            $khachhang[$i]['stt'] = $i + 1;
+        }
         return view('pages.hoadon.hddaduyet', compact('khachhang', 'tenkhachhang', 'sdtkhachhang'));
     }
 
@@ -295,8 +299,8 @@ class HoaDonController extends Controller
             ->get(['phone', 'id']);
         $khachhang = HoaDonModel::leftjoin('users', 'hoadon.id_khachhang', '=', 'users.id')
             ->where('hoadon.status', 0)
-            ->orderByRaw('users.id desc')
             ->orderByRaw('hoadon.created_at desc')
+            ->orderByRaw('users.id desc')
             ->select('users.*', 'hoadon.*');
         if ($req->has('q') && $req->get('q') != '')
             $khachhang = $khachhang->where(function ($q) use ($req) {
@@ -311,7 +315,11 @@ class HoaDonController extends Controller
         if ($req->has('i') && $req->get('i') != '') {
             $khachhang = $khachhang->where('users.id', $req->get('i'));
         }
-        $khachhang = $khachhang->get();
+        $khachhang = $khachhang->paginate(10);
+        $count = count($khachhang);
+        for ($i = 0; $i < $count; $i++) {
+            $khachhang[$i]['stt'] = $i + 1;
+        }
         return view('pages.hoadon.hdchuaduyet', compact('khachhang', 'tenkhachhang', 'sdtkhachhang'));
     }
 
