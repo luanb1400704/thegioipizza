@@ -86,6 +86,14 @@ class TienChiHoController extends Controller
 
     public function log_tra_tien()
     {
+        if(Auth::user()){
+            if(Auth::user()->type != 0 && Auth::user()->type != 3){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         $id_user = Auth::user()->id;
         if ($id_user == 1) {
             $log = LogHoaHongModel::leftjoin('users', 'users.id', '=', 'loghoahong.id_khachhang')
