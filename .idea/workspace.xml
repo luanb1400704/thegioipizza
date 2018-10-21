@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="816ec983-b13e-40f4-84a1-605b430f66ce" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/pizzaCode/composer.json</pharConfigPath>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="tgpizza@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="tgpizza@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="tgpizza@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="tgpizza: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1289833531">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="6" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.2" value="3" />
+          <entry key="project.open.time.89" value="1" />
+          <entry key="project.opened" value="6" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.php.new.class" />
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="php" value="875" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.php.rename.constructor" />
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Blade" value="826" />
+          <entry key="PHP" value="49" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.php.new.test" />
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Blade" value="30" />
+          <entry key="PHP" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.php.composer.actions" />
+      <usages-collector id="statistics.vcs.git.usages" />
+      <usages-collector id="statistics.php.composer.command.options" />
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="php" value="37" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/chihohoahong/chihohoahongindex.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/hoadon/hdchuaduyet.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1590">
+              <caret line="106" column="14" selection-start-line="106" selection-start-column="14" selection-end-line="106" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pizzaCode/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3600">
+              <caret line="240" column="69" selection-start-line="240" selection-start-column="69" selection-end-line="240" selection-end-column="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pizzaCode/app/Http/Controllers/TienChiHoController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pizzaCode/app/Http/Controllers/HoaDonController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4170">
+              <caret line="278" column="41" selection-start-line="278" selection-start-column="33" selection-end-line="278" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/chihohoahong/lichsuthanhtoan.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="92" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="92" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>khach-hang</find>
+      <find>$khachhang</find>
+      <find>indexchuaduyet</find>
+      <find>indexdaduyet</find>
+      <find>get_contact</find>
+      <find>contact</find>
+      <find>$customer</find>
+      <find>detail</find>
+      <find>fast_register</find>
+      <find>giobanh-nns</find>
+      <find>register</find>
+      <find>email</find>
+      <find>customer/register</find>
+      <find>phone</find>
+      <find>greater</find>
+      <find>nhanvienindex</find>
+      <find>nhan-vien-chi-nhanh</find>
+      <find>box-title</find>
+      <find>log_tra_tien</find>
+      <find>logo</find>
+      <find>admin.logout</find>
+      <find>login</find>
+      <find>$listChiNhanh</find>
+      <find>dât</find>
+      <find>data</find>
+      <find>hoa hồng</find>
+      <find>$hoahongchinhanh</find>
+      <find>index</find>
+      <find>tien-chi-ho-hoa-hong</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/pizzaCode/config/app.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/app/Http/Controllers/FontEndController.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/app/Http/Requests/ChiNhanhRequest.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/app/Http/Requests/Customer.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/app/Http/Requests/StoreCustomerRequest.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/app/Http/Requests/DangKyNhanhRequest.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/routes/web.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/website/contact.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/website/index.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/website/component/header.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/website/component/sidebar.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/website/component/footer.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/website/component/backtotop.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/website/register.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/website/login.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/website/fast_register.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/app/Http/Controllers/CustomerController.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/app/Http/Requests/registerRequest.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/lang/en/validation.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/app/Http/Controllers/ChiNhanhController.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/app/Http/Requests/NhanVienRequest.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/pages/nhanvien/nhanviencreate.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/pages/nhanvien/nhanvienedit.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/app/Http/Controllers/UsersController.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/app/Http/Controllers/BanhController.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/pages/khachhang/danhsach.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/pages/hoadon/createhd.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/pages/nhanvien/nhanvienindex.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/app/Http/Controllers/HomeController.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/app/Http/Controllers/HoaDonController.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/pages/hoadon/hdchuaduyet.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/pages/hoadon/hddaduyet.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/pages/chihohoahong/chinhanhchiho.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/pages/chihohoahong/lichsuthanhtoan.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/pages/banh/index.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/pages/banh/lindex.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/pages/banh/gindex.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/pages/chinhanh/index.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/pages/chinhanh/chitieuindex.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/pages/phancap/index.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/pages/lichsu/lichsuhoahong.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/components/menu.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/components/index.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/pages/chihohoahong/chihohoahongindex.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/app/Http/Controllers/TienChiHoController.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/pizzaCode/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/Flot/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/bootstrap-datepicker/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/bootstrap-daterangepicker/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/bootstrap/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/ckeditor/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/eve-raphael/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/ion.rangeSlider/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/jquery-knob/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/jquery-slimscroll/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/jquery-ui/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/morris.js/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/select2/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/erusev/parsedown" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/fideloper/proxy" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/dnoegel/php-xdg-base-dir" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/composer" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/jakub-onderka/php-console-color" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/jakub-onderka/php-console-highlighter" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/webmozart/assert" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="697" />
+    <option name="height" value="745" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Requests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="chihohoahong" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="hoadon" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="website" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="816ec983-b13e-40f4-84a1-605b430f66ce" name="Default" comment="" />
+      <created>1535375839386</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1535375839386</updated>
+      <workItem from="1535375844799" duration="6215000" />
+      <workItem from="1535385132253" duration="6310000" />
+      <workItem from="1535419509449" duration="5658000" />
+      <workItem from="1535450237202" duration="263000" />
+      <workItem from="1535523828505" duration="211000" />
+      <workItem from="1535616811498" duration="79000" />
+      <workItem from="1536031369459" duration="3212000" />
+      <workItem from="1536071220878" duration="580000" />
+      <workItem from="1537347739226" duration="761000" />
+      <workItem from="1537947524620" duration="405000" />
+      <workItem from="1538307887268" duration="1441000" />
+      <workItem from="1538366924524" duration="414000" />
+      <workItem from="1538376156851" duration="7083000" />
+      <workItem from="1538406459246" duration="2975000" />
+      <workItem from="1538443985971" duration="6057000" />
+      <workItem from="1538550063677" duration="9178000" />
+      <workItem from="1538577240108" duration="379000" />
+      <workItem from="1538713010443" duration="4000000" />
+      <workItem from="1539262559575" duration="1515000" />
+      <workItem from="1539399494473" duration="1386000" />
+      <workItem from="1539509279001" duration="380000" />
+      <workItem from="1539575103220" duration="16000" />
+      <workItem from="1539693180778" duration="5356000" />
+      <workItem from="1539763114025" duration="25000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="63899000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2730711" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32852563" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.28685898" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Database Console" order="12" weight="0.32852563" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.15733737" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/lang/en/validation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-985">
+          <caret line="50" column="14" lean-forward="true" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/lang/en/passwords.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="63" lean-forward="true" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/website/contact.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1404">
+          <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/website/back.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/website/update.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="128" column="49" lean-forward="true" selection-start-line="128" selection-start-column="49" selection-end-line="128" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/app/Http/Controllers/CustomerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="246" column="5" lean-forward="true" selection-start-line="246" selection-start-column="5" selection-end-line="246" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/app/Http/Requests/Customer.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/app/Http/Requests/ChiNhanhRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="33" column="14" lean-forward="true" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/app/Http/Requests/ThemKhachHangRequests.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/nhanvien/nhanvienedit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="90" column="34" selection-start-line="90" selection-start-column="34" selection-end-line="90" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/app/Http/Controllers/ChiNhanhController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-564">
+          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/app/Http/Controllers/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="115" column="79" selection-start-line="115" selection-start-column="79" selection-end-line="115" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/app/Http/Requests/NhanVienRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/hoadon/createhd.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1499">
+          <caret line="94" column="47" lean-forward="true" selection-start-line="94" selection-start-column="47" selection-end-line="94" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/banh/gcreate.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-144" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/khachhang/danhsach.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-195">
+          <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/nhanvien/nhanviencreate.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="53" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/nhanvien/nhanvienindex.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/app/Http/Controllers/BanhController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1110">
+          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/auth/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2025" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/website/chan.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/app/Http/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/website/order.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1405" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/website/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-525">
+          <caret line="49" column="17" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/website/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="133" column="30" selection-start-line="133" selection-start-column="30" selection-end-line="133" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/app/Http/Controllers/DatHangController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/app/Http/Controllers/FontEndController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="34" column="29" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/banh/lcreate.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/banh/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/website/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="70" selection-start-line="23" selection-start-column="70" selection-end-line="23" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/app/Http/Controllers/HoaHongController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/hoadon/hddaduyet.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="44" column="61" selection-start-line="44" selection-start-column="61" selection-end-line="44" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-495" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/chihohoahong/tienbanhchinhanh.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/banh/gindex.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="75" column="11" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/banh/lindex.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="73" column="11" selection-start-line="73" selection-start-column="11" selection-end-line="73" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/banh/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="79" column="11" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/phancap/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="84" column="18" lean-forward="true" selection-start-line="84" selection-start-column="18" selection-end-line="84" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/chinhanh/chitieuindex.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="68" column="11" selection-start-line="68" selection-start-column="11" selection-end-line="68" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/chinhanh/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="769">
+          <caret line="78" column="11" selection-start-line="78" selection-start-column="11" selection-end-line="78" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/lichsu/lichsuhoahong.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="67" column="11" selection-start-line="67" selection-start-column="11" selection-end-line="67" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/components/menu.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/components/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="291" column="19" lean-forward="true" selection-start-line="291" selection-start-column="19" selection-end-line="291" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/chihohoahong/chinhanhchiho.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="62" column="18" lean-forward="true" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/chihohoahong/chihohoahongindex.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/hoadon/hdchuaduyet.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1590">
+          <caret line="106" column="14" selection-start-line="106" selection-start-column="14" selection-end-line="106" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3600">
+          <caret line="240" column="69" selection-start-line="240" selection-start-column="69" selection-end-line="240" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/app/Http/Controllers/HoaDonController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4170">
+          <caret line="278" column="41" selection-start-line="278" selection-start-column="33" selection-end-line="278" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/chihohoahong/lichsuthanhtoan.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="92" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/app/Http/Controllers/TienChiHoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
