@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="798d74f4-c875-4c1f-b55a-55889a0aec65" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/pizzaCode/app/Http/Controllers/HoaDonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaCode/app/Http/Controllers/HoaDonController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pizzaCode/resources/views/pages/hoadon/hdchuaduyet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaCode/resources/views/pages/hoadon/hdchuaduyet.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pizzaCode/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/pizzaCode/routes/web.php" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/pizzaCode/composer.json</pharConfigPath>
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1601351903">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="php" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Blade" value="2" />
+          <entry key="PHP" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="php" value="498" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Blade" value="282" />
+          <entry key="PHP" value="216" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pizzaCode/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-966">
+              <caret line="54" column="73" selection-start-line="54" selection-start-column="73" selection-end-line="54" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pizzaCode/app/Http/Controllers/HoaDonController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4613">
+              <caret line="43" column="4" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/hoadon/createhd.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1725">
+              <folding>
+                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/hoadon/hdchuaduyet.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="477">
+              <caret line="202" column="9" selection-start-line="202" selection-start-column="9" selection-end-line="202" selection-end-column="9" />
+              <folding>
+                <element signature="e#7415#7502#0#HTML" />
+                <element signature="e#7536#8902#0#HTML" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>indexchuaduyet</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/pizzaCode/routes/web.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/resources/views/pages/hoadon/hdchuaduyet.blade.php" />
+        <option value="$PROJECT_DIR$/pizzaCode/app/Http/Controllers/HoaDonController.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/pizzaCode/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/Flot/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/bootstrap-datepicker/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/bootstrap-daterangepicker/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/bootstrap/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/ckeditor/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/eve-raphael/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/ion.rangeSlider/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/jquery-knob/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/jquery-slimscroll/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/jquery-ui/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/morris.js/package.json" />
+      <path value="$PROJECT_DIR$/pizzaCode/public/bower_components/select2/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/jakub-onderka/php-console-highlighter" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/jakub-onderka/php-console-color" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/erusev/parsedown" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/fideloper/proxy" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/dnoegel/php-xdg-base-dir" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/composer" />
+      <path value="$PROJECT_DIR$/pizzaCode/vendor/egulias/email-validator" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="49" />
+    <option name="y" value="24" />
+    <option name="width" value="1299" />
+    <option name="height" value="712" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="hoadon" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thegioipizza" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thegioipizza" type="462c0819:PsiDirectoryNode" />
+              <item name="pizzaCode" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="HoaDonController&#9;null&#9;null" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="798d74f4-c875-4c1f-b55a-55889a0aec65" name="Default Changelist" comment="" />
+      <created>1539883284643</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1539883284643</updated>
+      <workItem from="1539883286761" duration="4218000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="4218000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="48" y="-4" width="1319" height="773" extended-state="6" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24940991" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24940991" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="4" />
+      <window_info anchor="bottom" id="Message" order="5" />
+      <window_info anchor="bottom" id="Find" order="6" />
+      <window_info anchor="bottom" id="Run" order="7" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pizzaCode/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-966">
+          <caret line="54" column="73" selection-start-line="54" selection-start-column="73" selection-end-line="54" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/hoadon/hdchuaduyet.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="202" column="9" selection-start-line="202" selection-start-column="9" selection-end-line="202" selection-end-column="9" />
+          <folding>
+            <element signature="e#7415#7502#0#HTML" />
+            <element signature="e#7536#8902#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/resources/views/pages/hoadon/createhd.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1725">
+          <folding>
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pizzaCode/app/Http/Controllers/HoaDonController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4613">
+          <caret line="43" column="4" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

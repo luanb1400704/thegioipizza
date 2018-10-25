@@ -25,18 +25,38 @@ class HoaDonController extends Controller
 
     public function getBadge()
     {
-        if(Auth::user()){
-            if(Auth::user()->type == 2){
+        if (Auth::user()) {
+            if (Auth::user()->type == 2) {
                 return redirect()->route('home');
             }
         }
         return HoaDonModel::where('status', 0)->count();
     }
 
+    public function edit(Request $request)
+    {
+        if (Auth::user()) {
+            if (Auth::user()->type == 2) {
+                return redirect()->route('home');
+            }
+        }
+        return HoaDonModel::find($request->get('id'));
+    }
+
+    public function remove(Request $request)
+    {
+        if (Auth::user()) {
+            if (Auth::user()->type == 2) {
+                return redirect()->route('home');
+            }
+        }
+
+    }
+
     public function create()
     {
-        if(Auth::user()){
-            if(Auth::user()->type == 2){
+        if (Auth::user()) {
+            if (Auth::user()->type == 2) {
                 return redirect()->route('home');
             }
         }
@@ -66,8 +86,8 @@ class HoaDonController extends Controller
 
     public function store(Request $request)
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3) {
                 return redirect()->route('home');
             }
         }
@@ -149,13 +169,13 @@ class HoaDonController extends Controller
 
     public function commission($id)
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3) {
                 return redirect()->route('home');
             }
         }
         $contain['order'] = HoaDonModel::find($id);
-        if($contain['order']->status == 1){
+        if ($contain['order']->status == 1) {
             return redirect(route('hoadon.indexdaduyet'));
         }
         $contain['level'] = PhanCapModel::find($contain['order']->id_phan_cap);
@@ -188,8 +208,8 @@ class HoaDonController extends Controller
 
     public function createCustomer(Request $request)
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3) {
                 return redirect()->route('home');
             }
         }
@@ -247,8 +267,8 @@ class HoaDonController extends Controller
 
     public function indexdaduyet(Request $req)
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3) {
                 return redirect()->route('home');
             }
         }
@@ -286,8 +306,8 @@ class HoaDonController extends Controller
 
     public function indexchuaduyet(Request $req)
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3) {
                 return redirect()->route('home');
             }
         }

@@ -48,7 +48,8 @@
             </form>
             <br>
             <br>
-            <p class="help-block" style="color: red">( * ) Lưu ý : Cần xác nhận lại đơn hàng trước khi duyệt đơn hàng !</p>
+            <p class="help-block" style="color: red">( * ) Lưu ý : Cần xác nhận lại đơn hàng trước khi duyệt đơn hàng
+                !</p>
             <div class="box-body ">
                 <table class="table table-bordered table-striped text-center">
                     <thead>
@@ -83,18 +84,17 @@
                                     <i class="fa fa-eye"></i>
                                     Xem
                                 </a>
-                                <a href="#" class="btn btn-success btn-sm" title="chỉnh sửa hóa đơn"
-                                    onclick="return confirm('Lưu ý: Bạn có chắc chắn chỉnh sửa hóa đơn này ?')">
+                                <a class="btn btn-success btn-sm" title="chỉnh sửa hóa đơn"
+                                   onclick="edit({{$value->hd_id}})">
                                     <i class="fa fa-edit"></i>
                                     Sửa
                                 </a>
-                                <a href="" title="xóa hóa đơn"
-                                   onclick="return confirm('Lưu ý: Bạn có chắc chắn xóa hóa đơn này ?')"
+                                <a title="xóa hóa đơn"
+                                   onclick="remove({{$value->hd_id}})"
                                    class="btn btn-danger btn-sm">
                                     <i class="fa fa-trash"></i>
                                     Xóa
                                 </a>
-
                             </td>
                         </tr>
                     @endforeach
@@ -147,16 +147,13 @@
 @endsection
 @section('script')
     <script type="text/javascript">
-        // $(function () {
-        //     $('#example1').DataTable()
-        // });
         $(".select2").select2();
+
         function toMoney(number) {
             return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
 
         function getDetails(id) {
-            // sessionStorage.setItem('id_temp', id);
             $.ajax({
                 type: 'GET',
                 url: '{{route('hoadon.indexdaduyetdetail')}}',
@@ -185,6 +182,31 @@
                     $("#detailHoaDon").modal('show');
                 }
             });
+        }
+
+        function edit(id) {
+            let result = confirm('Lưu ý: Bạn có chắc chắn chỉnh sửa hóa đơn này ?');
+            if (result) {
+                $.ajax({
+                    type: 'POST',
+                    url: '{{route("hoadon.edit")}}',
+                    data: {
+                        _token: '{{csrf_token()}}',
+                        id: id
+                    },
+                    success: function (data) {
+                        console.log(data)
+                    }
+                });
+            }
+            return;
+        }
+
+        function remove(id) {
+            let result = confirm('Lưu ý: Bạn có chắc chắn xóa hóa đơn này ?');
+            if (result) {
+
+            }
         }
     </script>
 @endsection
