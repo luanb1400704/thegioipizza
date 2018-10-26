@@ -20,6 +20,8 @@
     <section class="content">
         <form role="form" action="{{ route('cn.update',$chinhanh->id_chinhanh) }}" method="POST">
             @csrf
+            <input type="hidden" value="{{$chinhanh->id_chinhanh}}" name="id_chinhanh">
+            <input type="hidden" value="{{$chinhanh->id}}" name="id">
             <div class="row">
                 <div class="col-md-6">
                     <div class="box box-warning">
@@ -32,7 +34,7 @@
                                     Tên Chủ Chi Nhánh
                                     <span class="text-red">( <i class="fa fa-check-circle-o"></i> bắt buộc )</span>
                                 </label>
-                                <input type="text" style="text-transform: uppercase" value="{{ $chinhanh->name }}"
+                                <input type="text" value="{{ $chinhanh->name }}"
                                        class="form-control" name="name" required placeholder="vd: nguyễn văn A ...">
                             </div>
                             <div class="form-group">
