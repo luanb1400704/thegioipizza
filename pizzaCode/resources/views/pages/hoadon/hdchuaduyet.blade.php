@@ -1,4 +1,7 @@
 @extends('components.index')
+@section('style')
+    <link href="https://unpkg.com/tabulator-tables@4.0.5/dist/css/tabulator.min.css" rel="stylesheet">
+@endsection
 @section('content')
     <section class="content-header">
         <h1>Quản Lý Hóa Đơn</h1>
@@ -70,8 +73,8 @@
                             <td>{{$value->hd_id}}</td>
                             <td>{{$value->name}}</td>
                             <td>{{$value->phone}}</td>
-                            <td>{{number_format($value->tong_tien_hoa_don)}} vnđ</td>
-                            <td>{{date('H:i:s - d/m/Y', strtotime($value->created_at))}}</td>
+                            <td id="total-{{$value->hd_id}}">{{number_format($value->tong_tien_hoa_don)}} vnđ</td>
+                            <td id="date-{{$value->hd_id}}">{{date('H:i:s - d/m/Y', strtotime($value->created_at))}}</td>
                             <td class="text-center">
                                 <a href="{{ route('hoadon.done', [$value->hd_id])}}" title="duyệt hóa đơn"
                                    onclick="return confirm('Lưu ý: Bạn có chắc chắn duyệt hóa đơn này, Khi duyệt xong thì không thể thực hiện lại ?')"
@@ -144,9 +147,43 @@
             </div>
         </div>
     </section>
+    <div class="modal fade" id="mdl" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4 class="modal-title">Chỉnh sửa hoá đơn cho khách hàng: <b><span id="user"></span></b></h4>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div id="tbl"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('script')
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.0.5/dist/js/tabulator.min.js"></script>
     <script type="text/javascript">
+        var tbl = new Tabulator("#tbl", {
+            height: "311px",
+            layout: "fitDataFill",
+            columns: [
+                {title: "Tên", field: "name", editor: "input"},
+                {title: "Loại", field: "type", editor: "input"},
+                {title: "Số lương", field: 'amounts', editor: true},
+                {
+                    title: "Đơn giá", field: "price",
+                    editor: false
+                    // editorParams: {"male": "Male", "female": "Female"}
+                },
+                {title: "Thành tiền", field: "total", editor: false},
+                // {title: "Tác vụ"},
+            ],
+        });
+        var dataSet = [];
         $(".select2").select2();
 
         function toMoney(number) {
@@ -194,10 +231,32 @@
                         _token: '{{csrf_token()}}',
                         id: id
                     },
-                    success: function (data) {
-                        console.log(data)
+                    success: function (res) {
+                        if (res.status = 'success') {
+                            $("#user").html(res.data.user.name + ' - ' + res.data.user.phone);
+                            dataSet = res.data
+                        } else {
+                            return;
+                        }
                     }
                 });
+                tbl.setData([
+                    {
+                        "name": "Bánh Cá Ngừ , Tôm, Cua",
+                        "type": "Loại Nhỏ",
+                        "amounts": 1,
+                        "price": "30000",
+                        "total": "30000"
+                    },
+                    {
+                        "name": "Bánh Cá Ngừ , Tôm, Cua",
+                        "type": "Loại Nhỏ",
+                        "amounts": 1,
+                        "price": "30000",
+                        "total": "30000"
+                    }
+                ]);
+                $("#mdl").modal();
             }
             return;
         }

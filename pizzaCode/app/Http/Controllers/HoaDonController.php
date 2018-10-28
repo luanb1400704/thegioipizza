@@ -40,7 +40,44 @@ class HoaDonController extends Controller
                 return redirect()->route('home');
             }
         }
-        return HoaDonModel::find($request->get('id'));
+        $order = HoaDonModel::find($request->get('id'));
+        if (empty($order)) {
+            return [
+                'status' => 'fail',
+                'data' => []
+            ];
+        }
+        $user = Users::where('id', $order->id_khachhang)->get([
+            'name',
+            'phone'
+        ])[0];
+        $details = HoaDonChiTietModel::leftjoin('banh', 'banh.b_id', '=', 'hoadonchitiet.b_id')
+            ->leftjoin('loaibanh', 'loaibanh.l_id', '=', 'hoadonchitiet.l_id')
+            ->leftjoin('gia', 'gia.g_id', '=', 'hoadonchitiet.g_id')
+            ->where('hoadonchitiet.hd_id', $order->hd_id)
+            ->get([
+                'banh.b_ten as name',
+                'loaibanh.l_ten as type',
+                'hoadonchitiet.so_luong_mua as amounts',
+                'gia.g_tien as price',
+                'hoadonchitiet.thanh_tien as total'
+            ])
+            ->toArray();
+
+//        {
+//            hoadonchitiet:{'hdct_id', 'hd_id', 'g_id', 'so_luong_mua', 'b_id', 'l_id', 'g_tien', 'thanh_tien'},
+//            banh:{'b_id', 'b_ten', 'b_mota', 'b_anh', 'b_bst'},
+//            loaibanh:{'l_id', 'l_ten', 'l_kichthuoc'},
+//            gia:{'g_id', 'b_id', 'l_id', 'g_tien'}
+//        }
+        return [
+            'status' => 'success',
+            'data' => [
+                'order' => $order,
+                'user' => $user,
+                'details' => $details
+            ]
+        ];
     }
 
     public function remove(Request $request)
