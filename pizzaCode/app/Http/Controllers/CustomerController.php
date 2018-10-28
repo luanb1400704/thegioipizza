@@ -244,12 +244,21 @@ class CustomerController extends Controller
         if (isset($data)) {
             return ['status' => 'success', 'data' => $data, 'gioithieu' => $gioithieu];
         } else {
-            return ['status' => 'error', 'message' => 'Không tìm thấy hóa đơn này'];
+            return ['status' => 'error', 'message' => 'Không tìm thấy khách hàng này này'];
         }
     }
 
     public function changePass(Request $request)
     {
+        $this->middleware('auth');
+        if(Auth::user()){
+            if(Auth::user()->type != 0){
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login');
+        }
         if (isset($request->id_kh)) {
             $data = Users::where('id', $request->id_kh)->first();
             $data->password = Hash::make($request->get('password'));

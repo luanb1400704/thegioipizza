@@ -137,17 +137,17 @@ Route::group(['prefix' => 'chi-nhanh'], function () {
     Route::get('destroy/{id}', 'ChiNhanhController@destroy')->name('cn.destroy');
     Route::get('edit/{id}', 'ChiNhanhController@edit')->name('cn.edit');
     Route::post('update/{id}', 'ChiNhanhController@update')->name('cn.update');
-    Route::get('chi-tieu-index', 'ChiNhanhController@chi_tieu_index')->name('ct.index');
-    Route::get('chi-tieu-create', 'ChiNhanhController@chi_tieu_create')->name('ct.create');
-    Route::post('chi-tieu-store', 'ChiNhanhController@chi_tieu_store')->name('ct.store');
-    Route::get('chi-tieu-destroy/{id}', 'ChiNhanhController@chi_tieu_destroy')->name('ct.destroy');
-    Route::get('chi-tieu-edit/{id}', 'ChiNhanhController@chi_tieu_edit')->name('ct.edit');
-    Route::post('chi-tieu-update/{id}', 'ChiNhanhController@chi_tieu_update')->name('ct.update');
+//    Route::get('chi-tieu-index', 'ChiNhanhController@chi_tieu_index')->name('ct.index');
+//    Route::get('chi-tieu-create', 'ChiNhanhController@chi_tieu_create')->name('ct.create');
+//    Route::post('chi-tieu-store', 'ChiNhanhController@chi_tieu_store')->name('ct.store');
+//    Route::get('chi-tieu-destroy/{id}', 'ChiNhanhController@chi_tieu_destroy')->name('ct.destroy');
+//    Route::get('chi-tieu-edit/{id}', 'ChiNhanhController@chi_tieu_edit')->name('ct.edit');
+//    Route::post('chi-tieu-update/{id}', 'ChiNhanhController@chi_tieu_update')->name('ct.update');
 });
 
 Route::group(['prefix' => 'tien-chi-ho-hoa-hong'], function () {
     Route::get('/index', 'TienChiHoController@index')->name('index');
-    Route::get('/tien-banh', 'TienChiHoController@tien_chi_nhanh')->name('tien_chi_nhanh');
+//    Route::get('/tien-banh', 'TienChiHoController@tien_chi_nhanh')->name('tien_chi_nhanh');
     Route::get('/lich-su', 'TienChiHoController@log_tra_tien')->name('log_tra_tien');
     Route::get('tru_tien/{id}', 'TienChiHoController@tru_tien')->name('tru_tien');
     Route::get('/tong_tien_chi_nhanh', 'TienChiHoController@tongtienchinhanh')->name('tien-chi-ho-hoa-hong/tong_tien_chi_nhanh');
