@@ -123,7 +123,7 @@
 
                         </div>
                         <div class="box-body ">
-                            <table id="example1" class="table table-bordered table-striped text-center">
+                            <table id="detailBill" class="table table-bordered table-striped text-center">
                                 <thead>
                                 <tr>
                                     <th>Mã</th>
@@ -132,7 +132,6 @@
                                     <th>Đơn giá</th>
                                     <th>Số lượng</th>
                                     <th>Thành tiền</th>
-
                                 </tr>
                                 </thead>
                                 <tbody id="body-detail">
@@ -217,6 +216,7 @@
                     });
                     $("#body-detail").html(htmlTable);
                     $("#detailHoaDon").modal('show');
+                    $("#detailBill").DataTable();
                 }
             });
         }

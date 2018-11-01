@@ -127,6 +127,7 @@ Route::group(['prefix' => 'nhan-vien-chi-nhanh'], function () {
     Route::post('store', 'UsersController@store')->name('nv.store');
     Route::get('edit/{id}', 'UsersController@edit')->name('nv.edit');
     Route::post('update/{id}', 'UsersController@update')->name('nv.update');
+    Route::get('total', 'UsersController@total')->name('nv.total');
 });
 
 Route::group(['prefix' => 'chi-nhanh'], function () {
