@@ -152,6 +152,9 @@ class UsersController extends Controller
         }
         //Lấy ra số hóa đơn và tính tổng tiền của nhân viên đó trong một khoản thời gian đó
         $sum  = DB::table('hoadon')
+            ->where('hoadon.id_nhan_vien_lap_hh', $request->id)
+            ->whereRaw("`hoadon`.`created_at` >= '".$request->begin."'")
+            ->whereRaw("`hoadon`.`created_at` <= '".$request->end."'")
             ->selectRaw('sum(tong_tien_hoa_don) as sum')
             ->first();
         $list = HoaDonModel

@@ -53,6 +53,8 @@ Route::group(['prefix' => 'hoa-don'], function () {
     Route::get('indexdaduyetdetail', 'HoaDonController@indexdaduyetdetail')->name('hoadon.indexdaduyetdetail');
     Route::post('edit', 'HoaDonController@edit')->name('hoadon.edit');
     Route::post('remove', 'HoaDonController@remove')->name('hoadon.remove');
+    Route::get('total', 'HoaDonController@total')->name('hoadon.total');
+
 });
 
 Route::group(['prefix' => '/store'], function () {
