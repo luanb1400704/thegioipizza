@@ -57,6 +57,8 @@ Route::group(['prefix' => 'hoa-don'], function () {
     Route::get('add', 'HoaDonController@modal')->name('hoadon.modal');
     Route::post('add', 'HoaDonController@add')->name('hoadon.add');
     Route::post('remove', 'HoaDonController@remove')->name('hoadon.remove');
+    Route::get('total', 'HoaDonController@total')->name('hoadon.total');
+
 });
 
 Route::group(['prefix' => '/store'], function () {
@@ -131,6 +133,7 @@ Route::group(['prefix' => 'nhan-vien-chi-nhanh'], function () {
     Route::post('store', 'UsersController@store')->name('nv.store');
     Route::get('edit/{id}', 'UsersController@edit')->name('nv.edit');
     Route::post('update/{id}', 'UsersController@update')->name('nv.update');
+    Route::get('total', 'UsersController@total')->name('nv.total');
 });
 
 Route::group(['prefix' => 'chi-nhanh'], function () {

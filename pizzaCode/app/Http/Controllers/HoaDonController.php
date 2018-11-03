@@ -9,6 +9,7 @@ use App\HoaDonModel;
 use App\HoaHongModel;
 use App\Http\Requests\Customer;
 use App\PhanCapModel;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use App\TongTienHoaHongModel;
 use App\Users;
@@ -564,5 +565,42 @@ class HoaDonController extends Controller
         } else {
             return ['status' => 'error', 'data' => $data, 'message' => 'Không tìm thấy hóa đơn này'];
         }
+    }
+
+    public function total(Request $request)
+    {
+        if(Auth::user()){
+            if(Auth::user()->type != 0 && Auth::user()->type != 3 ){
+                return [
+                    'sum'=> 0,
+                    'list' => [],
+                    'status' => true
+                ];
+            }
+        }
+        //Lấy ra số hóa đơn và tính tổng tiền của nhân viên đó trong một khoản thời gian đó
+        $sum  = DB::table('hoadon')
+            ->join('userprofile','userprofile.user_id','=','hoadon.id_nhan_vien_lap_hh')
+            ->join('chinhanh','chinhanh.id_chinhanh','=','userprofile.id_chinhanh')
+            ->where('chinhanh.id_chinhanh', $request->id)
+            ->whereRaw("`hoadon`.`created_at` >= '".$request->begin."'")
+            ->whereRaw("`hoadon`.`created_at` <= '".$request->end."'")
+            ->selectRaw('sum(tong_tien_hoa_don) as sum')
+            ->first();
+        $list = HoaDonModel
+            ::join('users','users.id','=','hoadon.id_khachhang')
+            ->join('userprofile','userprofile.user_id','=','hoadon.id_nhan_vien_lap_hh')
+            ->join('chinhanh','chinhanh.id_chinhanh','=','userprofile.id_chinhanh')
+            ->where('chinhanh.id_chinhanh', $request->id)
+            ->where('hoadon.status', 1)
+            ->whereRaw("`hoadon`.`created_at` >= '".$request->begin."'")
+            ->whereRaw("`hoadon`.`created_at` <= '".$request->end."'")
+            ->select('hoadon.*', 'users.name','users.phone')
+            ->get();
+        return [
+            'sum'=> $sum,
+            'list' => $list,
+            'status' => true
+        ];
     }
 }

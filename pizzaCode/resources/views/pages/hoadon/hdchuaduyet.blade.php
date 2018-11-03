@@ -123,7 +123,7 @@
 
                         </div>
                         <div class="box-body ">
-                            <table id="example1" class="table table-bordered table-striped text-center">
+                            <table id="detailBill" class="table table-bordered table-striped text-center">
                                 <thead>
                                 <tr>
                                     <th>Mã</th>
@@ -338,6 +338,9 @@
             ],
         });
 
+        $("#body-detail").html(htmlTable);
+        $("#detailHoaDon").modal('show');
+        $("#detailBill").DataTable();
         $(".select2").select2();
 
         $("#btn-add").unbind('click').on('click', function () {

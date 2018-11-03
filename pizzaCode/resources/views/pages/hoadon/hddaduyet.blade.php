@@ -100,7 +100,7 @@
                             <label>Chi tiết:</label>
                         </div>
                         <div class="box-body ">
-                            <table id="example1" class="table table-bordered table-striped text-center">
+                            <table id="detailBill" class="table table-bordered table-striped text-center">
                                 <thead>
                                 <tr>
                                     <th>Mã</th>
@@ -135,10 +135,6 @@
             return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
 
-        function toMoney(number) {
-            return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        }
-
         function getDetails(id) {
             // sessionStorage.setItem('id_temp', id);
             $.ajax({
@@ -149,7 +145,6 @@
                     id: id
                 },
                 success: function (res) {
-                    console.log(res.data);
                     var chitiet = res.data.chitiet;
                     $("#tenNV").html(res.data.hoadon.name);
                     $("#tongtien").html(res.data.hoadon.tong_tien_hoa_don);
@@ -167,6 +162,8 @@
                     });
                     $("#body-detail").html(htmlTable);
                     $("#detailHoaDon").modal('show');
+                    $("#detailBill").DataTable();
+
                 }
             });
         }
