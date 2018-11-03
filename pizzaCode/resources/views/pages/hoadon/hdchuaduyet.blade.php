@@ -337,12 +337,7 @@
                 },
             ],
         });
-
-        $("#body-detail").html(htmlTable);
-        $("#detailHoaDon").modal('show');
-        $("#detailBill").DataTable();
         $(".select2").select2();
-
         $("#btn-add").unbind('click').on('click', function () {
             if (tbl.getData() == 0) {
                 return;
@@ -481,6 +476,7 @@
                             "</tr>";
                     });
                     $("#body-detail").html(htmlTable);
+                    $("#detailBill").DataTable();
                     $("#detailHoaDon").modal('show');
                 }
             });
