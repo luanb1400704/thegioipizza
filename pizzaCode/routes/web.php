@@ -8,23 +8,23 @@ Auth::routes();
 
 Route::get('/admin', function () {
     if (empty(Auth::user())) {
-        if(Auth::user()->active==1)
+        if (Auth::user()->active == 1)
             return redirect('login');
-        else{
+        else {
             return view('website.chan');
         }
     }
     if (Auth::user()->type == 2) {
-        if(Auth::user()->active==1)
+        if (Auth::user()->active == 1)
             return redirect(route('store/get_home'));
-        else{
+        else {
             return view('website.chan');
         }
     }
     if (Auth::user()->type == 1 || Auth::user()->type == 3) {
-        if(Auth::user()->active==1)
+        if (Auth::user()->active == 1)
             return redirect(route('kh.index'));
-        else{
+        else {
             return view('website.chan');
         }
 
@@ -36,9 +36,9 @@ Route::get('/', function () {
     if (empty(Auth::user())) {
         return redirect('login');
     }
-    if(Auth::user()->type != 2)
-    return view('pages.home');
-    if(Auth::user()->type == 2)
+    if (Auth::user()->type != 2)
+        return view('pages.home');
+    if (Auth::user()->type == 2)
         return view('pages.home');
 });
 
@@ -52,13 +52,17 @@ Route::group(['prefix' => 'hoa-don'], function () {
     Route::get('indexchuaduyet', 'HoaDonController@indexchuaduyet')->name('hoadon.indexchuaduyet');
     Route::get('indexdaduyetdetail', 'HoaDonController@indexdaduyetdetail')->name('hoadon.indexdaduyetdetail');
     Route::post('edit', 'HoaDonController@edit')->name('hoadon.edit');
+    Route::post('update', 'HoaDonController@update')->name('hoadon.update');
+    Route::post('type', 'HoaDonController@type')->name('hoadon.type');
+    Route::get('add', 'HoaDonController@modal')->name('hoadon.modal');
+    Route::post('add', 'HoaDonController@add')->name('hoadon.add');
     Route::post('remove', 'HoaDonController@remove')->name('hoadon.remove');
 });
 
 Route::group(['prefix' => '/store'], function () {
     Route::get('/', 'FontEndController@get_home')->name('store/get_home');
     Route::get('/contact', 'FontEndController@get_contact')->name('store/get_contact');
-    Route::get('/order','FontEndController@order')->name('store/order');
+    Route::get('/order', 'FontEndController@order')->name('store/order');
     Route::post('/order_success', 'FontEndController@order_success')->name('store/order_success');
     Route::get('/order/remove/{id}', 'FontEndController@order_remove')->name('store/order_remove');
     Route::get('/register', 'FontEndController@register')->name('store/register');
