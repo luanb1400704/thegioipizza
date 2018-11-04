@@ -6,6 +6,7 @@ use App\ChiNhanhModel;
 use App\Http\Requests\ChiNhanhRequest;
 use App\TienChiNhanhModel;
 use App\TienChiNhanhTraChoKhachModel;
+use App\UserProfileModel;
 use App\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -96,14 +97,15 @@ class ChiNhanhController extends Controller
                 return redirect()->route('home');
             }
         }
-        $chinhanh = ChiNhanhModel::join('users', 'users.id', '=', 'chinhanh.id_chinhanh')
-            ->find($id);
-        $chinhanh->name = $req->get('name');
-        $chinhanh->email = $req->get('email');
-        $chinhanh->phone = $req->get('phone');
+        $chinhanh = ChiNhanhModel::find($req->id_chinhanh);
         $chinhanh->ten_chinhanh = $req->get('ten_chinhanh');
         $chinhanh->diachi_chinhanh = $req->get('diachi_chinhanh');
         $chinhanh->save();
+        $user = Users::find($req->id);
+        $user->name = $req->get('name');
+        $user->email = $req->get('email');
+        $user->phone = $req->get('phone');
+        $user->save();
         return redirect('chi-nhanh/index')->with('success', 'Cập nhật thành công');
     }
 

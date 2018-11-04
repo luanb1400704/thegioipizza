@@ -9,6 +9,7 @@ use App\HoaDonModel;
 use App\HoaHongModel;
 use App\Http\Requests\Customer;
 use App\PhanCapModel;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use App\TongTienHoaHongModel;
 use App\Users;
@@ -25,18 +26,238 @@ class HoaDonController extends Controller
 
     public function getBadge()
     {
-        if(Auth::user()){
-            if(Auth::user()->type == 2){
+        if (Auth::user()) {
+            if (Auth::user()->type == 2) {
                 return redirect()->route('home');
             }
         }
         return HoaDonModel::where('status', 0)->count();
     }
 
+    public function edit(Request $request)
+    {
+        if (Auth::user()) {
+            if (Auth::user()->type == 2) {
+                return redirect()->route('home');
+            }
+        }
+        $order = HoaDonModel::find($request->get('id'));
+        if (empty($order)) {
+            return [
+                'status' => 'fail',
+                'data' => []
+            ];
+        }
+        $user = Users::where('id', $order->id_khachhang)->get([
+            'name',
+            'phone'
+        ])[0];
+        $details = HoaDonChiTietModel::leftjoin('banh', 'banh.b_id', '=', 'hoadonchitiet.b_id')
+            ->leftjoin('loaibanh', 'loaibanh.l_id', '=', 'hoadonchitiet.l_id')
+            ->leftjoin('gia', 'gia.g_id', '=', 'hoadonchitiet.g_id')
+            ->where('hoadonchitiet.hd_id', $order->hd_id)
+            ->get([
+                'hoadonchitiet.hd_id as order',
+                'hoadonchitiet.hdct_id as id',
+                'banh.b_ten as name',
+                'loaibanh.l_ten as label',
+                'loaibanh.l_id as type',
+                'hoadonchitiet.so_luong_mua as amounts',
+                'gia.g_tien as price',
+                'hoadonchitiet.thanh_tien as total'
+            ])
+            ->toArray();
+        return [
+            'status' => 'success',
+            'data' => [
+                'order' => $order,
+                'user' => $user,
+                'details' => $details
+            ]
+        ];
+    }
+
+    public function type(Request $request)
+    {
+        if (Auth::user()) {
+            if (Auth::user()->type == 2) {
+                return redirect()->route('home');
+            }
+        }
+        $labels['Loại Nhỏ'] = 1;
+        $labels['Loại Vừa'] = 2;
+        $labels['Loại Lớn'] = 3;
+        $order = HoaDonModel::where('hd_id', $request->get('order'));
+        $detail = HoaDonChiTietModel::where('hdct_id', $request->get('id'));
+        $price = GiaModel::where('l_id', $labels[$request->get('label')])
+            ->where('b_id', $detail->first()->b_id);
+        $detail->update([
+            'g_id' => $price->first()->g_id,
+            'l_id' => $labels[$request->get('label')],
+            'g_tien' => $price->first()->g_tien,
+            'thanh_tien' => $detail->first()->so_luong_mua * $price->first()->g_tien
+        ]);
+        $order->update(['tong_tien_hoa_don' => $order->first()->tong_tien_hoa_don - $request->get('total') + $detail->first()->thanh_tien]);
+        return [
+            'date' => $order->first()->updated_at,
+            'total' => $order->first()->tong_tien_hoa_don,
+            'data' => HoaDonChiTietModel::leftjoin('banh', 'banh.b_id', '=', 'hoadonchitiet.b_id')
+                ->leftjoin('loaibanh', 'loaibanh.l_id', '=', 'hoadonchitiet.l_id')
+                ->leftjoin('gia', 'gia.g_id', '=', 'hoadonchitiet.g_id')
+                ->where('hoadonchitiet.hdct_id', $request->get('id'))
+                ->get([
+                    'hoadonchitiet.hd_id as order',
+                    'hoadonchitiet.hdct_id as id',
+                    'banh.b_ten as name',
+                    'loaibanh.l_ten as label',
+                    'loaibanh.l_id as type',
+                    'hoadonchitiet.so_luong_mua as amounts',
+                    'gia.g_tien as price',
+                    'hoadonchitiet.thanh_tien as total'
+                ])->toArray()
+        ];
+    }
+
+    public function modal(Request $request)
+    {
+        if (Auth::user()) {
+            if (Auth::user()->type == 2) {
+                return redirect()->route('home');
+            }
+        }
+        return GiaModel::join('banh', 'banh.b_id', '=', 'gia.b_id')
+            ->join('loaibanh', 'loaibanh.l_id', '=', 'gia.l_id')
+            ->whereNotIn('banh.b_id', HoaDonChiTietModel::where('hd_id', $request->get('order'))
+                ->distinct('b_id')
+                ->get([
+                    'b_id'
+                ])->map(function ($item) {
+                    return $item->b_id;
+                }))
+            ->orderby('gia.g_tien', 'asc')
+            ->orderby('banh.b_ten', 'asc')
+            ->get([
+                'gia.g_id as id',
+                'banh.b_ten as ten',
+                'loaibanh.l_ten as loai',
+                'gia.g_tien as gia'
+            ]);
+    }
+
+    public function add(Request $request)
+    {
+        if (Auth::user()) {
+            if (Auth::user()->type == 2) {
+                return redirect()->route('home');
+            }
+        }
+        try {
+            $price = GiaModel::where('g_id', $request->get('id'));
+            $order = HoaDonModel::where('hd_id', $request->get('order'));
+            $order->update([
+                'tong_tien_hoa_don' => $order->first()->tong_tien_hoa_don + $price->first()->g_tien * $request->get('amounts')
+            ]);
+            HoaDonChiTietModel::create([
+                'hd_id' => $order->first()->hd_id,
+                'g_id' => $price->first()->g_id,
+                'so_luong_mua' => $request->get('amounts'),
+                'b_id' => $price->first()->b_id,
+                'l_id' => $price->first()->l_id,
+                'g_tien' => $price->first()->g_tien,
+                'thanh_tien' => $price->first()->g_tien * $request->get('amounts')
+            ]);
+            return [
+                'status' => 'success',
+                'message' => 'Thêm bánh thành công',
+                'data' => [
+                    'date' => $order->first()->updated_at,
+                    'total' => $order->first()->tong_tien_hoa_don,
+                    'rows' => HoaDonChiTietModel::leftjoin('banh', 'banh.b_id', '=', 'hoadonchitiet.b_id')
+                        ->leftjoin('loaibanh', 'loaibanh.l_id', '=', 'hoadonchitiet.l_id')
+                        ->leftjoin('gia', 'gia.g_id', '=', 'hoadonchitiet.g_id')
+                        ->where('hoadonchitiet.hd_id', $order->first()->hd_id)
+                        ->get([
+                            'hoadonchitiet.hd_id as order',
+                            'hoadonchitiet.hdct_id as id',
+                            'banh.b_ten as name',
+                            'loaibanh.l_ten as label',
+                            'loaibanh.l_id as type',
+                            'hoadonchitiet.so_luong_mua as amounts',
+                            'gia.g_tien as price',
+                            'hoadonchitiet.thanh_tien as total'
+                        ])
+                        ->toArray()
+                ]
+            ];
+        } catch (\Exception $e) {
+            return [
+                'status' => 'failed',
+                'message' => 'Thêm bánh thất bại'
+            ];
+        }
+    }
+
+    public function update(Request $request)
+    {
+        if (Auth::user()) {
+            if (Auth::user()->type == 2) {
+                return redirect()->route('home');
+            }
+        }
+        $detail = HoaDonChiTietModel::where('hdct_id', $request->get('id'));
+        $query = HoaDonModel::where('hd_id', $request->get('order'));
+        $query->update([
+            'tong_tien_hoa_don' => $query->first()->tong_tien_hoa_don - $detail->first()->thanh_tien + $request->get('total')
+        ]);
+        $detail->update([
+            'so_luong_mua' => $request->get('amounts'),
+            'thanh_tien' => $request->get('total')
+        ]);
+        return [
+            'date' => $query->first()->updated_at,
+            'total' => $query->first()->tong_tien_hoa_don
+        ];
+    }
+
+    public function remove(Request $request)
+    {
+        if (Auth::user()) {
+            if (Auth::user()->type == 2) {
+                return redirect()->route('home');
+            }
+        }
+        if ($request->get('type') === 'item') {
+            $query = HoaDonChiTietModel::where('hdct_id', $request->get('id'));
+            $order = HoaDonModel::where('hd_id', $query->first()->hd_id);
+            $order->update([
+                'tong_tien_hoa_don' => $order->first()->tong_tien_hoa_don - $query->first()->thanh_tien
+            ]);
+            $query->delete();
+            return [
+                'date' => $order->first()->updated_at
+            ];
+        }
+        try {
+            HoaDonModel::find($request->get('id'))->delete();
+            if ($request->get('type') === 'all') {
+                HoaDonChiTietModel::where('hd_id', $request->get('id'))->delete();
+            }
+            return [
+                'status' => 'success',
+                'message' => 'Hoá đơn đã được xoá'
+            ];
+        } catch (\Exception $e) {
+            return [
+                'status' => 'failed',
+                'message' => 'Lỗi khi xoá hoá đơn'
+            ];
+        }
+    }
+
     public function create()
     {
-        if(Auth::user()){
-            if(Auth::user()->type == 2){
+        if (Auth::user()) {
+            if (Auth::user()->type == 2) {
                 return redirect()->route('home');
             }
         }
@@ -66,8 +287,8 @@ class HoaDonController extends Controller
 
     public function store(Request $request)
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3) {
                 return redirect()->route('home');
             }
         }
@@ -136,7 +357,6 @@ class HoaDonController extends Controller
         return $this->plusMoney($contain['money']->id_cha, $money, $count, $number);
     }
 
-
     public function manyLevel($id, $count, $number)
     {
         $contain = HoaHongModel::where('id_khachhang', $id)->first();
@@ -149,13 +369,13 @@ class HoaDonController extends Controller
 
     public function commission($id)
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3) {
                 return redirect()->route('home');
             }
         }
         $contain['order'] = HoaDonModel::find($id);
-        if($contain['order']->status == 1){
+        if ($contain['order']->status == 1) {
             return redirect(route('hoadon.indexdaduyet'));
         }
         $contain['level'] = PhanCapModel::find($contain['order']->id_phan_cap);
@@ -188,8 +408,8 @@ class HoaDonController extends Controller
 
     public function createCustomer(Request $request)
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3) {
                 return redirect()->route('home');
             }
         }
@@ -247,8 +467,8 @@ class HoaDonController extends Controller
 
     public function indexdaduyet(Request $req)
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3) {
                 return redirect()->route('home');
             }
         }
@@ -286,8 +506,8 @@ class HoaDonController extends Controller
 
     public function indexchuaduyet(Request $req)
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3 ){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3) {
                 return redirect()->route('home');
             }
         }
@@ -347,4 +567,40 @@ class HoaDonController extends Controller
         }
     }
 
+    public function total(Request $request)
+    {
+        if(Auth::user()){
+            if(Auth::user()->type != 0 && Auth::user()->type != 3 ){
+                return [
+                    'sum'=> 0,
+                    'list' => [],
+                    'status' => true
+                ];
+            }
+        }
+        //Lấy ra số hóa đơn và tính tổng tiền của nhân viên đó trong một khoản thời gian đó
+        $sum  = DB::table('hoadon')
+            ->join('userprofile','userprofile.user_id','=','hoadon.id_nhan_vien_lap_hh')
+            ->join('chinhanh','chinhanh.id_chinhanh','=','userprofile.id_chinhanh')
+            ->where('chinhanh.id_chinhanh', $request->id)
+            ->whereRaw("`hoadon`.`created_at` >= '".$request->begin."'")
+            ->whereRaw("`hoadon`.`created_at` <= '".$request->end."'")
+            ->selectRaw('sum(tong_tien_hoa_don) as sum')
+            ->first();
+        $list = HoaDonModel
+            ::join('users','users.id','=','hoadon.id_khachhang')
+            ->join('userprofile','userprofile.user_id','=','hoadon.id_nhan_vien_lap_hh')
+            ->join('chinhanh','chinhanh.id_chinhanh','=','userprofile.id_chinhanh')
+            ->where('chinhanh.id_chinhanh', $request->id)
+            ->where('hoadon.status', 1)
+            ->whereRaw("`hoadon`.`created_at` >= '".$request->begin."'")
+            ->whereRaw("`hoadon`.`created_at` <= '".$request->end."'")
+            ->select('hoadon.*', 'users.name','users.phone')
+            ->get();
+        return [
+            'sum'=> $sum,
+            'list' => $list,
+            'status' => true
+        ];
+    }
 }

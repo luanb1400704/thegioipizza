@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\ChiNhanhModel;
+use App\HoaDonModel;
 use App\Http\Requests\NhanVienRequest;
 use App\UserProfileModel;
 use App\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
@@ -135,5 +137,38 @@ class UsersController extends Controller
         Users::where('id', $id)->update($data->chunk($container)->shift()->all());
         UserProfileModel::where('user_id', $id)->update($data->slice($container)->all());
         return redirect('nhan-vien-chi-nhanh/index')->with('success', 'Cập nhật thành công !');
+    }
+
+    public function total(Request $request)
+    {
+        if(Auth::user()){
+            if(Auth::user()->type != 0 && Auth::user()->type != 3 ){
+                return [
+                    'sum'=> 0,
+                    'list' => [],
+                    'status' => true
+                ];
+            }
+        }
+        //Lấy ra số hóa đơn và tính tổng tiền của nhân viên đó trong một khoản thời gian đó
+        $sum  = DB::table('hoadon')
+            ->where('hoadon.id_nhan_vien_lap_hh', $request->id)
+            ->whereRaw("`hoadon`.`created_at` >= '".$request->begin."'")
+            ->whereRaw("`hoadon`.`created_at` <= '".$request->end."'")
+            ->selectRaw('sum(tong_tien_hoa_don) as sum')
+            ->first();
+        $list = HoaDonModel
+                ::join('users','users.id','=','hoadon.id_khachhang')
+                ->where('hoadon.id_nhan_vien_lap_hh', $request->id)
+                ->where('hoadon.status', 1)
+                ->whereRaw("`hoadon`.`created_at` >= '".$request->begin."'")
+                ->whereRaw("`hoadon`.`created_at` <= '".$request->end."'")
+                ->select('hoadon.*', 'users.name','users.phone')
+                ->get();
+        return [
+            'sum'=> $sum,
+            'list' => $list,
+            'status' => true
+        ];
     }
 }

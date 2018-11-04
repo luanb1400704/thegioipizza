@@ -70,6 +70,10 @@
                                class="btn btn-primary btn-sm btn-flat">
                                 <i class="fa fa-edit"></i>
                             </a>
+                            <a data-toggle="modal"  onclick="filterDate('{{$val->id}}')"
+                               class="btn btn-danger btn-sm btn-flat">
+                                <i class="fa fa-money"></i>
+                            </a>
                             <a href="#" class="btn bg-olive btn-sm btn-flat">
                                 <i class="fa fa-key"></i>
                             </a>
@@ -81,11 +85,110 @@
             </div>
         </div>
     </section>
+    <div class="modal fade" id="filter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="modal-title" id="exampleModalLabel">Nhập ngày bắt đầu và kết thúc</h4>
+                </div>
+                <div class="panel-body">
+                    <input type="hidden" id="id_nv" name="id" class="form-control" required>
+                    <label>Ngày bắt đầu</label>
+                    <input type="date" id="begin" name="begin" class="form-control" required>
+                    <label>Ngày kết thúc</label>
+                    <input type="date" id="end" name="end" class="form-control" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal" onclick="getTotal()">Xem</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" >Lọc</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="total" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="modal-title" id="exampleModalLabel">Chi tiết bán hàng nhân viên</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>Số lượng hóa đơn: <span id="soluonghd" style="color: red;"></span></label><br>
+                        <label>Tổng tiền: <span id="sum" style="color: red;"></span> VNĐ</label><br>
+                        <label>Chi tiết:</label>
+                    </div>
+                    <div class="box-body ">
+                        <table id="totalTable" class="table table-bordered table-striped text-center">
+                            <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th>Ngày lập</th>
+                                <th>Khách hàng</th>
+                                <th>Số điện thoại</th>
+                                <th>Thành tiền</th>
+                            </tr>
+                            </thead>
+                            <tbody id="body-detail">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('script')
     <script type="text/javascript">
         $(function () {
             $('#example1').DataTable()
         })
+
+        function filterDate(id_nv) {
+            $("#id_nv").val(id_nv);
+            $("#filter").modal('show');
+        }
+        function toMoney(number) {
+            return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        function getTotal() {
+            var id = $("#id_nv").val();
+            var begin = $("#begin").val();
+            var end = $("#end").val();
+            $.ajax({
+                type: 'GET',
+                url: '{{route('nv.total')}}',
+                data: {
+                    _token: '{{csrf_token()}}',
+                    id: id,
+                    begin: begin,
+                    end: end
+                },
+                success: function (res) {
+                    $("#body-detail").innerHTML = '';
+                    $("#soluonghd").html(res.list.length);
+                    $("#sum").html(res.sum['sum']);
+                    htmlTable = '';
+                    res.list.forEach(function (element) {
+                        htmlTable = htmlTable +
+                            "<tr>" +
+                            "<td>" + element.hd_id + "</td>" +
+                            "<td>" + element.created_at + "</td>" +
+                            "<td>" + element.name + "</td>" +
+                            "<td>" + element.phone + "</td>" +
+                            "<td>" + toMoney(element.tong_tien_hoa_don) + "</td>" +
+                            "</tr>";
+                    });
+                    $("#body-detail").html(htmlTable);
+                    $("#total").modal('show');
+                    $('#totalTable').DataTable()
+                }
+            });
+        }
+
     </script>
 @endsection
