@@ -272,11 +272,11 @@ class FontEndController extends Controller
             ->first();
         //Nếu giỏ hàng rỗng thì báo lỗi
         if(!isset($hoadon))
-            return redirect('/store/home')->with('order_error_success   ','Rất tiết có lỗi thanh toán !!!');
+            return redirect('/store')->with('order_error_success   ','Rất tiết có lỗi thanh toán !!!');
         $hoadon->status = 0;
         $hoadon->tong_tien_hoa_don = $tongtien;
         $hoadon->save();
-        return redirect('/store/home')->with('order_success','Đã xác nhận thanh toán thành công');
+        return redirect('/store')->with('success','Đã xác nhận thanh toán thành công !');
     }
     public function login(){
         return view('website.login');
@@ -393,7 +393,7 @@ class FontEndController extends Controller
 
             }
         }
-        return redirect('/store/home')->with('success','Chọn bánh thành công, đến mục giỏ hàng để xác nhận mua bạn nhé');
+        return redirect('/store')->with('success','Chọn bánh thành công, đến mục giỏ hàng để xác nhận mua bạn nhé');
     }
 
 

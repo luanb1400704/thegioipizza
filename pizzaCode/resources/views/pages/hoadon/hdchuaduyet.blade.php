@@ -22,34 +22,54 @@
                 </span>
             </div>
             <form method="get" action="{{ route('hoadon.indexchuaduyet') }}">
-                <div class="col-sm-2">
-                    <input type="text" name="q" value="{{\Illuminate\Support\Facades\Input::get('q','')}}"
-                           class="form-control select2">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2">
+                            <input type="text" name="q" value="{{\Illuminate\Support\Facades\Input::get('q','')}}"
+                                   class="form-control">
+                        </div>
+                        <div class="col-sm-2">
+                            <select class="form-control select2" name="k">
+                                <option value="">Tên khách hàng</option>
+                                @foreach ($tenkhachhang as $val)
+                                    <option value="{{ $val->id }}">{{ $val->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-sm-2">
+                            <select class="form-control select2" name="i">
+                                <option value="">Số điện thoại</option>
+                                @foreach ($sdtkhachhang as $val)
+                                    <option value="{{ $val->id }}">{{ $val->phone }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <button title="Tìm kiếm" type="submit" class="btn btn-success btn-sm"><i class="fa fa-search"></i> Tìm kiếm
+                            </button>
+                            <a href="{{ route('hoadon.indexchuaduyet') }}" class="btn btn-primary btn-sm"
+                               title="Tải lại trang">
+                                <i class="fa fa-refresh"></i> Tải lại
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-2">
-                    <select class="form-control select2" name="k">
-                        <option value="">Tên khách hàng</option>
-                        @foreach ($tenkhachhang as $val)
-                            <option value="{{ $val->id }}">{{ $val->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-sm-2">
-                    <select class="form-control select2" name="i">
-                        <option value="">Số điện thoại</option>
-                        @foreach ($sdtkhachhang as $val)
-                            <option value="{{ $val->id }}">{{ $val->phone }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-sm-4">
-                    <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-search"></i> Tìm kiếm</button>
-                    <a href="{{ route('hoadon.indexchuaduyet') }}" class="btn btn-primary btn-sm" title="xem chi tiet">
-                        <i class="fa fa-refresh"></i> Tải lại
-                    </a>
+                <br>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2" style="display: -webkit-box">
+                            <label>Từ ngày : </label>
+                            <input type="date" name="1" value="{{\Illuminate\Support\Facades\Input::get('1','')}}"
+                                   class="form-control">
+                        </div>
+                        <div class="col-sm-2" style="display: -webkit-box;margin-left: 30px">
+                            <label>Đến ngày : </label>
+                            <input type="date" name="2" value="{{\Illuminate\Support\Facades\Input::get('2','')}}"
+                                   class="form-control">
+                        </div>
+                    </div>
                 </div>
             </form>
-            <br>
             <br>
             <p class="help-block" style="color: red">( * ) Lưu ý : Cần xác nhận lại đơn hàng trước khi duyệt đơn hàng
                 !</p>
@@ -76,23 +96,23 @@
                             <td id="total{{$value->hd_id}}">{{number_format($value->tong_tien_hoa_don)}} vnđ</td>
                             <td id="date{{$value->hd_id}}">{{date('H:i:s - d/m/Y', strtotime($value->created_at))}}</td>
                             <td class="text-center">
-                                <a href="{{ route('hoadon.done', [$value->hd_id])}}" title="duyệt hóa đơn"
+                                <a href="{{ route('hoadon.done', [$value->hd_id])}}" title="Duyệt hóa đơn"
                                    onclick="return confirm('Lưu ý: Bạn có chắc chắn duyệt hóa đơn này, Khi duyệt xong thì không thể thực hiện lại ?')"
                                    class="btn btn-warning btn-sm">
                                     <i class="fa fa-check-square"></i>
                                     Duyệt
                                 </a>
-                                <a href="#" class="btn btn-primary btn-sm" title="xem chi tiết"
+                                <a href="#" class="btn btn-primary btn-sm" title="Xem chi tiết"
                                    onclick="getDetails({{$value->hd_id}})">
                                     <i class="fa fa-eye"></i>
                                     Xem
                                 </a>
-                                <a class="btn btn-success btn-sm" title="chỉnh sửa hóa đơn"
+                                <a class="btn btn-success btn-sm" title="Chỉnh sửa hóa đơn"
                                    onclick="edit({{$value->hd_id}})">
                                     <i class="fa fa-edit"></i>
                                     Sửa
                                 </a>
-                                <a title="xóa hóa đơn"
+                                <a title="Xóa hóa đơn"
                                    onclick="remove({{$value->hd_id}})"
                                    class="btn btn-danger btn-sm">
                                     <i class="fa fa-trash"></i>

@@ -14,14 +14,13 @@ use Illuminate\Support\Facades\Auth;
 
 class TienChiHoController extends Controller
 {
-    public function index()
+    public function index(Request $req)
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0 && Auth::user()->type !=1 && Auth::user()->type !=3){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0 && Auth::user()->type != 1 && Auth::user()->type != 3) {
                 return redirect()->route('home');
             }
-        }
-        else{
+        } else {
             return redirect()->route('login');
         }
         $hoahongchinhanh = HoaHongModel::join('users', 'users.id', '=', 'hoahong.id_khachhang')
@@ -41,6 +40,18 @@ class TienChiHoController extends Controller
                 'customer.customer_cmnd',
                 'customer.customer_address'
             );
+        if ($req->has('q') && $req->get('q') != '')
+            $hoahongchinhanh = $hoahongchinhanh->where(function ($q) use ($req) {
+                return $q->where('users.name', 'like', '%' . $req->get('q') . '%')
+                    ->orwhere('users.phone', 'like', '%' . $req->get('q') . '%')
+                    ->orwhere('users.email', 'like', '%' . $req->get('q') . '%')
+                    ->orwhere('users.email', 'like', '%' . $req->get('q') . '%')
+                    ->orwhere('customer.customer_birthday', 'like', '%' . $req->get('q') . '%')
+                    ->orwhere('customer.customer_cmnd', 'like', '%' . $req->get('q') . '%')
+                    ->orwhere('customer.customer_address', 'like', '%' . $req->get('q') . '%')
+                    ->orwhere('hoahong.tien_hoa_hong', 'like', '%' . $req->get('q') . '%')
+                    ->orwhere('hoahong.id_cha', 'like', '%' . $req->get('q') . '%');
+            });
         $hoahongchinhanh = $hoahongchinhanh->paginate(10);
         $count = count($hoahongchinhanh);
         for ($i = 0; $i < $count; $i++) {
@@ -51,12 +62,11 @@ class TienChiHoController extends Controller
 
     public function tru_tien(Request $req, $id)
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 1){
+        if (Auth::user()) {
+            if (Auth::user()->type != 1) {
                 return redirect()->route('home');
             }
-        }
-        else{
+        } else {
             return redirect()->route('login');
         }
         $id_user = Auth::user()->id;
@@ -74,7 +84,6 @@ class TienChiHoController extends Controller
                 [
                     'hoahong.tien_hoa_hong',
                     'hoahong.id_khachhang',
-
                 ]
             );
         $tien = $hoahong->tien_hoa_hong;
@@ -97,21 +106,20 @@ class TienChiHoController extends Controller
         $tienTraChoKhach->sotien += $tien;
         $tienTraChoKhach->save();
 
-        return redirect('tien-chi-ho-hoa-hong/index');
+        return redirect('tien-chi-ho-hoa-hong/index')->with('success', 'Thanh toán thành công !');
     }
 
     public function log_tra_tien()
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0 && Auth::user()->type != 3){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0 && Auth::user()->type != 3) {
                 return redirect()->route('home');
             }
-        }
-        else{
+        } else {
             return redirect()->route('login');
         }
         $id_user = Auth::user()->id;
-        if (Auth::user()->type ==0) {
+        if (Auth::user()->type == 0) {
             $log = LogHoaHongModel::leftjoin('users', 'users.id', '=', 'loghoahong.id_khachhang')
                 ->leftjoin('chinhanh', 'chinhanh.id_chinhanh', '=', 'loghoahong.id_chinhanh')
                 ->orderBy('loghoahong.created_at', 'desc')
@@ -155,12 +163,11 @@ class TienChiHoController extends Controller
     //Hiển thị danh sách các chi nhánh đã trả số tiền bao nhiều
     public function tongtienchinhanh()
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0) {
                 return redirect()->route('home');
             }
-        }
-        else{
+        } else {
             return redirect()->route('login');
         }
         $listChiNhanh = TienChiNhanhTraChoKhachModel
@@ -177,12 +184,11 @@ class TienChiHoController extends Controller
     //Thanh toán tiền và lưu vào logchiho
     public function thanhtoan($id)
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0) {
                 return redirect()->route('home');
             }
-        }
-        else{
+        } else {
             return redirect()->route('login');
         }
         //Tìm kiếm chi nhánh thông qua id
@@ -212,29 +218,27 @@ class TienChiHoController extends Controller
     //Hiển thị danh sách các chi nhánh đã trả số tiền bao nhiều
     public function lichsuthanhtoan()
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0 && Auth::user()->type != 3){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0 && Auth::user()->type != 3) {
                 return redirect()->route('home');
             }
-        }
-        else{
+        } else {
             return redirect()->route('login');
         }
         //Là chủ chi nhánh thì chỉ cho nhìn được lịch sử của chính mình
-        if(Auth::user()->type == 3){
+        if (Auth::user()->type == 3) {
             $listChiNhanh = LogTienChiHoModel
                 ::join('chinhanh', 'log_tien_chi_ho.id_chinhanh', '=', 'chinhanh.id_chinhanh')
                 ->join('users', 'users.id', '=', 'chinhanh.id_chinhanh')
                 ->where('users.type', 3)
-                ->where('users.id',Auth::user()->id)
+                ->where('users.id', Auth::user()->id)
                 ->get();
             $count = count($listChiNhanh);
             for ($i = 0; $i < $count; $i++) {
                 $listChiNhanh[$i]['stt'] = $i + 1;
             }
-        }
-        //Nếu là admin thì thấy được lịch sử tất cả chi nhánh
-        else{
+        } //Nếu là admin thì thấy được lịch sử tất cả chi nhánh
+        else {
             $listChiNhanh = LogTienChiHoModel
                 ::join('chinhanh', 'log_tien_chi_ho.id_chinhanh', '=', 'chinhanh.id_chinhanh')
                 ->join('users', 'users.id', '=', 'chinhanh.id_chinhanh')

@@ -3,7 +3,7 @@
     <section class="content-header">
         <h1>Quản Lý Hoá Đơn</h1>
         <br>
-        <a id="btn-create" class="btn btn-sm btn-danger">Thêm Mới Khách Hàng</a>
+        <a title="thêm mới khách hàng" id="btn-create" class="btn btn-sm btn-danger">Thêm Mới Khách Hàng</a>
         <p class="help-block">Lưu ý : Khách hàng không có tài khoản mới tạo khách hàng !</p>
         <ol class="breadcrumb bg-gray">
             <li><a><i class="fa fa-dashboard"></i>Trang chủ</a></li>
@@ -25,7 +25,7 @@
                             <input type="text" readonly class="form-control" value="{{ $hold[0]->name }}">
                         </div>
                         <div class="form-group">
-                            <label>Tên Khách Hàng </label>
+                            <label>Tên Khách Hàng <span style="color:red">( * )</span></label>
                             <select name="khach_hang" class="form-control select2">
                                 @foreach($hold[1] as $val)
                                     <option value="{{ $val->id }}">{{ $val->name }} - {{ $val->phone }}</option>
@@ -33,7 +33,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Chọn Bánh</label>
+                            <label>Chọn Bánh <span style="color:red">( * )</span></label>
                             <select id="pizza" name="id_banh" class="form-control select2">
                                 @foreach($hold[2] as $val)
                                     <option value="{{ $val->id }}">{{ $val->ten }}
@@ -42,14 +42,15 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Số lượng</label>
+                            <label>Số lượng <span style="color:red">( * )</span></label>
                             <input id="amount" type="number" class="form-control">
                         </div>
                         <div class="form-group">
-                            <a id="btn-add" class="btn btn-default btn-sm">Thêm bánh</a>
+                            <p class="help-block" style="color: #9F0053">Lưu ý : Cần thêm bánh vào đơn hàng trước khi tạo hóa đơn !</p>
+                            <a title="Thêm bánh vào đơn hàng" id="btn-add" class="btn btn-warning btn-sm">Thêm bánh vào đơn hàng</a>
                         </div>
                         <div class="box-footer">
-                            <button id="btn-add-order" class="btn btn-success btn-sm btn-block center-block">
+                            <button title="Tạo hóa đơn" id="btn-add-order" class="btn btn-success btn-sm btn-block center-block">
                                 Tạo hóa đơn
                             </button>
                         </div>
@@ -67,7 +68,7 @@
                             <tr>
                                 <th>Tên</th>
                                 <th>Loại</th>
-                                <th>Số lương</th>
+                                <th>Số lượng</th>
                                 <th>Đơn giá</th>
                                 <th>Thành tiền</th>
                                 <th>Tác vụ</th>

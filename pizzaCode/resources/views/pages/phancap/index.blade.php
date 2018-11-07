@@ -3,16 +3,9 @@
     <section class="content-header">
         <h1>Quản Lý Phân Cấp</h1>
         <ol class="breadcrumb bg-gray">
-            <li>
-                <a href="{{ url('/') }}">
-                    <i class="fa fa-dashboard"></i>
-                    Trang chủ
-                </a>
+            <li><a><i class="fa fa-dashboard"></i>Trang chủ</a>
             </li>
-            <li>
-                <a href="{{ route('pc.index') }}">
-                    Phân Cấp Hoa Hồng
-                </a>
+            <li><a>Phân Cấp Hoa Hồng</a>
             </li>
             <li>Danh Sách</li>
         </ol>
@@ -27,7 +20,7 @@
                     </h1>
                 </span>
                 <span class="pull-right">
-                    <a href="{{ route('pc.create') }}" type="button" class="btn bg-aqua btn-sm btn-flat margin">
+                    <a title="Thêm mới" href="{{ route('pc.create') }}" type="button" class="btn bg-aqua btn-sm btn-flat margin">
                         Thêm mới
                     </a>
                 </span>
@@ -57,21 +50,24 @@
                             <td style="color: red">Đang Tắt</td>
                         @endif
                         <td class="text-center">
-                            <a href="{{ route('pc.edit',$val->pc_id) }}" class="btn btn-primary btn-sm btn-flat"
+                            <a title="Sửa phân cấp" href="{{ route('pc.edit',$val->pc_id) }}" class="btn btn-primary btn-sm btn-flat"
                                onclick="return confirm('Bạn muốn cập nhật phân cấp hoa hồng này ?')">
                                 <i class="fa fa-edit"></i>
+                                Sửa
                             </a>
-                            <a href="{{ route('pc.destroy',$val->pc_id) }}" class="btn btn-danger btn-sm btn-flat"
+                            <a title="Xóa phân cấp" href="{{ route('pc.destroy',$val->pc_id) }}" class="btn btn-danger btn-sm btn-flat"
                                onclick="return confirm('Bạn có chắc chắn xóa phân cấp hoa hồng này ?')">
                                 <i class="fa fa-trash"></i>
+                                Xóa
                             </a>
                             @if($val->status == 0)
-                                <a href="{{ route('pc.status',$val->pc_id) }}" class="btn bg-olive btn-sm btn-flat"
+                                <a title="khóa" href="{{ route('pc.status',$val->pc_id) }}" class="btn bg-olive btn-sm btn-flat"
                                    onclick="return confirm('Cảnh báo ! Bật phân cấp này thì phân cấp đang bật sẽ tắt !')">
                                     <i class="fa fa-key"></i>
+                                    Ẩn/Hiện
                                 </a>
                             @else
-                                <a disabled="" class="btn bg-olive btn-sm btn-flat"><i class="fa fa-key"></i></a>
+                                <a title="khóa" disabled="" class="btn bg-olive btn-sm btn-flat"><i class="fa fa-key"></i>Ẩn/Hiện</a>
                             @endif
                         </td>
                     </tr>

@@ -3,16 +3,9 @@
     <section class="content-header">
         <h1>Quản Lý Chi Nhánh</h1>
         <ol class="breadcrumb bg-gray">
-            <li>
-                <a href="{{ url('/') }}">
-                    <i class="fa fa-dashboard"></i>
-                    Trang chủ
-                </a>
+            <li><a><i class="fa fa-dashboard"></i>Trang chủ</a>
             </li>
-            <li>
-                <a href="{{ route('cn.index') }}">
-                    Quản Lý Chi Nhánh
-                </a>
+            <li><a>Quản Lý Chi Nhánh</a>
             </li>
             <li>Danh sách</li>
         </ol>
@@ -27,7 +20,7 @@
                     </h1>
                 </span>
                 <span class="pull-right">
-                    <a href="{{ route('cn.create') }}" type="button" class="btn bg-aqua btn-sm btn-flat margin">
+                    <a title="Thêm mới" href="{{ route('cn.create') }}" type="button" class="btn bg-aqua btn-sm btn-flat margin">
                         Thêm mới
                     </a>
                 </span>
@@ -55,17 +48,20 @@
                         <td>{{ $val->ten_chinhanh }}</td>
                         <td>{{ $val->diachi_chinhanh }}</td>
                         <td class="text-center">
-                            <a href="{{ route('cn.edit',[$val->id_chinhanh]) }}"
+                            <a title="Sửa chi nhánh" href="{{ route('cn.edit',[$val->id_chinhanh]) }}"
                                class="btn btn-primary btn-sm btn-flat">
                                 <i class="fa fa-edit"></i>
+                                Sửa
                             </a>
-                            <a data-toggle="modal"  onclick="filterDate('{{$val->id_chinhanh}}')"
+                            <a title="Xem chi tiết trả hoa hồng" data-toggle="modal"  onclick="filterDate('{{$val->id_chinhanh}}')"
                                class="btn btn-success btn-sm btn-flat">
                                 <i class="fa fa-money"></i>
+                                Xem
                             </a>
-                            <a href="#" class="btn btn-danger btn-sm btn-flat">
-                                <i class="fa fa-trash"></i>
-                            </a>
+                            {{--<a title="Xóa chi nhánh" href="#" class="btn btn-danger btn-sm btn-flat">--}}
+                                {{--<i class="fa fa-trash"></i>--}}
+                                {{--Xóa--}}
+                            {{--</a>--}}
                         </td>
                     </tr>
                     <?php endforeach ?>

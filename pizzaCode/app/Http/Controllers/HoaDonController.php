@@ -496,6 +496,10 @@ class HoaDonController extends Controller
         if ($req->has('i') && $req->get('i') != '') {
             $khachhang = $khachhang->where('users.id', $req->get('i'));
         }
+        if ($req->has('1') && $req->get('1') && $req->has('2') && $req->get('2') != '')
+            $khachhang = $khachhang->where(function ($q) use ($req) {
+                return $q->whereBetween('hoadon.created_at', [$req->get('1'), $req->get('2')]);
+            });
         $khachhang = $khachhang->paginate(10);
         $count = count($khachhang);
         for ($i = 0; $i < $count; $i++) {
@@ -527,7 +531,8 @@ class HoaDonController extends Controller
                 return $q->where('users.name', 'like', '%' . $req->get('q') . '%')
                     ->orwhere('users.phone', 'like', '%' . $req->get('q') . '%')
                     ->orwhere('hoadon.tong_tien_hoa_don', 'like', '%' . $req->get('q') . '%')
-                    ->orwhere('hoadon.created_at', 'like', '%' . $req->get('q') . '%');
+                    ->orwhere('hoadon.created_at', 'like', '%' . $req->get('q') . '%')
+                    ->orwhere('hoadon.hd_id', 'like', '%' . $req->get('q') . '%');
             });
         if ($req->has('k') && $req->get('k') != '') {
             $khachhang = $khachhang->where('users.id', $req->get('k'));
@@ -535,6 +540,10 @@ class HoaDonController extends Controller
         if ($req->has('i') && $req->get('i') != '') {
             $khachhang = $khachhang->where('users.id', $req->get('i'));
         }
+        if ($req->has('1') && $req->get('1') && $req->has('2') && $req->get('2') != '')
+            $khachhang = $khachhang->where(function ($q) use ($req) {
+                return $q->whereBetween('hoadon.created_at', [$req->get('1'), $req->get('2')]);
+            });
         $khachhang = $khachhang->paginate(10);
         $count = count($khachhang);
         for ($i = 0; $i < $count; $i++) {

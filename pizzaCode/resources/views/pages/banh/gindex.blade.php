@@ -27,7 +27,7 @@
                     </h1>
                 </span>
                 <span class="pull-right">
-                    <a href="{{ route('g.create') }}" type="button" class="btn bg-aqua btn-sm btn-flat margin">
+                    <a title="Thêm mới" href="{{ route('g.create') }}" type="button" class="btn bg-aqua btn-sm btn-flat margin">
                         Thêm mới
                     </a>
                 </span>
@@ -51,13 +51,15 @@
                         <td>{{ $val->l_ten }},{{ $val->l_kichthuoc }}</td>
                         <td>{{number_format( $val->g_tien )}} vnđ</td>
                         <td class="text-center">
-                            <a href="{{ route('g.edit',$val->g_id) }}" class="btn btn-primary btn-sm btn-flat"
+                            <a title="Sửa giá bánh" href="{{ route('g.edit',$val->g_id) }}" class="btn btn-primary btn-sm btn-flat"
                                onclick="return confirm('Bạn có cập nhật giá bánh này ?')">
                                 <i class="fa fa-edit"></i>
+                                Sửa
                             </a>
-                            <a href="{{ route('g.destroy',$val->g_id) }}" class="btn btn-danger btn-sm btn-flat"
+                            <a title="Xóa giá bánh" href="{{ route('g.destroy',$val->g_id) }}" class="btn btn-danger btn-sm btn-flat"
                                onclick="return confirm('Bạn có chắc chắn xóa giá bánh này ?')">
                                 <i class="fa fa-trash"></i>
+                                Xóa
                             </a>
                         </td>
                     </tr>

@@ -45,10 +45,10 @@
                                 <b>Loại bánh &nbsp; &nbsp;&nbsp; : {{$value->l_ten}} ({{$value->l_kichthuoc}})</b>
                                 </span>
                                 <span class="txt23">
-                                <b>Đơn giá &nbsp; &nbsp;&nbsp;&nbsp; : {{$value->g_tien}} VNĐ </b>
+                                <b>Đơn giá &nbsp; &nbsp;&nbsp;&nbsp; : {{number_format($value->g_tien)}} VNĐ </b>
                                 </span>
                                 <span class="txt23">
-                                <b>Thành tiền &nbsp;: <span id="thanhtien{{$value->thanh_tien}}">{{$value->thanh_tien}}</span> VNĐ </b>
+                                <b>Thành tiền &nbsp;: <span id="thanhtien{{ number_format($value->thanh_tien)}}">{{ number_format($value->thanh_tien)}}</span> VNĐ </b>
                                 </span>
 
                                 <span class="txt22 m-t-20 group-input-nns">

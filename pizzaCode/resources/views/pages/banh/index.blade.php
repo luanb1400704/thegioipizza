@@ -27,7 +27,7 @@
                     </h1>
                 </span>
                 <span class="pull-right">
-                    <a href="{{ route('banh.create') }}" type="button" class="btn bg-aqua btn-sm btn-flat margin">
+                    <a title="Thêm mới" href="{{ route('banh.create') }}" type="button" class="btn bg-aqua btn-sm btn-flat margin">
                         Thêm mới
                     </a>
                 </span>
@@ -54,14 +54,16 @@
                         @else
                             <td><img src="{{$val->b_anh}}" width="30px" height="30px"></td>
                         @endif
-                        <td class="text-center" style="width: 100px">
-                            <a href="{{ route('banh.edit',[$val->b_id]) }}" class="btn btn-primary btn-sm btn-flat"
+                        <td class="text-center" style="width: 140px">
+                            <a title="Sửa bánh" href="{{ route('banh.edit',[$val->b_id]) }}" class="btn btn-primary btn-sm btn-flat"
                                onclick="return confirm('Bạn có cập nhật bánh này ?')">
                                 <i class="fa fa-edit"></i>
+                                Sửa
                             </a>
-                            <a href="{{ route('banh.destroy',$val->b_id) }}" class="btn btn-danger btn-sm btn-flat"
+                            <a title="Xóa bánh" href="{{ route('banh.destroy',$val->b_id) }}" class="btn btn-danger btn-sm btn-flat"
                                onclick="return confirm('Cảnh báo ! Khi xóa bánh này thì những giá của bánh này cũng xóa?')">
                                 <i class="fa fa-trash"></i>
+                               Xóa
                             </a>
                         </td>
                     </tr>

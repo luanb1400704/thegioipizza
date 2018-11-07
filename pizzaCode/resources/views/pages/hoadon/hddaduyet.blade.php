@@ -19,34 +19,52 @@
                 </span>
             </div>
             <form method="get" action="{{ route('hoadon.indexdaduyet') }}">
-                <div class="col-sm-2">
-                    <input type="text" name="q" value="{{\Illuminate\Support\Facades\Input::get('q','')}}"
-                           class="form-control select2">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2">
+                            <input type="text" name="q" value="{{\Illuminate\Support\Facades\Input::get('q','')}}"
+                                   class="form-control">
+                        </div>
+                        <div class="col-sm-2">
+                            <select class="form-control select2" name="k">
+                                <option value="">Tên khách hàng</option>
+                                @foreach ($tenkhachhang as $val)
+                                    <option value="{{ $val->id }}">{{ $val->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-sm-2">
+                            <select class="form-control select2" name="i">
+                                <option value="">Số điện thoại</option>
+                                @foreach ($sdtkhachhang as $val)
+                                    <option value="{{ $val->id }}">{{ $val->phone }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <button title="Tìm kiếm" type="submit" class="btn btn-success btn-sm"><i class="fa fa-search"></i> Tìm kiếm</button>
+                            <a href="{{ route('hoadon.indexdaduyet') }}" class="btn btn-primary btn-sm" title="Tải lại trang">
+                                <i class="fa fa-refresh"></i> Tải lại
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-2">
-                    <select class="form-control select2" name="k">
-                        <option value="">Tên khách hàng</option>
-                        @foreach ($tenkhachhang as $val)
-                            <option value="{{ $val->id }}">{{ $val->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-sm-2">
-                    <select class="form-control select2" name="i">
-                        <option value="">Số điện thoại</option>
-                        @foreach ($sdtkhachhang as $val)
-                            <option value="{{ $val->id }}">{{ $val->phone }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-sm-4">
-                    <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-search"></i> Tìm kiếm</button>
-                    <a href="{{ route('hoadon.indexdaduyet') }}" class="btn btn-primary btn-sm" title="xem chi tiet">
-                        <i class="fa fa-refresh"></i> Tải lại
-                    </a>
+                <br>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2" style="display: -webkit-box">
+                            <label>Từ ngày : </label>
+                            <input type="date" name="1" value="{{\Illuminate\Support\Facades\Input::get('1','')}}"
+                                   class="form-control">
+                        </div>
+                        <div class="col-sm-2" style="display: -webkit-box;margin-left: 30px">
+                            <label>Đến ngày : </label>
+                            <input type="date" name="2" value="{{\Illuminate\Support\Facades\Input::get('2','')}}"
+                                   class="form-control">
+                        </div>
+                    </div>
                 </div>
             </form>
-            <br>
             <br>
             <div class="box-body ">
                 <table class="table table-bordered table-striped text-center">
@@ -71,7 +89,7 @@
                             <td>{{number_format($value->tong_tien_hoa_don)}} vnđ</td>
                             <td>{{date('H:i:s - d/m/Y', strtotime($value->created_at))}}</td>
                             <td class="text-center">
-                                <a href="#" class="btn btn-primary btn-sm" title="xem chi tiết"
+                                <a href="#" class="btn btn-primary btn-sm" title="Xem chi tiết"
                                    onclick="getDetails({{$value->hd_id}})">
                                     <i class="fa fa-eye"></i>
                                     Xem

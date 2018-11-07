@@ -3,16 +3,9 @@
     <section class="content-header">
         <h1>Quản Lý Hoa Hồng</h1>
         <ol class="breadcrumb bg-gray">
-            <li>
-                <a href="{{ url('/') }}">
-                    <i class="fa fa-dashboard"></i>
-                    Trang chủ
-                </a>
+            <li><a><i class="fa fa-dashboard"></i>Trang chủ</a>
             </li>
-            <li>
-                <a href="{{ route('index') }}">
-                    Chi hộ hoa hồng
-                </a>
+            <li><a>Chi hộ hoa hồng</a>
             </li>
             <li>Danh sách</li>
         </ol>

@@ -34,7 +34,7 @@ Route::get('/admin', function () {
 
 Route::get('/', function () {
     if (empty(Auth::user())) {
-        return redirect('login');
+        return redirect('store/login');
     }
     if (Auth::user()->type != 2)
         return view('pages.home');

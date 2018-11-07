@@ -18,7 +18,7 @@
                     </h1>
                 </span>
                 <span class="pull-right">
-                    <a href="{{ route('nv.create') }}" type="button" class="btn bg-aqua btn-sm btn-flat margin">
+                    <a title="Thêm mới" href="{{ route('nv.create') }}" type="button" class="btn bg-aqua btn-sm btn-flat margin">
                         Thêm mới
                     </a>
                 </span>
@@ -66,17 +66,19 @@
                             <td><img src="{{$val->user_image}}" width="30px" height="30px"></td>
                         @endif
                         <td class="text-center">
-                            <a href="{{ route('nv.edit', [$val->id]) }}"
+                            <a title="Sửa nhân viên" href="{{ route('nv.edit', [$val->id]) }}"
                                class="btn btn-primary btn-sm btn-flat">
                                 <i class="fa fa-edit"></i>
+                                Sửa
                             </a>
-                            <a data-toggle="modal"  onclick="filterDate('{{$val->id}}')"
+                            <a title="Xem chi tiêu" data-toggle="modal"  onclick="filterDate('{{$val->id}}')"
                                class="btn btn-danger btn-sm btn-flat">
                                 <i class="fa fa-money"></i>
+                                Xem
                             </a>
-                            <a href="#" class="btn bg-olive btn-sm btn-flat">
-                                <i class="fa fa-key"></i>
-                            </a>
+                            {{--<a href="#" class="btn bg-olive btn-sm btn-flat">--}}
+                                {{--<i class="fa fa-key"></i>--}}
+                            {{--</a>--}}
                         </td>
                     </tr>
                     <?php endforeach ?>

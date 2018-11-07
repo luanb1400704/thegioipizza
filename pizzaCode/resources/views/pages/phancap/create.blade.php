@@ -3,16 +3,9 @@
     <section class="content-header">
         <h1>Quản Lý Phân Cấp</h1>
         <ol class="breadcrumb bg-gray">
-            <li>
-                <a href="{{ url('/') }}">
-                    <i class="fa fa-dashboard"></i>
-                    Trang chủ
-                </a>
+            <li><a><i class="fa fa-dashboard"></i>Trang chủ</a>
             </li>
-            <li>
-                <a href="{{ route('pc.index') }}">
-                    Phân Cấp Hoa Hồng
-                </a>
+            <li><a>Phân Cấp Hoa Hồng </a>
             </li>
             <li>Thêm Mới</li>
         </ol>

@@ -53,12 +53,13 @@
                             <td>{{ number_format($val->tien) }} vnđ</td>
                             <td class="text-center">
                                 <a el="{{ $val->id }}" onclick="getDetails({{$val->id}})" class="btn btn-primary btn-sm"
-                                   title="xem chi tiet">
+                                   title="xem chi tiết">
                                     <i class="fa fa-eye"></i>
+                                    Xem
                                 </a>
-                                <a href="#" class="btn bg-olive btn-sm btn-flat">
-                                    <i class="fa fa-key"></i>
-                                </a>
+                                {{--<a href="#" class="btn bg-olive btn-sm btn-flat">--}}
+                                    {{--<i class="fa fa-key"></i>--}}
+                                {{--</a>--}}
                             </td>
                         </tr>
                     @endforeach

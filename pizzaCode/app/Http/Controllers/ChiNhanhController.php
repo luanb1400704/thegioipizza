@@ -21,8 +21,8 @@ class ChiNhanhController extends Controller
 
     public function index()
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0) {
                 return redirect()->route('home');
             }
         }
@@ -36,8 +36,8 @@ class ChiNhanhController extends Controller
 
     public function create()
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0) {
                 return redirect()->route('home');
             }
         }
@@ -46,8 +46,8 @@ class ChiNhanhController extends Controller
 
     public function store(ChiNhanhRequest $req)
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0) {
                 return redirect()->route('home');
             }
         }
@@ -79,8 +79,8 @@ class ChiNhanhController extends Controller
 
     public function edit($id)
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0) {
                 return redirect()->route('home');
             }
         }
@@ -92,8 +92,8 @@ class ChiNhanhController extends Controller
 
     public function update(Request $req, $id)
     {
-        if(Auth::user()){
-            if(Auth::user()->type != 0){
+        if (Auth::user()) {
+            if (Auth::user()->type != 0) {
                 return redirect()->route('home');
             }
         }

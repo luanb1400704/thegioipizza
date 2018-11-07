@@ -18,6 +18,22 @@
                     </h1>
                 </span>
             </div>
+            <form method="get" action="{{ url('tien-chi-ho-hoa-hong/index') }}">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2">
+                            <input type="text" name="q" value="{{\Illuminate\Support\Facades\Input::get('q','')}}"
+                                   class="form-control">
+                        </div>
+                        <div class="col-sm-4">
+                            <button title="Tìm kiếm" type="submit" class="btn btn-success btn-sm"><i class="fa fa-search"></i> Tìm kiếm</button>
+                            <a href="{{ url('tien-chi-ho-hoa-hong/index') }}" class="btn btn-primary btn-sm" title="Tải lại trang">
+                                <i class="fa fa-refresh"></i> Tải lại
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </form>
             <div class="box-body ">
                 <table class="table table-bordered table-striped text-center">
                     <thead>
@@ -50,7 +66,7 @@
                         @else
                             @if(Auth::user()->type == 1)
                                 <td class="text-center">
-                                    <a href="{{ route('tru_tien',$val->hh_id) }}"
+                                    <a title="Thanh toán cho khách" href="{{ route('tru_tien',$val->hh_id) }}"
                                        class="btn btn-primary btn-sm btn-flat"
                                        onclick="return confirm('Lưu ý : Bạn chắc chắn muốn thanh toán ?')">
                                         <i class="fa fa-dollar"></i>
