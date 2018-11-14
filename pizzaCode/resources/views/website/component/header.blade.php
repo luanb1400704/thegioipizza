@@ -3,7 +3,7 @@
         <div class="container h-full">
             <div class="wrap_header trans-0-3">
                 <div class="logo">
-                    <a href="{{ url('store/home') }}">
+                    <a href="{{ url('store') }}">
                         <img src="{{url('patotheme/images/icons/logo.png')}}" alt="IMG-LOGO"
                              data-logofixed="{{url('patotheme/images/icons/logo2.png')}}">
                     </a>

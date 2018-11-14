@@ -586,7 +586,7 @@
 			</span>
 
             <h3 class="tit8 t-center p-l-20 p-r-15 p-t-3">
-                Mr. Nhật
+                Trần Hoàng Nam
             </h3>
         </div>
 

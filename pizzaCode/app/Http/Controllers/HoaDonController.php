@@ -84,9 +84,9 @@ class HoaDonController extends Controller
                 return redirect()->route('home');
             }
         }
-        $labels['Loại Nhỏ'] = 1;
-        $labels['Loại Vừa'] = 2;
-        $labels['Loại Lớn'] = 3;
+        $labels['Loại Nhỏ'] = 7;
+        $labels['Loại Vừa'] = 8;
+        $labels['Loại Lớn'] = 9;
         $order = HoaDonModel::where('hd_id', $request->get('order'));
         $detail = HoaDonChiTietModel::where('hdct_id', $request->get('id'));
         $price = GiaModel::where('l_id', $labels[$request->get('label')])

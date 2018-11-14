@@ -49,30 +49,31 @@
             </div>
             <div class="col-sm-6 col-md-4 p-t-50">
                 <h4 class="txt13 m-b-38">THƯ VIỆN ẢNH</h4>
+                <p style="color: red ; margin-top: -40px;">Thế giới pizza chuyên nhập khẩu và phân phối sỉ lẻ phô mai</p>
                 <div class="wrap-gallery-footer flex-w">
-                    <a class="item-gallery-footer wrap-pic-w" href="{{url('patotheme/images/photo-gallery-01.jpg')}}"
+                    <a class="item-gallery-footer wrap-pic-w" href="{{url('patotheme/images/cayphomai.jpg')}}"
                        data-lightbox="gallery-footer">
-                        <img src="{{url('patotheme/images/photo-gallery-thumb-01.jpg')}}" alt="GALLERY">
+                        <img src="{{url('patotheme/images/cayphomai.jpg')}}" alt="GALLERY">
                     </a>
-                    <a class="item-gallery-footer wrap-pic-w" href="{{url('patotheme/images/photo-gallery-02.jpg')}}"
+                    <a class="item-gallery-footer wrap-pic-w" href="{{url('patotheme/images/cayphomai2.jpg')}}"
                        data-lightbox="gallery-footer">
-                        <img src="{{url('patotheme/images/photo-gallery-thumb-02.jpg')}}" alt="GALLERY">
+                        <img src="{{url('patotheme/images/cayphomai2.jpg')}}" alt="GALLERY">
                     </a>
-                    <a class="item-gallery-footer wrap-pic-w" href="{{url('patotheme/images/photo-gallery-03.jpg')}}"
+                    <a class="item-gallery-footer wrap-pic-w" href="{{url('patotheme/images/tomcua.jpg')}}"
                        data-lightbox="gallery-footer">
-                        <img src="{{url('patotheme/images/photo-gallery-thumb-03.jpg')}}" alt="GALLERY">
+                        <img src="{{url('patotheme/images/tomcua.jpg')}}" alt="GALLERY">
                     </a>
-                    <a class="item-gallery-footer wrap-pic-w" href="{{url('patotheme/images/photo-gallery-04.jpg')}}"
+                    <a class="item-gallery-footer wrap-pic-w" href="{{url('patotheme/images/thitxongkhoi.jpg')}}"
                        data-lightbox="gallery-footer">
-                        <img src="{{url('patotheme/images/photo-gallery-thumb-04.jpg')}}" alt="GALLERY">
+                        <img src="{{url('patotheme/images/thitxongkhoi.jpg')}}" alt="GALLERY">
                     </a>
-                    <a class="item-gallery-footer wrap-pic-w" href="{{url('patotheme/images/photo-gallery-05.jpg')}}"
+                    <a class="item-gallery-footer wrap-pic-w" href="{{url('patotheme/images/xucxich.jpg')}}"
                        data-lightbox="gallery-footer">
-                        <img src="{{url('patotheme/images/photo-gallery-thumb-05.jpg')}}" alt="GALLERY">
+                        <img src="{{url('patotheme/images/xucxich.jpg')}}" alt="GALLERY">
                     </a>
-                    <a class="item-gallery-footer wrap-pic-w" href="{{url('patotheme/images/photo-gallery-06.jpg')}}"
+                    <a class="item-gallery-footer wrap-pic-w" href="{{url('patotheme/images/xucxich1.jpg')}}"
                        data-lightbox="gallery-footer">
-                        <img src="{{url('patotheme/images/photo-gallery-thumb-06.jpg')}}" alt="GALLERY">
+                        <img src="{{url('patotheme/images/xucxich1.jpg')}}" alt="GALLERY">
                     </a>
                     <a class="item-gallery-footer wrap-pic-w" href="{{url('patotheme/images/photo-gallery-07.jpg')}}"
                        data-lightbox="gallery-footer">
