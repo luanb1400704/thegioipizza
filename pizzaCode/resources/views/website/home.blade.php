@@ -136,9 +136,9 @@
                         <div class="blo3 flex-w flex-col-l-sm m-b-30">
                             <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
                                 {{--<a href="{{url('patotheme/images/blog-15.jpg')}}"--}}
-                                <a href="{{$value->b_anh}}"
+                                <a href="{{ url('upload') }}/{{$value->b_anh}}"
                                 data-lightbox="gallery-home">
-                                    <img src="{{$value->b_anh}}" alt="GALLERY">
+                                    <img src="{{ url('upload') }}/{{$value->b_anh}}" alt="GALLERY">
                                     {{--<img src="{{url('patotheme/images/blog-15.jpg')}}" alt="GALLERY">--}}
                                 </a>
                             </div>

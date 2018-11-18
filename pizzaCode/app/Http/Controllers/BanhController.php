@@ -66,7 +66,7 @@ class BanhController extends Controller
             $file = $req->file('file');
             $new_file_name = time() . '.' . $file->getClientOriginalExtension();
             $file->move('upload', $new_file_name);
-            $banh->b_anh = url('upload') . '/' . $new_file_name;
+            $banh->b_anh = $new_file_name;
         } else {
             $banh->b_anh = "";
         }
@@ -102,10 +102,14 @@ class BanhController extends Controller
         $banh->b_ten = $req->get('b_ten');
         $banh->b_mota = $req->get('b_mota');
         if ($req->hasFile('file')) {
+            $delete = BanhModel::select('b_anh')->where('b_id', $id)->get();
+            if ($delete[0]->b_anh != '' && file_exists(public_path('upload/' . $delete[0]->b_anh))) {
+                unlink(public_path('upload/' . $delete[0]->b_anh));
+            }
             $file = $req->file('file');
             $new_file_name = time() . '.' . $file->getClientOriginalExtension();
             $file->move('upload', $new_file_name);
-            $banh->b_anh = url('upload') . '/' . $new_file_name;
+            $banh->b_anh = $new_file_name;
         }
         $banh->save();
         return redirect('/banh/index')->with('success', 'Cập nhật thành công !');

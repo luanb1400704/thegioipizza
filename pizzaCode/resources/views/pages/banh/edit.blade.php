@@ -33,7 +33,8 @@
                                 <input type="text" class="form-control" name="b_ten" value="{{ $banh->b_ten }}">
                             </div>
                             <div class="form-group">
-                                <label>Mô tả <span class="text-red">( <i class="fa fa-check-circle-o"></i> bắt buộc )</span> </label>
+                                <label>Mô tả <span class="text-red">( <i
+                                                class="fa fa-check-circle-o"></i> bắt buộc )</span> </label>
                                 <textarea type="text" class="form-control content" name="b_mota">
                                     {{ $banh->b_mota }}
                                 </textarea>
@@ -41,8 +42,13 @@
                             <div class="form-group">
                                 <label>Hình Ảnh Của Bánh</label>
                                 <br>
-                                <img width="180px" height="180px" id="avatar" src="{{url('upload')}}/image.png"
-                                     alt="your image"/>
+                                @if(empty($banh->b_anh))
+                                    <img width="180px" height="180px" id="avatar" src="{{url('upload')}}/image.png"
+                                         alt="your image"/>
+                                @else
+                                    <img width="180px" height="180px" id="avatar" src="{{url('upload')}}/{{ $banh->b_anh }}"
+                                         alt="your image"/>
+                                @endif
                                 <input style="margin-top: 10px;" type='file' name="file" onchange="readURL(this)"/>
                             </div>
                             <div class="box-footer">

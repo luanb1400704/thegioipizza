@@ -52,7 +52,7 @@
                         @if (empty($val->b_anh))
                             <td><img src="{{url('upload')}}/khanh.png" width="30px" height="30px"></td>
                         @else
-                            <td><img src="{{$val->b_anh}}" width="30px" height="30px"></td>
+                            <td><img src="{{url('upload')}}/{{ $val->b_anh }}" width="30px" height="30px"></td>
                         @endif
                         <td class="text-center" style="width: 140px">
                             <a title="Sửa bánh" href="{{ route('banh.edit',[$val->b_id]) }}" class="btn btn-primary btn-sm btn-flat"
